@@ -1,0 +1,1348 @@
+<!doctype html>
+<html lang="ja" data-skin="kakeibo">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>娯楽予算</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="娯楽予算">
+<meta name="theme-color" content="#F5F7FB">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@500;700;800&family=DotGothic16&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECEEF8; --surface:#FFFFFF; --ink:#1C1E3A; --muted:#6A6F92; --line:#DCDFEE;
+  --budget:#D9930B; --budget-soft:#FCEFCF; --unlock:#12A87E; --unlock-soft:#D3F3E8;
+  --neg:#E0434B; --neg-soft:#FCE1E2; --btn:#1C1E3A; --btn-ink:#FFFFFF; --lock:#CDD1E6; --coin:#FFC53D; --unlock-deep:#0B7E5E;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15173A; --surface:#20234F; --ink:#F1F2FF; --muted:#9EA2CC; --line:#30346A;
+    --budget:#FFC23D; --budget-soft:#3B3220; --unlock:#2FD3A2; --unlock-soft:#173D3A;
+    --neg:#FF6B70; --neg-soft:#43213A; --btn:#F1F2FF; --btn-ink:#15173A; --lock:#353A74; --coin:#FFC53D; --unlock-deep:#159B76;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15173A; --surface:#20234F; --ink:#F1F2FF; --muted:#9EA2CC; --line:#30346A;
+  --budget:#FFC23D; --budget-soft:#3B3220; --unlock:#2FD3A2; --unlock-soft:#173D3A;
+  --neg:#FF6B70; --neg-soft:#43213A; --btn:#F1F2FF; --btn-ink:#15173A; --lock:#353A74; --coin:#FFC53D; --unlock-deep:#159B76;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none!important}
+.debt{background:var(--neg-soft);color:var(--neg);border-radius:14px;padding:12px 14px;margin:0 0 10px;font-size:14px;font-weight:500}
+.debt.severe{border:1.5px solid var(--neg)}
+.debt button{display:block;width:100%;margin-top:10px;border:0;border-radius:10px;background:var(--neg);color:#fff;padding:11px;font-size:15px;font-weight:700}
+.info{color:var(--muted);font-size:12px;margin-top:6px}
+.resv{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:12px;padding:10px 14px;margin:0 0 12px}
+.resv .rt{flex:1;min-width:0}
+.resv .rv{font-size:22px;font-weight:600}
+.resv .rv.neg{color:var(--neg)}
+.resv button{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
+.sendrow{display:flex;gap:10px;margin:0 0 10px}
+.sendrow:not(:has(button:not([hidden]))){display:none}
+.sendbtn{display:block;flex:1;margin:0;border:1.5px solid var(--unlock);background:transparent;color:var(--unlock);border-radius:12px;padding:8px;font-size:13px;font-weight:700}
+.wal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 10px}
+.wc{background:var(--surface);border-radius:14px;padding:12px 14px;min-width:0}
+.wc .label{font-size:12px;color:var(--muted)}
+.wc .big{font-size:clamp(22px,6.6vw,32px);font-weight:700;line-height:1.15;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:clip}
+.wc .big.neg{color:var(--neg)}
+.wc .why{font-size:11.5px;color:var(--muted)}
+.wc .why:empty{display:none}
+.card{background:var(--surface);border-radius:14px;padding:12px 14px;margin:0 0 10px}
+.gh{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--muted)}
+.gh b{font-size:22px;font-weight:600;color:var(--ink)}
+.gauge{display:flex;height:12px;border-radius:6px;background:var(--line);overflow:hidden;margin:8px 0 6px}
+.gauge .gu{height:100%;background:var(--budget);transition:width .4s ease}
+.gauge .gf{height:100%;background:var(--unlock);transition:width .4s ease}
+.kv{display:flex;justify-content:space-between;align-items:baseline;font-size:11.5px;color:var(--muted)}
+.kv b{font-size:14px;font-weight:600;color:var(--ink)}
+.wc .gauge{height:8px;margin:6px 0 4px}
+.kv b.pos{color:var(--unlock)}
+.tg{white-space:nowrap;display:inline-block;font-style:normal;font-size:9.5px;line-height:1;padding:2px 4px;border-radius:999px;margin-left:3px;vertical-align:1px;border:1px solid var(--line);color:var(--muted)}
+.kv span{white-space:nowrap}
+.tg.m{border-color:var(--unlock);color:var(--unlock)}
+.nx{display:flex;justify-content:space-between;align-items:baseline;white-space:nowrap;font-size:11.5px;color:var(--muted);margin-top:4px;padding-top:4px;border-top:1px solid var(--line)}
+.nx:empty{display:none}
+.nx b{color:var(--unlock);font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-size:14px}
+.gl{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.gl b{font-size:14px;color:var(--ink);font-weight:600}
+.rows .r{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;font-size:14px}
+.rows .r b{font-size:20px;font-weight:600;text-align:right;min-width:6.5em}
+.rows .r.sub{padding-top:0;font-size:12px;color:var(--muted)}
+.rows .r.sub b{font-size:15px;color:var(--muted);font-weight:500}
+.tw{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2}
+.tw small{font-size:11px;color:var(--muted)}
+.rows .r.sub2{padding-left:1em;font-size:11.5px}
+.rows .r.sub2 b{font-size:14px}
+.rows .r + .r:not(.sub){border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
+.neg{color:var(--neg)}
+.mini{border:1px solid var(--line);background:transparent;border-radius:999px;padding:1px 10px;font-size:12px;margin-left:6px;color:var(--muted)}
+.dh{font-weight:700;margin-bottom:4px}
+.drow{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.drow b{font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-variant-numeric:tabular-nums;font-size:17px;text-align:right;min-width:5.5em}
+.debt .dn{font-size:12px;opacity:.85;margin-top:4px}
+.hero2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 12px}
+.hcard{background:var(--surface);border-radius:14px;padding:14px 14px 12px;min-width:0}
+.hcard .label{font-size:12px;color:var(--muted);line-height:1.4}
+.hcard .big{font-size:clamp(26px,9vw,38px);font-weight:700;line-height:1.1;margin:6px 0 4px;white-space:nowrap}
+.hcard .big.neg{color:var(--neg)}
+.hcard .why{font-size:11.5px;color:var(--muted);line-height:1.5}
+.sgh{font-size:13px;font-weight:700;margin:18px 0 2px}
+.sgd{font-size:11.5px;color:var(--muted);margin:0 0 8px;line-height:1.5}
+.sgd:empty{display:none}
+.sgrp{background:var(--bg);border-radius:12px;padding:0 12px;margin-bottom:6px}
+.srow{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;border-bottom:1px solid var(--line);font-size:14px}
+.srow:last-child{border-bottom:0}
+.srow small{display:block;font-size:10.5px;color:var(--muted);line-height:1.2}
+.sin{display:flex;align-items:center;gap:4px;color:var(--muted);font-size:14px}
+.sin i{font-style:normal;font-size:12px;min-width:2.6em}
+.sin input{width:6.5em;text-align:right;border:0;background:transparent;color:var(--ink);font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-size:19px;font-weight:600;padding:6px 0}
+.sin input.txt{width:9em;font-family:inherit;font-size:15px;font-weight:500}
+.sin input:focus{outline:none;border-bottom:2px solid var(--unlock)}
+.srow.res{background:transparent;border-bottom:0;min-height:40px;padding-top:6px}
+.rnote{font-size:11px;color:var(--muted);text-align:right;padding:0 0 10px;margin-top:-4px}
+.rnote.neg{color:var(--neg)}
+.srow.res b{font-size:19px;color:var(--muted)}
+.srow.res small{color:var(--unlock)}
+.srow.res.neg b,.srow.res.neg span{color:var(--neg)}
+.reserve{display:flex;justify-content:space-between;align-items:baseline;gap:10px;background:var(--bg);border-radius:10px;padding:10px 12px;margin:0 0 6px;font-size:14px}
+.reserve b{font-size:20px}
+.reserve.neg{background:var(--neg-soft);color:var(--neg)}
+.lifecard{background:var(--surface);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 22px}
+.lifecard .tv{font-size:26px;font-weight:600}
+.lifecard .tv.neg{color:var(--neg)}
+.savebig{font-size:34px;font-weight:700;line-height:1.2}
+.chart{display:inline-block;max-width:100%;margin-top:12px}
+.chart svg{display:block;max-width:100%;height:auto}
+.chart .zl{stroke:var(--muted);stroke-width:1;opacity:.5}
+.chart .bp{fill:var(--unlock)}
+.chart .bn{fill:var(--neg)}
+.axis{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.num{font-family:"M PLUS Rounded 1c","Zen Kaku Gothic New",system-ui,sans-serif;font-variant-numeric:tabular-nums}
+main{max-width:520px;margin:0 auto;padding:18px 18px 120px}
+h2{font-size:15px;font-weight:700;margin:0 0 10px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--unlock);outline-offset:2px}
+
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;position:relative}
+.coach{position:absolute;right:0;top:calc(100% + 10px);z-index:5;max-width:250px;background:var(--ink);color:var(--surface);border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.coach b{display:block;font-size:11px;opacity:.75}
+.coach::before{content:"";position:absolute;top:-7px;right:104px;border:7px solid transparent;border-top:0;border-bottom-color:var(--ink)}
+#openHelp.pulse{position:relative;border-color:var(--ink)}
+#openHelp.pulse::after{content:"";position:absolute;inset:-2px;border-radius:999px;box-shadow:0 0 0 0 var(--ink);animation:ring 1.6s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(120,130,160,.6)}100%{box-shadow:0 0 0 12px rgba(120,130,160,0)}}
+@media (prefers-reduced-motion: reduce){#openHelp.pulse::after{animation:none}}
+.top .date{color:var(--muted);font-size:13px}
+.iconbtn{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;color:var(--muted)}
+
+/* hero */
+.hero{padding:8px 0 22px}
+.hero .label{font-size:13px;color:var(--muted)}
+.hero .big{font-size:64px;font-weight:700;line-height:1;letter-spacing:-.5px;margin:6px 0 4px}
+.hero .big.neg{color:var(--neg)}
+.hero .why{font-size:13px;color:var(--muted)}
+
+.meters{display:grid;gap:14px;margin-top:20px}
+.meter .row{display:flex;justify-content:space-between;align-items:baseline;font-size:13px}
+.meter .row b{font-size:22px;font-weight:600}
+.meter .track{height:10px;border-radius:5px;background:var(--line);overflow:hidden;margin-top:6px;position:relative}
+.meter .fill{height:100%;border-radius:5px;transition:width .4s ease}
+.meter.budget .fill{background:var(--budget)}
+.meter.unlock .fill{background:var(--unlock)}
+.meter.isneg .fill{background:var(--neg)}
+.meter .tag{font-size:11px;padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:2px}
+.meter.budget .tag{background:var(--budget-soft);color:var(--budget)}
+.meter.unlock .tag{background:var(--unlock-soft);color:var(--unlock)}
+.meter .how{font-size:12px;color:var(--muted);margin-top:2px}
+
+.alerts{display:grid;gap:8px;margin-bottom:18px}
+.today2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 8px}
+.tcard{background:var(--surface);border-radius:12px;padding:12px 14px}
+.tl{font-size:13px;color:var(--muted)}
+.tv{font-size:28px;font-weight:600;line-height:1.25}
+.tv.neg{color:var(--neg)}
+.ts{font-size:12px;color:var(--muted)}
+.todaynote{font-size:12px;color:var(--muted);margin:0 0 22px}
+.alert{padding:10px 14px;border-radius:10px;font-size:14px;background:var(--neg-soft);color:var(--neg);font-weight:500}
+.alert.warn{background:var(--budget-soft);color:var(--budget)}
+
+.bigbtn{display:block;width:100%;border:0;border-radius:14px;background:var(--unlock);color:#fff;padding:16px;font-size:17px;font-weight:700;margin-bottom:10px}
+.subbtn{display:block;width:100%;border:1.5px solid var(--btn);background:transparent;border-radius:14px;padding:13px;font-size:15px;font-weight:700}
+.bigbtn.done{background:var(--unlock-soft);color:var(--unlock);border:1.5px solid var(--unlock);padding:14.5px}
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:40;padding:24px;background:rgba(10,18,22,.45)}
+.modal.open{display:flex}
+.modal .box{background:var(--surface);border-radius:16px;padding:20px;max-width:360px;width:100%}
+.modal p{margin:0 0 16px;font-size:15px}
+
+section{margin-top:28px}
+.stat{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.stat:last-child{border-bottom:0}
+.stat .v{font-size:19px;font-weight:600}
+.stat .d{font-size:12px;color:var(--muted);text-align:right}
+.stat > div:last-child{text-align:right}
+.pos{color:var(--unlock)} .negc{color:var(--neg)}
+
+.dots{display:flex;gap:6px;margin-top:4px}
+.dots span{width:22px;height:22px;border-radius:50%;border:2px solid var(--unlock)}
+.dots span.on{background:var(--unlock)}
+.dots span.extra{background:var(--unlock);border-style:dashed;opacity:.7}
+
+.list{list-style:none;margin:0;padding:0}
+.list li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.list .cat{font-size:11px;padding:2px 4px;width:6.2em;text-align:center;flex:none;overflow:hidden;text-overflow:ellipsis;border-radius:999px;white-space:nowrap;background:var(--line);color:var(--ink)}
+.list .cat.ex{background:var(--unlock-soft);color:var(--unlock)}
+.list .cat.g{background:var(--budget-soft);color:var(--budget)}
+.list .main{flex:1;min-width:0}
+.list .main .m{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.list .amt{font-size:17px;font-weight:600}
+.list .del{background:none;border:0;color:var(--muted);font-size:18px;padding:4px 6px}
+.empty{color:var(--muted);font-size:14px;padding:8px 0}
+
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(10,18,22,.45);display:none;z-index:20}
+.scrim.open{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-radius:18px 18px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px));z-index:21;transform:translateY(105%);transition:transform .25s ease;max-height:88vh;overflow:auto}
+.sheet.open{transform:none}
+#sheetEntry{height:min(88vh,640px)}
+.sheet .inner{max-width:520px;margin:0 auto}
+.sheet h3{margin:0 0 14px;font-size:17px}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.seg.two{grid-template-columns:1fr 1fr}
+.seg button{border:1.5px solid var(--line);background:transparent;border-radius:10px;padding:9px 4px;font-size:14px;font-weight:500}
+.seg button[aria-pressed="true"]{border-color:var(--btn);background:var(--btn);color:var(--btn-ink)}
+#catSeg button{white-space:nowrap;font-size:12.5px;padding:9px 1px;letter-spacing:-.3px}
+.seg button.minus{color:var(--neg)} .seg button.plus{color:var(--unlock)}
+.seg button.minus[aria-pressed="true"]{background:var(--neg);border-color:var(--neg);color:#fff}
+.seg button.plus[aria-pressed="true"]{background:var(--unlock);border-color:var(--unlock);color:#fff}
+label.f{display:block;font-size:13px;color:var(--muted);margin-bottom:12px}
+label.f input,label.f select,label.f textarea{display:block;width:100%;margin-top:4px;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px}
+label.f input[type=date]{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-align:left;min-height:48px}
+.amount input{font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-size:24px!important;font-weight:600}
+.actions{display:flex;gap:10px;margin-top:6px}
+.actions button{flex:1;border-radius:12px;padding:13px;font-size:15px;font-weight:700;border:0}
+.actions .primary{background:var(--btn);color:var(--btn-ink)}
+.actions .ghost{background:transparent;border:1.5px solid var(--line)}
+.hint{font-size:12px;color:var(--muted);margin:-6px 0 12px}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--btn);color:var(--btn-ink);border-radius:999px;padding:10px 16px;font-size:14px;display:none;gap:14px;align-items:center;z-index:30;white-space:nowrap}
+.toast.show{display:flex}
+.toast button{background:none;border:0;color:inherit;font-weight:700;text-decoration:underline;padding:0}
+.note{font-size:12px;color:var(--muted);margin-top:24px;text-align:center}
+@media (prefers-reduced-motion: reduce){.meter .fill,.sheet{transition:none}}
+
+/* calendar */
+.topbtns{display:flex;gap:8px}
+.iconbtn.ic{width:38px;height:38px;padding:0;display:grid;place-items:center;color:var(--ink)}
+.cal{position:fixed;inset:0;background:var(--bg);z-index:15;overflow:auto;display:none;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.cal.open{display:block}
+.cal .inner{max-width:520px;margin:0 auto;padding:14px 14px 60px}
+.calhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.calnav{display:flex;align-items:center;gap:6px}
+.calnav button{border:1px solid var(--line);background:var(--surface);border-radius:999px;width:34px;height:34px;font-size:16px}
+.calnav .ttl{font-weight:700;font-size:16px;min-width:9.5em;text-align:center}
+.calseg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px}
+.calseg button{border:1.5px solid var(--line);background:transparent;border-radius:10px;padding:8px 4px;font-size:14px;font-weight:500}
+.calseg button[aria-pressed="true"]{border-color:var(--btn);background:var(--btn);color:var(--btn-ink)}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.grid .wd{font-size:11px;color:var(--muted);text-align:center;padding:2px 0}
+.grid .c{background:var(--surface);border-radius:8px;min-height:58px;padding:4px 3px;font-size:10px;line-height:1.35;border:0;text-align:left;display:flex;flex-direction:column;gap:1px;position:relative;overflow:hidden}
+.grid .c.out{background:transparent}
+.grid .c.sel{background:var(--unlock-soft);box-shadow:inset 0 0 0 2px var(--unlock)}
+.msum{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 0 10px}
+.ms{background:var(--surface);border-radius:10px;padding:6px 10px}
+.msl{font-size:11px;color:var(--muted)}
+.msv{font-size:17px;font-weight:600;text-align:right}
+.dayh{font-weight:700;margin:16px 0 8px}
+.grid .c.today{outline:2px solid var(--unlock);outline-offset:-2px}
+.grid .c .dn{font-size:11.5px;font-weight:700}
+.grid .c .ex{position:absolute;top:5px;right:4px;width:7px;height:7px;border-radius:50%;background:var(--unlock)}
+.grid .c .lf{font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-weight:600}
+.grid .c span{white-space:nowrap;letter-spacing:-.2px}
+.grid .c .fn{font-family:"M PLUS Rounded 1c",system-ui,sans-serif;color:var(--budget);font-weight:600}
+.sum{background:var(--surface);border-radius:12px;padding:4px 14px;margin:12px 0}
+.wrow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;width:100%;background:none;border-left:0;border-right:0;border-top:0;text-align:left}
+.wrow .wdl{width:4.2em;font-weight:700}
+.wrow .wv{flex:1;display:flex;gap:10px;flex-wrap:wrap;font-size:13px}
+.legend{font-size:11px;color:var(--muted);margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--unlock);margin-right:4px}
+
+/* onboarding */
+.onb{position:fixed;inset:0;background:var(--bg);z-index:16;display:none;overflow:auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.onb.open{display:block}
+.onb .inner{max-width:520px;margin:0 auto;padding:18px 20px 120px;min-height:100%}
+.onb .prog{height:4px;border-radius:2px;background:var(--line);overflow:hidden;margin:4px 0 28px}
+.onb .prog div{height:100%;background:var(--unlock);transition:width .3s ease}
+.onb .step{font-size:12px;color:var(--muted);margin-bottom:6px}
+.onb h2{font-size:22px;line-height:1.4;margin:0 0 8px}
+.onb .lead{font-size:14px;color:var(--muted);margin:0 0 22px;line-height:1.7}
+.onb .big{display:flex;align-items:baseline;gap:6px;background:var(--surface);border-radius:14px;padding:12px 16px;border:2px solid var(--line)}
+.onb .big:focus-within{border-color:var(--unlock)}
+.onb .big input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-size:34px;font-weight:700;text-align:right;padding:0;outline:none}
+.onb .big input.txt{font-family:inherit;font-size:20px;font-weight:600;text-align:left}
+.onb .big i{font-style:normal;color:var(--muted);font-size:14px;white-space:nowrap}
+.onb .note2{font-size:13px;color:var(--muted);margin-top:10px}
+.onb .note2 b{color:var(--ink);font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-size:16px}
+.onb .flabel{font-size:13px;color:var(--muted);margin:16px 0 6px}
+.onb .eq{background:var(--surface);border-radius:14px;padding:6px 16px}
+.onb .eq .r{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.onb .eq .r:last-child{border-bottom:0;font-weight:700}
+.onb .eq b{font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-size:18px}
+.onb .eq.guide .r:last-child{font-weight:400}
+.onb .eq.guide b{font-size:15px}
+.onb .err{color:var(--neg);font-size:13px;margin-top:10px;font-weight:500}
+.onb .three{display:grid;gap:10px}
+.onb .w3{background:var(--surface);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+.onb .w3 .dot{width:10px;height:10px;border-radius:50%;margin-top:7px;flex:none}
+.onb .w3 b{display:block;font-size:15px}
+.onb .w3 span{font-size:12.5px;color:var(--muted);line-height:1.6}
+.onb .foot{position:fixed;left:0;right:0;bottom:0;background:var(--bg);padding:12px 20px calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;justify-content:center}
+.onb .foot button{flex:1;max-width:240px;border-radius:12px;padding:14px;font-size:16px;font-weight:700;border:0}
+.onb .foot .back{background:transparent;border:1.5px solid var(--line)}
+.onb .foot .next{background:var(--unlock);color:#fff}
+.onb .foot .next:disabled{opacity:.4}
+.redo{display:block;width:100%;margin-top:14px;background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline}
+.onb .inner{position:relative}
+.onbx{position:absolute;right:20px;top:24px;background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline;padding:4px}
+
+/* help */
+.help{position:fixed;inset:0;background:var(--bg);z-index:16;display:none;overflow:auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.help.open{display:block}
+.help .inner{max-width:520px;margin:0 auto;padding:16px 18px 40px}
+.help .hx{display:flex;justify-content:flex-end}
+.help .hero{padding:10px 0 4px}
+.help .hero h2{font-size:26px;line-height:1.35;margin:0 0 8px}
+.help .hero p{color:var(--muted);font-size:14px;margin:0}
+.hs{margin-top:28px}
+.hs .no{display:inline-block;font-size:11px;font-weight:700;color:var(--unlock);background:var(--unlock-soft);border-radius:999px;padding:2px 9px;margin-bottom:6px}
+.hs h3{font-size:18px;margin:0 0 4px;line-height:1.4}
+.hs p{font-size:13.5px;color:var(--muted);margin:0 0 12px;line-height:1.7}
+.mock{background:var(--surface);border-radius:16px;padding:14px;box-shadow:0 1px 0 var(--line)}
+.wal3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.wal3 .w{border-radius:12px;padding:12px 6px;background:var(--bg)}
+.wal3 .w b{display:block;font-size:13px;margin-top:6px}
+.wal3 .w span{font-size:10.5px;color:var(--muted);line-height:1.4;display:block;margin-top:2px}
+.wal3 .ico{width:30px;height:30px;border-radius:50%;margin:0 auto;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px}
+.flow{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.flow .st{flex:1;text-align:center;font-size:11.5px;color:var(--muted)}
+.flow .st b{display:block;font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-size:18px;color:var(--ink);white-space:nowrap}
+.flow .ar{color:var(--muted);font-size:18px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--unlock);color:#fff;border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:700}
+.mbar{display:flex;align-items:flex-end;gap:5px;height:70px;padding-top:6px;border-bottom:1px solid var(--line)}
+.mbar i{flex:1;border-radius:3px 3px 0 0;background:var(--unlock)}
+.mbar i.n{background:var(--neg);align-self:flex-start;border-radius:0 0 3px 3px;margin-top:70px}
+.mrow{display:flex;justify-content:space-between;font-size:13px;padding:5px 0}
+.gnew{height:100%;background:var(--budget)}
+.gnew-l{position:relative;height:26px;margin-top:12px}
+.gnew-l span{position:absolute;left:50%;bottom:11px;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:700;color:var(--budget)}
+.gnew-l::after{content:"";position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--budget)}
+.mrow b{font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-size:16px}
+.hcta{margin-top:34px;display:grid;gap:10px}
+.hcta .go{border:0;border-radius:14px;background:var(--unlock);color:#fff;padding:16px;font-size:16px;font-weight:700}
+.hcta .cl{border:1.5px solid var(--line);background:transparent;border-radius:14px;padding:13px;font-size:15px;font-weight:700}
+
+/* ===== theme: game feel ===== */
+body{font-family:var(--bodyf,"Zen Kaku Gothic New",system-ui,sans-serif)}
+.num,.big,.rows .r b,.kv b,.drow b,.stat .v,.amt,.msv,.flow .st b,.mrow b,.onb .big input,.sin input,.srow.res b,.nx b,.tw b{font-family:var(--numf,"M PLUS Rounded 1c"),"Zen Kaku Gothic New",system-ui,sans-serif!important;font-weight:800;letter-spacing:-.01em}
+.wc,.card,.sum,.ms,.mock,.sgrp{border-radius:18px;box-shadow:0 2px 0 var(--line)}
+.wc .big{font-size:clamp(24px,7vw,34px)}
+/* habit button = arcade button */
+.bigbtn small{display:block;font-size:11px;font-weight:500;opacity:.7;margin-top:2px;font-family:"Zen Kaku Gothic New",system-ui,sans-serif}
+.bigbtn{background:var(--unlock)!important;color:#fff!important;border:0!important;border-radius:18px!important;box-shadow:0 5px 0 var(--unlock-deep);transform:translateY(0);transition:transform .08s ease, box-shadow .08s ease;font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-weight:800;letter-spacing:.02em}
+.bigbtn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--unlock-deep)}
+.bigbtn.done{background:var(--surface)!important;color:var(--unlock)!important;box-shadow:0 3px 0 var(--line);border:2px solid var(--unlock-soft)!important}
+.subbtn{border-radius:16px!important;box-shadow:0 3px 0 var(--line)}
+/* XP gauge */
+.xp{display:grid;gap:3px;margin:8px 0 6px}
+.xp i{height:12px;border-radius:4px;background:var(--lock);position:relative;overflow:hidden}
+.xp i.on{background:var(--coin);box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+.xp i.on::after{content:"";position:absolute;left:2px;right:40%;top:2px;height:3px;border-radius:2px;background:rgba(255,255,255,.55)}
+.xp i.next{box-shadow:inset 0 0 0 2px var(--coin);background:transparent}
+.xp i.pop{animation:segpop .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes segpop{0%{transform:scaleY(.2);filter:brightness(2)}60%{transform:scaleY(1.5)}100%{transform:scaleY(1)}}
+.kv b.pos{color:var(--budget)!important}
+.tg.m{border-color:var(--budget)!important;color:var(--budget)!important}
+/* unlock celebration */
+.ufx{position:fixed;left:50%;top:40%;transform:translate(-50%,-50%);z-index:40;pointer-events:none;text-align:center;background:var(--surface);border-radius:28px;padding:22px 34px 18px;box-shadow:0 6px 0 var(--line),0 20px 60px rgba(20,22,60,.25);animation:fxin .3s ease both}
+@keyframes fxin{from{opacity:0;transform:translate(-50%,-50%) scale(.9)}to{opacity:1;transform:translate(-50%,-50%)}}
+.ufx .coin{width:74px;height:74px;margin:0 auto 8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE79A 0 18%,var(--coin) 19% 62%,#E09A00 63%);box-shadow:0 6px 0 #B57A00,0 0 0 6px rgba(255,197,61,.25);display:grid;place-items:center;font:800 30px "M PLUS Rounded 1c",sans-serif;color:#8A5A00;animation:coinin .9s cubic-bezier(.2,1.5,.4,1) both}
+.ufx .t1{font:800 13px "M PLUS Rounded 1c",sans-serif;letter-spacing:.2em;color:var(--budget);animation:fadeup .5s .15s both}
+.ufx .t2{font:800 34px "M PLUS Rounded 1c",sans-serif;color:var(--ink);text-shadow:0 2px 0 var(--surface);animation:fadeup .5s .25s both}
+.ufx.out{animation:fxout .4s ease forwards}
+@keyframes coinin{0%{transform:scale(.2) rotateY(0);opacity:0}60%{transform:scale(1.15) rotateY(540deg);opacity:1}100%{transform:scale(1) rotateY(720deg)}}
+@keyframes fadeup{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+@keyframes fxout{to{opacity:0;transform:translate(-50%,-60%)}}
+.ufx .spark{position:absolute;left:50%;top:59px;width:8px;height:8px;border-radius:2px;background:var(--coin);animation:spark .8s ease-out both}
+@keyframes spark{from{transform:translate(-50%,-50%) rotate(0) translate(0);opacity:1}to{transform:translate(-50%,-50%) rotate(var(--a)) translate(70px);opacity:0}}
+@media (prefers-reduced-motion: reduce){.ufx *,.xp i.pop{animation:none!important}}
+
+/* ===================== SKINS ===================== */
+:root[data-skin]{--act:var(--unlock);--act-ink:#fff;--act-deep:var(--unlock-deep)}
+.bigbtn{background:var(--act)!important;color:var(--act-ink)!important;box-shadow:0 5px 0 var(--act-deep)}
+.bigbtn:active{box-shadow:0 1px 0 var(--act-deep)}
+.bigbtn.done{background:var(--surface)!important;color:var(--act-done,var(--unlock))!important}
+
+/* 1 家計簿 */
+:root[data-skin="kakeibo"]{--bg:#F5F7FB;--surface:#FFFFFF;--ink:#2B3440;--muted:#8A94A3;--line:#E6EAF0;--budget:#2F80ED;--budget-soft:#E3EEFD;--unlock:#27AE60;--unlock-soft:#DDF3E6;--neg:#E5484D;--neg-soft:#FDE4E5;--btn:#2B3440;--btn-ink:#fff;--lock:#E3EBF8;--coin:#2F80ED;--act:#2F80ED;--act-ink:#fff;--act-deep:#2F80ED;--act-done:#2F80ED;--numf:"Inter","Noto Sans JP";--bodyf:"Noto Sans JP",system-ui,sans-serif;color-scheme:light}
+@media (prefers-color-scheme: dark){:root[data-skin="kakeibo"]:not([data-theme="light"]){--bg:#111722;--surface:#1A2230;--ink:#E7ECF3;--muted:#8D99AB;--line:#273244;--budget:#5B9DF5;--budget-soft:#1C2C45;--unlock:#3CCB7F;--unlock-soft:#173527;--neg:#FF6B70;--neg-soft:#3A1F25;--btn:#E7ECF3;--btn-ink:#111722;--lock:#263247;--coin:#5B9DF5;--act:#3D8BF2;--act-deep:#3D8BF2;--act-done:#5B9DF5;color-scheme:dark}}
+:root[data-skin="kakeibo"] .wc,:root[data-skin="kakeibo"] .card,:root[data-skin="kakeibo"] .sum,:root[data-skin="kakeibo"] .ms,:root[data-skin="kakeibo"] .sgrp{border-radius:14px;box-shadow:0 2px 8px rgba(43,52,64,.06)}
+:root[data-skin="kakeibo"] .bigbtn{border-radius:12px!important;box-shadow:none}
+:root[data-skin="kakeibo"] .bigbtn:active{transform:none;opacity:.85}
+:root[data-skin="kakeibo"] .subbtn{border-radius:12px!important;box-shadow:none;border-color:var(--act);color:var(--act)}
+:root[data-skin="kakeibo"] .wc .label::before{content:"";display:inline-block;width:11px;height:11px;border-radius:4px;margin-right:5px;vertical-align:-1px;background:#27AE60}
+:root[data-skin="kakeibo"] .wal .wc:last-child .label::before{background:#F2C94C}
+:root[data-skin="kakeibo"] .xp i{border-radius:3px}
+:root[data-skin="kakeibo"] .xp i.on{box-shadow:none}
+:root[data-skin="kakeibo"] .xp i.on::after{display:none}
+:root[data-skin="kakeibo"] .ufx .coin{border-radius:16px;background:var(--act);box-shadow:none;color:#fff;width:64px;height:64px}
+:root[data-skin="kakeibo"] .ufx .spark{background:var(--act)}
+
+/* 2 ウォレット */
+:root[data-skin="wallet"]{--bg:#F2F2F4;--surface:#FFFFFF;--ink:#111111;--muted:#77777C;--line:#E6E6EA;--budget:#C2620A;--budget-soft:#FDEBD5;--unlock:#16A34A;--unlock-soft:#DCF5E5;--neg:#E5484D;--neg-soft:#FDE4E5;--btn:#111;--btn-ink:#fff;--lock:rgba(255,255,255,.3);--coin:#fff;--act:#111111;--act-ink:#fff;--act-deep:#111;--act-done:#111;--numf:"Inter","Noto Sans JP";--bodyf:"Noto Sans JP",system-ui,sans-serif;color-scheme:light}
+:root[data-skin="wallet"] .wal .wc:first-child{background:linear-gradient(135deg,#16A34A,#0F6B33);color:#fff}
+:root[data-skin="wallet"] .wal .wc:last-child{background:linear-gradient(135deg,#F59E0B,#B45309);color:#fff}
+:root[data-skin="wallet"] .wal .wc .label,:root[data-skin="wallet"] .wal .kv,:root[data-skin="wallet"] .wal .nx{color:rgba(255,255,255,.85)}
+:root[data-skin="wallet"] .wal .wc .big,:root[data-skin="wallet"] .wal .kv b,:root[data-skin="wallet"] .wal .nx b{color:#fff!important}
+:root[data-skin="wallet"] .wal .wc .big.neg{color:#FFE1E1!important}
+:root[data-skin="wallet"] .wal .tg{border-color:rgba(255,255,255,.6)!important;color:#fff!important}
+:root[data-skin="wallet"] .wal .nx{border-top-color:rgba(255,255,255,.3)}
+:root[data-skin="wallet"] .wc,:root[data-skin="wallet"] .card{box-shadow:0 6px 16px rgba(0,0,0,.08)}
+:root[data-skin="wallet"] .bigbtn{box-shadow:none;border-radius:14px!important}
+:root[data-skin="wallet"] .bigbtn:active{transform:scale(.98)}
+:root[data-skin="wallet"] .subbtn{box-shadow:none}
+:root[data-skin="wallet"] .xp i.on::after{display:none}
+:root[data-skin="wallet"] .xp i.next{box-shadow:inset 0 0 0 1.5px #fff}
+:root[data-skin="wallet"] .ufx{background:linear-gradient(135deg,#F59E0B,#B45309)}
+:root[data-skin="wallet"] .ufx .t1{color:#FFE9C2}
+:root[data-skin="wallet"] .ufx .t2{color:#fff;text-shadow:none}
+:root[data-skin="wallet"] .ufx .coin{border-radius:14px;background:rgba(255,255,255,.25);box-shadow:none;color:#fff;width:60px;height:60px}
+:root[data-skin="wallet"] .ufx .spark{background:#FFE9C2}
+
+/* 3 ソシャゲ */
+:root[data-skin="social"]{--bg:#EDE8FF;--surface:rgba(255,255,255,.94);--ink:#2A1A6A;--muted:#6B5BA8;--line:#E4DCFF;--budget:#F08000;--budget-soft:#FFEFD6;--unlock:#12A06E;--unlock-soft:#D9F5EA;--neg:#E5345A;--neg-soft:#FFE0E8;--btn:#2A1A6A;--btn-ink:#fff;--lock:#E4DCFF;--coin:#FFB800;--act:linear-gradient(180deg,#FFE14D,#FF9F1C);--act-ink:#5A2A00;--act-deep:#B35A00;--act-done:#F08000;--numf:"M PLUS Rounded 1c";--bodyf:"M PLUS Rounded 1c","Zen Kaku Gothic New",sans-serif;color-scheme:light}
+:root[data-skin="social"] body{background:linear-gradient(180deg,#5B8CFF 0,#9D7BFF 420px,#FFB3D9 900px,#FFD6EA) fixed}
+:root[data-skin="social"] .top .date{color:#fff}
+:root[data-skin="social"] .iconbtn.ic{background:rgba(255,255,255,.25);border-color:#fff;color:#fff}
+:root[data-skin="social"] .wc,:root[data-skin="social"] .card{border:2px solid #fff;box-shadow:0 4px 0 rgba(42,26,106,.25)}
+:root[data-skin="social"] .bigbtn{font-weight:900}
+:root[data-skin="social"] .subbtn{background:rgba(42,26,106,.35);color:#fff;border-color:#fff!important}
+:root[data-skin="social"] h2{color:#fff;text-shadow:0 1px 0 rgba(42,26,106,.4)}
+:root[data-skin="social"] .xp i.on{background:linear-gradient(180deg,#FFE14D,#FF9F1C)}
+
+/* 4 仮想通貨 */
+:root[data-skin="crypto"]{--bg:#07090F;--surface:#0E1320;--ink:#E6F1FF;--muted:#7C8BA6;--line:#1C2638;--budget:#B6FF3B;--budget-soft:#1E2A12;--unlock:#3BFFD1;--unlock-soft:#0F2A26;--neg:#FF5A6E;--neg-soft:#2A1218;--btn:#E6F1FF;--btn-ink:#07090F;--lock:#1C2638;--coin:#B6FF3B;--act:linear-gradient(90deg,#B6FF3B,#3BFFD1);--act-ink:#07090F;--act-deep:#07090F;--act-done:#B6FF3B;--numf:"Share Tech Mono","Inter";--bodyf:"Noto Sans JP",system-ui,sans-serif;color-scheme:dark}
+:root[data-skin="crypto"] body{background-color:#07090F;background-image:linear-gradient(rgba(182,255,59,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(182,255,59,.045) 1px,transparent 1px);background-size:20px 20px;background-attachment:fixed}
+:root[data-skin="crypto"] .wc,:root[data-skin="crypto"] .card,:root[data-skin="crypto"] .sum,:root[data-skin="crypto"] .ms,:root[data-skin="crypto"] .sgrp{background:linear-gradient(180deg,#101828,#0B101B);box-shadow:0 0 0 1px #1C2638,inset 0 1px 0 rgba(182,255,59,.08)}
+:root[data-skin="crypto"] .wc .label::after{content:" ▲";color:#3BFFD1;font-size:9px}
+:root[data-skin="crypto"] .bigbtn{box-shadow:none;font-weight:800}
+:root[data-skin="crypto"] .bigbtn:active{transform:scale(.98)}
+:root[data-skin="crypto"] .bigbtn.done{border:1px solid rgba(182,255,59,.5)!important;box-shadow:none}
+:root[data-skin="crypto"] .subbtn{border-color:#2A3854!important;color:#3BFFD1;box-shadow:none}
+:root[data-skin="crypto"] .xp i{border-radius:2px}
+:root[data-skin="crypto"] .xp i.on{background:#B6FF3B;box-shadow:none}
+:root[data-skin="crypto"] .xp i.on::after{display:none}
+:root[data-skin="crypto"] .ufx{background:#0E1320;box-shadow:0 0 0 1px rgba(182,255,59,.6),0 0 40px rgba(182,255,59,.25)}
+:root[data-skin="crypto"] .ufx .t1{color:#3BFFD1}
+:root[data-skin="crypto"] .ufx .t2{color:#B6FF3B;text-shadow:0 0 12px rgba(182,255,59,.5);font-family:"Share Tech Mono",monospace}
+:root[data-skin="crypto"] .ufx .coin{border-radius:0;background:linear-gradient(135deg,#B6FF3B,#3BFFD1);clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);box-shadow:none;color:#07090F;font-family:"Share Tech Mono",monospace}
+:root[data-skin="crypto"] .ufx .spark{background:#B6FF3B}
+
+/* 5 ピクセルRPG */
+:root[data-skin="pixel"]{--bg:#10155A;--surface:#2038A8;--ink:#FFFFFF;--muted:#C9D3FF;--line:#5C70D6;--budget:#FFD45A;--budget-soft:#2B3A9A;--unlock:#7CFF8A;--unlock-soft:#1D4A6A;--neg:#FF6B74;--neg-soft:#5A1A3A;--btn:#fff;--btn-ink:#2038A8;--lock:#7A4A22;--coin:#FFD45A;--act:#E43B44;--act-ink:#fff;--act-deep:#1A1C2C;--act-done:#FFD45A;--numf:"DotGothic16";--bodyf:"DotGothic16",monospace;color-scheme:dark}
+:root[data-skin="pixel"] body{background-color:#5FA8E8;background-image:linear-gradient(#5FA8E8 0 78%,transparent 78%),repeating-linear-gradient(90deg,#4C9A3A 0 10px,#5DB548 10px 20px);background-size:100% 100vh,20px 100vh;background-attachment:fixed}
+:root[data-skin="pixel"] .top .date{color:#fff;text-shadow:1px 1px 0 #1A1C2C}
+:root[data-skin="pixel"] .iconbtn.ic{border:2px solid #fff;background:#2038A8;color:#fff;border-radius:4px;box-shadow:2px 2px 0 #1A1C2C}
+:root[data-skin="pixel"] .wc,:root[data-skin="pixel"] .card,:root[data-skin="pixel"] .sum,:root[data-skin="pixel"] .ms,:root[data-skin="pixel"] .sgrp,:root[data-skin="pixel"] .debt{border:3px solid #fff;outline:2px solid #1A1C2C;box-shadow:4px 4px 0 #1A1C2C;border-radius:4px}
+:root[data-skin="pixel"] .num,:root[data-skin="pixel"] .big{text-shadow:2px 2px 0 #10155A}
+:root[data-skin="pixel"] .bigbtn{border:3px solid #fff!important;outline:2px solid #1A1C2C;border-radius:4px!important;box-shadow:4px 4px 0 #1A1C2C;text-shadow:2px 2px 0 #7A1018}
+:root[data-skin="pixel"] .bigbtn:not(.done)::before{content:"▶ "}
+:root[data-skin="pixel"] .bigbtn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #1A1C2C}
+:root[data-skin="pixel"] .bigbtn.done{background:#2038A8!important}
+:root[data-skin="pixel"] .subbtn{background:#2038A8;color:#fff;border:3px solid #fff!important;outline:2px solid #1A1C2C;border-radius:4px!important;box-shadow:3px 3px 0 #1A1C2C}
+:root[data-skin="pixel"] .sendbtn,:root[data-skin="pixel"] .iconbtn,:root[data-skin="pixel"] .mini{border-radius:4px}
+:root[data-skin="pixel"] h2{color:#fff;text-shadow:2px 2px 0 #1A1C2C}
+:root[data-skin="pixel"] .xp{gap:2px}
+:root[data-skin="pixel"] .xp i{border-radius:0;background:#7A4A22;box-shadow:inset 0 3px 0 #9C6531,inset 0 -2px 0 #4A2A10}
+:root[data-skin="pixel"] .xp i.on{background:#FFD45A;box-shadow:inset 0 2px 0 #FFF0A8,inset 0 -2px 0 #C78A12}
+:root[data-skin="pixel"] .xp i.on::after{display:none}
+:root[data-skin="pixel"] .xp i.next{background:#7A4A22;outline:1.5px solid #FFD45A;outline-offset:1px}
+:root[data-skin="pixel"] .ufx{background:#2038A8;border:3px solid #fff;outline:2px solid #1A1C2C;box-shadow:6px 6px 0 #1A1C2C;border-radius:4px}
+:root[data-skin="pixel"] .ufx .t1{color:#FFD45A;font-family:"DotGothic16",monospace}
+:root[data-skin="pixel"] .ufx .t2{color:#fff;text-shadow:2px 2px 0 #10155A;font-family:"DotGothic16",monospace}
+:root[data-skin="pixel"] .ufx .coin{border-radius:0;background:#FFD45A;box-shadow:inset -5px -5px 0 #C78A12,inset 5px 5px 0 #FFF0A8;color:#1A1C2C;font-family:"DotGothic16",monospace;width:60px;height:60px;animation:none}
+:root[data-skin="pixel"] .ufx .spark{border-radius:0;background:#FFD45A}
+
+
+.ufx .t2{white-space:nowrap}
+:root[data-skin="crypto"] .ufx .t2,:root[data-skin="pixel"] .ufx .t2{font-size:28px}
+:root[data-skin="pixel"] .wc .big,:root[data-skin="social"] .wc .big,:root[data-skin="crypto"] .wc .big{font-size:clamp(20px,6vw,28px)}
+:root[data-skin="kakeibo"] .sendbtn{border-color:var(--act);color:var(--act)}
+:root[data-skin="wallet"] .sendbtn{border-color:#111;color:#111}
+:root[data-skin="social"] .sendbtn{background:#fff;border-color:#fff;color:#6B4BD8}
+:root[data-skin="crypto"] .sendbtn{border-color:rgba(59,255,209,.5);color:#3BFFD1}
+:root[data-skin="pixel"] .sendbtn{background:#2038A8;color:#fff;border:3px solid #fff;outline:2px solid #1A1C2C;box-shadow:3px 3px 0 #1A1C2C}
+.kv b{font-size:13.5px}
+
+:root[data-skin="pixel"] main > section{background:#2038A8;border:3px solid #fff;outline:2px solid #1A1C2C;box-shadow:4px 4px 0 #1A1C2C;border-radius:4px;padding:12px 14px;margin:18px 2px}
+:root[data-skin="pixel"] main > section h2{margin-top:0;text-shadow:2px 2px 0 #10155A}
+:root[data-skin="pixel"] main > section .list li{border-color:#5C70D6}
+:root[data-skin="pixel"] .sync,:root[data-skin="pixel"] #syncNote{color:#fff;text-shadow:1px 1px 0 #1A1C2C}
+:root[data-skin="pixel"] .list .cat{background:#10155A;color:#fff}
+:root[data-skin="pixel"] .list .cat.g{background:#FFD45A;color:#1A1C2C}
+:root[data-skin="pixel"] .list .cat.ex{background:#7CFF8A;color:#1A1C2C}
+
+:root[data-skin="social"] main > section{background:rgba(255,255,255,.94);border:2px solid #fff;box-shadow:0 4px 0 rgba(42,26,106,.25);border-radius:16px;padding:12px 14px;margin:18px 0}
+:root[data-skin="social"] main > section h2{color:var(--ink);text-shadow:none;margin-top:0}
+:root[data-skin="social"] #syncNote{color:#fff}
+.dbtn{width:100%;background:none;border:0;color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+#confirmMsg{white-space:pre-line}
+/* skin picker */
+.skins{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:6px}
+.skins button{border:2px solid var(--line);background:transparent;border-radius:12px;padding:6px 2px 7px;font-size:10.5px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.3}
+.skins button[aria-pressed="true"]{border-color:var(--ink)}
+.skins .sw{width:38px;height:38px;border-radius:9px;position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.skins .sw::after{content:"";position:absolute;left:5px;right:5px;bottom:6px;height:7px;border-radius:3px;background:var(--a)}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div class="coach" id="coach" hidden><b>はじめに</b>ここから使い方を見て<br>初期設定をしてね</div>
+    <div class="date" id="today"></div>
+    <div class="topbtns"><button class="iconbtn ic" id="openHelp" aria-label="このアプリについて"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></button><button class="iconbtn ic" id="openCal" aria-label="カレンダー"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></button><button class="iconbtn ic" id="openSettings" aria-label="設定"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div>
+  </div>
+
+  <div class="alerts" id="alerts"></div>
+
+  <div class="wal">
+    <div class="wc"><div class="label">フリー生活費</div><div class="big num" id="saveTotal">¥0</div><div class="why" id="saveSub"></div></div>
+    <div class="wc"><div class="label">娯楽費</div><div class="big num" id="usable">¥0</div><div class="why" id="why"></div>
+      <div class="xp" role="img" id="lockGauge"></div><span id="lockFill" hidden></span>
+      <div class="kv"><span>ロック中<i class="tg">通算</i></span><b class="num" id="lockAmt">¥0</b></div>
+      <div class="kv"><span>アンロック<i class="tg m">今月</i></span><b class="num pos" id="openedAmt">¥0</b></div>
+      <div class="nx" id="nextEx"></div><span id="usedAmt" hidden></span>
+      <div class="info" id="capInfo" hidden></div><span id="monthTotalAmt" hidden></span></div>
+  </div>
+  <div class="sendrow"><button class="sendbtn" id="openSend" hidden>娯楽費へ →</button><button class="sendbtn" id="openBack" hidden>← フリー生活費へ</button></div>
+
+  <div class="debt" id="debtBox" hidden><div class="dh" id="debtHead"></div><div id="debtRows"></div><button id="openRepay">娯楽費から穴埋め</button></div>
+
+  <div class="card rows">
+    <div class="r"><span>今月の生活費 残り</span><b class="num" id="monthLife">¥0</b></div>
+    <div class="r sub"><span id="monthLifeSub">1日あたり</span><b class="num" id="perDay">¥0</b></div>
+    <div class="r"><span>予備費 <button class="mini" id="openRes">移す</button></span><b class="num" id="resV">¥0</b></div>
+  </div>
+
+
+  <button class="bigbtn" id="quickEx">今日の習慣を記録</button>
+  <button class="subbtn" id="openSpend">支出・収入を記録</button>
+  <div class="card rows" id="eomCard" style="margin-top:12px">
+    <div class="r"><span>月末に残るお金</span><span class="tw"><b class="num" id="eomTotal">¥0</b><small>うちロック中 <span class="num" id="eomLk">¥0</span></small></span></div>
+    <div id="eomRows"></div>
+  </div>
+
+  <section>
+    <h2>今週の習慣</h2>
+    <div class="stat" style="border:0;padding-top:0">
+      <div><div class="dots" id="dots"></div></div>
+      <div class="d"><span class="num v" id="weekCount">0</span> / <span id="weekGoal">3</span>回</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>日ごとの生活費</h2>
+    <div class="chart" id="saveChart" style="margin-top:0"></div>
+  </section>
+
+  <section>
+    <h2>累計</h2>
+    <div class="stat"><div>生活費<div class="d" style="text-align:left" id="lifeBudgetTxt"></div></div><div><div class="num v" id="lifeSpent">¥0</div><div class="d" id="lifeDiff"></div></div></div>
+    <div class="stat"><div>アンロック累計</div><div><div class="num v" id="lockedV" hidden></div><div class="num v" id="lockedSub">¥0</div></div></div>
+    <div class="stat"><div>娯楽の収支</div><div><div class="num v" id="gorakuNet">¥0</div></div></div>
+  </section>
+
+  <section>
+    <h2>記録</h2>
+    <ul class="list" id="list"></ul>
+  </section>
+
+  <div class="note" id="syncNote"></div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+
+<!-- spend / exercise sheet -->
+<div class="sheet" id="sheetEntry" role="dialog" aria-modal="true" aria-labelledby="entryTitle">
+  <div class="inner">
+    <h3 id="entryTitle">記録する</h3>
+    <div class="seg two" id="kindSeg" hidden>
+      <button data-kind="spend" aria-pressed="true">支出</button>
+      <button data-kind="exercise" aria-pressed="false">習慣</button>
+    </div>
+    <div id="spendFields">
+      <div class="seg two" id="walletSeg">
+        <button data-wallet="life" aria-pressed="true">生活費から</button>
+        <button data-wallet="fun" aria-pressed="false">娯楽から</button>
+      </div>
+      <div class="seg" id="catSeg"></div>
+      <div class="seg two" id="resultSeg" hidden>
+        <button class="minus" data-res="lose" aria-pressed="true">− 負け</button>
+        <button class="plus" data-res="win" aria-pressed="false">＋ 勝ち</button>
+      </div>
+      <div class="seg two" id="incSeg" hidden>
+        <button data-to="free" aria-pressed="true">フリー生活費に入れる</button>
+        <button data-to="reserve" aria-pressed="false">予備費に入れる</button>
+      </div>
+      <p class="hint" id="catHint" hidden>普段の食事。自炊の食材、ランチ、コンビニ</p>
+      <label class="f amount">金額（円）<input id="amount" type="number" inputmode="numeric" min="0" placeholder="0"></label>
+    </div>
+    <div id="exFields" hidden>
+      <label class="f">種目<select id="menuSel"></select></label>
+      <label class="f">回数<input id="exCount" type="number" inputmode="numeric" min="1" value="1"></label>
+    </div>
+    <label class="f">日付<input id="date" type="date"></label>
+    <label class="f">メモ（任意）<input id="memo" type="text" maxlength="60"></label>
+    <div class="actions">
+      <button class="ghost" data-close>やめる</button>
+      <button class="primary" id="saveEntry">記録する</button>
+    </div>
+  </div>
+</div>
+
+<!-- settings sheet -->
+<div class="sheet" id="sheetSettings" role="dialog" aria-modal="true" aria-labelledby="setTitle">
+  <div class="inner">
+    <h3 id="setTitle">設定</h3>
+
+    <div class="sgh">お金</div>
+    <p class="sgd">手取りから固定費・生活費・娯楽を引いた残りが、毎月の予備費になります</p>
+    <div class="sgrp">
+      <label class="srow"><span>手取り</span><span class="sin"><input id="sIncome" class="money" type="text" inputmode="numeric"><i>円/月</i></span></label>
+      <label class="srow"><span>固定費</span><span class="sin"><input id="sFixed" class="money" type="text" inputmode="numeric"><i>円/月</i></span></label>
+      <label class="srow"><span>生活費<small>食費込み</small></span><span class="sin"><input id="sLife" class="money" type="text" inputmode="numeric"><i>円/日</i></span></label>
+      <label class="srow"><span>娯楽</span><span class="sin"><input id="sGoraku" class="money" type="text" inputmode="numeric"><i>円/月</i></span></label>
+      <div class="srow res" id="reserveBox"><span><span id="reserveLbl">予備費</span><small>自動計算</small></span><span class="sin"><b class="num" id="reserveV">0</b><i>円/月</i></span></div>
+      <div class="rnote" id="reserveHint"></div>
+    </div>
+
+    <div class="sgh">習慣</div>
+    <p class="sgd">1回できるごとに、娯楽費 ÷ 月の回数 の額がアンロックされます</p>
+    <div class="sgrp">
+      <label class="srow"><span>習慣の名前</span><span class="sin"><input id="sMenus" type="text" class="txt"></span></label>
+      <label class="srow"><span>月の回数</span><span class="sin"><input id="sMonthly" type="text" inputmode="numeric"><i>回/月</i></span></label>
+      <div class="srow res"><span>1回でアンロック<small>自動計算</small></span><span class="sin"><b class="num" id="sUnitV">0</b><i>円/回</i></span></div>
+      <label class="srow"><span>週の目標<small>今週の表示用</small></span><span class="sin"><input id="sWeekly" type="text" inputmode="numeric"><i>回/週</i></span></label>
+    </div>
+
+    <div class="sgh">テーマ</div>
+    <div class="skins" id="skinPick"></div>
+
+    <div class="sgh">データ</div>
+    <p class="sgd">記録はこの端末の中に保存されます。機種変更やブラウザのデータ削除の前に書き出しておくと、あとで読み込んで戻せます</p>
+    <div class="sgrp">
+      <button type="button" class="srow dbtn" id="exportData"><span>バックアップを書き出す</span><span class="sin">↓</span></button>
+      <label class="srow dbtn"><span>バックアップを読み込む</span><span class="sin">↑</span><input type="file" id="importData" accept="application/json,.json" hidden></label>
+    </div>
+
+    <div class="sgh">その他</div>
+    <div class="sgrp">
+      <label class="srow"><span>開始日</span><span class="sin"><input id="sStart" type="date" class="txt"></span></label>
+    </div>
+
+    <div class="actions">
+      <button class="ghost" data-close>やめる</button>
+      <button class="primary" id="saveSettings">保存する</button>
+    </div>
+    <button class="redo" id="redoOnb">初期設定をやり直す</button>
+  </div>
+</div>
+
+<div class="modal" id="confirmModal" role="alertdialog" aria-modal="true" aria-labelledby="confirmMsg"><div class="box"><p id="confirmMsg"></p><div class="actions"><button class="ghost" id="confirmCancel">やめる</button><button class="primary" id="confirmOk">OK</button></div></div></div>
+
+<div class="modal" id="repayModal" role="dialog" aria-modal="true" aria-labelledby="repayTitle"><div class="box"><p id="repayTitle">使える額から、フリー生活費に送ります</p><div class="seg two" id="resDest" hidden><button data-dest="free" aria-pressed="true">フリー生活費へ</button><button data-dest="fun" aria-pressed="false">娯楽費へ</button></div><label class="f amount">金額（円）<input id="repayAmt" type="number" inputmode="numeric" min="1"></label><p class="hint" id="repayHint"></p><div class="actions"><button class="ghost" id="repayCancel">やめる</button><button class="primary" id="repayOk">穴埋めする</button></div></div></div>
+
+<div class="cal" id="cal" role="dialog" aria-modal="true" aria-label="カレンダー"><div class="inner">
+  <div class="calhead">
+    <div class="calnav"><button id="calPrev" aria-label="前へ">‹</button><div class="ttl" id="calTitle"></div><button id="calNext" aria-label="次へ">›</button></div>
+    <button class="iconbtn" id="calClose">閉じる</button>
+  </div>
+  
+  <div id="calBody"></div>
+</div></div>
+
+<div class="help" id="help" role="dialog" aria-modal="true" aria-label="このアプリについて"><div class="inner">
+  <div class="hx"><button class="iconbtn" id="helpClose">閉じる</button></div>
+  <div class="hero">
+    <h2>我慢しないで、<br>遊びすぎない。</h2>
+    <p>遊ぶお金を「習慣」でアンロックする家計簿。やめなくていい、でも使いすぎない仕組みを作れます。</p>
+  </div>
+
+  <div class="hs"><span class="no">1</span><h3>お金を3つの財布に分ける</h3>
+    <p>生活・遊び・予備を分けるだけで、「今いくら使っていいか」が一目でわかります。</p>
+    <div class="mock wal3">
+      <div class="w"><div class="ico" style="background:var(--unlock)">生</div><b>フリー生活費</b><span>毎日のペースより浮いた分</span></div>
+      <div class="w"><div class="ico" style="background:var(--budget)">娯</div><b>娯楽費</b><span>習慣でアンロックした分</span></div>
+      <div class="w"><div class="ico" style="background:var(--muted)">予</div><b>予備費</b><span>残りが自動で積み上がる</span></div>
+    </div>
+  </div>
+
+  <div class="hs"><span class="no">2</span><h3>遊ぶお金は、習慣でアンロック</h3>
+    <p>娯楽費は月初にロック。運動などの習慣をこなすたびに、少しずつ使えるようになります。遊びたいほど、習慣が続きます。</p>
+    <div class="mock">
+      <div class="flow">
+        <div class="st">ロック中<b>¥50,000</b></div><div class="ar">→</div>
+        <div class="st"><span class="chip">✓ 習慣1回</span></div><div class="ar">→</div>
+        <div class="st">娯楽費<b style="color:var(--unlock);white-space:nowrap">+¥5,000</b></div>
+      </div>
+      <div class="gnew-l" style="margin-left:33.3%;width:6.7%"><span>今回 +¥5,000</span></div>
+      <div class="gauge" style="margin-top:2px"><div class="gf" style="width:33.3%"></div><div class="gnew" style="width:6.7%"></div></div>
+      <div class="mrow" style="color:var(--muted);font-size:11.5px"><span>アンロック 6/15回 ¥30,000</span><span>ロック中 ¥45,000</span></div>
+    </div>
+  </div>
+
+  <div class="hs"><span class="no">3</span><h3>生活費は「1日いくら」で考える</h3>
+    <p>月の予算を日割りにするから、今日使いすぎたかがすぐわかる。浮いた分はフリー生活費に貯まって、自由に使えます。</p>
+    <div class="mock">
+      <svg viewBox="0 0 280 110" width="100%" style="display:block" aria-hidden="true"><line x1="0" y1="60" x2="280" y2="60" stroke="currentColor" opacity=".25"/><rect x="10" y="38.0" width="24" height="22.0" rx="3" fill="var(--unlock)"/><rect x="48" y="51.8" width="24" height="8.2" rx="3" fill="var(--unlock)"/><rect x="86" y="60" width="24" height="13.8" rx="3" fill="var(--neg)"/><rect x="124" y="27.0" width="24" height="33.0" rx="3" fill="var(--unlock)"/><rect x="162" y="43.5" width="24" height="16.5" rx="3" fill="var(--unlock)"/><rect x="200" y="60" width="24" height="6.6" rx="3" fill="var(--neg)"/><rect x="238" y="32.5" width="24" height="27.5" rx="3" fill="var(--unlock)"/></svg>
+      <div class="mrow" style="color:var(--muted);font-size:11.5px;margin-top:6px"><span>1日 ¥3,000 に対して</span><span><span style="color:var(--unlock);font-weight:700">緑＝浮いた</span>　<span style="color:var(--neg);font-weight:700">赤＝オーバー</span></span></div>
+    </div>
+  </div>
+
+  <div class="hs"><span class="no">4</span><h3>使いすぎても、取り返せる</h3>
+    <p>オーバーした分は消えずに記録され、次の習慣で返済されます。「やること」が出るから、立て直し方に迷いません。</p>
+    <div class="mock" style="background:var(--neg-soft);color:var(--neg)">
+      <div style="font-weight:700;font-size:13px;margin-bottom:4px">やること</div>
+      <div class="mrow"><span>① 習慣あと3回</span><b>¥15,000</b></div>
+      <div class="mrow"><span>② 予備費から移す</span><b>¥2,000</b></div>
+    </div>
+  </div>
+
+  <div class="hs"><span class="no">5</span><h3>月末にいくら残るか、先にわかる</h3>
+    <p>このまま行けば月末にいくら残り、どこに繰り越されるか。貯金の見通しが毎日見えます。</p>
+    <div class="mock">
+      <div class="mrow"><span style="font-weight:700;color:var(--ink)">月末に残るお金</span><b style="font-size:20px">+¥48,000</b></div>
+      <div class="mrow" style="color:var(--muted)"><span>予備費へ</span><b>¥33,000</b></div>
+      <div class="mrow" style="color:var(--muted)"><span>ロック中（繰越）</span><b>¥15,000</b></div>
+    </div>
+  </div>
+
+  <div class="hs"><span class="no">6</span><h3>財布の間は、自分で動かせる</h3>
+    <p>生活費が浮いたら遊びに、遊びが余ったら生活に。臨時収入は予備費にとっておくこともできます。ルールは守りつつ、融通も利きます。</p>
+    <div class="mock">
+      <div class="flow"><div class="st"><b style="font-size:15px">フリー生活費</b></div><div class="ar">⇄</div><div class="st"><b style="font-size:15px">娯楽費</b></div></div>
+      <div class="flow" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line)"><div class="st"><b style="font-size:15px">予備費</b></div><div class="ar">→</div><div class="st" style="font-size:12.5px">どちらにも移せる</div></div>
+    </div>
+  </div>
+
+  <div class="hcta"><button class="go" id="helpOnb">初期設定をはじめる</button><button class="cl" id="helpClose2">閉じる</button></div>
+</div></div>
+
+<div class="onb" id="onb" role="dialog" aria-modal="true" aria-label="初期設定"><div class="inner">
+  <div class="prog"><div id="onbProg"></div></div>
+  <button class="onbx" id="onbClose" hidden>やめる</button>
+  <div id="onbBody"></div>
+</div>
+<div class="foot"><button class="back" id="onbBack">戻る</button><button class="next" id="onbNext">次へ</button></div></div>
+
+<div class="toast" id="toast"><span id="toastMsg"></span><button id="toastUndo">取り消す</button></div>
+
+<script>
+(function(){
+  "use strict";
+  var DEFAULTS = {start:"2026-11-01", income:360000, fixed:174000, lifeDaily:3000, gorakuMonthly:75000, unit:5000, monthlyTimes:15, weeklyGoal:3, menus:["有酸素30分"]};
+  var CAT = {food:"食費", shop:"必需品", want_life:"その他", income:"臨時収入", gamble:"ギャンブル", drink:"遊び", want_fun:"その他"};
+  var WALLET = {life:["food","shop","want_life","income"], fun:["gamble","drink","want_fun"]};
+  var SHORT = {food:"食費", shop:"必需品", want_life:"その他", income:"臨時収入", gamble:"ギャンブル", drink:"遊び", want_fun:"その他"};
+  var FUN = {gamble:1, drink:1, want_fun:1};
+  var HINT = {food:"普段の食事。自炊の食材、ランチ、コンビニ", shop:"交通、メガネ、カード、服、付き合いの飲みなど", want_life:"生活費から買う欲しいもの。フリー生活費から引かれます", income:"給料以外の収入。フリー生活費に入ります", gamble:"パチンコ・スロットの収支", drink:"自分から誘う飲み、2軒目以降、一人飲み", want_fun:"使える額から買う欲しいもの。足りない分はフリー生活費から引かれます"};
+  var state = {settings: Object.assign({}, DEFAULTS), entries: []};
+  var store = null; // {add, remove, saveSettings}
+  var $ = function(id){ return document.getElementById(id); };
+
+  function pad(n){ return (n<10?"0":"")+n; }
+  function iso(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
+  function todayIso(){ return iso(new Date()); }
+  function dayNum(s){ var p=s.split("-"); return Date.UTC(+p[0],+p[1]-1,+p[2])/86400000; }
+  function yen(n){ var r=Math.round(n); return (r<0?"−¥":"¥")+Math.abs(r).toLocaleString("ja-JP"); }
+  function signed(n){ var r=Math.round(n); return (r>0?"+":r<0?"−":"±")+"¥"+Math.abs(r).toLocaleString("ja-JP"); }
+
+  function simulate(entries){
+    var s=state.settings, t=todayIso(), start=dayNum(s.start), end=dayNum(t);
+    var fd=(+s.lifeDaily||0), cap=s.gorakuMonthly;
+    var weekStart=(function(){ var d=new Date(); var w=(d.getDay()+6)%7; d.setDate(d.getDate()-w); return iso(d); })();
+    var r={R:0,L:0,U:0,S:0,E:0,days:Math.max(0,end-start+1),fd:fd,cap:cap,food:0,foodToday:0,shopMonth:0,goraku:0,todayGoraku:0,exCount:0,weekEx:0,repaid:0,unlocked:0,monthTotal:0,monthUnlocked:0};
+    var byDay={};
+    entries.forEach(function(e){ if(!e.date) return; var k=dayNum(e.date); if(k<start||k>end) return; (byDay[k]=byDay[k]||[]).push(e); });
+    for (var d=start; d<=end; d++){
+      if (d===start || new Date(d*86400000).getUTCDate()===1){
+        if (d!==start){ var A=r.S+r.U; if (A>0){ r.R+=A; r.S=0; } else r.S=A; r.U=0; }
+        r.L+=cap; r.monthTotal=r.L; r.monthUnlocked=0; r.monthLife=0;
+        var dd=new Date(d*86400000), dimm=new Date(Date.UTC(dd.getUTCFullYear(), dd.getUTCMonth()+1, 0)).getUTCDate();
+        r.R+=(+s.income||0)-(+s.fixed||0)-fd*dimm-cap;
+      }
+      r.S+=fd;
+      (byDay[d]||[]).sort(function(x,y){ return (x.createdAt||0)-(y.createdAt||0); }).forEach(function(e){
+        var isToday=e.date===t;
+        if (e.kind==="exercise"){
+          var c=+e.count||1; r.exCount+=c; if (e.date>=weekStart) r.weekEx+=c;
+          for (var i=0;i<c;i++){
+            var amt=Math.max(0, Math.min(s.unit, r.L)); r.L-=amt; r.unlocked+=amt; r.monthUnlocked+=amt;
+            var rep=r.S<0 ? Math.min(amt,-r.S) : 0; r.S+=rep; r.repaid+=rep; r.U+=amt-rep;
+          }
+          return;
+        }
+        if (e.kind==="transfer"){ if (e.dir==="resToFun"||e.dir==="resToFree"){ var m3=Math.min(+e.amount||0, Math.max(r.R,0)); r.R-=m3; if (e.dir==="resToFun") r.U+=m3; else r.S+=m3; return; } if (e.dir==="toFun"){ var m2=Math.min(+e.amount||0, Math.max(r.S,0)); r.S-=m2; r.U+=m2; return; } var m=Math.min(+e.amount||0, r.U); r.U-=m; r.S+=m; return; }
+        var a=+e.amount||0;
+        if (e.cat==="income"){ if (e.to==="reserve"){ r.R+=a; return; } r.S+=a; r.monthLife-=a; return; }
+        if (e.cat==="food"||e.cat==="shop"||e.cat==="want_life"){ r.S-=a; r.food+=a; r.monthLife+=a; if(isToday) r.foodToday+=a; return; }
+        if (e.cat==="gamble" && e.win){
+          r.goraku-=a; if(isToday) r.todayGoraku-=a;
+          var rp=r.S<0 ? Math.min(a,-r.S) : 0; r.S+=rp; r.U+=a-rp; return;
+        }
+        if (FUN[e.cat]){
+          r.goraku+=a; if(isToday) r.todayGoraku+=a;
+          var take=Math.min(a, Math.max(r.U,0)); r.U-=take; r.S-=a-take;
+        }
+      });
+    }
+    r.foodBudget=r.days*fd;
+    return r;
+  }
+  function compute(){ return simulate(state.entries); }
+
+  function render(){
+    var s = state.settings, c = compute();
+    applySkin(s.skin);
+    var needGuide = obShown && !s.onboarded && !state.entries.length;
+    $("coach").hidden = !needGuide; $("openHelp").classList.toggle("pulse", needGuide);
+    var d = new Date();
+    $("today").textContent = (d.getMonth()+1)+"月"+d.getDate()+"日（"+"日月火水木金土"[d.getDay()]+"）";
+    var U=Math.round(c.U), S=Math.round(c.S), L=Math.round(c.L);
+    $("usable").textContent = yen(U);
+    $("why").textContent = c.days===0 ? "開始日から" : "";
+    var st=$("saveTotal"); st.textContent = c.days ? signed(S) : "¥0"; st.classList.toggle("neg", S<0);
+    $("saveSub").textContent = "";
+
+    var db=$("debtBox");
+    if (c.days && S<0){
+      var R=Math.max(0,Math.round(c.R)), nL=Math.ceil(L/s.unit), nD=Math.ceil(-S/s.unit), rest=-S-L, severe = rest > R;
+      db.hidden=false; db.classList.toggle("severe", severe);
+      function drow(l,v){ return '<div class="drow"><span>'+l+'</span><b>'+v+'</b></div>'; }
+      var rows="";
+      if (rest<=0){ $("debtHead").textContent="フリー生活費がマイナス"; rows=drow("習慣あと"+nD+"回で返済", yen(-S)); }
+      else {
+        $("debtHead").textContent = severe ? "貯金を崩している状態です" : "やること";
+        if (L>0) rows+=drow("① 習慣あと"+nL+"回", yen(L));
+        if (R>0) rows+=drow((L>0?"② ":"① ")+"予備費から移す", yen(Math.min(R,rest)));
+        if (severe) rows+=drow("生活費で取り戻す", yen(rest-R));
+      }
+      $("debtRows").innerHTML=rows;
+      $("openRepay").hidden = U<=0;
+    } else db.hidden=true;
+    $("openSend").hidden = !(c.days && S>0); $("openBack").hidden = !(c.days && U>0 && S>=0);
+    var RV=Math.round(c.R), rv=$("resV"); rv.textContent=yen(RV); rv.classList.toggle("neg", RV<0); $("openRes").hidden = !(c.days && RV>0);
+    $("lockAmt").textContent=yen(L); $("openedAmt").textContent=yen(c.monthUnlocked); $("monthTotalAmt").textContent=yen(c.monthTotal);
+    var mu=c.monthUnlocked, mt=c.monthTotal;
+    var segN=Math.max(1,Math.min(31,Math.ceil(mt/s.unit))), segOn=Math.min(segN,Math.floor(mu/s.unit+1e-9)), xg=$("lockGauge"), segs="";
+    for (var si=0; si<segN; si++) segs+='<i class="'+(si<segOn?"on":si===segOn&&L>0?"next":"")+(si===segOn-1&&window.__popSeg?" pop":"")+'"></i>';
+    xg.style.gridTemplateColumns="repeat("+segN+",1fr)"; xg.innerHTML=segs; window.__popSeg=false;
+    var nxt=Math.min(s.unit, Math.max(L,0)), nx=$("nextEx");
+    if (!c.days) nx.textContent="";
+    else if (nxt<=0) nx.innerHTML="<span>来月1日</span><b>+"+yen(c.cap)+"</b>";
+    else if (S<0) nx.innerHTML="<span>次の習慣</span><span>返済へ <b>"+yen(nxt)+"</b></span>";
+    else nx.innerHTML="<span>次の習慣</span><b>+"+yen(nxt)+"</b>";
+    $("lockGauge").setAttribute("aria-label","今月"+yen(c.monthTotal)+"のうち"+yen(c.monthUnlocked)+"アンロック");
+    var ci=$("capInfo");
+    if (c.days && L < s.unit){ ci.hidden=true; } else ci.hidden=true;
+
+    var now=new Date(), dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(), rem=dim-now.getDate(), lifeBud=(+s.lifeDaily||0)*dim, ml=lifeBud-(c.monthLife||0);
+    var me=$("monthLife"); me.textContent=yen(ml); me.classList.toggle("neg", ml<0);
+    $("monthLifeSub").textContent = rem<=0 ? "今月は今日まで" : "1日あたり（残り"+rem+"日）";
+    var pd=$("perDay"); pd.textContent = rem<=0 ? "—" : yen(Math.floor(ml/rem)); pd.classList.toggle("neg", ml<0);
+    var lifeRest=rem*(+s.lifeDaily||0), A=Math.round(c.S+lifeRest+c.U), Rn=Math.round(c.R), Lk=Math.round(c.L);
+    var nextR=Rn+Math.max(A,0), tot=Rn+A+Lk;
+    var et=$("eomTotal"); et.textContent=signed(tot); et.classList.toggle("neg", tot<0); $("eomLk").textContent=yen(Lk);
+    function fv(v){ v=Math.round(v); return '<b class="num'+(v<0?' neg':'')+'">'+(v<0?"−"+yen(-v):yen(v))+'</b>'; }
+    function rw(cls,l,v){ return '<div class="r sub'+cls+'"><span>'+l+'</span>'+fv(v)+'</div>'; }
+    var subs=rw(" sub2","フリー生活費",c.S)+rw(" sub2","生活費の残り",lifeRest)+rw(" sub2","娯楽費",c.U);
+    var html;
+    if (A>=0) html=rw("","予備費へ",nextR)+rw(" sub2","予備費",Rn)+subs;
+    else html=rw("","予備費へ",Rn)+rw("","マイナス（繰越）",A)+subs;
+    html+=rw("","ロック中（繰越）",Lk);
+    $("eomRows").innerHTML=html;
+    $("eomCard").hidden=!c.days;
+
+    $("alerts").innerHTML="";
+
+    var doneToday = exercisedOn(todayIso()), qb=$("quickEx");
+    qb.classList.toggle("done", doneToday);
+    qb.innerHTML = doneToday ? "今日の習慣は記録済み ✓<small>タップで取り消し</small>" : "今日の"+(s.menus[0]||"習慣")+"を記録";
+    var dots=$("dots"); dots.innerHTML="";
+    var goal=+s.weeklyGoal||0, n=Math.max(goal,c.weekEx);
+    for (var i=0;i<n;i++){ var sp=document.createElement("span"); if(i<c.weekEx) sp.className = i<goal?"on":"extra"; dots.appendChild(sp); }
+    $("weekCount").textContent=c.weekEx; $("weekGoal").textContent=goal;
+
+    $("lifeSpent").textContent=yen(c.food);
+    $("lifeBudgetTxt").textContent="予算 "+yen(c.foodBudget)+"（"+c.days+"日分）";
+    setDiff("lifeDiff", c.foodBudget-c.food);
+    var lv=$("lockedV"); lv.textContent = yen(L); lv.className="num v";
+    $("lockedSub").textContent = yen(c.unlocked);
+    drawChart(savingSeries().slice(-30));
+    var g=$("gorakuNet"); g.textContent = c.goraku<=0 ? (c.goraku<0?"+¥"+Math.abs(Math.round(c.goraku)).toLocaleString("ja-JP"):"¥0") : "−¥"+Math.round(c.goraku).toLocaleString("ja-JP");
+    g.className="num v "+(c.goraku>0?"negc":c.goraku<0?"pos":"");
+
+    renderList();
+    if ($("cal").classList.contains("open")) renderCal();
+  }
+  function savingSeries(){
+    var s=state.settings, start=dayNum(s.start), end=dayNum(todayIso()), per=(+s.lifeDaily||0), spent={};
+    state.entries.forEach(function(e){ if (e.kind!=="spend" || FUN[e.cat] || !e.date) return; var k=dayNum(e.date); spent[k]=(spent[k]||0)+(e.cat==="income"?-1:1)*(+e.amount||0); });
+    var out=[]; for (var d=start; d<=end; d++) out.push({d:d, v:per-(spent[d]||0)});
+    return out;
+  }
+  function lbl(d){ var dt=new Date(d*86400000); return (dt.getUTCMonth()+1)+"/"+dt.getUTCDate(); }
+  function drawChart(ser){
+    var box=$("saveChart"); if (!ser.length){ box.innerHTML=""; return; }
+    var max=Math.max.apply(null, ser.map(function(x){ return Math.abs(x.v); }).concat([1]));
+    var bw=14, gap=4, W=Math.max(ser.length*(bw+gap), 140), H=90, mid=H/2;
+    var svg='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="日ごとのフリー生活費の増減">';
+    svg+='<line x1="0" y1="'+mid+'" x2="'+W+'" y2="'+mid+'" class="zl"/>';
+    ser.forEach(function(x,i){ var h=Math.max(1.5, Math.abs(x.v)/max*(mid-4)), y=x.v>=0?mid-h:mid;
+      svg+='<rect x="'+(i*(bw+gap)+gap/2)+'" y="'+y+'" width="'+bw+'" height="'+h+'" rx="2" class="'+(x.v>=0?"bp":"bn")+'"><title>'+lbl(x.d)+' '+signed(x.v)+'</title></rect>'; });
+    svg+='</svg>';
+    box.innerHTML=svg+'<div class="axis"><span>'+lbl(ser[0].d)+'</span><span>'+(ser.length>1?lbl(ser[ser.length-1].d):"")+'</span></div>';
+  }
+  function setDiff(id, v){ var el=$(id), r=Math.round(v); if (r===0){ el.textContent="予算どおり"; el.className="d"; return; } el.textContent = (r>0?"浮いた ":"オーバー ")+yen(Math.abs(r)); el.className="d "+(r>0?"pos":"negc"); }
+
+  function renderList(){
+    var ul=$("list"); ul.innerHTML="";
+    var items = state.entries.slice().sort(function(a,b){ return a.date===b.date ? (b.createdAt||0)-(a.createdAt||0) : (a.date<b.date?1:-1); }).slice(0,40);
+    if (!items.length){ var li=document.createElement("li"); li.className="empty"; li.textContent="まだ記録がありません。習慣か支出を記録すると、ここに並びます。"; ul.appendChild(li); return; }
+    items.forEach(function(e){
+      var li=document.createElement("li");
+      var cat=document.createElement("span"); cat.className="cat";
+      var main=document.createElement("div"); main.className="main";
+      var amt=document.createElement("div"); amt.className="amt num";
+      var dt=document.createElement("div"); var p=e.date.split("-"); dt.textContent=(+p[1])+"/"+(+p[2]);
+      var m=document.createElement("div"); m.className="m";
+      if (e.kind==="transfer" && (e.dir==="resToFun"||e.dir==="resToFree")){ cat.classList.add("ex"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="予備費 → "+(e.dir==="resToFun"?"娯楽費":"フリー生活費")+(e.memo?"　"+e.memo:""); }
+      else if (e.kind==="transfer" && e.dir==="toFun"){ cat.classList.add("ex"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="フリー生活費 → 娯楽費"+(e.memo?"　"+e.memo:""); }
+      else if (e.kind==="transfer"){ cat.classList.add("ex"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="娯楽費 → フリー生活費"+(e.memo?"　"+e.memo:""); }
+      else if (e.kind==="exercise"){ cat.classList.add("ex"); cat.textContent="習慣"; amt.textContent=(e.count||1)+"回"; m.textContent=e.menu+(e.memo?"　"+e.memo:""); amt.classList.add("pos"); }
+      else { if(FUN[e.cat]) cat.classList.add("g"); cat.textContent=CAT[e.cat]||e.cat;
+        if (e.cat==="income"){ amt.textContent="+"+yen(e.amount); amt.classList.add("pos"); m.textContent=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(e.memo?"　"+e.memo:""); }
+        else if (e.cat==="gamble" && e.win){ amt.textContent="+"+yen(e.amount); amt.classList.add("pos"); m.textContent="勝ち"+(e.memo?"　"+e.memo:""); }
+        else { amt.textContent="−"+yen(e.amount); amt.classList.add("negc"); m.textContent=(e.cat==="gamble"?"負け":"")+(e.memo?(e.cat==="gamble"?"　":"")+e.memo:""); } }
+      main.appendChild(dt); main.appendChild(m);
+      var del=document.createElement("button"); del.className="del"; del.setAttribute("aria-label","この記録を削除"); del.textContent="×";
+      del.onclick=function(){ askConfirm("この記録を削除しますか？","削除する").then(function(ok){ if(ok) store.remove(e.id); }); };
+      li.appendChild(cat); li.appendChild(main); li.appendChild(amt); li.appendChild(del);
+      ul.appendChild(li);
+    });
+  }
+
+  /* ---------- storage ---------- */
+  function newId(){ return "e_"+Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+  var LS="goraku-v1";
+  function localStore(){
+    var hadLocal=false;
+    try { var raw=localStorage.getItem(LS); if(raw){ hadLocal=true; var o=JSON.parse(raw); state.settings=Object.assign({},DEFAULTS,o.settings||{}); state.entries=o.entries||[]; } } catch(e){}
+    function persist(){ try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} render(); }
+    return {
+      add:function(e){ state.entries.push(e); persist(); return Promise.resolve(); },
+      remove:function(id){ state.entries=state.entries.filter(function(x){return x.id!==id;}); persist(); return Promise.resolve(); },
+      saveSettings:function(s){ state.settings=s; persist(); return Promise.resolve(); },
+      had:function(){ return hadLocal; }
+    };
+  }
+  function dbStore(db, uid){
+    var col = db.collection("data/users/"+uid);
+    var note=$("syncNote"); note.textContent="読み込み中…";
+    var timer=setTimeout(function(){ note.textContent="データにまだ接続できていません。表示が古い可能性があります"; },10000);
+    col.onSnapshot(function(snap){
+      var entries=[], settings=null;
+      snap.docs.forEach(function(d){ var v=d.data(); if(!v) return; if(d.id==="settings") settings=v; else if(d.id.indexOf("e_")===0) entries.push(Object.assign({id:d.id},v)); });
+      state.entries=entries;
+      if (settings) state.settings=Object.assign({},DEFAULTS,settings);
+      if (!snap.metadata.fromCache){ clearTimeout(timer); note.textContent="記録はクラウドに保存されています"; setTimeout(function(){ maybeOnboard(!!settings); },0); }
+      render();
+    }, function(err){ clearTimeout(timer); note.textContent="データの読み込みが止まりました。ページを開き直してください（"+err.code+"）"; });
+    function fail(err){ toast("保存できませんでした（"+(err&&err.code||"error")+"）"); }
+    return {
+      add:function(e){ var id=e.id; var body=Object.assign({},e); delete body.id; return col.doc(id).set(body).catch(fail); },
+      remove:function(id){ return col.doc(id).delete().catch(fail); },
+      saveSettings:function(s){ return col.doc("settings").set(s).catch(fail); }
+    };
+  }
+
+  /* ---------- UI ---------- */
+  var kind="spend", cat="food", win=false, lastAdded=null, toastTimer=null;
+  function openSheet(id){ $("scrim").classList.add("open"); $(id).classList.add("open"); }
+  function closeSheets(){ $("scrim").classList.remove("open"); document.querySelectorAll(".sheet").forEach(function(s){s.classList.remove("open");}); }
+  $("scrim").onclick=closeSheets;
+  document.querySelectorAll("[data-close]").forEach(function(b){ b.onclick=closeSheets; });
+  function press(segId, attr, val){ document.querySelectorAll("#"+segId+" button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset[attr]===val?"true":"false"); }); }
+  function syncFields(){
+    $("spendFields").hidden = kind!=="spend"; $("exFields").hidden = kind!=="exercise";
+    $("resultSeg").hidden = cat!=="gamble"; $("incSeg").hidden = cat!=="income"; $("catHint").textContent = cat==="income" ? (incTo==="reserve" ? "予備費に入ります。使わずにとっておくお金" : "フリー生活費に入ります。すぐ使えるお金") : HINT[cat];
+  }
+  $("kindSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; kind=b.dataset.kind; press("kindSeg","kind",kind); syncFields(); };
+  var wallet="life";
+  function buildCats(){
+    var box=$("catSeg"), list=WALLET[wallet]; box.innerHTML=""; box.style.gridTemplateColumns="repeat("+list.length+",1fr)";
+    if (list.indexOf(cat)<0) cat=list[0];
+    list.forEach(function(k){ var b=document.createElement("button"); b.dataset.cat=k; var sg=k==="income"?"plus":k==="gamble"?"":"minus"; if(sg) b.className=sg; b.textContent=(sg==="plus"?"＋ ":sg==="minus"?"− ":"± ")+SHORT[k]; b.setAttribute("aria-pressed", k===cat?"true":"false"); box.appendChild(b); });
+    syncFields();
+  }
+  $("walletSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; wallet=b.dataset.wallet; press("walletSeg","wallet",wallet); buildCats(); };
+  $("catSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; cat=b.dataset.cat; press("catSeg","cat",cat); syncFields(); };
+  var incTo="free";
+  $("incSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; incTo=b.dataset.to; press("incSeg","to",incTo); syncFields(); };
+  $("resultSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; win=b.dataset.res==="win"; press("resultSeg","res",win?"win":"lose"); };
+
+  function openEntry(k){
+    kind=k; press("kindSeg","kind",kind);
+    $("date").value=todayIso(); $("amount").value=""; $("memo").value=""; $("exCount").value="1";
+    var sel=$("menuSel"); sel.innerHTML=""; state.settings.menus.forEach(function(m){ var o=document.createElement("option"); o.textContent=m; sel.appendChild(o); });
+    incTo="free"; press("incSeg","to","free");
+    buildCats(); openSheet("sheetEntry");
+    if (k==="spend") setTimeout(function(){ $("amount").focus(); },250);
+  }
+  $("openSpend").onclick=function(){ openEntry("spend"); };
+  function exercisedOn(date){ return state.entries.some(function(x){ return x.kind==="exercise" && x.date===date; }); }
+  function guardExercise(date){
+    if (!exercisedOn(date)) return Promise.resolve(true);
+    var p=date.split("-"), label = date===todayIso() ? "今日" : (+p[1])+"/"+(+p[2]);
+    return askConfirm(label+"はもう習慣を記録しています。もう1回記録すると、さらに"+yen(state.settings.unit)+"アンロックされます。記録しますか？","記録する");
+  }
+  $("quickEx").onclick=function(){
+    var t0=todayIso(), mine=state.entries.filter(function(x){ return x.kind==="exercise" && x.date===t0; });
+    if (mine.length){ askConfirm("今日の習慣の記録を取り消しますか？","取り消す").then(function(ok){ if(!ok) return; mine.forEach(function(x){ store.remove(x.id); }); toast("今日の習慣を取り消しました",true); }); return; }
+    (function(){
+      var e={id:newId(), kind:"exercise", menu:state.settings.menus[0]||"習慣", count:1, date:todayIso(), memo:"", createdAt:Date.now()};
+      var msg=exMsg(e), b0=simulate(state.entries), a0=simulate(state.entries.concat([e])), un=Math.round(a0.unlocked-b0.unlocked);
+      window.__popSeg = un>0; store.add(e); lastAdded=e.id; toast(msg); if (un>0) celebrate(un);
+    })();
+  };
+  $("saveEntry").onclick=function(){
+    var date=$("date").value||todayIso(), memo=$("memo").value.trim(), e;
+    if (kind==="exercise"){
+      var n=Math.max(1, parseInt($("exCount").value,10)||1);
+      e={id:newId(), kind:"exercise", menu:$("menuSel").value, count:n, date:date, memo:memo, createdAt:Date.now()};
+    } else {
+      var a=parseInt($("amount").value,10);
+      if (!(a>0)){ $("amount").focus(); toast("金額を入れてください",true); return; }
+      e={id:newId(), kind:"spend", cat:cat, amount:a, win:(cat==="gamble"&&win), date:date, memo:memo, createdAt:Date.now()};
+      if (cat==="income" && incTo==="reserve") e.to="reserve";
+    }
+    var go=function(){ var msg=kind==="exercise"?exMsg(e):"記録しました"; store.add(e); lastAdded=e.id; closeSheets(); toast(msg); };
+    if (kind==="exercise") guardExercise(date).then(function(ok){ if(ok) go(); }); else go();
+  };
+  function toast(msg, noUndo){
+    $("toastMsg").textContent=msg; $("toastUndo").hidden=!!noUndo; $("toast").classList.add("show");
+    clearTimeout(toastTimer); toastTimer=setTimeout(function(){ $("toast").classList.remove("show"); lastAdded=null; },4000);
+  }
+  $("toastUndo").onclick=function(){ if(lastAdded){ store.remove(lastAdded); lastAdded=null; } $("toast").classList.remove("show"); };
+
+  function sv(id){ var v=parseInt(String($(id).value).replace(/[^0-9]/g,""),10); return isNaN(v)||v<0 ? 0 : v; }
+  function updReserve(){
+    var now=new Date(), dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
+    var base=sv("sIncome")-sv("sFixed")-sv("sGoraku"), r=base-sv("sLife")*dim, r31=base-sv("sLife")*31;
+    $("reserveLbl").textContent="予備費";
+    $("reserveV").textContent=(r<0?"−":"")+Math.abs(r).toLocaleString("ja-JP"); $("reserveBox").classList.toggle("neg", r31<0);
+    $("reserveHint").textContent = r31<0 ? "31日の月に"+yen(-r31)+"足りません。どこかを減らしてください" : "31日の月は"+yen(r31)+"、28日の月は"+yen(base-sv("sLife")*28);
+    $("reserveHint").classList.toggle("neg", r31<0);
+    $("saveSettings").disabled = r31<0; $("saveSettings").style.opacity = r31<0 ? .4 : 1;
+    return r31;
+  }
+  function fmtMoney(){ document.querySelectorAll("input.money").forEach(function(el){ var v=parseInt(String(el.value).replace(/[^0-9]/g,""),10); el.value=isNaN(v)?"":v.toLocaleString("ja-JP"); }); }
+  document.querySelectorAll("input.money").forEach(function(el){ el.addEventListener("blur", fmtMoney); });
+  ["sIncome","sFixed","sLife","sGoraku"].forEach(function(id){ $(id).addEventListener("input", updReserve); });
+  function updUnit(){ var m=Math.max(1, sv("sMonthly")||1), u=Math.ceil(sv("sGoraku")/m); $("sUnitV").textContent=u.toLocaleString("ja-JP"); return u; }
+  $("sMonthly").addEventListener("input", updUnit); $("sGoraku").addEventListener("input", updUnit);
+  $("openSettings").onclick=function(){
+    var s=state.settings;
+    $("sStart").value=s.start; $("sIncome").value=s.income; $("sFixed").value=s.fixed; $("sLife").value=s.lifeDaily; $("sGoraku").value=s.gorakuMonthly;
+    $("sWeekly").value=s.weeklyGoal; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; updUnit(); $("sMenus").value=s.menus.join(", ");
+    fmtMoney(); updReserve(); buildSkins(); openSheet("sheetSettings");
+  };
+  var SKINS=[["kakeibo","家計簿","#F5F7FB","#2F80ED"],["wallet","ウォレット","linear-gradient(135deg,#F59E0B,#B45309)","#16A34A"],["social","ソシャゲ","linear-gradient(180deg,#5B8CFF,#FFB3D9)","#FFB800"],["crypto","仮想通貨","#07090F","#B6FF3B"],["pixel","ピクセル","#2038A8","#FFD45A"]];
+  function applySkin(k){ var ok=SKINS.some(function(x){return x[0]===k;}); document.documentElement.setAttribute("data-skin", ok?k:"kakeibo"); }
+  function buildSkins(){
+    var box=$("skinPick"), cur=state.settings.skin||"kakeibo"; box.innerHTML="";
+    SKINS.forEach(function(x){ var b=document.createElement("button"); b.type="button"; b.setAttribute("aria-pressed", x[0]===cur?"true":"false");
+      b.innerHTML='<span class="sw" style="background:'+x[2]+';--a:'+x[3]+'"></span>'+x[1];
+      b.onclick=function(){ var s=Object.assign({}, state.settings, {skin:x[0]}); state.settings=s; store.saveSettings(s); applySkin(x[0]); buildSkins(); };
+      box.appendChild(b); });
+  }
+  $("exportData").onclick=function(){
+    var data={app:"goraku",version:1,exportedAt:new Date().toISOString(),state:{settings:state.settings,entries:state.entries}};
+    var blob=new Blob([JSON.stringify(data,null,1)],{type:"application/json"}), a=document.createElement("a");
+    a.href=URL.createObjectURL(blob); a.download="goraku-backup-"+todayIso()+".json"; document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },1000);
+  };
+  $("importData").onchange=function(ev){
+    var f=ev.target.files&&ev.target.files[0]; if(!f) return;
+    var rd=new FileReader();
+    rd.onload=function(){
+      var o; try{ o=JSON.parse(rd.result); }catch(e){ toast("ファイルを読み込めませんでした",true); return; }
+      if (o && o.kind==="records" && Array.isArray(o.entries)){
+        var have={}; state.entries.forEach(function(x){ have[x.id]=1; });
+        var add=o.entries.filter(function(x){ return x && x.id && !have[x.id]; });
+        if (!add.length){ toast("新しく追加する記録はありませんでした",true); return; }
+        var first=add.map(function(x){return x.date;}).filter(Boolean).sort()[0], s=state.settings, moveStart = first && first < s.start;
+        var msg="記録を"+add.length+"件追加します。今の設定はそのままです。"+(moveStart?"\n記録に合わせて、開始日を"+(+first.slice(5,7))+"/"+(+first.slice(8))+"に変えます。":"");
+        askConfirm(msg,"追加する").then(function(ok){
+          if(!ok) return;
+          var ns = moveStart ? Object.assign({}, s, {start:first}) : s;
+          try{ localStorage.setItem(LS, JSON.stringify({settings:ns, entries:state.entries.concat(add)})); }catch(e){ toast("保存できませんでした",true); return; }
+          location.reload();
+        });
+        return;
+      }
+      var st=o&&o.state; if(!st||!Array.isArray(st.entries)){ toast("バックアップのファイルではありません",true); return; }
+      askConfirm("今の記録と設定を、このバックアップの内容で置き換えます。よろしいですか？","置き換える").then(function(ok){
+        if(!ok) return;
+        try{ localStorage.setItem(LS, JSON.stringify({settings:st.settings||{}, entries:st.entries})); }catch(e){ toast("保存できませんでした",true); return; }
+        location.reload();
+      });
+    };
+    rd.readAsText(f); ev.target.value="";
+  };
+  $("saveSettings").onclick=function(){
+    if (updReserve()<0) return;
+    function num(id, d){ var v=parseInt(String($(id).value).replace(/[^0-9]/g,""),10); return isNaN(v)||v<0 ? d : v; }
+    var menus=$("sMenus").value.split(/[,、，]/).map(function(x){return x.trim();}).filter(Boolean);
+    var s={start:$("sStart").value||DEFAULTS.start, income:num("sIncome",DEFAULTS.income), fixed:num("sFixed",DEFAULTS.fixed), lifeDaily:num("sLife",DEFAULTS.lifeDaily), gorakuMonthly:num("sGoraku",DEFAULTS.gorakuMonthly), unit:updUnit(), monthlyTimes:Math.max(1,num("sMonthly",15)), weeklyGoal:num("sWeekly",DEFAULTS.weeklyGoal), onboarded:true, menus:menus.length?menus:DEFAULTS.menus, skin:state.settings.skin||"kakeibo"};
+    store.saveSettings(s); state.settings=s; closeSheets(); render(); toast("保存しました",true);
+  };
+
+  function celebrate(v){
+    var fx=document.createElement("div"); fx.className="ufx"; fx.setAttribute("aria-hidden","true");
+    var sp=""; for (var i=0;i<10;i++) sp+='<span class="spark" style="--a:'+(i*36)+'deg;animation-delay:.35s"></span>';
+    fx.innerHTML=sp+'<div class="coin">¥</div><div class="t1">UNLOCK</div><div class="t2">+'+yen(v)+'</div>';
+    document.body.appendChild(fx);
+    setTimeout(function(){ fx.classList.add("out"); },1300); setTimeout(function(){ fx.remove(); },1750);
+  }
+  function exMsg(e){
+    var b=simulate(state.entries), a=simulate(state.entries.concat([e]));
+    var un=Math.round(a.unlocked-b.unlocked), rep=Math.round(a.repaid-b.repaid);
+    if (un<=0) return "記録しました　今月分はすべてアンロック済み";
+    if (rep>0) return "記録しました　"+yen(rep)+"返済、"+yen(un-rep)+"使える額へ";
+    return "記録しました　+"+yen(un)+"アンロック";
+  }
+  var tMode="repay";
+  var dest="free";
+  function repayMax(){ var c=compute(); return tMode==="reserve" ? Math.max(0, Math.floor(c.R)) : tMode==="send" ? Math.max(0, Math.floor(c.S)) : Math.max(0, Math.floor(c.U)); }
+  function openTransfer(mode){
+    tMode=mode; var mx=repayMax(); if (mx<=0) return;
+    $("repayTitle").textContent = mode==="reserve" ? "予備費から移します" : mode==="send" ? "フリー生活費から、娯楽費に送ります" : "娯楽費から、フリー生活費に送ります";
+    $("resDest").hidden = mode!=="reserve";
+    if (mode==="reserve"){ dest="free"; press("resDest","dest",dest); }
+    $("repayOk").textContent = "送る";
+    var c0=compute(); $("repayAmt").value = mode==="reserve" ? (c0.S<0 ? Math.min(mx, Math.ceil(-c0.S)) : "") : (mode==="repay" && c0.S<0) ? Math.min(mx, Math.ceil(-c0.S)) : mx; $("repayAmt").max=mx;
+    $("repayHint").textContent = "最大 "+yen(mx)+(mode==="reserve" ? "（予備費の残り）" : mode==="send" ? "（フリー生活費の額）" : "（娯楽費の額）");
+    $("repayModal").classList.add("open"); setTimeout(function(){ $("repayAmt").focus(); },50);
+  }
+  $("openRepay").onclick=function(){ openTransfer("repay"); };
+  $("openSend").onclick=function(){ openTransfer("send"); };
+  $("openBack").onclick=function(){ openTransfer("repay"); };
+  $("openRes").onclick=function(){ openTransfer("reserve"); };
+  $("resDest").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; dest=b.dataset.dest; press("resDest","dest",dest); };
+  $("repayCancel").onclick=function(){ $("repayModal").classList.remove("open"); };
+  $("repayOk").onclick=function(){
+    var mx=repayMax(), v=parseInt($("repayAmt").value,10);
+    if (!(v>0)){ $("repayAmt").focus(); return; }
+    v=Math.min(v,mx);
+    var e={id:newId(), kind:"transfer", amount:v, date:todayIso(), memo:"", createdAt:Date.now()};
+    if (tMode==="send") e.dir="toFun";
+    if (tMode==="reserve") e.dir = dest==="fun" ? "resToFun" : "resToFree";
+    store.add(e); lastAdded=e.id; $("repayModal").classList.remove("open");
+    toast(yen(v)+(tMode==="reserve" ? "を予備費から"+(dest==="fun"?"娯楽費":"フリー生活費")+"に移しました" : tMode==="send" ? "を娯楽費に送りました" : "をフリー生活費に送りました"));
+  };
+
+  function askConfirm(msg, okLabel){
+    return new Promise(function(resolve){
+      var m=$("confirmModal"); $("confirmMsg").textContent=msg; $("confirmOk").textContent=okLabel||"OK"; m.classList.add("open");
+      function done(v){ m.classList.remove("open"); $("confirmOk").onclick=null; $("confirmCancel").onclick=null; resolve(v); }
+      $("confirmOk").onclick=function(){ done(true); }; $("confirmCancel").onclick=function(){ done(false); };
+      setTimeout(function(){ $("confirmCancel").focus(); },50);
+    });
+  }
+
+  /* ---------- calendar ---------- */
+  var LIFE={food:1,shop:1,want_life:1};
+  var calView="month", calDate=todayIso();
+  function addDays(s,n){ var p=s.split("-"); var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n)); return d.getUTCFullYear()+"-"+pad(d.getUTCMonth()+1)+"-"+pad(d.getUTCDate()); }
+  function wdIdx(s){ var p=s.split("-"); return (new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).getUTCDay()+6)%7; }
+  function aggAll(){
+    var m={};
+    state.entries.forEach(function(e){ if(!e.date) return; var a=m[e.date]||(m[e.date]={life:0,income:0,fun:0,win:0,ex:0,items:[]}); a.items.push(e);
+      var v=+e.amount||0;
+      if (e.kind==="exercise") a.ex+=(+e.count||1);
+      else if (e.kind==="spend"){ if (LIFE[e.cat]) a.life+=v; else if (e.cat==="income") a.income+=v; else if (e.cat==="gamble"&&e.win) a.win+=v; else if (FUN[e.cat]) a.fun+=v; }
+    });
+    return m;
+  }
+  function inRange(d){ return d>=state.settings.start && d<=todayIso(); }
+  function k(n){ var a=Math.abs(Math.round(n)); return a>=10000 ? (Math.round(a/1000)/10)+"万" : a.toLocaleString("ja-JP"); }
+  function sumRange(m, from, to){
+    var r={life:0,bud:0,income:0,fun:0,win:0,ex:0,days:0}, per=+state.settings.lifeDaily||0;
+    for (var d=from; d<=to; d=addDays(d,1)){ var a=m[d]; if (inRange(d)){ r.bud+=per; r.days++; } if(!a) continue; r.life+=a.life; r.income+=a.income; r.fun+=a.fun; r.win+=a.win; r.ex+=a.ex; }
+    return r;
+  }
+  var calSel=todayIso();
+  function esc(x){ var dv=document.createElement("div"); dv.textContent=x; return dv.innerHTML; }
+  function sgn(v){ v=Math.round(v); return (v<0?"−":v>0?"+":"")+"¥"+Math.abs(v).toLocaleString("ja-JP"); }
+  function miniSum(r){
+    var diff=r.bud-r.life, net=r.win-r.fun;
+    function cell(l,v,cls){ return '<div class="ms"><div class="msl">'+l+'</div><div class="num msv '+cls+'">'+v+'</div></div>'; }
+    return '<div class="msum">'
+      + cell("生活費", r.days? sgn(diff) : "—", Math.round(diff)<0?"negc":"pos")
+      + cell("娯楽", sgn(net), net<0?"negc":net>0?"pos":"")
+      + cell("習慣", r.ex+"回", r.ex?"pos":"")
+      + '</div>';
+  }
+  function jd(s){ var p=s.split("-"); return (+p[1])+"/"+(+p[2])+"（"+"月火水木金土日"[wdIdx(s)]+"）"; }
+  function renderCal(){
+    var m=aggAll(), t=todayIso(), per=+state.settings.lifeDaily||0, html="";
+    var p=calDate.split("-");
+    $("calTitle").textContent=(+p[0])+"年"+(+p[1])+"月";
+    var first=p[0]+"-"+p[1]+"-01", dim=new Date(+p[0],+p[1],0).getDate(), last=p[0]+"-"+p[1]+"-"+pad(dim);
+    if (calSel<first || calSel>last) calSel = (t>=first && t<=last) ? t : first;
+    html+=miniSum(sumRange(m, first, last));
+    html+='<div class="grid">'+"月火水木金土日".split("").map(function(w){return '<div class="wd">'+w+'</div>';}).join("");
+    for (var i=0;i<wdIdx(first);i++) html+='<div class="c out"></div>';
+    for (var d=first; d<=last; d=addDays(d,1)){
+      var a=m[d], ir=inRange(d), lf="";
+      if (ir){ var df=per-(a?a.life:0); lf='<span class="lf '+(Math.round(df)>=0?"pos":"negc")+'">'+(Math.round(df)>=0?"+":"−")+k(df)+'</span>'; }
+      var fn = a && (a.fun||a.win) ? '<span class="fn">娯'+(a.win-a.fun>=0?"+":"−")+k(a.win-a.fun)+'</span>' : "";
+      html+='<button class="c'+(d===t?" today":"")+(d===calSel?" sel":"")+'" data-d="'+d+'" aria-pressed="'+(d===calSel)+'" aria-label="'+jd(d)+'"><span class="dn">'+(+d.slice(8))+'</span>'+lf+fn+(a&&a.ex?'<span class="ex"></span>':'')+'</button>';
+    }
+    html+='</div>';
+    // day detail
+    var c=m[calSel], r=sumRange(m, calSel, calSel);
+    html+='<div class="dayh">'+jd(calSel)+'</div>'+miniSum(r);
+    html+='<div class="sum"><ul class="list">';
+    var items=(c?c.items:[]).slice().sort(function(x,y){return (x.createdAt||0)-(y.createdAt||0);});
+    if (!items.length) html+='<li class="empty">記録はありません</li>';
+    items.forEach(function(e){
+      var lab, memo=e.memo||"", amt="", cls="";
+      if (e.kind==="exercise"){ lab="習慣"; memo=e.menu+(e.memo?"　"+e.memo:""); amt=(e.count||1)+"回"; cls="pos"; }
+      else if (e.kind==="transfer"){ lab="移動"; amt=yen(e.amount); memo=({toFun:"フリー生活費 → 娯楽費",resToFun:"予備費 → 娯楽費",resToFree:"予備費 → フリー生活費"})[e.dir]||"娯楽費 → フリー生活費"; }
+      else { lab=CAT[e.cat]||e.cat; if (e.cat==="income"||(e.cat==="gamble"&&e.win)){ amt="+"+yen(e.amount); cls="pos"; if(e.win) memo="勝ち"+(memo?"　"+memo:""); if(e.cat==="income") memo=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(memo?"　"+memo:""); } else { amt="−"+yen(e.amount); cls="negc"; if(e.cat==="gamble") memo="負け"+(memo?"　"+memo:""); } }
+      html+='<li><span class="cat'+(e.kind!=="spend"?" ex":FUN[e.cat]?" g":"")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+esc(memo)+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
+    });
+    html+='</ul></div>';
+    $("calBody").innerHTML=html;
+  }
+  $("openCal").onclick=function(){ calDate=todayIso(); calSel=todayIso(); renderCal(); $("cal").classList.add("open"); };
+  $("calClose").onclick=function(){ $("cal").classList.remove("open"); };
+  function calMove(n){ var p=calDate.split("-"), y=+p[0], mo=+p[1]+n; if(mo<1){mo=12;y--;} if(mo>12){mo=1;y++;} calDate=y+"-"+pad(mo)+"-01"; renderCal(); }
+  $("calPrev").onclick=function(){ calMove(-1); };
+  $("calNext").onclick=function(){ calMove(1); };
+  $("calBody").onclick=function(ev){ var b=ev.target.closest("[data-d]"); if(!b) return; calSel=b.dataset.d; renderCal(); };
+
+  /* ---------- onboarding ---------- */
+  var ob={}, obStep=0, obShown=false;
+  function n0(v){ var x=parseInt(String(v).replace(/[^0-9]/g,""),10); return isNaN(x)?0:x; }
+  function c0(v){ return v ? Number(v).toLocaleString("ja-JP") : ""; }
+  function obUnitText(){ var u=ob.monthly>0?Math.ceil(ob.goraku/ob.monthly):0; return '1回で <b>'+yen(u)+'</b> アンロック'; }
+  function obReserve(days){ return ob.income-ob.fixed-ob.life*days-ob.goraku; }
+  var OB=[
+    {t:"ようこそ", render:function(){ return '<h2>習慣で、遊ぶお金を<br>アンロックする家計簿</h2><p class="lead">お金を3つに分けて管理します。最初に、毎月の金額を一緒に決めましょう（1分ほど）。</p>'
+      +'<div class="three">'
+      +'<div class="w3"><span class="dot" style="background:var(--unlock)"></span><div><b>フリー生活費</b><span>1日の生活費より使わなかった分が貯まる。自由に使えるお金</span></div></div>'
+      +'<div class="w3"><span class="dot" style="background:var(--budget)"></span><div><b>娯楽費</b><span>毎月ロックされていて、習慣をこなすとアンロックされる</span></div></div>'
+      +'<div class="w3"><span class="dot" style="background:var(--muted)"></span><div><b>予備費</b><span>残りのお金。毎月自動で積み上がる。いざという時に移せる</span></div></div>'
+      +'</div>'; }, next:"はじめる"},
+    {t:"手取り", key:"income", q:"毎月の手取りは？", lead:"給料として口座に振り込まれる金額です。", unit:"円/月"},
+    {t:"固定費", key:"fixed", q:"毎月の固定費は？", lead:"家賃・光熱費・通信・サブスク・積立など、毎月決まって出ていくお金の合計です。", unit:"円/月"},
+    {t:"生活費", key:"life", q:"1日の生活費は？", lead:"食費・日用品・交通など、毎日の暮らしに使うお金です。使わなかった分はフリー生活費に貯まります。", unit:"円/日",
+      extra:function(){ return '<div class="note2">月あたり <b>'+yen(ob.life*30)+'</b>（30日の場合）</div>'; }},
+    {t:"娯楽", key:"goraku", q:"娯楽に使うのは月いくら？", lead:"毎月1日にこの額がロックされます。習慣をこなすたびに少しずつアンロックされて、使えるようになります。", unit:"円/月"},
+    {t:"予備費", render:function(){
+      var r30=obReserve(30), r31=obReserve(31);
+      var html='<h2>予備費は毎月<br>'+(r30<0?'<span style="color:var(--neg)">':'')+yen(r30)+(r30<0?'</span>':'')+'</h2><p class="lead">残ったお金は自動で予備費になります。使いすぎた時の穴埋めに使えます。</p>'
+        +'<div class="eq"><div class="r"><span>手取り</span><b>'+yen(ob.income)+'</b></div><div class="r"><span>− 固定費</span><b>'+yen(ob.fixed)+'</b></div><div class="r"><span>− 生活費（×30日）</span><b>'+yen(ob.life*30)+'</b></div><div class="r"><span>− 娯楽</span><b>'+yen(ob.goraku)+'</b></div><div class="r"><span>予備費</span><b>'+(r30<0?"−"+yen(-r30):yen(r30))+'</b></div></div>';
+      if (r31<0) html+='<p class="err">31日の月に'+yen(-r31)+'足りません。戻って金額を減らしてください。</p>';
+      else html+='<div class="note2">31日の月は '+yen(r31)+'</div>';
+      return html; }, ok:function(){ return obReserve(31)>=0; }},
+    {t:"習慣", render:function(){
+      var g=[2,3,4,5].map(function(w){ return '<div class="r"><span>週'+w+'回</span><b>月'+(w*4)+'〜'+Math.round(w*31/7)+'回</b></div>'; }).join("");
+      return '<h2>どんな習慣を続ける？</h2><p class="lead">1回できるたびに、娯楽費 ÷ 月の回数 の額がアンロックされます。</p>'
+        +'<div class="flabel">習慣の名前</div><label class="big"><input class="txt" id="obMenu" type="text" value="'+(ob.menu||"").replace(/"/g,"&quot;")+'" placeholder="例：有酸素30分"></label>'
+        +'<div class="flabel">月に何回やる？</div><label class="big"><input id="obMonthly" class="ob-n" data-k="monthly" inputmode="numeric" value="'+(ob.monthly||"")+'"><i>回/月</i></label>'
+        +'<div class="note2" id="obTimes">'+obUnitText()+'</div>'
+        +'<div class="flabel">目安</div><div class="eq guide">'+g+'</div>'
+        +'<div class="flabel">週の目標（今週の表示用）</div><label class="big"><input id="obWeekly" class="ob-n" data-k="weekly" inputmode="numeric" value="'+(ob.weekly||"")+'"><i>回/週</i></label>'; },
+      ok:function(){ return ob.monthly>0 && (ob.menu||"").trim(); }},
+    {t:"完了", render:function(){
+      return '<h2>準備できました</h2><p class="lead">使い方は3つだけです。</p>'
+        +'<div class="three">'
+        +'<div class="w3"><span class="dot" style="background:var(--unlock)"></span><div><b>習慣をしたら、緑のボタン</b><span>1日1回。娯楽費がアンロックされます</span></div></div>'
+        +'<div class="w3"><span class="dot" style="background:var(--neg)"></span><div><b>お金を使ったら「支出・収入を記録」</b><span>生活費か娯楽かを選んで記録します</span></div></div>'
+        +'<div class="w3"><span class="dot" style="background:var(--muted)"></span><div><b>足りない時は「送る」「移す」</b><span>財布の間でお金を動かせます</span></div></div>'
+        +'</div><div class="flabel">開始日</div><label class="big"><input class="txt" id="obStart" type="date" value="'+ob.start+'"></label>'; }, next:"使いはじめる"}
+  ];
+  function obRender(){
+    var st=OB[obStep], body=$("onbBody");
+    $("onbProg").style.width=((obStep)/(OB.length-1)*100)+"%";
+    var html = obStep>0 && obStep<OB.length-1 ? '<div class="step">'+obStep+' / '+(OB.length-2)+'　'+st.t+'</div>' : '';
+    if (st.render) html+=st.render();
+    else html+='<h2>'+st.q+'</h2><p class="lead">'+st.lead+'</p><label class="big"><input id="obIn" class="ob-n" data-k="'+st.key+'" inputmode="numeric" value="'+c0(ob[st.key])+'"><i>'+st.unit+'</i></label>'+(st.extra?'<div id="obExtra">'+st.extra()+'</div>':'');
+    body.innerHTML=html;
+    body.querySelectorAll(".ob-n").forEach(function(el){
+      el.addEventListener("input", function(){ ob[el.dataset.k]=n0(el.value); if (st.extra) $("obExtra").innerHTML=st.extra(); if ($("obTimes")) $("obTimes").innerHTML=obUnitText(); obBtn(); });
+      el.addEventListener("blur", function(){ if (el.dataset.k!=="weekly" && el.dataset.k!=="monthly") el.value=c0(n0(el.value)); });
+    });
+    if ($("obMenu")) $("obMenu").addEventListener("input", function(){ ob.menu=$("obMenu").value; obBtn(); });
+    if ($("obStart")) $("obStart").addEventListener("change", function(){ ob.start=$("obStart").value; });
+    $("onbBack").style.visibility = obStep===0 ? "hidden" : "visible";
+    $("onbNext").textContent = st.next || "次へ";
+    obBtn();
+    var f=body.querySelector("input"); if (f && st.key) setTimeout(function(){ f.focus(); },60);
+    $("onb").scrollTop=0;
+  }
+  function obBtn(){ var st=OB[obStep]; $("onbNext").disabled = st.key ? !(ob[st.key]>0) : (st.ok ? !st.ok() : false); }
+  function openOnb(fresh){
+    var s=state.settings;
+    ob = fresh===true ? {income:0, fixed:0, life:0, goraku:0, unit:5000, weekly:3, monthly:12, menu:"", start:todayIso()}
+      : {income:s.income, fixed:s.fixed, life:s.lifeDaily, goraku:s.gorakuMonthly, unit:s.unit, weekly:s.weeklyGoal, monthly:s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12, menu:(s.menus&&s.menus[0])||"", start:s.start||todayIso()};
+    obStep=0; closeSheets(); $("onbClose").hidden = fresh===true; obRender(); $("onb").classList.add("open");
+  }
+  $("onbClose").onclick=function(){ $("onb").classList.remove("open"); };
+  $("onbBack").onclick=function(){ if (obStep>0){ obStep--; obRender(); } };
+  $("onbNext").onclick=function(){
+    if ($("onbNext").disabled) return;
+    if (obStep<OB.length-1){ obStep++; obRender(); return; }
+    var s=Object.assign({}, state.settings, {start:ob.start||todayIso(), income:ob.income, fixed:ob.fixed, lifeDaily:ob.life, gorakuMonthly:ob.goraku, unit:Math.ceil(ob.goraku/Math.max(1,ob.monthly)), monthlyTimes:ob.monthly, weeklyGoal:ob.weekly||0, menus:[(ob.menu||"習慣").trim()], onboarded:true});
+    store.saveSettings(s); state.settings=s; $("onb").classList.remove("open"); render(); toast("設定しました",true);
+  };
+  $("redoOnb").onclick=function(){ openOnb(false); };
+  $("openHelp").onclick=function(){ $("help").classList.add("open"); $("help").scrollTop=0; };
+  $("helpClose").onclick=$("helpClose2").onclick=function(){ $("help").classList.remove("open"); };
+  $("helpOnb").onclick=function(){ $("help").classList.remove("open"); openOnb(!state.settings.onboarded && !state.entries.length); };
+  function maybeOnboard(hasSettings){ obShown=true; render(); }
+
+  /* ---------- boot ---------- */
+  store = localStore(); render();
+  $("syncNote").textContent="記録はこの端末に保存しています。機種変更の前にバックアップを書き出してください";
+  maybeOnboard(store.had());
+  setInterval(render, 60000);
+})();
+</script>
+</body>
+</html>
