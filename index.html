@@ -515,6 +515,7 @@ html,body{touch-action:manipulation;-webkit-text-size-adjust:100%}
 button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 .addnote{background:var(--unlock-soft);color:var(--ink);border-radius:12px;padding:12px 14px;font-size:13.5px;line-height:1.7;margin:0}
 .lnk{background:none;border:0;color:var(--muted);font-size:12.5px;text-decoration:underline;padding:4px}
+.sheet,.cal,.help,.onb,.modal{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 /* skin picker */
 .skins{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:6px}
 .skins button{border:2px solid var(--line);background:transparent;border-radius:12px;padding:6px 2px 7px;font-size:10.5px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.3}
@@ -1010,7 +1011,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 
   /* ---------- UI ---------- */
   var kind="spend", cat="food", win=false, lastAdded=null, toastTimer=null;
-  function openSheet(id){ $("scrim").classList.add("open"); $(id).classList.add("open"); }
+  function openSheet(id){ $("scrim").classList.add("open"); $(id).classList.add("open"); $(id).scrollTop=0; }
   function closeSheets(){ $("scrim").classList.remove("open"); document.querySelectorAll(".sheet").forEach(function(s){s.classList.remove("open");}); }
   $("scrim").onclick=closeSheets;
   document.querySelectorAll("[data-close]").forEach(function(b){ b.onclick=closeSheets; });
@@ -1344,7 +1345,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       : {income:s.income, fixed:s.fixed, life:s.lifeDaily, goraku:s.gorakuMonthly, unit:s.unit, weekly:s.weeklyGoal, monthly:s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12, menu:(s.menus&&s.menus[0])||"", start:s.start||todayIso()};
     obStep=0; closeSheets(); $("onbClose").hidden = false; obRender(); $("onb").classList.add("open");
   }
-  $("onbClose").onclick=function(){ $("onb").classList.remove("open"); };
+  $("onbClose").onclick=function(){ $("onb").classList.remove("open"); $("openHelp").onclick(); };
   $("onbBack").onclick=function(){ if (obStep>0){ obStep--; obRender(); } };
   $("onbNext").onclick=function(){
     if ($("onbNext").disabled) return;
@@ -1365,6 +1366,16 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     if (!isStandalone()){ $("helpOnb").hidden=true; $("addNote").hidden=false; return; }
     $("help").classList.remove("open"); openOnb(!state.settings.onboarded && !state.entries.length); };
   function maybeOnboard(hasSettings){ obShown=true; render(); }
+
+  /* ---------- background scroll lock ---------- */
+  var lockY=0, locked=false;
+  function updateLock(){
+    var any=!!document.querySelector(".sheet.open,.cal.open,.help.open,.onb.open,.modal.open");
+    var b=document.body;
+    if (any && !locked){ lockY=window.scrollY||0; b.style.position="fixed"; b.style.top=(-lockY)+"px"; b.style.left="0"; b.style.right="0"; b.style.width="100%"; locked=true; }
+    else if (!any && locked){ b.style.position=""; b.style.top=""; b.style.left=""; b.style.right=""; b.style.width=""; locked=false; window.scrollTo(0,lockY); }
+  }
+  if (window.MutationObserver){ var mo=new MutationObserver(updateLock); document.querySelectorAll(".sheet,.cal,.help,.onb,.modal").forEach(function(el){ mo.observe(el,{attributes:true,attributeFilter:["class"]}); }); }
 
   /* ---------- boot ---------- */
   store = localStore(); render();
