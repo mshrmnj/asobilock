@@ -1289,7 +1289,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       +'<div class="w3"><span class="dot" style="background:var(--unlock)"></span><div><b>フリー生活費</b><span>1日の生活費より使わなかった分が貯まる。自由に使えるお金</span></div></div>'
       +'<div class="w3"><span class="dot" style="background:var(--budget)"></span><div><b>娯楽費</b><span>毎月ロックされていて、習慣をこなすとアンロックされる</span></div></div>'
       +'<div class="w3"><span class="dot" style="background:var(--muted)"></span><div><b>予備費</b><span>残りのお金。毎月自動で積み上がる。いざという時に移せる</span></div></div>'
-      +'</div>'; }, next:"はじめる"},
+      +'</div><button type="button" class="lnk" id="obRestore" style="display:block;margin:18px auto 0">バックアップから設定と記録を読み込む</button>'; }, next:"はじめる"},
     {t:"手取り", key:"income", q:"毎月の手取りは？", lead:"給料として口座に振り込まれる金額です。", unit:"円/月"},
     {t:"固定費", key:"fixed", q:"毎月の固定費は？", lead:"家賃・光熱費・通信・サブスク・積立など、毎月決まって出ていくお金の合計です。", unit:"円/月"},
     {t:"生活費", key:"life", q:"1日の生活費は？", lead:"食費・日用品・交通など、毎日の暮らしに使うお金です。使わなかった分はフリー生活費に貯まります。", unit:"円/日",
@@ -1332,6 +1332,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     });
     if ($("obMenu")) $("obMenu").addEventListener("input", function(){ ob.menu=$("obMenu").value; obBtn(); });
     if ($("obStart")) $("obStart").addEventListener("change", function(){ ob.start=$("obStart").value; });
+    if ($("obRestore")) $("obRestore").onclick=function(){ $("importData").click(); };
     $("onbBack").style.visibility = obStep===0 ? "hidden" : "visible";
     $("onbNext").textContent = st.next || "次へ";
     obBtn();
