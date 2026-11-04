@@ -624,6 +624,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 @keyframes rbw{to{background-position:200% 0}}
 .ufx.lv4 .t2,.ufx.lv5 .t2{font-size:40px}
 @media (prefers-reduced-motion: reduce){.rstage,.rstage *{animation:none!important}}
+.ver{text-align:center;font-size:11.5px;color:var(--muted);margin:10px 0 4px}
 /* skin picker */
 .skins{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:6px}
 .skins button{border:2px solid var(--line);background:transparent;border-radius:12px;padding:6px 2px 7px;font-size:10.5px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.3}
@@ -783,6 +784,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       <button class="primary" id="saveSettings">保存する</button>
     </div>
     <button class="redo" id="redoOnb">初期設定をやり直す</button>
+    <div class="ver">アソビロック <span id="appVer"></span></div>
   </div>
 </div>
 
@@ -1208,7 +1210,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     var s=state.settings;
     $("sStart").value=s.start; $("sIncome").value=s.income; $("sFixed").value=s.fixed; $("sLife").value=s.lifeDaily; $("sGoraku").value=s.gorakuMonthly;
     $("sWeekly").value=s.weeklyGoal; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; updUnit(); $("sMenus").value=s.menus.join(", ");
-    fmtMoney(); updReserve(); buildSkins(); openSheet("sheetSettings");
+    fmtMoney(); updReserve(); buildSkins(); $("appVer").textContent="v"+APP_VERSION; openSheet("sheetSettings");
   };
   var SKINS=[["kakeibo","テーマ1","#F5F7FB","#2F80ED"],["wallet","テーマ2","linear-gradient(135deg,#F59E0B,#B45309)","#16A34A"],["social","テーマ3","linear-gradient(180deg,#5B8CFF,#FFB3D9)","#FFB800"],["crypto","テーマ4","#07090F","#B6FF3B"],["pixel","テーマ5","#2038A8","#FFD45A"]];
   function applySkin(k){ var ok=SKINS.some(function(x){return x[0]===k;}); document.documentElement.setAttribute("data-skin", ok?k:"kakeibo"); }
@@ -1269,6 +1271,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     store.saveSettings(s); state.settings=s; closeSheets(); render(); toast("保存しました",true);
   };
 
+  var APP_VERSION="1.1.0";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -1443,7 +1446,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     });
     html+='</ul></div>';
     html+='<div class="dayh">スタンプ帳</div><div class="stampbook">';
-    html+='<div class="sbnext">次のレア確定まで あと<b class="n">'+rs.left+'</b>回</div><div class="sbgrid">';
+    html+='<div class="sbgrid">';
     RARE.slice().reverse().forEach(function(x){
       var cnt=rs.counts[x.k]||0;
       html+='<div class="sb'+(cnt?" got":"")+'"'+(cnt?' data-rare="'+x.k+'" role="button" aria-label="'+x.n+'の演出を見る"':'')+' style="--rc:'+x.col+';--rs:'+x.solid+';--ri:'+(x.ink||"#fff")+'"><div class="sbi">'+(cnt?(x.k==="red7"?"7":x.k==="kami"?"神":"★"):"？")+'</div><div class="sbn">'+(cnt?x.n:"？？？")+'</div><div class="sbp n">'+x.lab+'</div><div class="sbc">'+(cnt?cnt+"回　最新 "+(+rs.last[x.k].slice(5,7))+"/"+(+rs.last[x.k].slice(8)):"まだ")+'</div></div>';
