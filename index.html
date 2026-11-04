@@ -769,6 +769,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     <p class="sgd">記録はこの端末の中に保存されます。機種変更やブラウザのデータ削除の前に書き出しておくと、あとで読み込んで戻せます</p>
     <div class="sgrp">
       <button type="button" class="srow dbtn" id="exportData"><span>バックアップを書き出す</span><span class="sin">↓</span></button>
+      <button type="button" class="srow dbtn" id="resetRare"><span>スタンプ帳をリセットする</span><span class="sin">↺</span></button>
       <label class="srow dbtn"><span>バックアップを読み込む</span><span class="sin">↑</span><input type="file" id="importData" accept="application/json,.json" hidden></label>
     </div>
 
@@ -1160,12 +1161,12 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   $("quickEx").onclick=function(){
     var t0=todayIso(), mine=state.entries.filter(function(x){ return x.kind==="exercise" && x.date===t0; });
     if (mine.length){ askConfirm("今日の習慣の記録を取り消しますか？","取り消す").then(function(ok){ if(!ok) return; mine.forEach(function(x){ store.remove(x.id); }); toast("今日の習慣を取り消しました",true); }); return; }
-    (function(){
+    askConfirm("今日の「"+(state.settings.menus[0]||"習慣")+"」を記録しますか？","記録する").then(function(ok){ if(!ok) return;
       var e={id:newId(), kind:"exercise", menu:state.settings.menus[0]||"習慣", count:1, date:todayIso(), memo:"", createdAt:Date.now()};
       var msg=exMsg(e), b0=simulate(state.entries), a0=simulate(state.entries.concat([e])), un=Math.round(a0.unlocked-b0.unlocked);
       var tier=rareSeq(state.entries.concat([e])).map[e.date]||null;
       window.__popSeg = un>0; store.add(e); lastAdded=e.id; toast(msg); if (un>0 || tier) celebrate(un, tier);
-    })();
+    });
   };
   $("saveEntry").onclick=function(){
     var date=$("date").value||todayIso(), memo=$("memo").value.trim(), e;
@@ -1218,6 +1219,14 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       b.onclick=function(){ var s=Object.assign({}, state.settings, {skin:x[0]}); state.settings=s; store.saveSettings(s); applySkin(x[0]); buildSkins(); };
       box.appendChild(b); });
   }
+  $("resetRare").onclick=function(){
+    askConfirm("今日までの習慣は、すべて通常のUNLOCK扱いになります。スタンプ帳は空になり、明日からの出目も変わります。お金の記録は変わりません。","リセットする").then(function(ok){
+      if(!ok) return;
+      var p=todayIso().split("-"), dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+1)), tm=dt.toISOString().slice(0,10);
+      var s=Object.assign({}, state.settings, {seed:Math.random().toString(36).slice(2,10), rareFrom:tm});
+      store.saveSettings(s); state.settings=s; render(); toast("スタンプ帳をリセットしました",true);
+    });
+  };
   $("exportData").onclick=function(){
     var data={app:"goraku",version:1,exportedAt:new Date().toISOString(),state:{settings:state.settings,entries:state.entries}};
     var blob=new Blob([JSON.stringify(data,null,1)],{type:"application/json"}), a=document.createElement("a");
@@ -1273,9 +1282,9 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function rarePick(u){ var acc=0; for (var i=0;i<RARE.length;i++){ acc+=RARE[i].p; if (u<acc) return RARE[i].k; } return null; }
   function rareForced(u){ var tot=0; RARE.forEach(function(x){ tot+=x.p; }); var acc=0; for (var i=0;i<RARE.length;i++){ acc+=RARE[i].p/tot; if (u<acc) return RARE[i].k; } return "r"; }
   function rareSeq(entries){
-    var seed=state.settings.seed||"asobi", seen={}, days=[];
+    var seed=state.settings.seed||"asobi", from=state.settings.rareFrom||"", seen={}, days=[];
     entries.filter(function(e){ return e.kind==="exercise" && e.date; }).sort(function(a,b){ return a.date<b.date?-1:a.date>b.date?1:(a.createdAt||0)-(b.createdAt||0); })
-      .forEach(function(e){ if(!seen[e.date]){ seen[e.date]=1; days.push(e.date); } });
+      .forEach(function(e){ if(!seen[e.date] && e.date>=from){ seen[e.date]=1; days.push(e.date); } });
     var res={}, since=0, got=false, counts={}, last={};
     days.forEach(function(d){
       var limit = got ? 30 : 5, t=rarePick(h01(seed+"|"+d));
