@@ -1113,8 +1113,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       else {
         $("debtHead").textContent = severe ? "貯金を崩している状態です" : "やること";
         if (L>0) rows+=drow("① 習慣あと"+nL+"回", yen(L));
-        if (R>0) rows+=drow((L>0?"② ":"① ")+"予備費から移す", yen(Math.min(R,rest)));
-        if (severe) rows+=drow("生活費で取り戻す", yen(rest-R));
+        rows+=drow((L>0?"② ":"① ")+"生活費を節約する", yen(rest));
       }
       $("debtRows").innerHTML=rows;
       $("openRepay").hidden = U<=0;
@@ -1429,7 +1428,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     store.saveSettings(s); state.settings=s; closeSheets(); render(); toast("保存しました",true);
   };
 
-  var APP_VERSION="1.3.1";
+  var APP_VERSION="1.3.2";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
