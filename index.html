@@ -740,6 +740,14 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 .ym.now{box-shadow:inset 0 0 0 2px var(--act-solid,var(--unlock))}
 .ym .mt{color:var(--muted)}
 .ym span{font-family:var(--numf,"M PLUS Rounded 1c"),system-ui,sans-serif;font-weight:700}
+.cchips button[data-g="life"]{border-color:color-mix(in srgb,#22A65A 55%,var(--line));color:#1E9E52}
+.cchips button[data-g="fun"]{border-color:color-mix(in srgb,var(--budget) 55%,var(--line));color:var(--budget)}
+.cchips button[data-g="life"][aria-pressed="true"]{background:#22A65A;border-color:#22A65A;color:#fff}
+.cchips button[data-g="fun"][aria-pressed="true"]{background:var(--budget);border-color:var(--budget);color:var(--fun-ink,#fff)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cchips button[data-g="life"]{color:#3CCB7F}}
+:root[data-skin="crypto"],:root[data-skin="gold"]{--fun-ink:#0B0B0B}
+:root[data-skin="pixel"]{--fun-ink:#1A1C2C}
+:root[data-skin="crypto"] .cchips button[data-g="life"],:root[data-skin="pixel"] .cchips button[data-g="life"],:root[data-skin="gold"] .cchips button[data-g="life"],:root[data-skin="red7"] .cchips button[data-g="life"]{color:#3CCB7F}
 /* skin picker */
 .skins{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:6px}
 .skins button{border:2px solid var(--line);background:transparent;border-radius:12px;padding:6px 2px 7px;font-size:10.5px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.3}
@@ -1421,7 +1429,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     store.saveSettings(s); state.settings=s; closeSheets(); render(); toast("保存しました",true);
   };
 
-  var APP_VERSION="1.3.0";
+  var APP_VERSION="1.3.1";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -1706,7 +1714,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     return r;
   }
   var calSel=todayIso(), calCat="all", calMode="month";
-  var CFIL=[["all","すべて"],["food","食費"],["shop","必需品"],["want_life","その他（生活）"],["income","臨時収入"],["gamble","ギャンブル"],["drink","遊び"],["want_fun","その他（娯楽）"],["exercise","習慣"]];
+  var CFIL=[["all","すべて",""],["food","食費","life"],["shop","必需品","life"],["gamble","ギャンブル","fun"],["drink","遊び","fun"],["income","臨時収入","life"],["want_life","その他","life"],["want_fun","その他","fun"]];
   function fMatch(e){ return calCat==="exercise" ? e.kind==="exercise" : (e.kind==="spend" && e.cat===calCat); }
   function fVal(e){ if (calCat==="exercise") return +e.count||1; if (calCat==="gamble") return gambleNet(e); return +e.amount||0; }
   function fSum(m, from, to){
@@ -1756,7 +1764,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     var m=aggAll(), t=todayIso(), per=+state.settings.lifeDaily||0, html="", rs=rareSeq(state.entries);
     var p=calDate.split("-");
     html+='<div class="cmode"><button data-mode="month" aria-pressed="'+(calMode==="month")+'">月</button><button data-mode="year" aria-pressed="'+(calMode==="year")+'">年</button></div>';
-    html+='<div class="cchips">'+CFIL.map(function(x){ return '<button data-fc="'+x[0]+'" aria-pressed="'+(calCat===x[0])+'">'+x[1]+'</button>'; }).join("")+'</div>';
+    html+='<div class="cchips">'+CFIL.map(function(x){ return '<button data-fc="'+x[0]+'"'+(x[2]?' data-g="'+x[2]+'"':'')+' aria-pressed="'+(calCat===x[0])+'" aria-label="'+x[1]+(x[2]==="life"?"（生活）":x[2]==="fun"?"（娯楽）":"")+'">'+x[1]+'</button>'; }).join("")+'</div>';
     if (calMode==="year"){
       $("calTitle").textContent=(+p[0])+"年";
       var y0=p[0]+"-01-01", y1=p[0]+"-12-31";
@@ -1783,7 +1791,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       if (calCat!=="all"){ var dvv=0; if (a) a.items.forEach(function(e){ if (fMatch(e)) dvv+=fVal(e); }); lf=fCell(dvv); ir=false; }
       if (ir){ var df=per-(a?a.life:0); lf='<span class="lf '+(Math.round(df)>=0?"pos":"negc")+'">'+(Math.round(df)>=0?"+":"−")+k(df)+'</span>'; }
       var fn = calCat==="all" && a && (a.fun||a.win) ? '<span class="fn">娯'+(a.win-a.fun>=0?"+":"−")+k(a.win-a.fun)+'</span>' : "";
-      html+='<button class="c'+(d===t?" today":"")+(d===calSel?" sel":"")+'" data-d="'+d+'" aria-pressed="'+(d===calSel)+'" aria-label="'+jd(d)+'"><span class="dn">'+(+d.slice(8))+'</span>'+lf+fn+(a&&a.ex&&(calCat==="all"||calCat==="exercise")?'<span class="ex"'+(rs.map[d]?' style="background:'+RMAP[rs.map[d]].solid+';box-shadow:0 0 0 2px '+RMAP[rs.map[d]].solid+'55"':'')+'></span>':'')+'</button>';
+      html+='<button class="c'+(d===t?" today":"")+(d===calSel?" sel":"")+'" data-d="'+d+'" aria-pressed="'+(d===calSel)+'" aria-label="'+jd(d)+'"><span class="dn">'+(+d.slice(8))+'</span>'+lf+fn+(a&&a.ex?'<span class="ex"'+(rs.map[d]?' style="background:'+RMAP[rs.map[d]].solid+';box-shadow:0 0 0 2px '+RMAP[rs.map[d]].solid+'55"':'')+'></span>':'')+'</button>';
     }
     html+='</div>';
     // day detail
@@ -1813,7 +1821,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     $("calBody").innerHTML=html; calChipFocus();
   }
   function calChipFocus(){ var ch=$("calBody").querySelector(".cchips"), sel=ch&&ch.querySelector('[aria-pressed="true"]'); if (!sel) return; var l=sel.offsetLeft-ch.offsetLeft, r=l+sel.offsetWidth; if (l<ch.scrollLeft || r>ch.scrollLeft+ch.clientWidth) ch.scrollLeft=Math.max(0,l-40); }
-  $("openCal").onclick=function(){ calDate=todayIso(); calSel=todayIso(); calMode="month"; renderCal(); $("cal").classList.add("open"); };
+  $("openCal").onclick=function(){ calDate=todayIso(); calSel=todayIso(); calMode="month"; calCat="all"; renderCal(); $("cal").classList.add("open"); };
   $("calClose").onclick=function(){ $("cal").classList.remove("open"); };
   function calMove(n){ if (calMode==="year"){ var py=calDate.split("-"); calDate=(+py[0]+n)+"-"+py[1]+"-01"; renderCal(); return; } var p=calDate.split("-"), y=+p[0], mo=+p[1]+n; if(mo<1){mo=12;y--;} if(mo>12){mo=1;y++;} calDate=y+"-"+pad(mo)+"-01"; renderCal(); }
   $("calPrev").onclick=function(){ calMove(-1); };
