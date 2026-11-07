@@ -748,6 +748,17 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 :root[data-skin="crypto"],:root[data-skin="gold"]{--fun-ink:#0B0B0B}
 :root[data-skin="pixel"]{--fun-ink:#1A1C2C}
 :root[data-skin="crypto"] .cchips button[data-g="life"],:root[data-skin="pixel"] .cchips button[data-g="life"],:root[data-skin="gold"] .cchips button[data-g="life"],:root[data-skin="red7"] .cchips button[data-g="life"]{color:#3CCB7F}
+.cwrap{position:relative;touch-action:pan-y}
+.chart svg .gl{stroke:var(--line);stroke-width:1}
+.chart svg .zl{stroke:var(--muted);stroke-width:1.2}
+.chart svg .gtx{fill:var(--muted);font-size:10px;font-family:var(--numf,"M PLUS Rounded 1c"),system-ui,sans-serif}
+.chart svg .brk{fill:none;stroke:var(--surface);stroke-width:2}
+.chart svg .cur{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3}
+.chart svg rect.dimb{opacity:.35}
+.ctip{position:absolute;top:-6px;transform:translateY(-100%);background:var(--surface);color:var(--ink);border-radius:10px;padding:6px 10px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.18),0 0 0 1px var(--line);white-space:nowrap;pointer-events:none;display:flex;gap:10px;align-items:baseline;z-index:2}
+.ctip b{font-family:var(--numf,"M PLUS Rounded 1c"),system-ui,sans-serif;font-size:15px}
+.chart{display:block!important}
+.dots span.extra{background:#F2B705;border:2px solid #F2B705;border-style:solid;opacity:1;box-shadow:0 0 8px rgba(242,183,5,.6)}
 /* skin picker */
 .skins{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:6px}
 .skins button{border:2px solid var(--line);background:transparent;border-radius:12px;padding:6px 2px 7px;font-size:10.5px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.3}
@@ -803,7 +814,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   </section>
 
   <section>
-    <h2>日ごとの生活費</h2>
+    <h2>日ごとの節約</h2>
     <div class="chart" id="saveChart" style="margin-top:0"></div>
   </section>
 
@@ -1175,22 +1186,44 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   }
   function savingSeries(){
     var s=state.settings, start=dayNum(s.start), end=dayNum(todayIso()), per=(+s.lifeDaily||0), spent={};
-    state.entries.forEach(function(e){ if (e.kind!=="spend" || FUN[e.cat] || !e.date) return; var k=dayNum(e.date); spent[k]=(spent[k]||0)+(e.cat==="income"?-1:1)*(+e.amount||0); });
+    state.entries.forEach(function(e){ if (e.kind!=="spend" || !LIFE[e.cat] || !e.date) return; var k=dayNum(e.date); spent[k]=(spent[k]||0)+(+e.amount||0); });
     var out=[]; for (var d=start; d<=end; d++) out.push({d:d, v:per-(spent[d]||0)});
     return out;
   }
   function lbl(d){ var dt=new Date(d*86400000); return (dt.getUTCMonth()+1)+"/"+dt.getUTCDate(); }
+  var chartSer=[];
+  function niceStep(range){ var c=[100,200,250,500,1000,2000,2500,5000,10000,20000,50000]; for (var i=0;i<c.length;i++){ if (range/c[i]<=5) return c[i]; } return 100000; }
   function drawChart(ser){
-    var box=$("saveChart"); if (!ser.length){ box.innerHTML=""; return; }
-    var max=Math.max.apply(null, ser.map(function(x){ return Math.abs(x.v); }).concat([1]));
-    var bw=14, gap=4, W=Math.max(ser.length*(bw+gap), 140), H=90, mid=H/2;
-    var svg='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="日ごとのフリー生活費の増減">';
-    svg+='<line x1="0" y1="'+mid+'" x2="'+W+'" y2="'+mid+'" class="zl"/>';
-    ser.forEach(function(x,i){ var h=Math.max(1.5, Math.abs(x.v)/max*(mid-4)), y=x.v>=0?mid-h:mid;
-      svg+='<rect x="'+(i*(bw+gap)+gap/2)+'" y="'+y+'" width="'+bw+'" height="'+h+'" rx="2" class="'+(x.v>=0?"bp":"bn")+'"><title>'+lbl(x.d)+' '+signed(x.v)+'</title></rect>'; });
-    svg+='</svg>';
-    box.innerHTML=svg+'<div class="axis"><span>'+lbl(ser[0].d)+'</span><span>'+(ser.length>1?lbl(ser[ser.length-1].d):"")+'</span></div>';
+    var box=$("saveChart"); chartSer=ser; if (!ser.length){ box.innerHTML=""; return; }
+    var per=Math.max(1,+state.settings.lifeDaily||0), negMax=Math.max(0,-Math.min.apply(null, ser.map(function(x){return x.v;})));
+    var top=per, bot=negMax>0 ? Math.min(per*2, negMax) : per*0.25, range=top+bot, step=niceStep(range);
+    var W=Math.max(260, box.clientWidth||340), H=170, padL=46, padR=6, padT=10, padB=8, plotH=H-padT-padB, plotW=W-padL-padR;
+    function Y(v){ return padT+(top-v)/range*plotH; }
+    var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" height="'+H+'" role="img" aria-label="日ごとの節約。グラフをタップすると金額が出ます">';
+    for (var t=Math.floor(-bot/step)*step; t<=top+0.001; t+=step){ if (t<-bot-0.001) continue; var y=Y(t);
+      svg+='<line x1="'+padL+'" y1="'+y+'" x2="'+(W-padR)+'" y2="'+y+'" class="'+(t===0?"zl":"gl")+'"/><text x="'+(padL-6)+'" y="'+(y+3.5)+'" text-anchor="end" class="gtx">'+(t>0?"+":t<0?"−":"")+Math.abs(t).toLocaleString("ja-JP")+'</text>'; }
+    var slot=plotW/ser.length, bw=Math.max(3,Math.min(18,slot*0.68)), y0=Y(0);
+    ser.forEach(function(x,i){ var cx=padL+slot*i+slot/2, v=x.v, capped=v<-bot, vv=capped?-bot:v, y=Y(vv), hgt=Math.max(1.5,Math.abs(y-y0));
+      svg+='<rect data-i="'+i+'" x="'+(cx-bw/2)+'" y="'+(vv>=0?y0-hgt:y0)+'" width="'+bw+'" height="'+hgt+'" rx="2" class="'+(v>=0?"bp":"bn")+'"/>';
+      if (capped){ var yb=y0+hgt-6; svg+='<path d="M'+(cx-bw/2-1)+' '+yb+' l'+(bw/4)+' -3 l'+(bw/4)+' 3 l'+(bw/4)+' -3 l'+(bw/4+2)+' 3" class="brk"/>'; } });
+    svg+='<line class="cur" x1="0" y1="'+padT+'" x2="0" y2="'+(H-padB)+'" style="display:none"/>';
+    svg+='<rect class="hit" x="'+padL+'" y="0" width="'+plotW+'" height="'+H+'" fill="transparent"/></svg>';
+    box.innerHTML='<div class="cwrap">'+svg+'<div class="ctip" hidden></div></div><div class="axis" style="padding-left:'+padL+'px"><span>'+lbl(ser[0].d)+'</span><span>'+(ser.length>1?lbl(ser[ser.length-1].d):"")+'</span></div>';
+    var wrap=box.querySelector(".cwrap"), sv=wrap.querySelector("svg"), tip=wrap.querySelector(".ctip"), cur=sv.querySelector(".cur");
+    function show(ev){ var r=sv.getBoundingClientRect(), x=(ev.clientX-r.left)*(W/r.width), i=Math.floor((x-padL)/slot); if (i<0||i>=ser.length) return;
+      var cx=padL+slot*i+slot/2; cur.setAttribute("x1",cx); cur.setAttribute("x2",cx); cur.style.display="";
+      sv.querySelectorAll("rect[data-i]").forEach(function(rc){ rc.classList.toggle("dimb", +rc.dataset.i!==i); });
+      var d=new Date(ser[i].d*86400000), v=Math.round(ser[i].v);
+      tip.innerHTML='<span>'+(d.getUTCMonth()+1)+'/'+d.getUTCDate()+'（'+"日月火水木金土"[d.getUTCDay()]+'）</span><b class="'+(v>=0?"pos":"negc")+'">'+(v>0?"+":v<0?"−":"±")+yen(Math.abs(v))+'</b>';
+      tip.hidden=false; var px=cx/W*r.width, tw=tip.offsetWidth; tip.style.left=Math.max(0,Math.min(r.width-tw,px-tw/2))+"px"; }
+    function hide(){ cur.style.display="none"; tip.hidden=true; sv.querySelectorAll("rect.dimb").forEach(function(rc){ rc.classList.remove("dimb"); }); }
+    var hit=sv.querySelector(".hit"), dragging=false;
+    hit.addEventListener("pointerdown", function(ev){ dragging=true; show(ev); });
+    hit.addEventListener("pointermove", function(ev){ if (dragging || ev.pointerType==="mouse") show(ev); });
+    window.addEventListener("pointerup", function(){ dragging=false; });
+    box._hide=hide;
   }
+  document.addEventListener("pointerdown", function(ev){ var bx=$("saveChart"); if (bx && bx._hide && !bx.contains(ev.target)) bx._hide(); });
   function setDiff(id, v){ var el=$(id), r=Math.round(v); if (r===0){ el.textContent="予算どおり"; el.className="d"; return; } el.textContent = (r>0?"浮いた ":"オーバー ")+yen(Math.abs(r)); el.className="d "+(r>0?"pos":"negc"); }
 
   function renderList(){
@@ -1428,7 +1461,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     store.saveSettings(s); state.settings=s; closeSheets(); render(); toast("保存しました",true);
   };
 
-  var APP_VERSION="1.3.2";
+  var APP_VERSION="1.3.3";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
