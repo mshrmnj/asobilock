@@ -794,6 +794,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   <div class="card rows">
     <div class="r"><span>今月の生活費 残り</span><b class="num" id="monthLife">¥0</b></div>
     <div class="r sub"><span id="monthLifeSub">1日あたり</span><b class="num" id="perDay">¥0</b></div>
+    <div class="r"><span>今月の節約</span><b class="num" id="mSave">¥0</b></div>
     <div class="r"><span>予備費 <button class="mini" id="openRes">移す</button></span><b class="num" id="resV">¥0</b></div>
   </div>
 
@@ -1148,6 +1149,8 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     var now=new Date(), dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(), rem=dim-now.getDate(), lifeBud=(+s.lifeDaily||0)*dim, ml=lifeBud-(c.monthLife||0);
     var me=$("monthLife"); me.textContent=yen(ml); me.classList.toggle("neg", ml<0);
     $("monthLifeSub").textContent = rem<=0 ? "今月は今日まで" : "1日あたり（残り"+rem+"日）";
+    var ms0=(function(){ var tt=todayIso(), f=dayNum(tt.slice(0,8)+"01"), sum=0; savingSeries().forEach(function(x){ if (x.d>=f) sum+=x.v; }); return Math.round(sum); })();
+    var mse=$("mSave"); mse.textContent=(ms0>0?"+":ms0<0?"−":"")+yen(Math.abs(ms0)); mse.classList.toggle("pos", ms0>0); mse.classList.toggle("neg", ms0<0);
     var pd=$("perDay"); pd.textContent = rem<=0 ? "—" : yen(Math.floor(ml/rem)); pd.classList.toggle("neg", ml<0);
     var lifeRest=rem*(+s.lifeDaily||0), A=Math.round(c.S+lifeRest+c.U), Rn=Math.round(c.R), Lk=Math.round(c.L);
     var nextR=Rn+Math.max(A,0), tot=Rn+A+Lk;
@@ -1461,7 +1464,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     store.saveSettings(s); state.settings=s; closeSheets(); render(); toast("保存しました",true);
   };
 
-  var APP_VERSION="1.3.3";
+  var APP_VERSION="1.3.4";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
