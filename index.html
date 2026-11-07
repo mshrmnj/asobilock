@@ -759,6 +759,29 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 .ctip b{font-family:var(--numf,"M PLUS Rounded 1c"),system-ui,sans-serif;font-size:15px}
 .chart{display:block!important}
 .dots span.extra{background:#F2B705;border:2px solid #F2B705;border-style:solid;opacity:1;box-shadow:0 0 8px rgba(242,183,5,.6)}
+
+/* record labels */
+.list .cat.lf{background:color-mix(in srgb,#22A65A 16%,transparent);color:#1E9E52}
+.list .cat.inc{background:transparent;color:#1E9E52;box-shadow:inset 0 0 0 1.5px #22A65A}
+.list .cat.g{background:color-mix(in srgb,var(--budget) 16%,transparent);color:var(--budget)}
+.list .cat.hb{background:color-mix(in srgb,#F2B705 20%,transparent);color:#B88600}
+.list .cat.mv{background:var(--line);color:var(--muted)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .list .cat.lf,:root:not([data-theme="light"]) .list .cat.inc{color:#3CCB7F} :root:not([data-theme="light"]) .list .cat.hb{color:#F7C948}}
+:root[data-skin="crypto"] .list .cat.lf,:root[data-skin="crypto"] .list .cat.inc,:root[data-skin="gold"] .list .cat.lf,:root[data-skin="gold"] .list .cat.inc,:root[data-skin="red7"] .list .cat.lf,:root[data-skin="red7"] .list .cat.inc{color:#3CCB7F}
+:root[data-skin="crypto"] .list .cat.hb,:root[data-skin="gold"] .list .cat.hb{color:#F7C948}
+:root[data-skin="pixel"] .list .cat.lf{background:#3F9E3A;color:#fff}
+:root[data-skin="pixel"] .list .cat.inc{background:transparent;color:#7CFF8A;box-shadow:inset 0 0 0 2px #7CFF8A}
+:root[data-skin="pixel"] .list .cat.hb{background:#F2B705;color:#1A1C2C}
+:root[data-skin="pixel"] .list .cat.mv{background:#5C70D6;color:#fff}
+/* calendar day list: no trailing line */
+.list li:last-child{border-bottom:0}
+/* settings: unified spacing */
+#sheetSettings .sgh{margin:22px 0 6px}
+#sheetSettings .sgd{margin:-2px 0 8px}
+#sheetSettings .sgrp{margin-bottom:0}
+#sheetSettings .skins{margin-bottom:0}
+#sheetSettings #skinHint{margin:8px 0 0}
+#sheetSettings .actions{margin-top:22px}
 /* skin picker */
 .skins{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:6px}
 .skins button{border:2px solid var(--line);background:transparent;border-radius:12px;padding:6px 2px 7px;font-size:10.5px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.3}
@@ -793,7 +816,6 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 
   <div class="card rows">
     <div class="r"><span>今月の生活費 残り</span><b class="num" id="monthLife">¥0</b></div>
-    <div class="r sub"><span id="monthLifeSub">1日あたり</span><b class="num" id="perDay">¥0</b></div>
     <div class="r"><span>今月の節約</span><b class="num" id="mSave">¥0</b></div>
     <div class="r"><span>予備費 <button class="mini" id="openRes">移す</button></span><b class="num" id="resV">¥0</b></div>
   </div>
@@ -1146,12 +1168,10 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     var ci=$("capInfo");
     if (c.days && L < s.unit){ ci.hidden=true; } else ci.hidden=true;
 
-    var now=new Date(), dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(), rem=dim-now.getDate(), lifeBud=(+s.lifeDaily||0)*dim, ml=lifeBud-(c.monthLife||0);
-    var me=$("monthLife"); me.textContent=yen(ml); me.classList.toggle("neg", ml<0);
-    $("monthLifeSub").textContent = rem<=0 ? "今月は今日まで" : "1日あたり（残り"+rem+"日）";
+    var now=new Date(), dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(), rem=dim-now.getDate(), ml=Math.round(c.S+rem*(+s.lifeDaily||0));
+    var me=$("monthLife"); me.textContent=(ml<0?"−":"")+yen(Math.abs(ml)); me.classList.toggle("neg", ml<0);
     var ms0=(function(){ var tt=todayIso(), f=dayNum(tt.slice(0,8)+"01"), sum=0; savingSeries().forEach(function(x){ if (x.d>=f) sum+=x.v; }); return Math.round(sum); })();
     var mse=$("mSave"); mse.textContent=(ms0>0?"+":ms0<0?"−":"")+yen(Math.abs(ms0)); mse.classList.toggle("pos", ms0>0); mse.classList.toggle("neg", ms0<0);
-    var pd=$("perDay"); pd.textContent = rem<=0 ? "—" : yen(Math.floor(ml/rem)); pd.classList.toggle("neg", ml<0);
     var lifeRest=rem*(+s.lifeDaily||0), A=Math.round(c.S+lifeRest+c.U), Rn=Math.round(c.R), Lk=Math.round(c.L);
     var nextR=Rn+Math.max(A,0), tot=Rn+A+Lk;
     var et=$("eomTotal"); et.textContent=signed(tot); et.classList.toggle("neg", tot<0); $("eomLk").textContent=yen(Lk);
@@ -1240,11 +1260,11 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       var amt=document.createElement("div"); amt.className="amt num";
       var dt=document.createElement("div"); var p=e.date.split("-"); dt.textContent=(+p[1])+"/"+(+p[2]);
       var m=document.createElement("div"); m.className="m";
-      if (e.kind==="transfer" && (e.dir==="resToFun"||e.dir==="resToFree")){ cat.classList.add("ex"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="予備費 → "+(e.dir==="resToFun"?"娯楽費":"フリー生活費")+(e.memo?"　"+e.memo:""); }
-      else if (e.kind==="transfer" && e.dir==="toFun"){ cat.classList.add("ex"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="フリー生活費 → 娯楽費"+(e.memo?"　"+e.memo:""); }
-      else if (e.kind==="transfer"){ cat.classList.add("ex"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="娯楽費 → フリー生活費"+(e.memo?"　"+e.memo:""); }
-      else if (e.kind==="exercise"){ cat.classList.add("ex"); cat.textContent="習慣"; amt.textContent=(e.count||1)+"回"; m.textContent=e.menu+(e.memo?"　"+e.memo:""); amt.classList.add("pos"); }
-      else { if(FUN[e.cat]) cat.classList.add("g"); cat.textContent=CAT[e.cat]||e.cat;
+      if (e.kind==="transfer" && (e.dir==="resToFun"||e.dir==="resToFree")){ cat.classList.add("mv"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="予備費 → "+(e.dir==="resToFun"?"娯楽費":"フリー生活費")+(e.memo?"　"+e.memo:""); }
+      else if (e.kind==="transfer" && e.dir==="toFun"){ cat.classList.add("mv"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="フリー生活費 → 娯楽費"+(e.memo?"　"+e.memo:""); }
+      else if (e.kind==="transfer"){ cat.classList.add("mv"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="娯楽費 → フリー生活費"+(e.memo?"　"+e.memo:""); }
+      else if (e.kind==="exercise"){ cat.classList.add("hb"); cat.textContent="習慣"; amt.textContent=(e.count||1)+"回"; m.textContent=e.menu+(e.memo?"　"+e.memo:""); amt.classList.add("pos"); }
+      else { cat.classList.add(FUN[e.cat]?"g":e.cat==="income"?"inc":"lf"); cat.textContent=CAT[e.cat]||e.cat;
         if (e.cat==="income"){ amt.textContent="+"+yen(e.amount); amt.classList.add("pos"); m.textContent=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(e.memo?"　"+e.memo:""); }
         else if (e.cat==="gamble"){ var gnv=gambleNet(e); amt.textContent=(gnv>0?"+":gnv<0?"−":"±")+yen(Math.abs(gnv)); if(gnv>0) amt.classList.add("pos"); else if(gnv<0) amt.classList.add("negc");
           m.textContent=(e.invest!=null?"投資"+yen(+e.invest||0)+"　回収"+yen(+e.ret||0):(gnv>0?"勝ち":"負け"))+(e.memo?"　"+e.memo:""); }
@@ -1464,7 +1484,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     store.saveSettings(s); state.settings=s; closeSheets(); render(); toast("保存しました",true);
   };
 
-  var APP_VERSION="1.3.4";
+  var APP_VERSION="1.3.5";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -1843,7 +1863,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
         if (e.cat==="gamble"){ var gv=gambleNet(e); amt=(gv>0?"+":gv<0?"−":"±")+yen(Math.abs(gv)); cls=gv>0?"pos":gv<0?"negc":""; memo=(e.invest!=null?"投資"+yen(+e.invest||0)+"　回収"+yen(+e.ret||0):(gv>0?"勝ち":"負け"))+(memo?"　"+memo:""); }
         else if (e.cat==="income"){ amt="+"+yen(e.amount); cls="pos"; memo=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(memo?"　"+memo:""); }
         else { amt="−"+yen(e.amount); cls="negc"; } }
-      html+='<li><span class="cat'+(e.kind!=="spend"?" ex":FUN[e.cat]?" g":"")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+esc(memo)+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
+      html+='<li><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+esc(memo)+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
     });
     html+='</ul></div>';
     html+='<div class="dayh">スタンプ帳</div><div class="stampbook">';
