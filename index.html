@@ -782,6 +782,13 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 #sheetSettings .skins{margin-bottom:0}
 #sheetSettings #skinHint{margin:8px 0 0}
 #sheetSettings .actions{margin-top:22px}
+.h2row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.h2row h2{margin-bottom:8px}
+.sharebtn{display:inline-flex;align-items:center;gap:5px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:700;margin-bottom:8px}
+.wsel{border:0;background:transparent;color:var(--ink);font:inherit;font-size:16px;font-weight:600;text-align:right;padding:6px 0;-webkit-appearance:none;appearance:none}
+.shbox{max-width:380px}
+.shprev{border-radius:14px;overflow:hidden;background:var(--line);max-height:62vh;display:flex;justify-content:center}
+.shprev img{display:block;width:100%;height:auto;max-height:62vh;object-fit:contain}
 /* skin picker */
 .skins{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:6px}
 .skins button{border:2px solid var(--line);background:transparent;border-radius:12px;padding:6px 2px 7px;font-size:10.5px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.3}
@@ -829,7 +836,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   </div>
 
   <section>
-    <h2>今週の習慣</h2>
+    <div class="h2row"><h2>今週の習慣</h2><button type="button" class="sharebtn" id="openShare" aria-label="この7日間の習慣を画像で共有">共有 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></button></div>
     <div class="stat" style="border:0;padding-top:0">
       <div><div class="dots" id="dots"></div></div>
       <div class="d"><span class="num v" id="weekCount">0</span> / <span id="weekGoal">3</span>回</div>
@@ -924,6 +931,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       <label class="srow"><span>月の回数</span><span class="sin"><input id="sMonthly" type="text" inputmode="numeric"><i>回/月</i></span></label>
       <div class="srow res"><span>1回でアンロック<small>自動計算</small></span><span class="sin"><b class="num" id="sUnitV">0</b><i>円/回</i></span></div>
       <label class="srow"><span>週の目標<small>今週の表示用</small></span><span class="sin"><input id="sWeekly" type="text" inputmode="numeric"><i>回/週</i></span></label>
+      <label class="srow"><span>週の始まり<small>カレンダーと今週の数え方</small></span><span class="sin"><select id="sWeekStart" class="wsel"><option value="mon">月曜</option><option value="sun">日曜</option></select></span></label>
     </div>
 
     <div class="sgh">テーマ</div>
@@ -958,6 +966,21 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 </div>
 
 <div class="modal" id="confirmModal" role="alertdialog" aria-modal="true" aria-labelledby="confirmMsg"><div class="box"><p id="confirmMsg"></p><div class="actions"><button class="ghost" id="confirmCancel">やめる</button><button class="primary" id="confirmOk">OK</button></div></div></div>
+
+<div class="modal" id="shareModal" role="dialog" aria-modal="true" aria-labelledby="shareTitle"><div class="box shbox">
+  <p id="shareTitle" style="font-weight:700;margin:0 0 10px">この7日間の習慣</p>
+  <div class="shprev"><img id="shareImg" alt="この7日間の習慣のカード"></div>
+  <p class="sgd" id="shareHint" style="margin:8px 0 0" hidden>画像を長押しすると保存できます</p>
+  <div class="actions" style="margin-top:12px"><button class="ghost" id="shareClose">閉じる</button><button class="primary" id="shareGo">共有する</button></div>
+</div></div>
+
+<div class="modal" id="applyModal" role="dialog" aria-modal="true" aria-labelledby="applyTitle"><div class="box">
+  <p id="applyTitle" style="font-weight:700">新しい設定を、いつから使いますか？</p>
+  <label class="f">適用する日<input id="applyDate" type="date"></label>
+  <p class="sgd" style="margin:8px 0 12px">この日より前は、前の設定のまま計算します。設定を間違えていた時は「最初から」を選んでください。</p>
+  <div class="actions"><button class="ghost" id="applyAll">最初から</button><button class="primary" id="applyOk">この日から</button></div>
+  <button class="lnk" id="applyCancel" style="display:block;margin:10px auto 0">やめる</button>
+</div></div>
 
 <div class="modal" id="repayModal" role="dialog" aria-modal="true" aria-labelledby="repayTitle"><div class="box"><p id="repayTitle">使える額から、フリー生活費に送ります</p><div class="seg two" id="resDest" hidden><button data-dest="free" aria-pressed="true">フリー生活費へ</button><button data-dest="fun" aria-pressed="false">娯楽費へ</button></div><label class="f amount">金額（円）<input id="repayAmt" type="number" inputmode="numeric" min="1"></label><p class="hint" id="repayHint"></p><div class="actions"><button class="ghost" id="repayCancel">やめる</button><button class="primary" id="repayOk">穴埋めする</button></div></div></div>
 
@@ -1079,27 +1102,34 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function yen(n){ var r=Math.round(n); return (r<0?"−¥":"¥")+Math.abs(r).toLocaleString("ja-JP"); }
   function signed(n){ var r=Math.round(n); return (r>0?"+":r<0?"−":"±")+"¥"+Math.abs(r).toLocaleString("ja-JP"); }
 
+  var MONEY_KEYS=["income","fixed","lifeDaily","gorakuMonthly","unit","monthlyTimes"];
+  function pickMoney(s){ var o={}; MONEY_KEYS.forEach(function(k){ o[k]=s[k]; }); return o; }
+  function cfgAt(d){ var s=state.settings, hs=s.hist; if (!hs||!hs.length) return pickMoney(s);
+    var cur=hs[0].v; for (var i=0;i<hs.length;i++){ if (hs[i].from<=d) cur=hs[i].v; else break; } return cur; }
+  function dIso(d){ return new Date(d*86400000).toISOString().slice(0,10); }
   function simulate(entries){
     var s=state.settings, t=todayIso(), start=dayNum(s.start), end=dayNum(t);
-    var fd=(+s.lifeDaily||0), cap=s.gorakuMonthly;
-    var weekStart=(function(){ var d=new Date(); var w=(d.getDay()+6)%7; d.setDate(d.getDate()-w); return iso(d); })();
+    var c0=cfgAt(dIso(start)), fd=(+c0.lifeDaily||0), cap=+c0.gorakuMonthly||0, budSum=0;
+    var weekStart=(function(){ var d=new Date(); var w=state.settings.weekStart==="sun"?d.getDay():(d.getDay()+6)%7; d.setDate(d.getDate()-w); return iso(d); })();
     var r={R:0,L:0,U:0,S:0,E:0,days:Math.max(0,end-start+1),fd:fd,cap:cap,food:0,foodToday:0,shopMonth:0,goraku:0,todayGoraku:0,exCount:0,weekEx:0,repaid:0,unlocked:0,monthTotal:0,monthUnlocked:0};
     var byDay={};
     entries.forEach(function(e){ if(!e.date) return; var k=dayNum(e.date); if(k<start||k>end) return; (byDay[k]=byDay[k]||[]).push(e); });
     for (var d=start; d<=end; d++){
+      var cd=cfgAt(dIso(d)); fd=+cd.lifeDaily||0;
       if (d===start || new Date(d*86400000).getUTCDate()===1){
         if (d!==start){ var A=r.S+r.U; if (A>0){ r.R+=A; r.S=0; } else r.S=A; r.U=0; }
+        var cm=cd; cap=+cm.gorakuMonthly||0;
         r.L+=cap; r.monthTotal=r.L; r.monthUnlocked=0; r.monthLife=0;
         var dd=new Date(d*86400000), dimm=new Date(Date.UTC(dd.getUTCFullYear(), dd.getUTCMonth()+1, 0)).getUTCDate();
-        r.R+=(+s.income||0)-(+s.fixed||0)-fd*dimm-cap;
+        r.R+=(+cm.income||0)-(+cm.fixed||0)-(+cm.lifeDaily||0)*dimm-cap;
       }
-      r.S+=fd;
+      r.S+=fd; budSum+=fd;
       (byDay[d]||[]).sort(function(x,y){ return (x.createdAt||0)-(y.createdAt||0); }).forEach(function(e){
         var isToday=e.date===t;
         if (e.kind==="exercise"){
           var c=+e.count||1; r.exCount+=c; if (e.date>=weekStart) r.weekEx+=c;
           for (var i=0;i<c;i++){
-            var amt=Math.max(0, Math.min(s.unit, r.L)); r.L-=amt; r.unlocked+=amt; r.monthUnlocked+=amt;
+            var amt=Math.max(0, Math.min(+cfgAt(e.date).unit||0, r.L)); r.L-=amt; r.unlocked+=amt; r.monthUnlocked+=amt;
             var rep=r.S<0 ? Math.min(amt,-r.S) : 0; r.S+=rep; r.repaid+=rep; r.U+=amt-rep;
           }
           return;
@@ -1118,7 +1148,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
         }
       });
     }
-    r.foodBudget=r.days*fd;
+    r.foodBudget=budSum; r.fd=fd; r.cap=cap;
     return r;
   }
   function compute(){ return simulate(state.entries); }
@@ -1139,7 +1169,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 
     var db=$("debtBox");
     if (c.days && S<0){
-      var R=Math.max(0,Math.round(c.R)), nL=Math.ceil(L/s.unit), nD=Math.ceil(-S/s.unit), rest=-S-L, severe = rest > R;
+      var uT=Math.max(1,+cfgAt(todayIso()).unit||1), R=Math.max(0,Math.round(c.R)), nL=Math.ceil(L/uT), nD=Math.ceil(-S/uT), rest=-S-L, severe = rest > R;
       db.hidden=false; db.classList.toggle("severe", severe);
       function drow(l,v){ return '<div class="drow"><span>'+l+'</span><b>'+v+'</b></div>'; }
       var rows="";
@@ -1156,23 +1186,23 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     var RV=Math.round(c.R), rv=$("resV"); rv.textContent=yen(RV); rv.classList.toggle("neg", RV<0); $("openRes").hidden = !(c.days && RV>0);
     $("lockAmt").textContent=yen(L); $("openedAmt").textContent=yen(c.monthUnlocked); $("monthTotalAmt").textContent=yen(c.monthTotal);
     var mu=c.monthUnlocked, mt=c.monthTotal;
-    var segN=Math.max(1,Math.min(31,Math.ceil(mt/s.unit))), segOn=Math.min(segN,Math.floor(mu/s.unit+1e-9)), xg=$("lockGauge"), segs="";
+    var uG=Math.max(1,+cfgAt(todayIso()).unit||1), segN=Math.max(1,Math.min(31,Math.ceil(mt/uG))), segOn=Math.min(segN,Math.floor(mu/uG+1e-9)), xg=$("lockGauge"), segs="";
     for (var si=0; si<segN; si++) segs+='<i class="'+(si<segOn?"on":si===segOn&&L>0?"next":"")+(si===segOn-1&&window.__popSeg?" pop":"")+'"></i>';
     xg.style.gridTemplateColumns="repeat("+segN+",1fr)"; xg.innerHTML=segs; window.__popSeg=false;
-    var nxt=Math.min(s.unit, Math.max(L,0)), nx=$("nextEx");
+    var nxt=Math.min(+cfgAt(todayIso()).unit||0, Math.max(L,0)), nx=$("nextEx");
     if (!c.days) nx.textContent="";
     else if (nxt<=0) nx.innerHTML="<span>来月1日</span><b>+"+yen(c.cap)+"</b>";
     else if (S<0) nx.innerHTML="<span>次の習慣</span><span>返済へ <b>"+yen(nxt)+"</b></span>";
     else nx.innerHTML="<span>次の習慣</span><b>+"+yen(nxt)+"</b>";
     $("lockGauge").setAttribute("aria-label","今月"+yen(c.monthTotal)+"のうち"+yen(c.monthUnlocked)+"アンロック");
     var ci=$("capInfo");
-    if (c.days && L < s.unit){ ci.hidden=true; } else ci.hidden=true;
+    if (c.days){ ci.hidden=true; } else ci.hidden=true;
 
-    var now=new Date(), dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(), rem=dim-now.getDate(), ml=Math.round(c.S+rem*(+s.lifeDaily||0));
+    var now=new Date(), dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(), rem=dim-now.getDate(), ldT=+cfgAt(todayIso()).lifeDaily||0, ml=Math.round(c.S+rem*ldT);
     var me=$("monthLife"); me.textContent=(ml<0?"−":"")+yen(Math.abs(ml)); me.classList.toggle("neg", ml<0);
     var ms0=(function(){ var tt=todayIso(), f=dayNum(tt.slice(0,8)+"01"), sum=0; savingSeries().forEach(function(x){ if (x.d>=f) sum+=x.v; }); return Math.round(sum); })();
     var mse=$("mSave"); mse.textContent=(ms0>0?"+":ms0<0?"−":"")+yen(Math.abs(ms0)); mse.classList.toggle("pos", ms0>0); mse.classList.toggle("neg", ms0<0);
-    var lifeRest=rem*(+s.lifeDaily||0), A=Math.round(c.S+lifeRest+c.U), Rn=Math.round(c.R), Lk=Math.round(c.L);
+    var lifeRest=rem*ldT, A=Math.round(c.S+lifeRest+c.U), Rn=Math.round(c.R), Lk=Math.round(c.L);
     var nextR=Rn+Math.max(A,0), tot=Rn+A+Lk;
     var et=$("eomTotal"); et.textContent=signed(tot); et.classList.toggle("neg", tot<0); $("eomLk").textContent=yen(Lk);
     function fv(v){ v=Math.round(v); return '<b class="num'+(v<0?' neg':'')+'">'+(v<0?"−"+yen(-v):yen(v))+'</b>'; }
@@ -1208,9 +1238,9 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     if ($("cal").classList.contains("open")) renderCal();
   }
   function savingSeries(){
-    var s=state.settings, start=dayNum(s.start), end=dayNum(todayIso()), per=(+s.lifeDaily||0), spent={};
+    var s=state.settings, start=dayNum(s.start), end=dayNum(todayIso()), spent={};
     state.entries.forEach(function(e){ if (e.kind!=="spend" || !LIFE[e.cat] || !e.date) return; var k=dayNum(e.date); spent[k]=(spent[k]||0)+(+e.amount||0); });
-    var out=[]; for (var d=start; d<=end; d++) out.push({d:d, v:per-(spent[d]||0)});
+    var out=[]; for (var d=start; d<=end; d++){ var bd=+cfgAt(dIso(d)).lifeDaily||0; out.push({d:d, v:bd-(spent[d]||0), b:bd}); }
     return out;
   }
   function lbl(d){ var dt=new Date(d*86400000); return (dt.getUTCMonth()+1)+"/"+dt.getUTCDate(); }
@@ -1218,7 +1248,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function niceStep(range){ var c=[100,200,250,500,1000,2000,2500,5000,10000,20000,50000]; for (var i=0;i<c.length;i++){ if (range/c[i]<=5) return c[i]; } return 100000; }
   function drawChart(ser){
     var box=$("saveChart"); chartSer=ser; if (!ser.length){ box.innerHTML=""; return; }
-    var per=Math.max(1,+state.settings.lifeDaily||0), negMax=Math.max(0,-Math.min.apply(null, ser.map(function(x){return x.v;})));
+    var per=Math.max(1,+cfgAt(todayIso()).lifeDaily||0, Math.max.apply(null, ser.map(function(x){return x.b||0;}))), negMax=Math.max(0,-Math.min.apply(null, ser.map(function(x){return x.v;})));
     var top=per, bot=negMax>0 ? Math.min(per*2, negMax) : per*0.25, range=top+bot, step=niceStep(range);
     var W=Math.max(260, box.clientWidth||340), H=170, padL=46, padR=6, padT=10, padB=8, plotH=H-padT-padB, plotW=W-padL-padR;
     function Y(v){ return padT+(top-v)/range*plotH; }
@@ -1353,7 +1383,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function guardExercise(date){
     if (!exercisedOn(date)) return Promise.resolve(true);
     var p=date.split("-"), label = date===todayIso() ? "今日" : (+p[1])+"/"+(+p[2]);
-    return askConfirm(label+"はもう習慣を記録しています。もう1回記録すると、さらに"+yen(state.settings.unit)+"アンロックされます。記録しますか？","記録する");
+    return askConfirm(label+"はもう習慣を記録しています。もう1回記録すると、さらに"+yen(+cfgAt(todayIso()).unit||0)+"アンロックされます。記録しますか？","記録する");
   }
   $("quickEx").onclick=function(){
     var t0=todayIso(), mine=state.entries.filter(function(x){ return x.kind==="exercise" && x.date===t0; });
@@ -1417,7 +1447,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   $("openSettings").onclick=function(){
     var s=state.settings;
     $("sStart").value=s.start; $("sIncome").value=s.income; $("sFixed").value=s.fixed; $("sLife").value=s.lifeDaily; $("sGoraku").value=s.gorakuMonthly;
-    $("sWeekly").value=s.weeklyGoal; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; updUnit(); $("sMenus").value=s.menus.join(", ");
+    $("sWeekly").value=s.weeklyGoal; $("sWeekStart").value=s.weekStart==="sun"?"sun":"mon"; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; updUnit(); $("sMenus").value=s.menus.join(", ");
     fmtMoney(); updReserve(); buildSkins(); $("sndTgl").setAttribute("aria-pressed", state.settings.sound?"true":"false"); $("appVer").textContent="v"+APP_VERSION; openSheet("sheetSettings");
   };
   var SKINS=[["kakeibo","テーマ1","#F5F7FB","#2F80ED"],["wallet","テーマ2","linear-gradient(135deg,#F59E0B,#B45309)","#16A34A"],["social","テーマ3","linear-gradient(180deg,#5B8CFF,#FFB3D9)","#FFB800"],["crypto","テーマ4","#07090F","#B6FF3B"],["pixel","テーマ5","#2038A8","#FFD45A"],["gold","テーマ6","linear-gradient(135deg,#2A2212,#0E0C08)","#E8C468","hidden"]];
@@ -1480,11 +1510,26 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     if (updReserve()<0) return;
     function num(id, d){ var v=parseInt(String($(id).value).replace(/[^0-9]/g,""),10); return isNaN(v)||v<0 ? d : v; }
     var menus=$("sMenus").value.split(/[,、，]/).map(function(x){return x.trim();}).filter(Boolean);
-    var s=Object.assign({}, state.settings, {start:$("sStart").value||DEFAULTS.start, income:num("sIncome",DEFAULTS.income), fixed:num("sFixed",DEFAULTS.fixed), lifeDaily:num("sLife",DEFAULTS.lifeDaily), gorakuMonthly:num("sGoraku",DEFAULTS.gorakuMonthly), unit:updUnit(), monthlyTimes:Math.max(1,num("sMonthly",15)), weeklyGoal:num("sWeekly",DEFAULTS.weeklyGoal), onboarded:true, menus:menus.length?menus:DEFAULTS.menus, skin:state.settings.skin||"kakeibo"});
-    store.saveSettings(s); state.settings=s; closeSheets(); render(); toast("保存しました",true);
+    var s=Object.assign({}, state.settings, {start:$("sStart").value||DEFAULTS.start, income:num("sIncome",DEFAULTS.income), fixed:num("sFixed",DEFAULTS.fixed), lifeDaily:num("sLife",DEFAULTS.lifeDaily), gorakuMonthly:num("sGoraku",DEFAULTS.gorakuMonthly), unit:updUnit(), monthlyTimes:Math.max(1,num("sMonthly",15)), weeklyGoal:num("sWeekly",DEFAULTS.weeklyGoal), weekStart:$("sWeekStart").value==="sun"?"sun":"mon", onboarded:true, menus:menus.length?menus:DEFAULTS.menus, skin:state.settings.skin||"kakeibo"});
+    var old=state.settings, nv=pickMoney(s), ov=pickMoney(old), changed=MONEY_KEYS.some(function(k){ return +nv[k]!==+ov[k]; });
+    function commit(hist){ if (hist) s.hist=hist; store.saveSettings(s); state.settings=s; $("applyModal").classList.remove("open"); closeSheets(); render(); toast("保存しました",true); }
+    if (s.start!==old.start){ commit([{from:s.start, v:nv}]); return; }
+    if (!changed){ commit(null); return; }
+    var t=todayIso(), mf=t.slice(0,8)+"01", def=mf<s.start?s.start:mf;
+    var ad=$("applyDate"); ad.min=s.start; ad.max=t; ad.value=def;
+    $("applyModal").classList.add("open");
+    $("applyAll").onclick=function(){ commit([{from:s.start, v:nv}]); };
+    $("applyOk").onclick=function(){
+      var from=ad.value||def; if (from<s.start) from=s.start; if (from>t) from=t;
+      if (from<=s.start){ commit([{from:s.start, v:nv}]); return; }
+      var hs=(old.hist&&old.hist.length)?old.hist.slice():[{from:old.start, v:ov}];
+      hs=hs.filter(function(x){ return x.from<from; }); if (!hs.length) hs=[{from:s.start, v:ov}];
+      hs.push({from:from, v:nv}); commit(hs);
+    };
+    $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.3.5";
+  var APP_VERSION="1.5.0";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -1751,6 +1796,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   var LIFE={food:1,shop:1,want_life:1};
   var calView="month", calDate=todayIso();
   function addDays(s,n){ var p=s.split("-"); var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n)); return d.getUTCFullYear()+"-"+pad(d.getUTCMonth()+1)+"-"+pad(d.getUTCDate()); }
+  function colIdx(s){ var p=s.split("-"), g=new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).getUTCDay(); return state.settings.weekStart==="sun"?g:(g+6)%7; }
   function wdIdx(s){ var p=s.split("-"); return (new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).getUTCDay()+6)%7; }
   function aggAll(){
     var m={};
@@ -1764,8 +1810,8 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function inRange(d){ return d>=state.settings.start && d<=todayIso(); }
   function k(n){ var a=Math.abs(Math.round(n)); return a>=10000 ? (Math.round(a/1000)/10)+"万" : a.toLocaleString("ja-JP"); }
   function sumRange(m, from, to){
-    var r={life:0,bud:0,income:0,fun:0,win:0,ex:0,days:0}, per=+state.settings.lifeDaily||0;
-    for (var d=from; d<=to; d=addDays(d,1)){ var a=m[d]; if (inRange(d)){ r.bud+=per; r.days++; } if(!a) continue; r.life+=a.life; r.income+=a.income; r.fun+=a.fun; r.win+=a.win; r.ex+=a.ex; }
+    var r={life:0,bud:0,income:0,fun:0,win:0,ex:0,days:0};
+    for (var d=from; d<=to; d=addDays(d,1)){ var a=m[d]; if (inRange(d)){ r.bud+=+cfgAt(d).lifeDaily||0; r.days++; } if(!a) continue; r.life+=a.life; r.income+=a.income; r.fun+=a.fun; r.win+=a.win; r.ex+=a.ex; }
     return r;
   }
   var calSel=todayIso(), calCat="all", calMode="month";
@@ -1816,7 +1862,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   }
   function jd(s){ var p=s.split("-"); return (+p[1])+"/"+(+p[2])+"（"+"月火水木金土日"[wdIdx(s)]+"）"; }
   function renderCal(){
-    var m=aggAll(), t=todayIso(), per=+state.settings.lifeDaily||0, html="", rs=rareSeq(state.entries);
+    var m=aggAll(), t=todayIso(), html="", rs=rareSeq(state.entries);
     var p=calDate.split("-");
     html+='<div class="cmode"><button data-mode="month" aria-pressed="'+(calMode==="month")+'">月</button><button data-mode="year" aria-pressed="'+(calMode==="year")+'">年</button></div>';
     html+='<div class="cchips">'+CFIL.map(function(x){ return '<button data-fc="'+x[0]+'"'+(x[2]?' data-g="'+x[2]+'"':'')+' aria-pressed="'+(calCat===x[0])+'" aria-label="'+x[1]+(x[2]==="life"?"（生活）":x[2]==="fun"?"（娯楽）":"")+'">'+x[1]+'</button>'; }).join("")+'</div>';
@@ -1839,12 +1885,12 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     var first=p[0]+"-"+p[1]+"-01", dim=new Date(+p[0],+p[1],0).getDate(), last=p[0]+"-"+p[1]+"-"+pad(dim);
     if (calSel<first || calSel>last) calSel = (t>=first && t<=last) ? t : first;
     html+= calCat==="all" ? miniSum(sumRange(m, first, last)) : fSumHtml(fSum(m, first, last));
-    html+='<div class="grid">'+"月火水木金土日".split("").map(function(w){return '<div class="wd">'+w+'</div>';}).join("");
-    for (var i=0;i<wdIdx(first);i++) html+='<div class="c out"></div>';
+    html+='<div class="grid">'+(state.settings.weekStart==="sun"?"日月火水木金土":"月火水木金土日").split("").map(function(w){return '<div class="wd">'+w+'</div>';}).join("");
+    for (var i=0;i<colIdx(first);i++) html+='<div class="c out"></div>';
     for (var d=first; d<=last; d=addDays(d,1)){
       var a=m[d], ir=inRange(d), lf="";
       if (calCat!=="all"){ var dvv=0; if (a) a.items.forEach(function(e){ if (fMatch(e)) dvv+=fVal(e); }); lf=fCell(dvv); ir=false; }
-      if (ir){ var df=per-(a?a.life:0); lf='<span class="lf '+(Math.round(df)>=0?"pos":"negc")+'">'+(Math.round(df)>=0?"+":"−")+k(df)+'</span>'; }
+      if (ir){ var df=(+cfgAt(d).lifeDaily||0)-(a?a.life:0); lf='<span class="lf '+(Math.round(df)>=0?"pos":"negc")+'">'+(Math.round(df)>=0?"+":"−")+k(df)+'</span>'; }
       var fn = calCat==="all" && a && (a.fun||a.win) ? '<span class="fn">娯'+(a.win-a.fun>=0?"+":"−")+k(a.win-a.fun)+'</span>' : "";
       html+='<button class="c'+(d===t?" today":"")+(d===calSel?" sel":"")+'" data-d="'+d+'" aria-pressed="'+(d===calSel)+'" aria-label="'+jd(d)+'"><span class="dn">'+(+d.slice(8))+'</span>'+lf+fn+(a&&a.ex?'<span class="ex"'+(rs.map[d]?' style="background:'+RMAP[rs.map[d]].solid+';box-shadow:0 0 0 2px '+RMAP[rs.map[d]].solid+'55"':'')+'></span>':'')+'</button>';
     }
@@ -1962,7 +2008,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   $("onbNext").onclick=function(){
     if ($("onbNext").disabled) return;
     if (obStep<OB.length-1){ obStep++; obRender(); return; }
-    var s=Object.assign({}, state.settings, {start:ob.start||todayIso(), income:ob.income, fixed:ob.fixed, lifeDaily:ob.life, gorakuMonthly:ob.goraku, unit:Math.ceil(ob.goraku/Math.max(1,ob.monthly)), monthlyTimes:ob.monthly, weeklyGoal:ob.weekly||0, menus:[(ob.menu||"習慣").trim()], onboarded:true});
+    var s=Object.assign({}, state.settings, {hist:null, start:ob.start||todayIso(), income:ob.income, fixed:ob.fixed, lifeDaily:ob.life, gorakuMonthly:ob.goraku, unit:Math.ceil(ob.goraku/Math.max(1,ob.monthly)), monthlyTimes:ob.monthly, weeklyGoal:ob.weekly||0, menus:[(ob.menu||"習慣").trim()], onboarded:true});
     store.saveSettings(s); state.settings=s; $("onb").classList.remove("open"); render(); toast("設定しました",true);
   };
   $("redoOnb").onclick=function(){ openOnb(false); };
@@ -1978,6 +2024,98 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     if (!isStandalone()){ $("helpOnb").hidden=true; $("addNote").hidden=false; return; }
     $("help").classList.remove("open"); openOnb(!state.settings.onboarded && !state.entries.length); };
   function maybeOnboard(hasSettings){ obShown=true; render(); }
+
+
+  /* ===================== weekly share card ===================== */
+  function weekKey(ds){ var p=ds.split("-"), d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2])), g=d.getUTCDay(), off=state.settings.weekStart==="sun"?g:(g+6)%7; d.setUTCDate(d.getUTCDate()-off); return d.toISOString().slice(0,10); }
+  function shareStats(){
+    var t=todayIso(), goal=Math.max(1,+state.settings.weeklyGoal||1), byD={}, total=0, month=0, mk=t.slice(0,7), wk={};
+    state.entries.forEach(function(e){ if (e.kind!=="exercise"||!e.date||e.date>t) return; var c=+e.count||1; byD[e.date]=(byD[e.date]||0)+c; total+=c; if (e.date.slice(0,7)===mk) month+=c; var k=weekKey(e.date); wk[k]=(wk[k]||0)+c; });
+    var days=[], cnt=0;
+    for (var i=6;i>=0;i--){ var d=addDays(t,-i), c=byD[d]||0, before=cnt; cnt+=c; days.push({d:d, c:c, extra:c>0 && before>=goal}); }
+    var streak=0, k=weekKey(t);
+    if ((wk[k]||0)>=goal) streak++;
+    var kk=addDays(k,-7); while ((wk[kk]||0)>=goal){ streak++; kk=addDays(kk,-7); }
+    return {days:days, count:cnt, goal:goal, rate:Math.round(cnt/goal*100), streak:streak, month:month, total:total, from:days[0].d, to:t};
+  }
+  var SHT={
+    kakeibo:{bg:["#F5F7FB","#EAF0FA"], ink:"#2B3440", mute:"#8A94A3", panel:"#FFFFFF", acc:"#2F80ED", on:"#2F80ED", onInk:"#FFFFFF", off:"#EEF1F6", offInk:"#C9D1DC", font:'"Noto Sans JP","Hiragino Sans",sans-serif', num:'"Inter","Noto Sans JP",sans-serif'},
+    wallet:{bg:["#221E19","#0F0E0C"], ink:"#FFF7EA", mute:"#BFAF97", panel:"rgba(255,255,255,0.06)", acc:"#F59E0B", on:"#F59E0B", onInk:"#2A1600", off:"rgba(255,255,255,0.08)", offInk:"#5F5446", font:'"Noto Sans JP",sans-serif', num:'"Inter","Noto Sans JP",sans-serif', card:true},
+    social:{bg:["#7B5CFF","#FF6BD5"], ink:"#2A1A6A", mute:"#8A7BC4", panel:"#FFFFFF", acc:"#7B5CFF", on:"#7B5CFF", onInk:"#FFFFFF", off:"#F1ECFF", offInk:"#C9BFF2", font:'"M PLUS Rounded 1c","Noto Sans JP",sans-serif', num:'"M PLUS Rounded 1c","Noto Sans JP",sans-serif', rays:true, stars:true, out:"#FFFFFF", outMute:"rgba(255,255,255,0.85)"},
+    crypto:{bg:["#0B0F16","#0B0F16"], ink:"#E7ECF3", mute:"#7C8BA6", panel:"rgba(255,255,255,0.03)", acc:"#B6FF3B", on:"#B6FF3B", onInk:"#0B0F16", off:"#161E2C", offInk:"#2A3446", font:'"Noto Sans JP",sans-serif', num:'"Share Tech Mono",monospace', grid:true, glow:true},
+    pixel:{bg:["#2038A8","#18288A"], ink:"#FFFFFF", mute:"#C9D3FF", panel:"#10155A", acc:"#FFD45A", on:"#FFD45A", onInk:"#1A1C2C", off:"#2B47C4", offInk:"#5C70D6", font:'"DotGothic16",monospace', num:'"DotGothic16",monospace', pixel:true},
+    gold:{bg:["#2A2212","#0E0C08"], ink:"#F5E9C8", mute:"#B5A27A", panel:"rgba(232,196,104,0.07)", acc:"#E8C468", on:"#E8C468", onInk:"#1A1206", off:"rgba(255,255,255,0.06)", offInk:"#5A4C30", font:'"Noto Sans JP",sans-serif', num:'"Inter","Noto Sans JP",sans-serif', gold:true}
+  };
+  function rr(g,x,y,w,hh,r){ g.beginPath(); g.moveTo(x+r,y); g.arcTo(x+w,y,x+w,y+hh,r); g.arcTo(x+w,y+hh,x,y+hh,r); g.arcTo(x,y+hh,x,y,r); g.arcTo(x,y,x+w,y,r); g.closePath(); }
+  function drawShare(st){
+    var skin=document.documentElement.getAttribute("data-skin")||"kakeibo", T=SHT[skin]||SHT.kakeibo;
+    var W=1080, H=1410, cv=document.createElement("canvas"); cv.width=W; cv.height=H; var g=cv.getContext("2d");
+    var R=T.pixel?6:36;
+    // background
+    var bg=g.createLinearGradient(0,0,W,H); bg.addColorStop(0,T.bg[0]); bg.addColorStop(1,T.bg[1]); g.fillStyle=bg; g.fillRect(0,0,W,H);
+    if (T.grid){ g.strokeStyle="rgba(182,255,59,0.07)"; g.lineWidth=2; for (var x=0;x<W;x+=60){ g.beginPath(); g.moveTo(x,0); g.lineTo(x,H); g.stroke(); } for (var y=0;y<H;y+=60){ g.beginPath(); g.moveTo(0,y); g.lineTo(W,y); g.stroke(); }
+      var rg=g.createRadialGradient(W*0.85,H*0.1,0,W*0.85,H*0.1,W*0.8); rg.addColorStop(0,"rgba(59,255,209,0.18)"); rg.addColorStop(1,"rgba(0,0,0,0)"); g.fillStyle=rg; g.fillRect(0,0,W,H); }
+    if (T.rays){ g.save(); g.translate(W/2,520); for (var a=0;a<36;a++){ g.rotate(Math.PI/18); g.fillStyle=a%2?"rgba(255,255,255,0.10)":"rgba(255,255,255,0.0)"; g.beginPath(); g.moveTo(0,0); g.lineTo(1400,-120); g.lineTo(1400,120); g.closePath(); g.fill(); } g.restore(); }
+    if (T.gold){ var gr=g.createRadialGradient(W/2,380,0,W/2,380,900); gr.addColorStop(0,"rgba(232,196,104,0.22)"); gr.addColorStop(1,"rgba(0,0,0,0)"); g.fillStyle=gr; g.fillRect(0,0,W,H); g.strokeStyle="rgba(232,196,104,0.55)"; g.lineWidth=3; rr(g,30,30,W-60,H-60,40); g.stroke(); }
+    // header
+    g.fillStyle="#2F80ED"; rr(g,72,72,72,72,T.pixel?4:18); g.fill(); g.fillStyle="#fff"; g.font="900 44px "+T.num; g.textAlign="center"; g.textBaseline="middle"; g.fillText("¥",108,110);
+    g.textAlign="left"; g.fillStyle=T.out||T.ink; g.font="700 38px "+T.font; g.fillText("アソビロック",164,110);
+    var f=st.from.split("-"), to=st.to.split("-"); g.textAlign="right"; g.fillStyle=T.outMute||T.mute; g.font="500 30px "+T.font; g.fillText((+f[1])+"/"+(+f[2])+" 〜 "+(+to[1])+"/"+(+to[2]),W-72,110);
+    // hero panel
+    var hy=200, hh=540;
+    if (T.card){ var cg=g.createLinearGradient(72,hy,W-72,hy+hh); cg.addColorStop(0,"#F59E0B"); cg.addColorStop(1,"#B45309"); g.fillStyle=cg; rr(g,72,hy,W-144,hh,40); g.fill(); g.fillStyle="rgba(255,255,255,0.18)"; g.beginPath(); g.moveTo(72+(W-144)*0.55,hy); g.lineTo(W-72,hy); g.lineTo(W-72,hy+hh*0.6); g.closePath(); g.fill();
+      var chip=g.createLinearGradient(0,0,90,70); chip.addColorStop(0,"#F7DD8C"); chip.addColorStop(1,"#C9993A"); g.fillStyle=chip; rr(g,120,hy+56,96,72,12); g.fill(); }
+    else { g.fillStyle=T.panel; rr(g,72,hy,W-144,hh,R); g.fill(); if (T.pixel){ g.strokeStyle="#FFFFFF"; g.lineWidth=8; rr(g,72,hy,W-144,hh,R); g.stroke(); } if (T.gold){ g.strokeStyle="rgba(232,196,104,0.6)"; g.lineWidth=3; rr(g,72,hy,W-144,hh,R); g.stroke(); } }
+    var cInk=T.card?"#FFFFFF":(skin==="social"?T.ink:T.ink), cMute=T.card?"rgba(255,255,255,0.8)":T.mute;
+    g.textAlign="center"; g.fillStyle=cMute; g.font="600 36px "+T.font; g.fillText("この7日間の習慣", W/2, hy+(T.card?100:90));
+    // big count
+    var big=String(st.count), sub=" / "+st.goal+"回";
+    g.font="900 230px "+T.num; var bw=g.measureText(big).width; g.font="700 64px "+T.font; var sw=g.measureText(sub).width; var bx=W/2-(bw+sw)/2, by=hy+300;
+    g.textAlign="left"; g.textBaseline="alphabetic"; g.font="900 230px "+T.num;
+    if (T.glow){ g.shadowColor="rgba(182,255,59,0.6)"; g.shadowBlur=40; }
+    if (T.gold){ var gg=g.createLinearGradient(0,by-200,0,by); gg.addColorStop(0,"#FFF3C4"); gg.addColorStop(0.55,"#E8C468"); gg.addColorStop(1,"#B88A2A"); g.fillStyle=gg; } else g.fillStyle=T.card?"#FFFFFF":T.acc;
+    g.fillText(big,bx,by+40); g.shadowBlur=0; g.shadowColor="transparent";
+    g.fillStyle=cMute; g.font="700 64px "+T.font; g.fillText(sub,bx+bw,by+40);
+    if (T.stars){ g.fillStyle="#FFD23F"; g.font="900 60px "+T.font; g.textAlign="center"; g.fillText("★", W/2-330, hy+260); g.fillText("★", W/2+330, hy+300); g.font="900 40px "+T.font; g.fillText("★", W/2-280, hy+380); g.fillText("★", W/2+290, hy+190); }
+    g.textAlign="center"; g.textBaseline="middle";
+    var ok=st.count>=st.goal, badge=(ok?"目標達成！　":"")+"達成率 "+st.rate+"%";
+    g.font="800 38px "+T.font; var bdw=g.measureText(badge).width+64;
+    g.fillStyle=T.card?"rgba(0,0,0,0.25)":(ok?T.acc:T.off); rr(g,W/2-bdw/2,hy+400,bdw,72,T.pixel?4:36); g.fill();
+    g.fillStyle=T.card?"#FFFFFF":(ok?T.onInk:T.mute); g.fillText(badge,W/2,hy+437);
+    // 7 days strip
+    var sy=hy+hh+60, gap=18, tw=(W-144-gap*6)/7, wd="日月火水木金土";
+    st.days.forEach(function(x,i){ var p=x.d.split("-"), dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2])), tx=72+i*(tw+gap);
+      g.fillStyle=T.outMute||T.mute; g.font="600 28px "+T.font; g.fillText((+p[2])+"（"+wd[dt.getUTCDay()]+"）", tx+tw/2, sy);
+      var col=x.c>0?(x.extra?(T.gold?"#FFF3C4":"#F2B705"):T.on):T.off;
+      g.fillStyle=col; rr(g,tx,sy+30,tw,tw,T.pixel?4:22); g.fill();
+      if (x.c>0 && x.extra){ g.save(); g.shadowColor="rgba(242,183,5,0.8)"; g.shadowBlur=24; rr(g,tx,sy+30,tw,tw,T.pixel?4:22); g.fill(); g.restore(); }
+      g.fillStyle=x.c>0?(x.extra?"#3A2A00":T.onInk):T.offInk; g.font="900 "+Math.round(tw*0.45)+"px "+T.font; g.fillText(x.c>0?"✓":"·", tx+tw/2, sy+30+tw/2+4); });
+    // stats
+    var ty=sy+30+tw+60, bw3=(W-144-36)/3, items=[["連続達成",st.streak+"週"],["今月",st.month+"回"],["はじめてから",st.total+"回"]];
+    items.forEach(function(it,i){ var x=72+i*(bw3+18); g.fillStyle=T.card?"rgba(255,255,255,0.06)":T.panel; rr(g,x,ty,bw3,190,T.pixel?4:28); g.fill();
+      if (T.pixel){ g.strokeStyle="#FFFFFF"; g.lineWidth=6; rr(g,x,ty,bw3,190,4); g.stroke(); }
+      if (T.gold){ g.strokeStyle="rgba(232,196,104,0.5)"; g.lineWidth=3; rr(g,x,ty,bw3,190,28); g.stroke(); }
+      g.fillStyle=T.mute; g.font="600 30px "+T.font; g.fillText(it[0], x+bw3/2, ty+56);
+      g.fillStyle=T.card?"#FFF7EA":(T.gold?"#FFE9A8":T.ink); g.font="900 64px "+T.num; g.fillText(it[1], x+bw3/2, ty+128); });
+    // footer
+    g.fillStyle=T.outMute||T.mute; g.font="500 30px "+T.font; g.fillText("習慣で遊ぶお金をアンロックする家計簿", W/2, H-120);
+    g.fillStyle=T.out||T.ink; g.font="700 36px "+T.num; g.fillText("mshrmnj.github.io/asobilock", W/2, H-72);
+    return cv;
+  }
+  var shareBlob=null;
+  $("openShare").onclick=function(){
+    var st=shareStats();
+    var fl=["Noto Sans JP","Inter","M PLUS Rounded 1c","DotGothic16","Share Tech Mono"].map(function(f){ return document.fonts&&document.fonts.load ? document.fonts.load('700 40px "'+f+'"').catch(function(){}) : null; });
+    Promise.all(fl).then(function(){
+      var cv=drawShare(st);
+      cv.toBlob(function(b){ shareBlob=b; $("shareImg").src=URL.createObjectURL(b);
+        var can=false; try{ can=!!(navigator.canShare && navigator.canShare({files:[new File([b],"asobilock.png",{type:"image/png"})]})); }catch(e){}
+        $("shareGo").hidden=!can; $("shareHint").hidden=can; $("shareModal").classList.add("open"); },"image/png");
+    });
+  };
+  $("shareClose").onclick=function(){ $("shareModal").classList.remove("open"); };
+  $("shareGo").onclick=function(){ if (!shareBlob) return; var file=new File([shareBlob],"asobilock.png",{type:"image/png"});
+    navigator.share({files:[file], title:"この7日間の習慣"}).catch(function(){}); };
 
   /* ---------- update check ---------- */
   var newVer=null;
