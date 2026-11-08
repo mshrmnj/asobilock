@@ -968,7 +968,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 <div class="modal" id="confirmModal" role="alertdialog" aria-modal="true" aria-labelledby="confirmMsg"><div class="box"><p id="confirmMsg"></p><div class="actions"><button class="ghost" id="confirmCancel">やめる</button><button class="primary" id="confirmOk">OK</button></div></div></div>
 
 <div class="modal" id="shareModal" role="dialog" aria-modal="true" aria-labelledby="shareTitle"><div class="box shbox">
-  <p id="shareTitle" style="font-weight:700;margin:0 0 10px">この7日間の習慣</p>
+  <p id="shareTitle" style="font-weight:700;margin:0 0 10px">この7日間の習慣を共有</p>
   <div class="shprev"><img id="shareImg" alt="この7日間の習慣のカード"></div>
   <p class="sgd" id="shareHint" style="margin:8px 0 0" hidden>画像を長押しすると保存できます</p>
   <div class="actions" style="margin-top:12px"><button class="ghost" id="shareClose">閉じる</button><button class="primary" id="shareGo">共有する</button></div>
@@ -1529,7 +1529,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.5.0";
+  var APP_VERSION="1.5.1";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -2067,10 +2067,13 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       var chip=g.createLinearGradient(0,0,90,70); chip.addColorStop(0,"#F7DD8C"); chip.addColorStop(1,"#C9993A"); g.fillStyle=chip; rr(g,120,hy+56,96,72,12); g.fill(); }
     else { g.fillStyle=T.panel; rr(g,72,hy,W-144,hh,R); g.fill(); if (T.pixel){ g.strokeStyle="#FFFFFF"; g.lineWidth=8; rr(g,72,hy,W-144,hh,R); g.stroke(); } if (T.gold){ g.strokeStyle="rgba(232,196,104,0.6)"; g.lineWidth=3; rr(g,72,hy,W-144,hh,R); g.stroke(); } }
     var cInk=T.card?"#FFFFFF":(skin==="social"?T.ink:T.ink), cMute=T.card?"rgba(255,255,255,0.8)":T.mute;
-    g.textAlign="center"; g.fillStyle=cMute; g.font="600 36px "+T.font; g.fillText("この7日間の習慣", W/2, hy+(T.card?100:90));
+    g.textAlign="center"; g.fillStyle=cMute; g.font="600 32px "+T.font; g.fillText("この7日間の習慣", W/2, hy+(T.card?78:68));
+    var hn=(state.settings.menus&&state.settings.menus[0])||"習慣"; g.font="800 46px "+T.font; g.fillStyle=cInk;
+    if (g.measureText(hn).width>W-320){ while (hn.length>1 && g.measureText(hn+"…").width>W-320) hn=hn.slice(0,-1); hn+="…"; }
+    g.fillText(hn, W/2, hy+(T.card?132:122));
     // big count
     var big=String(st.count), sub=" / "+st.goal+"回";
-    g.font="900 230px "+T.num; var bw=g.measureText(big).width; g.font="700 64px "+T.font; var sw=g.measureText(sub).width; var bx=W/2-(bw+sw)/2, by=hy+300;
+    g.font="900 230px "+T.num; var bw=g.measureText(big).width; g.font="700 64px "+T.font; var sw=g.measureText(sub).width; var bx=W/2-(bw+sw)/2, by=hy+318;
     g.textAlign="left"; g.textBaseline="alphabetic"; g.font="900 230px "+T.num;
     if (T.glow){ g.shadowColor="rgba(182,255,59,0.6)"; g.shadowBlur=40; }
     if (T.gold){ var gg=g.createLinearGradient(0,by-200,0,by); gg.addColorStop(0,"#FFF3C4"); gg.addColorStop(0.55,"#E8C468"); gg.addColorStop(1,"#B88A2A"); g.fillStyle=gg; } else g.fillStyle=T.card?"#FFFFFF":T.acc;
@@ -2115,7 +2118,9 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   };
   $("shareClose").onclick=function(){ $("shareModal").classList.remove("open"); };
   $("shareGo").onclick=function(){ if (!shareBlob) return; var file=new File([shareBlob],"asobilock.png",{type:"image/png"});
-    navigator.share({files:[file], title:"この7日間の習慣"}).catch(function(){}); };
+    var st=shareStats(), hn=(state.settings.menus&&state.settings.menus[0])||"習慣";
+    var msg="この7日間で「"+hn+"」"+st.count+"回（目標"+st.goal+"回）"+(st.count>=st.goal?"達成！":"")+(st.count>=st.goal&&st.streak>=2?"🔥 "+st.streak+"週連続":"")+"\n習慣で遊ぶお金をアンロックする家計簿「アソビロック」\nhttps://mshrmnj.github.io/asobilock/";
+    navigator.share({files:[file], text:msg}).catch(function(){}); };
 
   /* ---------- update check ---------- */
   var newVer=null;
