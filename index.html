@@ -789,6 +789,29 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 .shbox{max-width:380px}
 .shprev{border-radius:14px;overflow:hidden;background:var(--line);max-height:62vh;display:flex;justify-content:center}
 .shprev img{display:block;width:100%;height:auto;max-height:62vh;object-fit:contain}
+
+/* ===== modes ===== */
+html[data-mode="full"] [data-m]:not([data-m~="full"]),html:not([data-mode]) [data-m]:not([data-m~="full"]){display:none!important}
+html[data-mode="habit"] [data-m]:not([data-m~="habit"]){display:none!important}
+html[data-mode="gamble"] [data-m]:not([data-m~="gamble"]){display:none!important}
+html[data-mode="habit"] .wal{grid-template-columns:1fr}
+.gamcard{padding:16px}
+.gamcard .gh{font-size:13px;color:var(--muted);font-weight:700}
+.gamcard .gbig{font-size:40px;font-weight:800;margin:4px 0 10px;line-height:1.15}
+.gamcard .gg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.gamcard .gg div{background:var(--bg);border-radius:10px;padding:8px}
+.gamcard .gg span{display:block;font-size:10.5px;color:var(--muted)}
+.gamcard .gg b{display:block;font-size:15px;text-align:right}
+.modepick{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.modepick button{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:10px 4px;font-size:13px;font-weight:700}
+.modepick button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+#modeModal .box,#applyModal .box,#shareModal .box{max-height:88vh;overflow:auto;overscroll-behavior:contain}
+#modeFields label.f{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
+.obmodes{display:grid;gap:10px;margin-top:14px}
+.obmodes button{display:block;text-align:left;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:16px;padding:14px 16px}
+.obmodes button b{display:block;font-size:16px;margin-bottom:3px}
+.obmodes button span{font-size:12.5px;color:var(--muted);line-height:1.6}
+.obmodes button[aria-pressed="true"]{border-color:var(--act-solid,var(--unlock));box-shadow:0 0 0 2px var(--act-solid,var(--unlock)) inset}
 /* skin picker */
 .skins{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:6px}
 .skins button{border:2px solid var(--line);background:transparent;border-radius:12px;padding:6px 2px 7px;font-size:10.5px;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.3}
@@ -808,8 +831,14 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 
   <div class="alerts" id="alerts"></div>
 
-  <div class="wal">
-    <div class="wc"><div class="label">フリー生活費</div><div class="big num" id="saveTotal">¥0</div><div class="why" id="saveSub"></div></div>
+  <div class="card gamcard" id="gamCard" data-m="gamble">
+    <div class="gh">今月のギャンブル収支</div>
+    <div class="num gbig" id="gNetM">¥0</div>
+    <div class="gg"><div><span>投資</span><b class="num" id="gInvM">¥0</b></div><div><span>回収</span><b class="num" id="gRetM">¥0</b></div><div><span>回収率</span><b class="num" id="gRateM">—</b></div><div><span>勝ち日</span><b class="num" id="gWinM">—</b></div></div>
+  </div>
+
+  <div class="wal" data-m="full habit">
+    <div class="wc" data-m="full"><div class="label">フリー生活費</div><div class="big num" id="saveTotal">¥0</div><div class="why" id="saveSub"></div></div>
     <div class="wc"><div class="label">娯楽費</div><div class="big num" id="usable">¥0</div><div class="why" id="why"></div>
       <div class="xp" role="img" id="lockGauge"></div><span id="lockFill" hidden></span>
       <div class="kv"><span>ロック中<i class="tg">通算</i></span><b class="num" id="lockAmt">¥0</b></div>
@@ -817,25 +846,25 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       <div class="nx" id="nextEx"></div><span id="usedAmt" hidden></span>
       <div class="info" id="capInfo" hidden></div><span id="monthTotalAmt" hidden></span></div>
   </div>
-  <div class="sendrow"><button class="sendbtn" id="openSend" hidden>娯楽費へ →</button><button class="sendbtn" id="openBack" hidden>← フリー生活費へ</button></div>
+  <div class="sendrow" data-m="full"><button class="sendbtn" id="openSend" hidden>娯楽費へ →</button><button class="sendbtn" id="openBack" hidden>← フリー生活費へ</button></div>
 
-  <div class="debt" id="debtBox" hidden><div class="dh" id="debtHead"></div><div id="debtRows"></div><button id="openRepay">娯楽費から穴埋め</button></div>
+  <div class="debt" id="debtBox" data-m="full" hidden><div class="dh" id="debtHead"></div><div id="debtRows"></div><button id="openRepay">娯楽費から穴埋め</button></div>
 
-  <div class="card rows">
+  <div class="card rows" data-m="full">
     <div class="r"><span>今月の生活費 残り</span><b class="num" id="monthLife">¥0</b></div>
     <div class="r"><span>今月の節約</span><b class="num" id="mSave">¥0</b></div>
     <div class="r"><span>予備費 <button class="mini" id="openRes">移す</button></span><b class="num" id="resV">¥0</b></div>
   </div>
 
 
-  <button class="bigbtn" id="quickEx">今日の習慣を記録</button>
+  <button class="bigbtn" id="quickEx" data-m="full habit">今日の習慣を記録</button>
   <button class="subbtn" id="openSpend">支出・収入を記録</button>
-  <div class="card rows" id="eomCard" style="margin-top:12px">
+  <div class="card rows" id="eomCard" data-m="full" style="margin-top:12px">
     <div class="r"><span>月末に残るお金</span><span class="tw"><b class="num" id="eomTotal">¥0</b><small>うちロック中 <span class="num" id="eomLk">¥0</span></small></span></div>
     <div id="eomRows"></div>
   </div>
 
-  <section>
+  <section data-m="full habit">
     <div class="h2row"><h2>今週の習慣</h2><button type="button" class="sharebtn" id="openShare" aria-label="この7日間の習慣を画像で共有">共有 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></button></div>
     <div class="stat" style="border:0;padding-top:0">
       <div><div class="dots" id="dots"></div></div>
@@ -843,15 +872,15 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     </div>
   </section>
 
-  <section>
+  <section data-m="full">
     <h2>日ごとの節約</h2>
     <div class="chart" id="saveChart" style="margin-top:0"></div>
   </section>
 
-  <section>
+  <section data-m="full habit">
     <h2>累計</h2>
-    <div class="stat"><div>生活費<div class="d" style="text-align:left" id="lifeBudgetTxt"></div></div><div><div class="num v" id="lifeSpent">¥0</div><div class="d" id="lifeDiff"></div></div></div>
-    <div class="stat"><div>アンロック累計</div><div><div class="num v" id="lockedV" hidden></div><div class="num v" id="lockedSub">¥0</div></div></div>
+    <div class="stat" data-m="full"><div>生活費<div class="d" style="text-align:left" id="lifeBudgetTxt"></div></div><div><div class="num v" id="lifeSpent">¥0</div><div class="d" id="lifeDiff"></div></div></div>
+    <div class="stat" data-m="full habit"><div>アンロック累計</div><div><div class="num v" id="lockedV" hidden></div><div class="num v" id="lockedSub">¥0</div></div></div>
     <div class="stat"><div>娯楽の収支</div><div><div class="num v" id="gorakuNet">¥0</div></div></div>
   </section>
 
@@ -913,20 +942,26 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   <div class="inner">
     <h3 id="setTitle">設定</h3>
 
-    <div class="sgh">お金</div>
-    <p class="sgd">手取りから固定費・生活費・娯楽を引いた残りが、毎月の予備費になります</p>
-    <div class="sgrp">
-      <label class="srow"><span>手取り</span><span class="sin"><input id="sIncome" class="money" type="text" inputmode="numeric"><i>円/月</i></span></label>
-      <label class="srow"><span>固定費</span><span class="sin"><input id="sFixed" class="money" type="text" inputmode="numeric"><i>円/月</i></span></label>
-      <label class="srow"><span>生活費<small>食費込み</small></span><span class="sin"><input id="sLife" class="money" type="text" inputmode="numeric"><i>円/日</i></span></label>
+    <div class="sgh">モード</div>
+    <div class="modepick" id="modePick">
+      <button type="button" data-mode="full">家計簿</button><button type="button" data-mode="habit">習慣アンロック</button><button type="button" data-mode="gamble">ギャンブル収支</button>
+    </div>
+    <p class="sgd" id="modeDesc"></p>
+
+    <div class="sgh" data-m="full habit">お金</div>
+    <p class="sgd" data-m="full">手取りから固定費・生活費・娯楽を引いた残りが、毎月の予備費になります</p>
+    <div class="sgrp" data-m="full habit">
+      <label class="srow" data-m="full"><span>手取り</span><span class="sin"><input id="sIncome" class="money" type="text" inputmode="numeric"><i>円/月</i></span></label>
+      <label class="srow" data-m="full"><span>固定費</span><span class="sin"><input id="sFixed" class="money" type="text" inputmode="numeric"><i>円/月</i></span></label>
+      <label class="srow" data-m="full"><span>生活費<small>食費込み</small></span><span class="sin"><input id="sLife" class="money" type="text" inputmode="numeric"><i>円/日</i></span></label>
       <label class="srow"><span>娯楽</span><span class="sin"><input id="sGoraku" class="money" type="text" inputmode="numeric"><i>円/月</i></span></label>
-      <div class="srow res" id="reserveBox"><span><span id="reserveLbl">予備費</span><small>自動計算</small></span><span class="sin"><b class="num" id="reserveV">0</b><i>円/月</i></span></div>
-      <div class="rnote" id="reserveHint"></div>
+      <div class="srow res" id="reserveBox" data-m="full"><span><span id="reserveLbl">予備費</span><small>自動計算</small></span><span class="sin"><b class="num" id="reserveV">0</b><i>円/月</i></span></div>
+      <div class="rnote" id="reserveHint" data-m="full"></div>
     </div>
 
-    <div class="sgh">習慣</div>
-    <p class="sgd">1回できるごとに、娯楽費 ÷ 月の回数 の額がアンロックされます</p>
-    <div class="sgrp">
+    <div class="sgh" data-m="full habit">習慣</div>
+    <p class="sgd" data-m="full habit">1回できるごとに、娯楽費 ÷ 月の回数 の額がアンロックされます</p>
+    <div class="sgrp" data-m="full habit">
       <label class="srow"><span>習慣の名前</span><span class="sin"><input id="sMenus" type="text" class="txt"></span></label>
       <label class="srow"><span>月の回数</span><span class="sin"><input id="sMonthly" type="text" inputmode="numeric"><i>回/月</i></span></label>
       <div class="srow res"><span>1回でアンロック<small>自動計算</small></span><span class="sin"><b class="num" id="sUnitV">0</b><i>円/回</i></span></div>
@@ -938,8 +973,8 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     <div class="skins" id="skinPick"></div>
     <p class="sgd" id="skinHint"></p>
 
-    <div class="sgh">演出</div>
-    <div class="sgrp">
+    <div class="sgh" data-m="full habit">演出</div>
+    <div class="sgrp" data-m="full habit">
       <div class="srow"><span>効果音<small>レアの時に音が鳴ります</small></span><button type="button" class="tgl" id="sndTgl" aria-pressed="false" aria-label="効果音"></button></div>
     </div>
 
@@ -947,7 +982,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     <p class="sgd">記録はこの端末の中に保存されます。機種変更やブラウザのデータ削除の前に書き出しておくと、あとで読み込んで戻せます</p>
     <div class="sgrp">
       <button type="button" class="srow dbtn" id="exportData"><span>バックアップを書き出す</span><span class="sin">↓</span></button>
-      <button type="button" class="srow dbtn" id="resetRare"><span>スタンプ帳をリセットする</span><span class="sin">↺</span></button>
+      <button type="button" class="srow dbtn" id="resetRare" data-m="full habit"><span>スタンプ帳をリセットする</span><span class="sin">↺</span></button>
       <label class="srow dbtn"><span>バックアップを読み込む</span><span class="sin">↑</span><input type="file" id="importData" accept="application/json,.json" hidden></label>
     </div>
 
@@ -966,6 +1001,13 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 </div>
 
 <div class="modal" id="confirmModal" role="alertdialog" aria-modal="true" aria-labelledby="confirmMsg"><div class="box"><p id="confirmMsg"></p><div class="actions"><button class="ghost" id="confirmCancel">やめる</button><button class="primary" id="confirmOk">OK</button></div></div></div>
+
+<div class="modal" id="modeModal" role="dialog" aria-modal="true" aria-labelledby="modeTitle"><div class="box">
+  <p id="modeTitle" style="font-weight:700;margin:0 0 6px"></p>
+  <p class="sgd" id="modeNote" style="margin:0 0 10px"></p>
+  <div id="modeFields"></div>
+  <div class="actions" style="margin-top:12px"><button class="ghost" id="modeCancel">やめる</button><button class="primary" id="modeOk">切り替える</button></div>
+</div></div>
 
 <div class="modal" id="shareModal" role="dialog" aria-modal="true" aria-labelledby="shareTitle"><div class="box shbox">
   <p id="shareTitle" style="font-weight:700;margin:0 0 10px">この7日間の習慣を共有</p>
@@ -1102,8 +1144,10 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function yen(n){ var r=Math.round(n); return (r<0?"−¥":"¥")+Math.abs(r).toLocaleString("ja-JP"); }
   function signed(n){ var r=Math.round(n); return (r>0?"+":r<0?"−":"±")+"¥"+Math.abs(r).toLocaleString("ja-JP"); }
 
-  var MONEY_KEYS=["income","fixed","lifeDaily","gorakuMonthly","unit","monthlyTimes"];
-  function pickMoney(s){ var o={}; MONEY_KEYS.forEach(function(k){ o[k]=s[k]; }); return o; }
+  var MONEY_KEYS=["income","fixed","lifeDaily","gorakuMonthly","unit","monthlyTimes","mode"];
+  function pickMoney(s){ var o={}; MONEY_KEYS.forEach(function(k){ o[k]=s[k]; }); o.mode=s.mode||"full"; return o; }
+  function curMode(){ return state.settings.mode||"full"; }
+  function modeAt(d){ return cfgAt(d).mode||"full"; }
   function cfgAt(d){ var s=state.settings, hs=s.hist; if (!hs||!hs.length) return pickMoney(s);
     var cur=hs[0].v; for (var i=0;i<hs.length;i++){ if (hs[i].from<=d) cur=hs[i].v; else break; } return cur; }
   function dIso(d){ return new Date(d*86400000).toISOString().slice(0,10); }
@@ -1115,17 +1159,19 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     var byDay={};
     entries.forEach(function(e){ if(!e.date) return; var k=dayNum(e.date); if(k<start||k>end) return; (byDay[k]=byDay[k]||[]).push(e); });
     for (var d=start; d<=end; d++){
-      var cd=cfgAt(dIso(d)); fd=+cd.lifeDaily||0;
+      var cd=cfgAt(dIso(d)), md=cd.mode||"full"; fd=md==="full"?(+cd.lifeDaily||0):0;
       if (d===start || new Date(d*86400000).getUTCDate()===1){
-        if (d!==start){ var A=r.S+r.U; if (A>0){ r.R+=A; r.S=0; } else r.S=A; r.U=0; }
-        var cm=cd; cap=+cm.gorakuMonthly||0;
+        if (d!==start){ var A=r.S+r.U; if (md==="full"){ if (A>0){ r.R+=A; r.S=0; } else r.S=A; r.U=0; } else { if (A>0){ r.U=A; r.S=0; } else { r.S=A; r.U=0; } } }
+        var cm=cd; cap=md==="gamble"?0:(+cm.gorakuMonthly||0);
         r.L+=cap; r.monthTotal=r.L; r.monthUnlocked=0; r.monthLife=0;
         var dd=new Date(d*86400000), dimm=new Date(Date.UTC(dd.getUTCFullYear(), dd.getUTCMonth()+1, 0)).getUTCDate();
-        r.R+=(+cm.income||0)-(+cm.fixed||0)-(+cm.lifeDaily||0)*dimm-cap;
+        if (md==="full") r.R+=(+cm.income||0)-(+cm.fixed||0)-(+cm.lifeDaily||0)*dimm-cap;
       }
       r.S+=fd; budSum+=fd;
       (byDay[d]||[]).sort(function(x,y){ return (x.createdAt||0)-(y.createdAt||0); }).forEach(function(e){
-        var isToday=e.date===t;
+        var isToday=e.date===t, me=modeAt(e.date);
+        if (me==="gamble") return;
+        if (me==="habit" && e.kind==="spend" && (LIFE[e.cat]||e.cat==="income")) return;
         if (e.kind==="exercise"){
           var c=+e.count||1; r.exCount+=c; if (e.date>=weekStart) r.weekEx+=c;
           for (var i=0;i<c;i++){
@@ -1161,9 +1207,17 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     if (needGuide) $("coach").innerHTML = isStandalone() ? "<b>はじめに</b>ここから使い方を見て<br>初期設定をしてね" : "<b>はじめに</b>ここから使い方を見て<br>ホーム画面に追加してね";
     var d = new Date();
     $("today").textContent = (d.getMonth()+1)+"月"+d.getDate()+"日（"+"日月火水木金土"[d.getDay()]+"）";
-    var U=Math.round(c.U), S=Math.round(c.S), L=Math.round(c.L);
+    var U=Math.round(c.U), S=Math.round(c.S), L=Math.round(c.L), MODE=curMode();
+    document.documentElement.setAttribute("data-mode", MODE);
     $("usable").textContent = yen(U);
     $("why").textContent = c.days===0 ? "開始日から" : "";
+    if (MODE==="habit"){ var hv=U+Math.min(S,0); $("usable").textContent=(hv<0?"−":"")+yen(Math.abs(hv)); $("usable").classList.toggle("neg", hv<0); if (hv<0) $("why").textContent="マイナス分は次の習慣で返します"; }
+    else $("usable").classList.remove("neg");
+    $("openSpend").textContent = MODE==="full" ? "支出・収入を記録" : "支出を記録";
+    if (MODE==="gamble"){ var mk=todayIso().slice(0,7), gi=0, gr=0, byd={}; state.entries.forEach(function(e){ if (e.kind!=="spend"||e.cat!=="gamble"||!e.date||e.date.slice(0,7)!==mk) return; var nv=gambleNet(e); if (e.invest!=null||e.ret!=null){ gi+=+e.invest||0; gr+=+e.ret||0; } else if (e.win) gr+=+e.amount||0; else gi+=+e.amount||0; byd[e.date]=(byd[e.date]||0)+nv; });
+      var gn=gr-gi, pd=Object.keys(byd), wd=pd.filter(function(k){ return byd[k]>0; }).length, ge=$("gNetM");
+      ge.textContent=(gn>0?"+":gn<0?"−":"±")+yen(Math.abs(gn)); ge.className="num gbig "+(gn>0?"pos":gn<0?"negc":"");
+      $("gInvM").textContent=yen(gi); $("gRetM").textContent=yen(gr); $("gRateM").textContent=gi>0?Math.round(gr/gi*100)+"%":"—"; $("gWinM").textContent=pd.length?wd+"/"+pd.length+"日":"—"; }
     var st=$("saveTotal"); st.textContent = c.days ? signed(S) : "¥0"; st.classList.toggle("neg", S<0);
     $("saveSub").textContent = "";
 
@@ -1240,7 +1294,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function savingSeries(){
     var s=state.settings, start=dayNum(s.start), end=dayNum(todayIso()), spent={};
     state.entries.forEach(function(e){ if (e.kind!=="spend" || !LIFE[e.cat] || !e.date) return; var k=dayNum(e.date); spent[k]=(spent[k]||0)+(+e.amount||0); });
-    var out=[]; for (var d=start; d<=end; d++){ var bd=+cfgAt(dIso(d)).lifeDaily||0; out.push({d:d, v:bd-(spent[d]||0), b:bd}); }
+    var out=[]; for (var d=start; d<=end; d++){ var cf=cfgAt(dIso(d)); if ((cf.mode||"full")!=="full") continue; var bd=+cf.lifeDaily||0; out.push({d:d, v:bd-(spent[d]||0), b:bd}); }
     return out;
   }
   function lbl(d){ var dt=new Date(d*86400000); return (dt.getUTCMonth()+1)+"/"+dt.getUTCDate(); }
@@ -1281,7 +1335,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 
   function renderList(){
     var ul=$("list"); ul.innerHTML="";
-    var items = state.entries.slice().sort(function(a,b){ return a.date===b.date ? (b.createdAt||0)-(a.createdAt||0) : (a.date<b.date?1:-1); }).slice(0,40);
+    var items = state.entries.filter(function(e){ return curMode()!=="gamble" || e.kind==="spend"; }).sort(function(a,b){ return a.date===b.date ? (b.createdAt||0)-(a.createdAt||0) : (a.date<b.date?1:-1); }).slice(0,40);
     if (!items.length){ var li=document.createElement("li"); li.className="empty"; li.textContent="まだ記録がありません。習慣か支出を記録すると、ここに並びます。"; ul.appendChild(li); return; }
     items.forEach(function(e){
       var li=document.createElement("li");
@@ -1359,7 +1413,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   $("kindSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; kind=b.dataset.kind; press("kindSeg","kind",kind); syncFields(); };
   var wallet="life";
   function buildCats(){
-    var box=$("catSeg"), list=WALLET[wallet]; box.innerHTML=""; box.style.gridTemplateColumns="repeat("+list.length+",1fr)";
+    var box=$("catSeg"), list=WALLET[wallet].filter(function(k){ return k!=="income" || curMode()==="full"; }); box.innerHTML=""; box.style.gridTemplateColumns="repeat("+list.length+",1fr)";
     if (list.indexOf(cat)<0) cat=list[0];
     list.forEach(function(k){ var b=document.createElement("button"); b.dataset.cat=k; var sg=k==="income"?"plus":k==="gamble"?"":"minus"; if(sg) b.className=sg; b.textContent=(sg==="plus"?"＋ ":sg==="minus"?"− ":"± ")+SHORT[k]; b.setAttribute("aria-pressed", k===cat?"true":"false"); box.appendChild(b); });
     syncFields();
@@ -1375,6 +1429,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     $("date").value=todayIso(); $("amount").value=""; $("memo").value=""; $("gInv").value=""; $("gRet").value=""; $("exCount").value="1";
     var sel=$("menuSel"); sel.innerHTML=""; state.settings.menus.forEach(function(m){ var o=document.createElement("option"); o.textContent=m; sel.appendChild(o); });
     incTo="free"; press("incSeg","to","free");
+    if (curMode()==="gamble"){ wallet="fun"; press("walletSeg","wallet","fun"); }
     buildCats(); openSheet("sheetEntry");
     if (k==="spend") setTimeout(function(){ $("amount").focus(); },250);
   }
@@ -1444,8 +1499,37 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   ["sIncome","sFixed","sLife","sGoraku"].forEach(function(id){ $(id).addEventListener("input", updReserve); });
   function updUnit(){ var m=Math.max(1, sv("sMonthly")||1), u=Math.ceil(sv("sGoraku")/m); $("sUnitV").textContent=u.toLocaleString("ja-JP"); return u; }
   $("sMonthly").addEventListener("input", updUnit); $("sGoraku").addEventListener("input", updUnit);
+  var MODE_INFO={full:["家計簿","生活費・娯楽費・予備費を管理して、習慣で娯楽費をアンロックします"],habit:["習慣アンロック","娯楽費だけを、習慣でアンロックします。生活費の支出は記録だけできます"],gamble:["ギャンブル収支","ギャンブルの投資・回収と、遊びなどの支出を記録して、収支を見ます"]};
+  function syncModePick(){ var m=curMode(); $("modePick").querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.mode===m?"true":"false"); }); $("modeDesc").textContent=MODE_INFO[m][1]; }
+  $("modePick").onclick=function(ev){ var b=ev.target.closest("button[data-mode]"); if (!b) return; var to=b.dataset.mode, from=curMode(); if (to===from) return; openModeSwitch(from,to); };
+  function openModeSwitch(from,to){
+    var s=state.settings, need=[];
+    if (to==="full"){ need=["income","fixed","lifeDaily"]; if (from==="gamble") need=need.concat(["gorakuMonthly","monthlyTimes","menu"]); }
+    if (to==="habit" && from==="gamble") need=["gorakuMonthly","monthlyTimes","menu"];
+    var LBL={income:["手取り","円/月"],fixed:["固定費","円/月"],lifeDaily:["生活費（食費込み）","円/日"],gorakuMonthly:["娯楽","円/月"],monthlyTimes:["習慣の月の回数","回/月"],menu:["習慣の名前",""]};
+    $("modeTitle").textContent=MODE_INFO[to][0]+"モードに切り替え";
+    $("modeNote").textContent = (to==="gamble" ? "記録は消えずに残ります。生活費・娯楽費・習慣は見えなくなり、今日からはお金の計算をしません。" : to==="habit" ? (from==="full"?"記録は消えずに残ります。生活費と予備費は見えなくなり、今日からは娯楽費だけを計算します。":"今日から、娯楽費を習慣でアンロックします。必要な情報を入れてください。") : "今日から、生活費と予備費の計算を始めます。必要な情報を入れてください。");
+    $("modeFields").innerHTML=need.map(function(k){ var v=k==="menu"?((s.menus&&s.menus[0])||""):(s[k]||""); return '<label class="f">'+LBL[k][0]+'<input data-k="'+k+'" '+(k==="menu"?'type="text"':'inputmode="numeric" type="text"')+' value="'+(k==="menu"?escH(v):(v?Number(v).toLocaleString("ja-JP"):""))+'" placeholder="'+(k==="menu"?"例：有酸素30分":"0")+'">'+(LBL[k][1]?'<small style="margin-left:6px">'+LBL[k][1]+'</small>':'')+'</label>'; }).join("");
+    $("modeModal").classList.add("open");
+    $("modeCancel").onclick=function(){ $("modeModal").classList.remove("open"); syncModePick(); };
+    $("modeOk").onclick=function(){
+      var vals={}, bad=false;
+      $("modeFields").querySelectorAll("input").forEach(function(inp){ var k=inp.dataset.k; if (k==="menu"){ vals.menu=(inp.value||"").trim()||"習慣"; return; } var n=parseInt(String(inp.value).replace(/[^0-9]/g,""),10)||0; if (!(n>0) && k!=="fixed"){ bad=true; inp.focus(); } vals[k]=n; });
+      if (bad){ toast("金額や回数を入れてください",true); return; }
+      var t=todayIso(), cur=state.settings, ns=Object.assign({}, cur);
+      ["income","fixed","lifeDaily","gorakuMonthly","monthlyTimes"].forEach(function(k){ if (vals[k]!=null) ns[k]=vals[k]; });
+      if (vals.menu) ns.menus=[vals.menu];
+      ns.unit=Math.ceil((+ns.gorakuMonthly||0)/Math.max(1,+ns.monthlyTimes||1)); ns.mode=to;
+      var nv=pickMoney(ns), hs;
+      if (t<=cur.start) hs=[{from:cur.start, v:nv}];
+      else { hs=(cur.hist&&cur.hist.length)?cur.hist.slice():[{from:cur.start, v:pickMoney(cur)}]; hs=hs.filter(function(x){ return x.from<t; }); if (!hs.length) hs=[{from:cur.start, v:pickMoney(cur)}]; hs.push({from:t, v:nv}); }
+      ns.hist=hs; store.saveSettings(ns); state.settings=ns;
+      $("modeModal").classList.remove("open"); closeSheets(); render(); toast(MODE_INFO[to][0]+"モードにしました",true);
+    };
+  }
+  function escH(s){ return String(s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
   $("openSettings").onclick=function(){
-    var s=state.settings;
+    var s=state.settings; syncModePick();
     $("sStart").value=s.start; $("sIncome").value=s.income; $("sFixed").value=s.fixed; $("sLife").value=s.lifeDaily; $("sGoraku").value=s.gorakuMonthly;
     $("sWeekly").value=s.weeklyGoal; $("sWeekStart").value=s.weekStart==="sun"?"sun":"mon"; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; updUnit(); $("sMenus").value=s.menus.join(", ");
     fmtMoney(); updReserve(); buildSkins(); $("sndTgl").setAttribute("aria-pressed", state.settings.sound?"true":"false"); $("appVer").textContent="v"+APP_VERSION; openSheet("sheetSettings");
@@ -1511,7 +1595,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     function num(id, d){ var v=parseInt(String($(id).value).replace(/[^0-9]/g,""),10); return isNaN(v)||v<0 ? d : v; }
     var menus=$("sMenus").value.split(/[,、，]/).map(function(x){return x.trim();}).filter(Boolean);
     var s=Object.assign({}, state.settings, {start:$("sStart").value||DEFAULTS.start, income:num("sIncome",DEFAULTS.income), fixed:num("sFixed",DEFAULTS.fixed), lifeDaily:num("sLife",DEFAULTS.lifeDaily), gorakuMonthly:num("sGoraku",DEFAULTS.gorakuMonthly), unit:updUnit(), monthlyTimes:Math.max(1,num("sMonthly",15)), weeklyGoal:num("sWeekly",DEFAULTS.weeklyGoal), weekStart:$("sWeekStart").value==="sun"?"sun":"mon", onboarded:true, menus:menus.length?menus:DEFAULTS.menus, skin:state.settings.skin||"kakeibo"});
-    var old=state.settings, nv=pickMoney(s), ov=pickMoney(old), changed=MONEY_KEYS.some(function(k){ return +nv[k]!==+ov[k]; });
+    var old=state.settings, nv=pickMoney(s), ov=pickMoney(old), changed=MONEY_KEYS.some(function(k){ return k==="mode" ? nv[k]!==ov[k] : +nv[k]!==+ov[k]; });
     function commit(hist){ if (hist) s.hist=hist; store.saveSettings(s); state.settings=s; $("applyModal").classList.remove("open"); closeSheets(); render(); toast("保存しました",true); }
     if (s.start!==old.start){ commit([{from:s.start, v:nv}]); return; }
     if (!changed){ commit(null); return; }
@@ -1529,7 +1613,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.5.1";
+  var APP_VERSION="1.6.0";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -1811,7 +1895,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function k(n){ var a=Math.abs(Math.round(n)); return a>=10000 ? (Math.round(a/1000)/10)+"万" : a.toLocaleString("ja-JP"); }
   function sumRange(m, from, to){
     var r={life:0,bud:0,income:0,fun:0,win:0,ex:0,days:0};
-    for (var d=from; d<=to; d=addDays(d,1)){ var a=m[d]; if (inRange(d)){ r.bud+=+cfgAt(d).lifeDaily||0; r.days++; } if(!a) continue; r.life+=a.life; r.income+=a.income; r.fun+=a.fun; r.win+=a.win; r.ex+=a.ex; }
+    for (var d=from; d<=to; d=addDays(d,1)){ var a=m[d]; if (inRange(d)){ var cfd=cfgAt(d); r.bud+=(cfd.mode||"full")==="full"?(+cfd.lifeDaily||0):0; r.days++; } if(!a) continue; r.life+=a.life; r.income+=a.income; r.fun+=a.fun; r.win+=a.win; r.ex+=a.ex; }
     return r;
   }
   var calSel=todayIso(), calCat="all", calMode="month";
@@ -1890,6 +1974,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     for (var d=first; d<=last; d=addDays(d,1)){
       var a=m[d], ir=inRange(d), lf="";
       if (calCat!=="all"){ var dvv=0; if (a) a.items.forEach(function(e){ if (fMatch(e)) dvv+=fVal(e); }); lf=fCell(dvv); ir=false; }
+      if (ir && modeAt(d)!=="full"){ ir=false; if (a&&a.life) lf='<span class="lf negc">−'+k(a.life)+'</span>'; }
       if (ir){ var df=(+cfgAt(d).lifeDaily||0)-(a?a.life:0); lf='<span class="lf '+(Math.round(df)>=0?"pos":"negc")+'">'+(Math.round(df)>=0?"+":"−")+k(df)+'</span>'; }
       var fn = calCat==="all" && a && (a.fun||a.win) ? '<span class="fn">娯'+(a.win-a.fun>=0?"+":"−")+k(a.win-a.fun)+'</span>' : "";
       html+='<button class="c'+(d===t?" today":"")+(d===calSel?" sel":"")+'" data-d="'+d+'" aria-pressed="'+(d===calSel)+'" aria-label="'+jd(d)+'"><span class="dn">'+(+d.slice(8))+'</span>'+lf+fn+(a&&a.ex?'<span class="ex"'+(rs.map[d]?' style="background:'+RMAP[rs.map[d]].solid+';box-shadow:0 0 0 2px '+RMAP[rs.map[d]].solid+'55"':'')+'></span>':'')+'</button>';
@@ -1912,6 +1997,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       html+='<li><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+esc(memo)+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
     });
     html+='</ul></div>';
+    if (curMode()!=="gamble"){
     html+='<div class="dayh">スタンプ帳</div><div class="stampbook">';
     html+='<div class="sbgrid">';
     RARE.slice().reverse().forEach(function(x){
@@ -1919,6 +2005,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
       html+='<div class="sb'+(cnt?" got":"")+'"'+(cnt?' data-rare="'+x.k+'" role="button" aria-label="'+x.n+'の演出を見る"':'')+' style="--rc:'+x.col+';--rs:'+x.solid+';--ri:'+(x.ink||"#fff")+'"><div class="sbi">'+(cnt?(x.k==="red7"?"7":x.k==="kami"?"神":"★"):"？")+'</div><div class="sbn">'+(cnt?x.n:"？？？")+'</div><div class="sbp n">'+x.lab+'</div><div class="sbc">'+(cnt?cnt+"回　最新 "+(+rs.last[x.k].slice(5,7))+"/"+(+rs.last[x.k].slice(8)):"まだ")+'</div></div>';
     });
     html+='</div><div class="sbnext" style="margin:8px 0 0">集めたスタンプを押すと、演出をもう一度見られます</div></div>';
+    }
     $("calBody").innerHTML=html; calChipFocus();
   }
   function calChipFocus(){ var ch=$("calBody").querySelector(".cchips"), sel=ch&&ch.querySelector('[aria-pressed="true"]'); if (!sel) return; var l=sel.offsetLeft-ch.offsetLeft, r=l+sel.offsetWidth; if (l<ch.scrollLeft || r>ch.scrollLeft+ch.clientWidth) ch.scrollLeft=Math.max(0,l-40); }
@@ -1929,7 +2016,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   $("calNext").onclick=function(){ calMove(1); };
   $("calBody").addEventListener("click", function(ev){ var r=ev.target.closest("[data-rare]"); if(r){ ev.stopPropagation(); celebrate(0, r.dataset.rare); } }, true);
   $("calBody").onclick=function(ev){
-    var md=ev.target.closest("[data-mode]"); if (md){ calMode=md.dataset.mode; renderCal(); return; }
+    var md=ev.target.closest("button[data-mode]"); if (md && $("calBody").contains(md)){ calMode=md.dataset.mode; renderCal(); return; }
     var fc=ev.target.closest("[data-fc]"); if (fc){ var sl=$("calBody").querySelector(".cchips").scrollLeft; calCat=fc.dataset.fc; renderCal(); var ch=$("calBody").querySelector(".cchips"); if (ch) ch.scrollLeft=sl; return; }
     var mn=ev.target.closest("[data-mon]"); if (mn){ calMode="month"; calDate=mn.dataset.mon; var tt=todayIso(); calSel=(tt.slice(0,7)===calDate.slice(0,7))?tt:calDate; renderCal(); $("cal").scrollTop=0; return; }
     var b=ev.target.closest("[data-d]"); if(!b) return; calSel=b.dataset.d; renderCal(); };
@@ -1941,25 +2028,30 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
   function obUnitText(){ var u=ob.monthly>0?Math.ceil(ob.goraku/ob.monthly):0; return '1回で <b>'+yen(u)+'</b> アンロック'; }
   function obReserve(days){ return ob.income-ob.fixed-ob.life*days-ob.goraku; }
   var OB=[
-    {t:"ようこそ", render:function(){ return '<div class="step">アソビロックへようこそ</div><h2>習慣で、遊ぶお金を<br>アンロックする家計簿</h2><p class="lead">お金を3つに分けて管理します。最初に、毎月の金額を一緒に決めましょう（1分ほど）。</p>'
+    {t:"モード", render:function(){
+      var M=[["full","家計簿モード","生活費・娯楽費・予備費を管理して、習慣で娯楽費をアンロックします。いちばん詳しいモードです"],["habit","習慣アンロックモード","娯楽費だけを、習慣でアンロックします。手取りや生活費の設定はいりません"],["gamble","ギャンブル収支モード","ギャンブルの投資・回収と、遊びなどの支出を記録して、収支を見ます"]];
+      return '<div class="step">アソビロックへようこそ</div><h2>どのモードで使いますか？</h2><p class="lead">あとから設定でいつでも切り替えられます。記録は切り替えても消えません。</p><div class="obmodes">'
+        +M.map(function(x){ return '<button type="button" data-obmode="'+x[0]+'" aria-pressed="'+(ob.mode===x[0])+'"><b>'+x[1]+'</b><span>'+x[2]+'</span></button>'; }).join("")+'</div>'
+        +'<button type="button" class="lnk" id="obRestore" style="display:block;margin:18px auto 0">バックアップから設定と記録を読み込む</button>'; }, ok:function(){ return !!ob.mode; }},
+    {t:"ようこそ", m:["full"], render:function(){ return '<div class="step">アソビロックへようこそ</div><h2>習慣で、遊ぶお金を<br>アンロックする家計簿</h2><p class="lead">お金を3つに分けて管理します。最初に、毎月の金額を一緒に決めましょう（1分ほど）。</p>'
       +'<div class="three">'
       +'<div class="w3"><span class="dot" style="background:var(--unlock)"></span><div><b>フリー生活費</b><span>1日の生活費より使わなかった分が貯まる。自由に使えるお金</span></div></div>'
       +'<div class="w3"><span class="dot" style="background:var(--budget)"></span><div><b>娯楽費</b><span>毎月ロックされていて、習慣をこなすとアンロックされる</span></div></div>'
       +'<div class="w3"><span class="dot" style="background:var(--muted)"></span><div><b>予備費</b><span>残りのお金。毎月自動で積み上がる。いざという時に移せる</span></div></div>'
-      +'</div><button type="button" class="lnk" id="obRestore" style="display:block;margin:18px auto 0">バックアップから設定と記録を読み込む</button>'; }, next:"はじめる"},
-    {t:"手取り", key:"income", q:"毎月の手取りは？", lead:"給料として口座に振り込まれる金額です。", unit:"円/月"},
-    {t:"固定費", key:"fixed", q:"毎月の固定費は？", lead:"家賃・光熱費・通信・サブスク・積立など、毎月決まって出ていくお金の合計です。", unit:"円/月"},
-    {t:"生活費", key:"life", q:"1日の生活費は？", lead:"食費・日用品・交通など、毎日の暮らしに使うお金です。使わなかった分はフリー生活費に貯まります。", unit:"円/日",
+      +'</div>'; }, next:"はじめる"},
+    {t:"手取り", m:["full"], key:"income", q:"毎月の手取りは？", lead:"給料として口座に振り込まれる金額です。", unit:"円/月"},
+    {t:"固定費", m:["full"], key:"fixed", q:"毎月の固定費は？", lead:"家賃・光熱費・通信・サブスク・積立など、毎月決まって出ていくお金の合計です。", unit:"円/月"},
+    {t:"生活費", m:["full"], key:"life", q:"1日の生活費は？", lead:"食費・日用品・交通など、毎日の暮らしに使うお金です。使わなかった分はフリー生活費に貯まります。", unit:"円/日",
       extra:function(){ return '<div class="note2">月あたり <b>'+yen(ob.life*30)+'</b>（30日の場合）</div>'; }},
-    {t:"娯楽", key:"goraku", q:"娯楽に使うのは月いくら？", lead:"毎月1日にこの額がロックされます。習慣をこなすたびに少しずつアンロックされて、使えるようになります。", unit:"円/月"},
-    {t:"予備費", render:function(){
+    {t:"娯楽", m:["full","habit"], key:"goraku", q:"娯楽に使うのは月いくら？", lead:"毎月1日にこの額がロックされます。習慣をこなすたびに少しずつアンロックされて、使えるようになります。", unit:"円/月"},
+    {t:"予備費", m:["full"], render:function(){
       var r30=obReserve(30), r31=obReserve(31);
       var html='<h2>予備費は毎月<br>'+(r30<0?'<span style="color:var(--neg)">':'')+yen(r30)+(r30<0?'</span>':'')+'</h2><p class="lead">残ったお金は自動で予備費になります。使いすぎた時の穴埋めに使えます。</p>'
         +'<div class="eq"><div class="r"><span>手取り</span><b>'+yen(ob.income)+'</b></div><div class="r"><span>− 固定費</span><b>'+yen(ob.fixed)+'</b></div><div class="r"><span>− 生活費（×30日）</span><b>'+yen(ob.life*30)+'</b></div><div class="r"><span>− 娯楽</span><b>'+yen(ob.goraku)+'</b></div><div class="r"><span>予備費</span><b>'+(r30<0?"−"+yen(-r30):yen(r30))+'</b></div></div>';
       if (r31<0) html+='<p class="err">31日の月に'+yen(-r31)+'足りません。戻って金額を減らしてください。</p>';
       else html+='<div class="note2">31日の月は '+yen(r31)+'</div>';
       return html; }, ok:function(){ return obReserve(31)>=0; }},
-    {t:"習慣", render:function(){
+    {t:"習慣", m:["full","habit"], render:function(){
       var g=[2,3,4,5].map(function(w){ return '<div class="r"><span>週'+w+'回</span><b>月'+(w*4)+'〜'+Math.round(w*31/7)+'回</b></div>'; }).join("");
       return '<h2>どんな習慣を続ける？</h2><p class="lead">1回できるたびに、娯楽費 ÷ 月の回数 の額がアンロックされます。</p>'
         +'<div class="flabel">習慣の名前</div><label class="big"><input class="txt" id="obMenu" type="text" value="'+(ob.menu||"").replace(/"/g,"&quot;")+'" placeholder="例：有酸素30分"></label>'
@@ -1969,6 +2061,14 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
         +'<div class="flabel">週の目標（今週の表示用）</div><label class="big"><input id="obWeekly" class="ob-n" data-k="weekly" inputmode="numeric" value="'+(ob.weekly||"")+'"><i>回/週</i></label>'; },
       ok:function(){ return ob.monthly>0 && (ob.menu||"").trim(); }},
     {t:"完了", render:function(){
+      if (ob.mode==="gamble") return '<h2>準備できました</h2><p class="lead">使い方はかんたんです。</p><div class="three">'
+        +'<div class="w3"><span class="dot" style="background:var(--budget)"></span><div><b>遊んだら「支出を記録」</b><span>ギャンブルは投資と回収を入れると、収支が自動で出ます</span></div></div>'
+        +'<div class="w3"><span class="dot" style="background:var(--muted)"></span><div><b>カレンダーで振り返り</b><span>月・年ごとに、ギャンブルや遊びの収支を見られます</span></div></div>'
+        +'</div><div class="flabel">開始日</div><label class="big"><input class="txt" id="obStart" type="date" value="'+ob.start+'"></label>';
+      if (ob.mode==="habit") return '<h2>準備できました</h2><p class="lead">使い方は2つだけです。</p><div class="three">'
+        +'<div class="w3"><span class="dot" style="background:var(--unlock)"></span><div><b>習慣をしたら、緑のボタン</b><span>1日1回。娯楽費がアンロックされます</span></div></div>'
+        +'<div class="w3"><span class="dot" style="background:var(--neg)"></span><div><b>お金を使ったら「支出を記録」</b><span>娯楽で使った分は、使える額から引かれます</span></div></div>'
+        +'</div><div class="flabel">開始日</div><label class="big"><input class="txt" id="obStart" type="date" value="'+ob.start+'"></label>';
       return '<h2>準備できました</h2><p class="lead">使い方は3つだけです。</p>'
         +'<div class="three">'
         +'<div class="w3"><span class="dot" style="background:var(--unlock)"></span><div><b>習慣をしたら、緑のボタン</b><span>1日1回。娯楽費がアンロックされます</span></div></div>'
@@ -1976,10 +2076,11 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
         +'<div class="w3"><span class="dot" style="background:var(--muted)"></span><div><b>足りない時は「送る」「移す」</b><span>財布の間でお金を動かせます</span></div></div>'
         +'</div><div class="flabel">開始日</div><label class="big"><input class="txt" id="obStart" type="date" value="'+ob.start+'"></label>'; }, next:"使いはじめる"}
   ];
+  function obList(){ return OB.filter(function(x){ return !x.m || (ob.mode && x.m.indexOf(ob.mode)>=0); }); }
   function obRender(){
-    var st=OB[obStep], body=$("onbBody");
-    $("onbProg").style.width=((obStep)/(OB.length-1)*100)+"%";
-    var html = obStep>0 && obStep<OB.length-1 ? '<div class="step">'+obStep+' / '+(OB.length-2)+'　'+st.t+'</div>' : '';
+    var LS=obList(); if (obStep>LS.length-1) obStep=LS.length-1; var st=LS[obStep], body=$("onbBody");
+    $("onbProg").style.width=((obStep)/Math.max(1,LS.length-1)*100)+"%";
+    var html = obStep>0 && obStep<LS.length-1 ? '<div class="step">'+obStep+' / '+(LS.length-2)+'　'+st.t+'</div>' : '';
     if (st.render) html+=st.render();
     else html+='<h2>'+st.q+'</h2><p class="lead">'+st.lead+'</p><label class="big"><input id="obIn" class="ob-n" data-k="'+st.key+'" inputmode="numeric" value="'+c0(ob[st.key])+'"><i>'+st.unit+'</i></label>'+(st.extra?'<div id="obExtra">'+st.extra()+'</div>':'');
     body.innerHTML=html;
@@ -1990,25 +2091,27 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
     if ($("obMenu")) $("obMenu").addEventListener("input", function(){ ob.menu=$("obMenu").value; obBtn(); });
     if ($("obStart")) $("obStart").addEventListener("change", function(){ ob.start=$("obStart").value; });
     if ($("obRestore")) $("obRestore").onclick=function(){ $("importData").click(); };
+    body.querySelectorAll("[data-obmode]").forEach(function(b){ b.onclick=function(){ ob.mode=b.dataset.obmode; obRender(); }; });
     $("onbBack").style.visibility = obStep===0 ? "hidden" : "visible";
     $("onbNext").textContent = st.next || "次へ";
     obBtn();
     var f=body.querySelector("input"); if (f && st.key) setTimeout(function(){ f.focus(); },60);
     $("onb").scrollTop=0;
   }
-  function obBtn(){ var st=OB[obStep]; $("onbNext").disabled = st.key ? !(ob[st.key]>0) : (st.ok ? !st.ok() : false); }
+  function obBtn(){ var st=obList()[obStep]; $("onbNext").disabled = st.key ? !(ob[st.key]>0) : (st.ok ? !st.ok() : false); }
   function openOnb(fresh){
     var s=state.settings;
-    ob = fresh===true ? {income:0, fixed:0, life:0, goraku:0, unit:5000, weekly:3, monthly:12, menu:"", start:todayIso()}
-      : {income:s.income, fixed:s.fixed, life:s.lifeDaily, goraku:s.gorakuMonthly, unit:s.unit, weekly:s.weeklyGoal, monthly:s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12, menu:(s.menus&&s.menus[0])||"", start:s.start||todayIso()};
+    ob = fresh===true ? {mode:null, income:0, fixed:0, life:0, goraku:0, unit:5000, weekly:3, monthly:12, menu:"", start:todayIso()}
+      : {income:s.income, fixed:s.fixed, life:s.lifeDaily, goraku:s.gorakuMonthly, unit:s.unit, weekly:s.weeklyGoal, monthly:s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12, menu:(s.menus&&s.menus[0])||"", start:s.start||todayIso(), mode:s.mode||"full"};
     obStep=0; closeSheets(); $("onbClose").hidden = false; obRender(); $("onb").classList.add("open");
   }
   $("onbClose").onclick=function(){ $("onb").classList.remove("open"); $("openHelp").onclick(); };
   $("onbBack").onclick=function(){ if (obStep>0){ obStep--; obRender(); } };
   $("onbNext").onclick=function(){
     if ($("onbNext").disabled) return;
-    if (obStep<OB.length-1){ obStep++; obRender(); return; }
-    var s=Object.assign({}, state.settings, {hist:null, start:ob.start||todayIso(), income:ob.income, fixed:ob.fixed, lifeDaily:ob.life, gorakuMonthly:ob.goraku, unit:Math.ceil(ob.goraku/Math.max(1,ob.monthly)), monthlyTimes:ob.monthly, weeklyGoal:ob.weekly||0, menus:[(ob.menu||"習慣").trim()], onboarded:true});
+    if (obStep<obList().length-1){ obStep++; obRender(); return; }
+    var om=ob.mode||"full", full=om==="full", gm=om==="gamble";
+    var s=Object.assign({}, state.settings, {mode:om, hist:null, start:ob.start||todayIso(), income:full?ob.income:0, fixed:full?ob.fixed:0, lifeDaily:full?ob.life:0, gorakuMonthly:gm?0:ob.goraku, unit:gm?0:Math.ceil(ob.goraku/Math.max(1,ob.monthly)), monthlyTimes:gm?0:ob.monthly, weeklyGoal:ob.weekly||0, menus:[(ob.menu||"習慣").trim()], onboarded:true});
     store.saveSettings(s); state.settings=s; $("onb").classList.remove("open"); render(); toast("設定しました",true);
   };
   $("redoOnb").onclick=function(){ openOnb(false); };
