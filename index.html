@@ -818,6 +818,110 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 .skins button[aria-pressed="true"]{border-color:var(--ink)}
 .skins .sw{width:38px;height:38px;border-radius:9px;position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
 .skins .sw::after{content:"";position:absolute;left:5px;right:5px;bottom:6px;height:7px;border-radius:3px;background:var(--a)}
+/* v1.7 gamble detail */
+#confirmModal{z-index:45}
+.gauto{display:inline-block;margin-left:6px;font-size:10.5px;color:var(--budget);font-weight:700}
+.gamro{opacity:.75}
+.gchips{display:flex;gap:6px;flex-wrap:wrap;margin:-4px 0 12px}
+.gchips button{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 11px;font-size:12.5px}
+.gchips button[aria-pressed="true"]{border-color:var(--btn);background:var(--btn);color:var(--btn-ink);font-weight:700}
+.gf{display:block;margin-bottom:12px;font-size:13px;color:var(--muted)}
+.gtime{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center;margin-top:4px}
+.gtime input{-webkit-appearance:none;appearance:none;width:100%;min-width:0;min-height:46px;padding:10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px;text-align:center}
+.ghint{font-size:11.5px;color:var(--muted);margin:6px 2px 0}
+.gadd{width:100%;margin-top:6px;border:1.5px dashed var(--line);background:transparent;color:var(--ink);border-radius:10px;padding:11px;font-size:14px;font-weight:700}
+.gmc{border:1.5px solid var(--line);border-radius:12px;padding:10px;margin-top:6px}
+.gmt{display:flex;align-items:center;gap:6px;color:var(--ink);font-size:14px}
+.gmt b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gx{background:none;border:0;color:var(--muted);font-size:18px;padding:0 4px}
+.gmm{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.gmm input{width:100%;min-width:0;padding:9px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px}
+.gmn{font-size:12px;text-align:right;margin-top:6px;color:var(--muted)}
+.kd{display:inline-block;flex:none;width:17px;height:17px;line-height:17px;border-radius:5px;text-align:center;font-size:10px;font-weight:800;color:#fff;background:#2F80ED;font-family:system-ui,sans-serif}
+.kd.s{background:#9B51E0} .kd.u{background:var(--muted)}
+.gbox{max-height:86vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.ghead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.ghead p{margin:0;font-weight:700;font-size:16px}
+.glnk{background:none;border:0;color:var(--budget);font-weight:700;font-size:14px;padding:4px}
+.gq{-webkit-appearance:none;appearance:none;width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px}
+.gtab{display:flex;gap:4px;background:var(--bg);border-radius:10px;padding:3px;margin:10px 0}
+.gtab button{flex:1;border:0;background:transparent;color:var(--muted);border-radius:8px;padding:7px 2px;font-size:12.5px;font-weight:700}
+.gtab button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.glist{border-top:1px solid var(--line)}
+.gli{display:flex;align-items:center;gap:8px;width:100%;padding:11px 2px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);font:inherit;font-size:14px;font-weight:700;text-align:left}
+.gli span.t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gli small{font-size:11px;color:var(--muted);font-weight:500;white-space:nowrap}
+.gli[disabled]{opacity:.45}
+.gli.sel{color:var(--budget)}
+.gempty{font-size:13px;color:var(--muted);padding:12px 2px}
+.gpnew{margin-top:14px}
+.gnl{font-size:13px;font-weight:700;margin-bottom:6px}
+.gfull{width:100%;margin-top:2px}
+.gact{display:flex;flex-direction:column;gap:8px}
+.gact button{border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:12px;padding:12px;font-size:14px;font-weight:700;text-align:left}
+.gact button.dz{color:var(--neg)}
+.gnote{font-size:12px;color:var(--muted);margin:8px 2px 0;line-height:1.5}
+.list li.ed{cursor:pointer}
+/* analysis */
+.ga{margin-top:6px}
+.ga .gtab{margin:0 0 8px;background:var(--surface)}
+.ga .gtab button[aria-pressed="true"]{background:var(--btn);color:var(--btn-ink);box-shadow:none}
+.gachips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
+.gachips::-webkit-scrollbar{display:none}
+.gachips button{flex:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 11px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.gachips button[aria-pressed="true"]{border-color:var(--budget);color:var(--budget)}
+.gacus{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center;margin:0 0 8px;color:var(--muted)}
+.gacus input{-webkit-appearance:none;appearance:none;width:100%;min-width:0;padding:8px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;min-height:40px}
+.gaflt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 8px}
+.gaflt label{font-size:10.5px;color:var(--muted)}
+.gaflt select{-webkit-appearance:none;appearance:none;display:block;width:100%;margin-top:2px;padding:8px 8px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit;font-size:13px;font-weight:700;text-overflow:ellipsis}
+.gaflt select.on{border-color:var(--budget);color:var(--budget)}
+.gac{background:var(--surface);border-radius:12px;padding:12px 14px;margin:0 0 10px}
+.gac h4{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;font-size:13.5px}
+.gac h4 small{font-weight:500;color:var(--muted);font-size:11px}
+.gahero{text-align:center;padding:2px 0 10px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.gahero small{display:block;font-size:12px;color:var(--muted)}
+.gabig{font-size:32px;font-weight:800;line-height:1.25}
+.gasub{font-size:12px;color:var(--muted)}
+.ga3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 4px;text-align:center}
+.ga3 small{display:block;font-size:11px;color:var(--muted)}
+.ga3 b{font-size:15px;font-weight:700}
+.gatbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.gatbl th{font-weight:500;color:var(--muted);font-size:11px;text-align:right;padding:0 0 6px}
+.gatbl th:first-child,.gatbl td:first-child{text-align:left}
+.gatbl td{text-align:right;padding:7px 0;border-top:1px solid var(--line);white-space:nowrap}
+.gatbl tr.tt td{font-weight:700}
+.gasplit{display:flex;height:9px;border-radius:5px;overflow:hidden;margin:2px 0 10px;background:var(--line)}
+.gadot{display:inline-block;width:8px;height:8px;border-radius:4px;margin-right:5px;vertical-align:0}
+.garecs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.garec{background:var(--bg);border-radius:10px;padding:9px 10px;min-width:0}
+.garec small{display:block;font-size:11px;color:var(--muted)}
+.garec b{font-size:16px}
+.garec span{display:block;font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.garow{display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center;padding:7px 0}
+.garow .nm{display:flex;align-items:center;gap:5px;min-width:0;font-size:13px;font-weight:700}
+.garow .nm span.t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.garow .nm small{font-weight:500;color:var(--muted);font-size:11px;white-space:nowrap}
+.garow .v{font-size:14px;font-weight:700;text-align:right}
+.garow .tr{grid-column:1/-1;height:6px;border-radius:3px;background:var(--bg);position:relative;overflow:hidden}
+.garow .tr i{position:absolute;top:0;bottom:0;border-radius:3px}
+.garow .mt{grid-column:1/-1;font-size:10.5px;color:var(--muted)}
+.garow.un .nm{color:var(--muted)}
+.gatail{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.gatail div{background:var(--bg);border-radius:9px;padding:6px 2px;text-align:center;min-width:0}
+.gatail small{display:block;font-size:10px;color:var(--muted)}
+.gatail b{font-size:11.5px;white-space:nowrap}
+.gazoro{display:flex;justify-content:space-between;background:var(--bg);border-radius:9px;padding:7px 10px;margin-top:5px;font-size:12px}
+.gazoro small{color:var(--muted)}
+.gasvg text{font-family:system-ui,sans-serif}
+.gasvg .ggl{stroke:var(--line)} .gasvg .gt{fill:var(--muted)}
+.gasvg .bp{fill:var(--unlock)} .gasvg .bn{fill:var(--neg)}
+.gasvg .ln{fill:none;stroke:var(--budget);stroke-width:2.2;stroke-linejoin:round}
+.gasvg .pt{fill:var(--budget)} .gasvg .lv{fill:var(--budget);font-weight:700}
+.gaempty{font-size:13px;color:var(--muted);text-align:center;padding:14px 0}
+.ganote{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.55}
+.gfull{border:0;border-radius:12px;padding:12px;font-size:15px;font-weight:700}
+.gdelb{color:var(--neg)}
 </style>
 </head>
 <body>
@@ -919,9 +1023,16 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       <p class="hint" id="catHint" hidden>普段の食事。自炊の食材、ランチ、コンビニ</p>
       <label class="f amount" id="amtLabel">金額（円）<input id="amount" type="number" inputmode="numeric" min="0" placeholder="0"></label>
       <div id="gamFields" hidden>
-        <label class="f amount">投資（円）<input id="gInv" type="number" inputmode="numeric" min="0" placeholder="0"></label>
-        <label class="f amount">回収（円）<input id="gRet" type="number" inputmode="numeric" min="0" placeholder="0"></label>
+        <div class="seg two" id="gkSeg"><button type="button" data-gk="ps" aria-pressed="true">パチ・スロ</button><button type="button" data-gk="other" aria-pressed="false">その他</button></div>
+        <label class="f amount">投資（円）<span class="gauto" hidden>台の金額から自動</span><input id="gInv" type="number" inputmode="numeric" min="0" placeholder="0"></label>
+        <label class="f amount">回収（円）<span class="gauto" hidden>台の金額から自動</span><input id="gRet" type="number" inputmode="numeric" min="0" placeholder="0"></label>
         <p class="gnet" id="gNet">収支 ¥0</p>
+        <div id="psFields">
+          <label class="f">ホール（任意）<input id="gHall" type="text" maxlength="30" placeholder="ホール名" autocomplete="off"></label>
+          <div class="gchips" id="gHallChips"></div>
+          <div class="f gf">遊んだ時間（任意）<div class="gtime"><input id="gT0" type="time" aria-label="開始時刻"><span>〜</span><input id="gT1" type="time" aria-label="終了時刻"></div><p class="ghint" id="gTimeHint" hidden></p></div>
+          <div class="f gf">打った台（任意）<div id="gMcList"></div><button type="button" class="gadd" id="gAddMc">＋ 台を追加</button><p class="ghint" id="gMcHint">台を追加すると、機種別・パチンコ／スロット別の収支が見られます</p></div>
+        </div>
       </div>
     </div>
     <div id="exFields" hidden>
@@ -934,6 +1045,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       <button class="ghost" data-close>やめる</button>
       <button class="primary" id="saveEntry">記録する</button>
     </div>
+    <button type="button" class="redo gdelb" id="delEntry" hidden>この記録を削除する</button>
   </div>
 </div>
 
@@ -978,6 +1090,11 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       <div class="srow"><span>効果音<small>レアの時に音が鳴ります</small></span><button type="button" class="tgl" id="sndTgl" aria-pressed="false" aria-label="効果音"></button></div>
     </div>
 
+    <div class="sgh">ギャンブル</div>
+    <div class="sgrp">
+      <button type="button" class="srow dbtn" id="mgOpen"><span>ホール・台の管理<small>名前の変更・まとめる・削除</small></span><span class="sin">›</span></button>
+    </div>
+
     <div class="sgh">データ</div>
     <p class="sgd">記録はこの端末の中に保存されます。機種変更やブラウザのデータ削除の前に書き出しておくと、あとで読み込んで戻せます</p>
     <div class="sgrp">
@@ -1000,6 +1117,17 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   </div>
 </div>
 
+<div class="modal" id="pickModal" role="dialog" aria-modal="true" aria-labelledby="pickTitle"><div class="box gbox">
+  <div class="ghead"><p id="pickTitle">台を選ぶ</p><button type="button" class="glnk" id="pickEdit">編集</button></div>
+  <input id="pickQ" type="search" class="gq" placeholder="機種名で探す" autocomplete="off">
+  <div class="gtab" id="pickTab"><button type="button" data-pt="" aria-pressed="true">すべて</button><button type="button" data-pt="p" aria-pressed="false">パチンコ</button><button type="button" data-pt="s" aria-pressed="false">スロット</button></div>
+  <div class="glist" id="pickList"></div>
+  <div class="gpnew"><div class="gnl">新しい台を登録</div><input id="pickName" type="text" class="gq" maxlength="40" placeholder="機種名" autocomplete="off">
+    <div class="gtab" id="pickType"><button type="button" data-ty="p" aria-pressed="false">パチンコ</button><button type="button" data-ty="s" aria-pressed="false">スロット</button><button type="button" data-ty="" aria-pressed="true">選ばない</button></div>
+    <button type="button" class="primary gfull" id="pickAdd">登録して追加</button></div>
+  <div class="actions"><button type="button" class="ghost" id="pickClose">閉じる</button></div>
+</div></div>
+<div class="modal" id="mgModal" role="dialog" aria-modal="true" aria-label="ホール・台の管理"><div class="box gbox" id="mgBody"></div></div>
 <div class="modal" id="confirmModal" role="alertdialog" aria-modal="true" aria-labelledby="confirmMsg"><div class="box"><p id="confirmMsg"></p><div class="actions"><button class="ghost" id="confirmCancel">やめる</button><button class="primary" id="confirmOk">OK</button></div></div></div>
 
 <div class="modal" id="modeModal" role="dialog" aria-modal="true" aria-labelledby="modeTitle"><div class="box">
@@ -1355,8 +1483,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
         else { amt.textContent="−"+yen(e.amount); amt.classList.add("negc"); m.textContent=(e.cat==="gamble"?"負け":"")+(e.memo?(e.cat==="gamble"?"　":"")+e.memo:""); } }
       main.appendChild(dt); main.appendChild(m);
       var del=document.createElement("button"); del.className="del"; del.setAttribute("aria-label","この記録を削除"); del.textContent="×";
-      del.onclick=function(){ askConfirm("この記録を削除しますか？","削除する").then(function(ok){ if(ok) store.remove(e.id); }); };
+      del.onclick=function(ev){ ev.stopPropagation(); askConfirm("この記録を削除しますか？","削除する").then(function(ok){ if(ok) store.remove(e.id); }); };
       li.appendChild(cat); li.appendChild(main); li.appendChild(amt); li.appendChild(del);
+      if (e.kind==="spend"){ li.classList.add("ed"); li.onclick=function(){ openEdit(e); }; }
       ul.appendChild(li);
     });
   }
@@ -1371,6 +1500,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     return {
       add:function(e){ state.entries.push(e); persist(); return Promise.resolve(); },
       remove:function(id){ state.entries=state.entries.filter(function(x){return x.id!==id;}); persist(); return Promise.resolve(); },
+      update:function(e){ state.entries=state.entries.map(function(x){ return x.id===e.id?e:x; }); persist(); return Promise.resolve(); },
+      replaceAll:function(list){ state.entries=list; persist(); return Promise.resolve(); },
       saveSettings:function(s){ state.settings=s; persist(); return Promise.resolve(); },
       had:function(){ return hadLocal; }
     };
@@ -1391,6 +1522,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     return {
       add:function(e){ var id=e.id; var body=Object.assign({},e); delete body.id; return col.doc(id).set(body).catch(fail); },
       remove:function(id){ return col.doc(id).delete().catch(fail); },
+      update:function(e){ var body=Object.assign({},e); delete body.id; return col.doc(e.id).set(body).catch(fail); },
+      replaceAll:function(list){ var old={}; state.entries.forEach(function(x){ old[x.id]=JSON.stringify(x); }); return Promise.all(list.filter(function(x){ return old[x.id]!==JSON.stringify(x); }).map(function(x){ var body=Object.assign({},x); delete body.id; return col.doc(x.id).set(body).catch(fail); })); },
       saveSettings:function(s){ return col.doc("settings").set(s).catch(fail); }
     };
   }
@@ -1405,9 +1538,168 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   function gNetVal(){ return (parseInt($("gRet").value,10)||0)-(parseInt($("gInv").value,10)||0); }
   function updGNet(){ var n=gNetVal(), el=$("gNet"); el.textContent="収支 "+(n>0?"+":n<0?"−":"±")+yen(Math.abs(n)); el.className="gnet "+(n>0?"pos":n<0?"negc":""); }
   function gambleNet(e){ return (e.invest!=null||e.ret!=null) ? (+e.ret||0)-(+e.invest||0) : (e.win?1:-1)*(+e.amount||0); }
+  /* ---------- v1.7 gamble detail ---------- */
+  function normName(x){ return String(x||"").normalize("NFKC").replace(/\s+/g," ").trim(); }
+  function nkey(x){ return normName(x).replace(/ /g,"").toLowerCase(); }
+  function gDefs(k){ return state.settings[k]||[]; }
+  function defById(k,id){ if(!id) return null; var l=gDefs(k); for (var i=0;i<l.length;i++) if (l[i].id===id) return l[i]; return null; }
+  function defByName(k,name){ var kk=nkey(name); if(!kk) return null; var l=gDefs(k); for (var i=0;i<l.length;i++) if (nkey(l[i].name)===kk) return l[i]; return null; }
+  function gid(p){ return p+Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+  function saveDefs(k, list){ var o={}; o[k]=list; var s=Object.assign({}, state.settings, o); state.settings=s; return store.saveSettings(s); }
+  function useStats(k){
+    var r={}; state.entries.forEach(function(e){ if (e.kind!=="spend"||e.cat!=="gamble") return;
+      var ids = k==="halls" ? (e.hall?[e.hall]:[]) : (e.mc||[]).map(function(x){ return x.m; });
+      var seen={}; ids.forEach(function(id){ if(!id||seen[id]) return; seen[id]=1; var o=r[id]||(r[id]={n:0,last:""}); o.n++; if (e.date>o.last) o.last=e.date; }); });
+    return r;
+  }
+  function sortedDefs(k){ var st=useStats(k); return gDefs(k).map(function(d){ var u=st[d.id]||{n:0,last:""}; return {d:d,n:u.n,last:u.last}; }).sort(function(a,b){ return b.n-a.n || (b.last>a.last?1:b.last<a.last?-1:0); }); }
+  function kdTag(ty){ return '<span class="kd '+(ty||"u")+'">'+(ty==="p"?"P":ty==="s"?"S":"?")+'</span>'; }
+  function md(s){ return s ? (+s.slice(5,7))+"/"+(+s.slice(8)) : ""; }
+  function gTot(e){ if (e.invest!=null||e.ret!=null) return {inv:+e.invest||0, ret:+e.ret||0}; return e.win?{inv:0,ret:+e.amount||0}:{inv:+e.amount||0,ret:0}; }
+  function hasAmt(x){ return x.inv!=null||x.ret!=null; }
+  function gSegs(e){
+    var t=gTot(e);
+    if (e.gk==="other") return [{gk:"other",inv:t.inv,ret:t.ret,hall:"",m:"",ty:""}];
+    var h=(e.hall&&defById("halls",e.hall))?e.hall:"", out=[], si=0, sr=0, none=[];
+    function seg(id,a,b){ var d=defById("machines",id); return {gk:"ps",inv:a,ret:b,hall:h,m:d?id:"",ty:d?(d.type||""):""}; }
+    (e.mc||[]).forEach(function(x){ if (hasAmt(x)){ var a=+x.inv||0, b=+x.ret||0; si+=a; sr+=b; out.push(seg(x.m,a,b)); } else none.push(x); });
+    var ri=t.inv-si, rr=t.ret-sr;
+    if (none.length===1) out.push(seg(none[0].m,ri,rr));
+    else if (ri||rr||!out.length) out.push({gk:"ps",inv:ri,ret:rr,hall:h,m:"",ty:""});
+    return out;
+  }
+  function gHours(e){ if (!e.t0||!e.t1) return 0; var a=e.t0.split(":"), b=e.t1.split(":"), m=(+b[0]*60+ +b[1])-(+a[0]*60+ +a[1]); if (m<=0) m+=1440; return m/60; }
+  function lastGk(){ var best=null; state.entries.forEach(function(e){ if (e.kind==="spend"&&e.cat==="gamble"&&(!best||(e.createdAt||0)>(best.createdAt||0))) best=e; }); return best&&best.gk==="other"?"other":"ps"; }
+
+  var gk="ps", gMc=[], editId=null, editCreated=0;
+  function syncGam(){
+    press("gkSeg","gk",gk); $("psFields").hidden = gk!=="ps";
+    renderHallChips(); renderMc(); updTime();
+  }
+  function renderHallChips(){
+    var box=$("gHallChips"), cur=nkey($("gHall").value); box.innerHTML="";
+    sortedDefs("halls").slice(0,6).forEach(function(x){ var b=document.createElement("button"); b.type="button"; b.textContent=x.d.name; b.dataset.hn=x.d.name; b.setAttribute("aria-pressed", nkey(x.d.name)===cur&&cur?"true":"false"); box.appendChild(b); });
+    box.hidden=!box.children.length;
+  }
+  $("gHallChips").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; $("gHall").value = b.getAttribute("aria-pressed")==="true" ? "" : b.dataset.hn; renderHallChips(); };
+  $("gHall").addEventListener("input", renderHallChips);
+  $("gkSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; gk=b.dataset.gk; syncGam(); updAuto(); };
+  function mcAll(){ return gMc.length>0 && gMc.every(function(x){ return x.inv!==""||x.ret!==""; }); }
+  function renderMc(){
+    var box=$("gMcList"); box.innerHTML="";
+    gMc.forEach(function(x,i){ var d=defById("machines",x.m), nm=d?d.name:"（削除された台）";
+      var div=document.createElement("div"); div.className="gmc";
+      div.innerHTML='<div class="gmt">'+kdTag(d?d.type:"")+'<b>'+esc(nm)+'</b><button type="button" class="gx" data-gx="'+i+'" aria-label="この台を外す">×</button></div>'
+        +'<div class="gmm"><input type="number" inputmode="numeric" min="0" placeholder="投資（任意）" aria-label="この台の投資" data-i="'+i+'" data-f="inv" value="'+esc(x.inv)+'"><input type="number" inputmode="numeric" min="0" placeholder="回収（任意）" aria-label="この台の回収" data-i="'+i+'" data-f="ret" value="'+esc(x.ret)+'"></div><div class="gmn" id="gmn'+i+'"></div>';
+      box.appendChild(div); });
+    $("gMcHint").hidden = gMc.length>0; updAuto();
+  }
+  function updAuto(){
+    var auto = gk==="ps" && mcAll();
+    gMc.forEach(function(x,i){ var el=$("gmn"+i); if(!el) return; if (x.inv===""&&x.ret===""){ el.textContent=""; el.className="gmn"; return; } var n=(parseInt(x.ret,10)||0)-(parseInt(x.inv,10)||0); el.textContent="この台 "+(n>0?"+":n<0?"−":"±")+yen(Math.abs(n)); el.className="gmn "+(n>0?"pos":n<0?"negc":""); });
+    if (auto){ var si=0, sr=0; gMc.forEach(function(x){ si+=parseInt(x.inv,10)||0; sr+=parseInt(x.ret,10)||0; }); $("gInv").value=si; $("gRet").value=sr; }
+    ["gInv","gRet"].forEach(function(id){ var el=$(id); el.readOnly=auto; el.classList.toggle("gamro",auto); el.parentNode.querySelector(".gauto").hidden=!auto; });
+    updGNet(); updTime();
+  }
+  $("gMcList").addEventListener("input", function(ev){ var t=ev.target; if (!t.dataset.f) return; var x=gMc[+t.dataset.i]; if(!x) return; x[t.dataset.f]=t.value.replace(/[^0-9]/g,""); updAuto(); });
+  $("gMcList").addEventListener("click", function(ev){ var b=ev.target.closest("[data-gx]"); if(!b) return; gMc.splice(+b.dataset.gx,1); renderMc(); });
+  function updTime(){
+    var a=$("gT0").value, b=$("gT1").value, el=$("gTimeHint");
+    if (!a||!b){ el.hidden=true; return; }
+    var h=gHours({t0:a,t1:b}), hh=Math.floor(h), mm=Math.round((h-hh)*60), n=gNetVal();
+    el.hidden=false; el.textContent=hh+"時間"+(mm?mm+"分":"")+(n? "　時給 "+(n>0?"+":"−")+yen(Math.abs(n/h)) : "");
+  }
+  $("gT0").addEventListener("input", updTime); $("gT1").addEventListener("input", updTime);
+  $("gAddMc").onclick=function(){ openPick(); };
+
+  /* machine picker */
+  var pickTy="", newTy="";
+  function openPick(){ pickTy=""; newTy=""; $("pickQ").value=""; $("pickName").value=""; press("pickTab","pt",""); press("pickType","ty",""); renderPick(); $("pickModal").classList.add("open"); }
+  function renderPick(){
+    var q=nkey($("pickQ").value), box=$("pickList"), used={}; gMc.forEach(function(x){ used[x.m]=1; });
+    var rows=sortedDefs("machines").filter(function(x){ return (!pickTy || x.d.type===pickTy) && (!q || nkey(x.d.name).indexOf(q)>=0); });
+    box.innerHTML = rows.length ? rows.map(function(x){ return '<button type="button" class="gli" data-mid="'+x.d.id+'"'+(used[x.d.id]?' disabled':'')+'>'+kdTag(x.d.type)+'<span class="t">'+esc(x.d.name)+'</span><small>'+(used[x.d.id]?"追加済み":(x.n?x.n+"回・"+md(x.last):"まだ記録なし"))+'</small></button>'; }).join("")
+      : '<div class="gempty">'+(gDefs("machines").length?"見つかりません。下から新しく登録できます":"まだ台がありません。下から登録できます")+'</div>';
+  }
+  $("pickQ").addEventListener("input", function(){ $("pickName").value=normName($("pickQ").value); renderPick(); });
+  $("pickTab").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; pickTy=b.dataset.pt; press("pickTab","pt",pickTy); renderPick(); };
+  $("pickType").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; newTy=b.dataset.ty; press("pickType","ty",newTy); };
+  $("pickList").onclick=function(ev){ var b=ev.target.closest("[data-mid]"); if(!b||b.disabled) return; gMc.push({m:b.dataset.mid,inv:"",ret:""}); $("pickModal").classList.remove("open"); renderMc(); };
+  $("pickAdd").onclick=function(){
+    var name=normName($("pickName").value); if (!name){ $("pickName").focus(); toast("機種名を入れてください",true); return; }
+    var d=defByName("machines",name);
+    if (!d){ d={id:gid("m_"), name:name, type:newTy}; saveDefs("machines", gDefs("machines").concat([d])); }
+    else if (!d.type && newTy){ saveDefs("machines", gDefs("machines").map(function(x){ return x.id===d.id?Object.assign({},x,{type:newTy}):x; })); }
+    if (!gMc.some(function(x){ return x.m===d.id; })) gMc.push({m:d.id,inv:"",ret:""});
+    $("pickModal").classList.remove("open"); renderMc();
+  };
+  $("pickClose").onclick=function(){ $("pickModal").classList.remove("open"); };
+  $("pickEdit").onclick=function(){ openMg("machines"); };
+
+  /* hall / machine management */
+  var mg={k:"machines", v:"list", id:null, to:null};
+  function openMg(k){ mg={k:k||"machines", v:"list", id:null, to:null}; renderMg(); $("mgModal").classList.add("open"); }
+  function mgWord(){ return mg.k==="halls"?"ホール":"台"; }
+  function mgDone(){ $("mgModal").classList.remove("open"); if ($("pickModal").classList.contains("open")) renderPick(); if ($("sheetEntry").classList.contains("open")){ renderMc(); renderHallChips(); } }
+  function renderMg(){
+    var b=$("mgBody"), h="", d=defById(mg.k, mg.id), st=useStats(mg.k), n=d&&st[d.id]?st[d.id].n:0;
+    if (mg.v!=="list" && !d) mg.v="list";
+    if (mg.v==="list"){
+      var rows=sortedDefs(mg.k);
+      h='<div class="ghead"><p>ホール・台の管理</p></div><div class="gtab" id="mgTab"><button type="button" data-mk="machines" aria-pressed="'+(mg.k==="machines")+'">台</button><button type="button" data-mk="halls" aria-pressed="'+(mg.k==="halls")+'">ホール</button></div><div class="glist">'
+        +(rows.length? rows.map(function(x){ return '<button type="button" class="gli" data-mg="'+x.d.id+'">'+(mg.k==="machines"?kdTag(x.d.type):"")+'<span class="t">'+esc(x.d.name)+'</span><small>'+x.n+'回　…</small></button>'; }).join("") : '<div class="gempty">まだ'+mgWord()+'がありません</div>')
+        +'</div><div class="actions"><button type="button" class="ghost" data-mgx>閉じる</button></div>';
+    } else if (mg.v==="act"){
+      h='<div class="ghead"><p>'+esc(d.name)+'</p></div><div class="gact"><button type="button" data-mv="rename">名前を変える</button>'+(mg.k==="machines"?'<button type="button" data-mv="type">パチンコ／スロットを変える</button>':'')+'<button type="button" data-mv="merge">ほかの'+mgWord()+'とまとめる</button><button type="button" class="dz" data-mv="del">削除</button></div><div class="actions"><button type="button" class="ghost" data-mv="list">戻る</button></div>';
+    } else if (mg.v==="rename"){
+      h='<div class="ghead"><p>名前を変える</p></div><input id="mgName" type="text" class="gq" maxlength="40" value="'+esc(d.name)+'" autocomplete="off"><div class="actions"><button type="button" class="ghost" data-mv="act">戻る</button><button type="button" class="primary" data-mdo="rename">保存する</button></div>';
+    } else if (mg.v==="type"){
+      h='<div class="ghead"><p>'+esc(d.name)+'</p></div><div class="gtab" id="mgType"><button type="button" data-mty="p" aria-pressed="'+(d.type==="p")+'">パチンコ</button><button type="button" data-mty="s" aria-pressed="'+(d.type==="s")+'">スロット</button><button type="button" data-mty="" aria-pressed="'+(!d.type)+'">選ばない</button></div><div class="actions"><button type="button" class="ghost" data-mv="act">戻る</button></div>';
+    } else if (mg.v==="merge"){
+      var others=sortedDefs(mg.k).filter(function(x){ return x.d.id!==d.id; }), to=defById(mg.k, mg.to);
+      h='<div class="ghead"><p>まとめる</p></div><p class="gnote" style="margin:0 0 8px">「'+esc(d.name)+'」を、どの'+mgWord()+'にまとめますか？</p><div class="glist">'
+        +(others.length? others.map(function(x){ return '<button type="button" class="gli'+(x.d.id===mg.to?" sel":"")+'" data-mto="'+x.d.id+'">'+(mg.k==="machines"?kdTag(x.d.type):"")+'<span class="t">'+esc(x.d.name)+'</span><small>'+(x.d.id===mg.to?"✓":x.n+"回")+'</small></button>'; }).join("") : '<div class="gempty">ほかの'+mgWord()+'がありません</div>')
+        +'</div>'+(to?'<p class="gnote">'+n+'回分の記録が「'+esc(to.name)+'」に移ります。「'+esc(d.name)+'」は一覧から消えます</p>':'')
+        +'<div class="actions"><button type="button" class="ghost" data-mv="act">戻る</button><button type="button" class="primary" data-mdo="merge"'+(to?'':' disabled style="opacity:.4"')+'>まとめる</button></div>';
+    }
+    b.innerHTML=h;
+    var inp=$("mgName"); if (inp) setTimeout(function(){ inp.focus(); },50);
+  }
+  function remapRefs(k, src, dst){
+    var changed=false, list=state.entries.map(function(e){
+      if (e.kind!=="spend"||e.cat!=="gamble") return e;
+      if (k==="halls"){ if (e.hall!==src) return e; var n=Object.assign({},e); if (dst) n.hall=dst; else delete n.hall; changed=true; return n; }
+      if (!e.mc||!e.mc.some(function(x){ return x.m===src; })) return e;
+      var n2=Object.assign({},e); n2.mc=e.mc.map(function(x){ return x.m===src?Object.assign({},x,{m:dst||""}):x; }); changed=true; return n2; });
+    if (changed) store.replaceAll(list);
+    if (k==="machines") gMc.forEach(function(x){ if (x.m===src) x.m=dst||""; });
+  }
+  $("mgBody").onclick=function(ev){
+    var t;
+    if ((t=ev.target.closest("[data-mgx]"))){ mgDone(); return; }
+    if ((t=ev.target.closest("[data-mk]"))){ mg.k=t.dataset.mk; mg.v="list"; renderMg(); return; }
+    if ((t=ev.target.closest("[data-mg]"))){ mg.id=t.dataset.mg; mg.v="act"; renderMg(); return; }
+    if ((t=ev.target.closest("[data-mto]"))){ mg.to=t.dataset.mto; renderMg(); return; }
+    if ((t=ev.target.closest("[data-mty]"))){ var ty=t.dataset.mty; saveDefs("machines", gDefs("machines").map(function(x){ return x.id===mg.id?Object.assign({},x,{type:ty}):x; })); mg.v="act"; renderMg(); toast("変更しました",true); return; }
+    if ((t=ev.target.closest("[data-mv]"))){ var v=t.dataset.mv, d=defById(mg.k,mg.id); if (!d){ mg.v="list"; renderMg(); return; }
+      if (v==="del"){ var cnt=(useStats(mg.k)[d.id]||{n:0}).n;
+        askConfirm("「"+d.name+"」を削除しますか？"+(cnt?cnt+"回分の記録は残り、"+mgWord()+"の欄は「未入力」になります。":""),"削除する").then(function(ok){ if(!ok) return; var id=d.id, k=mg.k; remapRefs(k,id,""); saveDefs(k, gDefs(k).filter(function(x){ return x.id!==id; })); mg.v="list"; mg.id=null; renderMg(); toast("削除しました",true); });
+        return; }
+      mg.v=v; if (v==="merge") mg.to=null; renderMg(); return; }
+    if ((t=ev.target.closest("[data-mdo]"))){ var d2=defById(mg.k,mg.id); if(!d2) return;
+      if (t.dataset.mdo==="rename"){ var nm=normName($("mgName").value); if(!nm){ toast("名前を入れてください",true); return; }
+        var dup=defByName(mg.k,nm); if (dup && dup.id!==d2.id){ toast("同じ名前の"+mgWord()+"があります。「まとめる」を使ってください",true); return; }
+        saveDefs(mg.k, gDefs(mg.k).map(function(x){ return x.id===d2.id?Object.assign({},x,{name:nm}):x; })); mg.v="act"; renderMg(); toast("変更しました",true); return; }
+      if (t.dataset.mdo==="merge"){ var to=defById(mg.k,mg.to); if(!to) return; var k2=mg.k, src=d2.id;
+        remapRefs(k2, src, to.id);
+        saveDefs(k2, gDefs(k2).filter(function(x){ return x.id!==src; }).map(function(x){ return (k2==="machines"&&x.id===to.id&&!x.type&&d2.type)?Object.assign({},x,{type:d2.type}):x; }));
+        mg.v="list"; mg.id=null; renderMg(); toast("まとめました",true); return; }
+    }
+  };
+  $("mgOpen").onclick=function(){ openMg("machines"); };
   function syncFields(){
     $("spendFields").hidden = kind!=="spend"; $("exFields").hidden = kind!=="exercise";
-    $("resultSeg").hidden = true; $("incSeg").hidden = cat!=="income"; $("amtLabel").hidden = cat==="gamble"; $("gamFields").hidden = cat!=="gamble"; updGNet(); $("catHint").textContent = cat==="income" ? (incTo==="reserve" ? "予備費に入ります。使わずにとっておくお金" : "フリー生活費に入ります。すぐ使えるお金") : HINT[cat];
+    $("resultSeg").hidden = true; $("incSeg").hidden = cat!=="income"; $("amtLabel").hidden = cat==="gamble"; $("gamFields").hidden = cat!=="gamble"; if (cat==="gamble") syncGam(); updGNet(); $("catHint").textContent = cat==="income" ? (incTo==="reserve" ? "予備費に入ります。使わずにとっておくお金" : "フリー生活費に入ります。すぐ使えるお金") : HINT[cat];
   }
   $("gInv").addEventListener("input", updGNet); $("gRet").addEventListener("input", updGNet);
   $("kindSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; kind=b.dataset.kind; press("kindSeg","kind",kind); syncFields(); };
@@ -1424,15 +1716,36 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   $("incSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; incTo=b.dataset.to; press("incSeg","to",incTo); syncFields(); };
   $("resultSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; win=b.dataset.res==="win"; press("resultSeg","res",win?"win":"lose"); };
 
-  function openEntry(k){
+  function openEntry(k, noFocus){
     kind=k; press("kindSeg","kind",kind);
+    editId=null; editCreated=0; $("entryTitle").textContent="記録する"; $("saveEntry").textContent="記録する"; $("delEntry").hidden=true;
     $("date").value=todayIso(); $("amount").value=""; $("memo").value=""; $("gInv").value=""; $("gRet").value=""; $("exCount").value="1";
+    gk=lastGk(); gMc=[]; $("gHall").value=""; $("gT0").value=""; $("gT1").value="";
     var sel=$("menuSel"); sel.innerHTML=""; state.settings.menus.forEach(function(m){ var o=document.createElement("option"); o.textContent=m; sel.appendChild(o); });
     incTo="free"; press("incSeg","to","free");
     if (curMode()==="gamble"){ wallet="fun"; press("walletSeg","wallet","fun"); }
     buildCats(); openSheet("sheetEntry");
-    if (k==="spend") setTimeout(function(){ $("amount").focus(); },250);
+    if (k==="spend" && !noFocus) setTimeout(function(){ $("amount").focus(); },250);
   }
+  function openEdit(e){
+    if (!e || e.kind!=="spend") return;
+    openEntry("spend", true);
+    editId=e.id; editCreated=e.createdAt||Date.now();
+    $("entryTitle").textContent="記録を編集"; $("saveEntry").textContent="保存する"; $("delEntry").hidden=false;
+    wallet=FUN[e.cat]?"fun":"life"; press("walletSeg","wallet",wallet); cat=e.cat; buildCats();
+    if (cat!==e.cat){ cat=e.cat; var bx=document.createElement("button"); bx.dataset.cat=e.cat; bx.textContent=SHORT[e.cat]||e.cat; $("catSeg").appendChild(bx); $("catSeg").style.gridTemplateColumns="repeat("+$("catSeg").children.length+",1fr)"; press("catSeg","cat",cat); }
+    $("date").value=e.date; $("memo").value=e.memo||"";
+    if (e.cat==="gamble"){
+      var t=gTot(e); $("gInv").value=String(t.inv); $("gRet").value=String(t.ret);
+      gk=e.gk==="other"?"other":"ps"; var hd=defById("halls",e.hall); $("gHall").value=hd?hd.name:""; $("gT0").value=e.t0||""; $("gT1").value=e.t1||"";
+      gMc=(e.mc||[]).map(function(x){ return {m:x.m, inv:hasAmt(x)?String(+x.inv||0):"", ret:hasAmt(x)?String(+x.ret||0):""}; });
+    } else {
+      $("amount").value=String(e.amount||"");
+      if (e.cat==="income"){ incTo=e.to==="reserve"?"reserve":"free"; press("incSeg","to",incTo); }
+    }
+    syncFields();
+  }
+  $("delEntry").onclick=function(){ var id=editId; if(!id) return; askConfirm("この記録を削除しますか？","削除する").then(function(ok){ if(!ok) return; store.remove(id); closeSheets(); toast("削除しました",true); }); };
   $("openSpend").onclick=function(){ openEntry("spend"); };
   function exercisedOn(date){ return state.entries.some(function(x){ return x.kind==="exercise" && x.date===date; }); }
   function guardExercise(date){
@@ -1463,10 +1776,22 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       e={id:newId(), kind:"exercise", menu:$("menuSel").value, count:n, date:date, memo:memo, createdAt:Date.now()};
     } else {
       if (cat==="gamble"){
-        var gi=parseInt($("gInv").value,10)||0, gr=parseInt($("gRet").value,10)||0;
+        var gi=parseInt($("gInv").value,10)||0, gr=parseInt($("gRet").value,10)||0, ext={gk:gk};
+        if (gk==="ps"){
+          var auto=mcAll(), si=0, sr=0, mcs=[];
+          gMc.forEach(function(x){ if (x.inv!==""||x.ret!==""){ var a=parseInt(x.inv,10)||0, b=parseInt(x.ret,10)||0; si+=a; sr+=b; mcs.push({m:x.m,inv:a,ret:b}); } else mcs.push({m:x.m}); });
+          if (auto){ gi=si; gr=sr; }
+          else if (si>gi||sr>gr){ toast("台の金額の合計が、投資・回収の金額を超えています",true); return; }
+          if (mcs.length) ext.mc=mcs;
+        }
         if (gi<0||gr<0||!(gi>0||gr>0)){ $("gInv").focus(); toast("投資か回収の金額を入れてください",true); return; }
+        if (gk==="ps"){
+          var hn=normName($("gHall").value);
+          if (hn){ var hd=defByName("halls",hn); if (!hd){ hd={id:gid("h_"), name:hn}; saveDefs("halls", gDefs("halls").concat([hd])); } ext.hall=hd.id; }
+          var t0=$("gT0").value, t1=$("gT1").value; if (t0&&t1){ ext.t0=t0; ext.t1=t1; }
+        }
         var gn=gr-gi;
-        e={id:newId(), kind:"spend", cat:"gamble", amount:Math.abs(gn), win:gn>0, invest:gi, ret:gr, date:date, memo:memo, createdAt:Date.now()};
+        e=Object.assign({id:newId(), kind:"spend", cat:"gamble", amount:Math.abs(gn), win:gn>0, invest:gi, ret:gr, date:date, memo:memo, createdAt:Date.now()}, ext);
       } else {
       var a=parseInt($("amount").value,10);
       if (!(a>0)){ $("amount").focus(); toast("金額を入れてください",true); return; }
@@ -1474,7 +1799,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       }
       if (cat==="income" && incTo==="reserve") e.to="reserve";
     }
-    var go=function(){ var msg=kind==="exercise"?exMsg(e):"記録しました"; store.add(e); lastAdded=e.id; closeSheets(); toast(msg); };
+    var go=function(){ if (editId && kind!=="exercise"){ e.id=editId; e.createdAt=editCreated; store.update(e); closeSheets(); toast("保存しました",true); return; } var msg=kind==="exercise"?exMsg(e):"記録しました"; store.add(e); lastAdded=e.id; closeSheets(); toast(msg); };
     if (kind==="exercise") guardExercise(date).then(function(ok){ if(ok) go(); }); else go();
   };
   function toast(msg, noUndo){
@@ -1613,7 +1938,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.6.0";
+  var APP_VERSION="1.7.0";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -1945,6 +2270,142 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       + '</div>';
   }
   function jd(s){ var p=s.split("-"); return (+p[1])+"/"+(+p[2])+"（"+"月火水木金土日"[wdIdx(s)]+"）"; }
+  /* ---------- v1.7 gamble analysis ---------- */
+  var ga={tab:"all", per:"m", from:"", to:"", ty:"", hall:"", mc:"", rk:"m"};
+  function hasGamble(){ return state.entries.some(function(e){ return e.kind==="spend"&&e.cat==="gamble"; }); }
+  function lastDay(y,mo){ return y+"-"+pad(mo)+"-"+pad(new Date(y,mo,0).getDate()); }
+  function gaRange(){
+    var p=calDate.split("-"), y=+p[0], mo=+p[1], t=todayIso();
+    if (ga.per==="m") return [y+"-"+pad(mo)+"-01", lastDay(y,mo)];
+    if (ga.per==="pm"){ var py=mo===1?y-1:y, pm=mo===1?12:mo-1; return [py+"-"+pad(pm)+"-01", lastDay(py,pm)]; }
+    if (ga.per==="y") return [y+"-01-01", y+"-12-31"];
+    if (ga.per==="a"){ var f=null, l=t; state.entries.forEach(function(e){ if (e.kind==="spend"&&e.cat==="gamble"&&e.date){ if(!f||e.date<f) f=e.date; if (e.date>l) l=e.date; } }); return [f||t, l]; }
+    var a=ga.from||(y+"-"+pad(mo)+"-01"), b=ga.to||t; if (a>b){ var z=a; a=b; b=z; } return [a,b];
+  }
+  function gaPerLabel(per){
+    var p=calDate.split("-"), y=+p[0], mo=+p[1];
+    if (per==="m") return mo+"月"; if (per==="pm") return (mo===1?12:mo-1)+"月"; if (per==="y") return y+"年"; if (per==="a") return "全期間"; return "期間を選ぶ";
+  }
+  function gaPass(s){
+    if (ga.tab==="ps" && s.gk!=="ps") return false;
+    if (ga.tab==="other" && s.gk!=="other") return false;
+    if (ga.tab==="ps"){ if (ga.ty && (s.ty||"u")!==ga.ty) return false; if (ga.hall && (s.hall||"u")!==ga.hall) return false; if (ga.mc && (s.m||"u")!==ga.mc) return false; }
+    return true;
+  }
+  function gaCollect(a,b){
+    var out=[]; state.entries.forEach(function(e){ if (e.kind!=="spend"||e.cat!=="gamble"||!e.date||e.date<a||e.date>b) return;
+      var part=[], whole=true; gSegs(e).forEach(function(s){ if (gaPass(s)) part.push(s); else whole=false; });
+      if (part.length) out.push({e:e, segs:part, whole:whole}); });
+    return out;
+  }
+  function gaDays(recs){ var d={}; recs.forEach(function(r){ var n=0; r.segs.forEach(function(s){ n+=s.ret-s.inv; }); var o=d[r.e.date]||(d[r.e.date]={net:0,recs:[]}); o.net+=n; o.recs.push(r); }); return d; }
+  function gaGroup(recs, keyFn){
+    var map={}; recs.forEach(function(r){ r.segs.forEach(function(s){ var id=keyFn(s); var o=map[id]||(map[id]={id:id,inv:0,ret:0,days:{}}); o.inv+=s.inv; o.ret+=s.ret; o.days[r.e.date]=(o.days[r.e.date]||0)+(s.ret-s.inv); }); });
+    return Object.keys(map).map(function(id){ var o=map[id], w=0, l=0, n=0; Object.keys(o.days).forEach(function(d){ n++; if (o.days[d]>0) w++; else if (o.days[d]<0) l++; }); return {id:id,net:o.ret-o.inv,inv:o.inv,ret:o.ret,n:n,w:w,l:l}; });
+  }
+  function pct(ret,inv){ return inv>0 ? (Math.round(ret/inv*1000)/10)+"%" : "—"; }
+  function sc(v){ return v>0?"pos":v<0?"negc":""; }
+  function niceStep(x){ var p=Math.pow(10,Math.floor(Math.log10(Math.max(x,1)))), f=x/p; return (f<=1?1:f<=2?2:f<=5?5:10)*p; }
+  function gaChart(rng, days){
+    var a=rng[0], b=rng[1], n=Math.max(1, dayNum(b)-dayNum(a)+1), keys=Object.keys(days).sort(), cum=0, pts=[], bars=[];
+    keys.forEach(function(k2){ var i=dayNum(k2)-dayNum(a); cum+=days[k2].net; pts.push([i,cum]); bars.push([i,days[k2].net]); });
+    var mx=0, mn=0; pts.concat(bars).forEach(function(p){ mx=Math.max(mx,p[1]); mn=Math.min(mn,p[1]); });
+    var st=niceStep((mx-mn)/4||10000); mx=Math.ceil(mx/st)*st; mn=Math.floor(mn/st)*st; if (mx===mn) mx=mn+st;
+    var W=320,H=170,L=40,R=12,T=12,B=22,cw=W-L-R,ch=H-T-B;
+    function y(v){ return (T+ch*(mx-v)/(mx-mn)).toFixed(1); } function x(i){ return (L+(n===1?cw/2:cw*i/(n-1))).toFixed(1); }
+    var g='<svg class="gasvg" viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="累計収支のグラフ">';
+    for (var v=mn; v<=mx+0.5; v+=st){ g+='<line class="ggl" x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'"'+(v===0?'':' stroke-dasharray="3 3"')+'/><text class="gt" x="'+(L-4)+'" y="'+(+y(v)+3)+'" font-size="9" text-anchor="end">'+(v===0?"0":(v<0?"−":"")+k(v))+'</text>'; }
+    var bw=Math.max(1.5, Math.min(7, cw/n*0.6));
+    bars.forEach(function(p){ var y0=+y(0), y1=+y(p[1]); g+='<rect class="'+(p[1]>=0?"bp":"bn")+'" opacity=".35" x="'+(+x(p[0])-bw/2).toFixed(1)+'" y="'+Math.min(y0,y1).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+Math.max(0.5,Math.abs(y1-y0)).toFixed(1)+'" rx="1"/>'; });
+    if (pts.length){ g+='<path class="ln" d="M'+x(0)+' '+y(0)+' '+pts.map(function(p){ return 'L'+x(p[0])+' '+y(p[1]); }).join(" ")+'"/>';
+      var lp=pts[pts.length-1], lx=+x(lp[0]); g+='<circle class="pt" cx="'+lx+'" cy="'+y(lp[1])+'" r="3.5"/><text class="lv" x="'+(lx>W-80?lx-6:lx+6)+'" y="'+(+y(lp[1])-7)+'" font-size="10.5" text-anchor="'+(lx>W-80?"end":"start")+'">'+signed(lp[1])+'</text>'; }
+    var ticks = n<=31 ? [0,7,14,21,28].filter(function(i){ return i<n; }) : [0, Math.floor((n-1)/2), n-1];
+    ticks.forEach(function(i){ g+='<text class="gt" x="'+x(i)+'" y="'+(H-6)+'" font-size="9" text-anchor="middle">'+(n<=31?(+addDays(a,i).slice(8))+"日":md(addDays(a,i)))+'</text>'; });
+    return g+'</svg>';
+  }
+  function gaDow(days){
+    var w=[0,0,0,0,0,0,0], c=[0,0,0,0,0,0,0], wn=[0,0,0,0,0,0,0];
+    Object.keys(days).forEach(function(d){ var i=wdIdx(d); w[i]+=days[d].net; c[i]++; if (days[d].net>0) wn[i]++; });
+    var ord=state.settings.weekStart==="sun"?[6,0,1,2,3,4,5]:[0,1,2,3,4,5,6], nm="月火水木金土日", mxv=1;
+    w.forEach(function(v){ mxv=Math.max(mxv,Math.abs(v)); });
+    var W=320,H=140,T=16,B=30,cw=W/7, hasN=w.some(function(v){ return v<0; }), hasP=w.some(function(v){ return v>0; });
+    var mid=T+(H-T-B)*(hasN&&hasP?0.58:hasN?0.08:0.92), sp=(H-T-B)*(hasN&&hasP?0.56:0.84)/mxv;
+    var g='<svg class="gasvg" viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="曜日別の収支"><line class="ggl" x1="0" x2="'+W+'" y1="'+mid+'" y2="'+mid+'"/>';
+    ord.forEach(function(i,j){ var cx=cw*j+cw/2, v=w[i], h=Math.abs(v)*sp;
+      if (v) g+='<rect class="'+(v>0?"bp":"bn")+'" x="'+(cx-11)+'" y="'+(v>0?mid-h:mid).toFixed(1)+'" width="22" height="'+Math.max(1,h).toFixed(1)+'" rx="3"/><text class="'+(v>0?"bp":"bn")+'" x="'+cx+'" y="'+(v>0?mid-h-3:mid+h+10).toFixed(1)+'" font-size="8.5" text-anchor="middle">'+(v>0?"+":"−")+k(v)+'</text>';
+      g+='<text x="'+cx+'" y="'+(H-16)+'" font-size="11" font-weight="700" text-anchor="middle" style="fill:var(--ink)">'+nm[i]+'</text><text class="gt" x="'+cx+'" y="'+(H-4)+'" font-size="9" text-anchor="middle">'+(c[i]?Math.round(wn[i]/c[i]*100)+"%":"—")+'</text>'; });
+    return g+'</svg>';
+  }
+  function gaRankHtml(rows, key){
+    if (!rows.length) return '<div class="gaempty">記録がありません</div>';
+    var mxv=1; rows.forEach(function(r){ mxv=Math.max(mxv,Math.abs(r.net)); });
+    return rows.map(function(r){ var un=r.id==="u", d=un?null:defById(key==="m"?"machines":"halls", r.id), nm=un?"未入力":(d?d.name:"未入力");
+      return '<div class="garow'+(un?" un":"")+'"><div class="nm">'+(key==="m"&&!un?kdTag(d&&d.type):"")+'<span class="t">'+esc(nm)+'</span><small>'+r.n+'回・'+r.w+'勝'+r.l+'敗</small></div><div class="v num '+sc(r.net)+'">'+signed(r.net)+'</div><div class="tr"><i style="left:50%;width:'+(Math.abs(r.net)/mxv*50).toFixed(1)+'%;'+(r.net<0?'transform:translateX(-100%);background:var(--neg)':'background:var(--unlock)')+'"></i></div><div class="mt">回収率 '+pct(r.ret,r.inv)+'</div></div>'; }).join("");
+  }
+  function gaHtml(){
+    if (!hasGamble()) return "";
+    var rng=gaRange(), recs=gaCollect(rng[0],rng[1]), days=gaDays(recs), h='<div class="dayh">ギャンブル分析</div><div class="ga">';
+    h+='<div class="gtab">'+[["all","すべて"],["ps","パチ・スロ"],["other","その他"]].map(function(x){ return '<button type="button" data-gat="'+x[0]+'" aria-pressed="'+(ga.tab===x[0])+'">'+x[1]+'</button>'; }).join("")+'</div>';
+    h+='<div class="gachips">'+["m","pm","y","a","c"].map(function(x){ return '<button type="button" data-gap="'+x+'" aria-pressed="'+(ga.per===x)+'">'+gaPerLabel(x)+'</button>'; }).join("")+'</div>';
+    if (ga.per==="c") h+='<div class="gacus"><input type="date" data-gad="from" value="'+rng[0]+'" aria-label="はじめ"><span>〜</span><input type="date" data-gad="to" value="'+rng[1]+'" aria-label="おわり"></div>';
+    if (ga.tab==="ps"){
+      var ho=sortedDefs("halls"), mo=sortedDefs("machines");
+      h+='<div class="gaflt"><label>種類<select data-gaf="ty" class="'+(ga.ty?"on":"")+'"><option value="">すべて</option><option value="p"'+(ga.ty==="p"?" selected":"")+'>パチンコ</option><option value="s"'+(ga.ty==="s"?" selected":"")+'>スロット</option><option value="u"'+(ga.ty==="u"?" selected":"")+'>未入力</option></select></label>'
+        +'<label>ホール<select data-gaf="hall" class="'+(ga.hall?"on":"")+'"><option value="">すべて</option>'+ho.map(function(x){ return '<option value="'+x.d.id+'"'+(ga.hall===x.d.id?" selected":"")+'>'+esc(x.d.name)+'</option>'; }).join("")+'<option value="u"'+(ga.hall==="u"?" selected":"")+'>未入力</option></select></label>'
+        +'<label>機種<select data-gaf="mc" class="'+(ga.mc?"on":"")+'"><option value="">すべて</option>'+mo.map(function(x){ return '<option value="'+x.d.id+'"'+(ga.mc===x.d.id?" selected":"")+'>'+esc(x.d.name)+'</option>'; }).join("")+'<option value="u"'+(ga.mc==="u"?" selected":"")+'>未入力</option></select></label></div>';
+    }
+    if (!recs.length) return h+'<div class="gac"><div class="gaempty">この条件の記録はありません</div></div></div>';
+    var inv=0, ret=0, hrs=0, hnet=0;
+    recs.forEach(function(r){ var dn=0; r.segs.forEach(function(s){ inv+=s.inv; ret+=s.ret; dn+=s.ret-s.inv; }); var hh=gHours(r.e); if (hh&&r.whole){ hrs+=hh; hnet+=dn; } });
+    var net=ret-inv, dk=Object.keys(days).sort(), wins=0, loss=0; dk.forEach(function(d){ if (days[d].net>0) wins++; else if (days[d].net<0) loss++; });
+    var lbl=[gaPerLabel(ga.per)==="期間を選ぶ"?md(rng[0])+"〜"+md(rng[1]):gaPerLabel(ga.per)];
+    if (ga.tab==="ps") lbl.push("パチ・スロ"); if (ga.tab==="other") lbl.push("その他");
+    if (ga.tab==="ps"){ if (ga.ty) lbl.push({p:"パチンコ",s:"スロット",u:"種類未入力"}[ga.ty]); if (ga.hall){ var hd=defById("halls",ga.hall); lbl.push(hd?hd.name:"ホール未入力"); } if (ga.mc){ var mdf=defById("machines",ga.mc); lbl.push(mdf?mdf.name:"機種未入力"); } }
+    h+='<div class="gac"><div class="gahero"><small>'+esc(lbl.join("・"))+'の収支</small><div class="gabig num '+sc(net)+'">'+signed(net)+'</div><div class="gasub">'+wins+'勝'+loss+'敗'+(dk.length?'（勝率'+Math.round(wins/dk.length*100)+'%）':'')+'・'+dk.length+'日</div></div>'
+      +'<div class="ga3"><div><small>投資</small><b class="num">'+yen(inv)+'</b></div><div><small>回収</small><b class="num">'+yen(ret)+'</b></div><div><small>回収率</small><b class="num '+(inv>0?(ret>=inv?"pos":"negc"):"")+'">'+pct(ret,inv)+'</b></div>'
+      +'<div><small>1日平均</small><b class="num '+sc(net)+'">'+signed(dk.length?net/dk.length:0)+'</b></div><div><small>時給</small><b class="num '+(hrs?sc(hnet):"")+'">'+(hrs?signed(hnet/hrs):"—")+'</b></div><div><small>遊んだ時間</small><b class="num">'+(hrs?(Math.round(hrs*10)/10)+"h":"—")+'</b></div></div></div>';
+    if (ga.tab==="all"){
+      var gg=gaGroup(recs,function(s){ return s.gk; }), gm={}; gg.forEach(function(r){ gm[r.id]=r; });
+      if (gm.ps && gm.other) h+='<div class="gac"><h4>種別ごと</h4><table class="gatbl num"><tr><th>種別</th><th>収支</th><th>勝敗</th><th>回収率</th></tr>'+[["ps","パチ・スロ"],["other","その他"]].map(function(x){ var r=gm[x[0]]; return '<tr><td>'+x[1]+'</td><td class="'+sc(r.net)+'">'+signed(r.net)+'</td><td>'+r.w+'勝'+r.l+'敗</td><td>'+pct(r.ret,r.inv)+'</td></tr>'; }).join("")+'</table></div>';
+    }
+    if (ga.tab==="ps" && !ga.ty){
+      var tg=gaGroup(recs,function(s){ return s.ty||"u"; }), tm={}; tg.forEach(function(r){ tm[r.id]=r; });
+      var col={p:"#2F80ED",s:"#9B51E0",u:"var(--muted)"}, tot=0; tg.forEach(function(r){ tot+=Math.abs(r.net); });
+      h+='<div class="gac"><h4>パチンコ・スロット別</h4><div class="gasplit">'+["p","s","u"].filter(function(x){ return tm[x]; }).map(function(x){ return '<i style="width:'+(tot?Math.abs(tm[x].net)/tot*100:0).toFixed(1)+'%;background:'+col[x]+(x==="u"?";opacity:.45":"")+'"></i>'; }).join("")+'</div>'
+        +'<table class="gatbl num"><tr><th>種類</th><th>収支</th><th>回数</th><th>回収率</th></tr>'+["p","s","u"].filter(function(x){ return tm[x]; }).map(function(x){ var r=tm[x]; return '<tr><td><span class="gadot" style="background:'+col[x]+(x==="u"?";opacity:.45":"")+'"></span>'+{p:"パチンコ",s:"スロット",u:"未入力"}[x]+'</td><td class="'+sc(r.net)+'">'+signed(r.net)+'</td><td>'+r.n+'</td><td>'+pct(r.ret,r.inv)+'</td></tr>'; }).join("")
+        +'<tr class="tt"><td>合計</td><td class="'+sc(net)+'">'+signed(net)+'</td><td></td><td>'+pct(ret,inv)+'</td></tr></table>'
+        +(tm.u?'<p class="ganote">台を記録していない日や、パチンコ／スロットを選んでいない台の分は「未入力」にまとめています</p>':'')+'</div>';
+    }
+    h+='<div class="gac"><h4>収支グラフ<small>累計／日ごと</small></h4>'+gaChart(rng,days)+'</div>';
+    var bw=null, bl=null, cw2=0, cl=0, mw=0, ml=0, sw=null, sl=null, ws=null, ls=null;
+    dk.forEach(function(d){ var v=days[d].net; if (v>0&&(!bw||v>days[bw].net)) bw=d; if (v<0&&(!bl||v<days[bl].net)) bl=d;
+      if (v>0){ if(!cw2) ws=d; cw2++; cl=0; if (cw2>mw){ mw=cw2; sw=[ws,d]; } } else if (v<0){ if(!cl) ls=d; cl++; cw2=0; if (cl>ml){ ml=cl; sl=[ls,d]; } } else { cw2=0; cl=0; } });
+    function dayDesc(d){ var hs={}, n2=0; days[d].recs.forEach(function(r){ r.segs.forEach(function(s){ if (!hs[s.hall||"u"]){ hs[s.hall||"u"]=1; n2++; } }); }); var only=Object.keys(hs)[0], hd2=n2===1&&only!=="u"?defById("halls",only):null; return md(d)+(hd2?" "+hd2.name:""); }
+    h+='<div class="gac"><h4>記録</h4><div class="garecs">'
+      +'<div class="garec"><small>最大勝ち</small><b class="num '+(bw?"pos":"")+'">'+(bw?signed(days[bw].net):"なし")+'</b><span>'+(bw?esc(dayDesc(bw)):"&nbsp;")+'</span></div>'
+      +'<div class="garec"><small>最大負け</small><b class="num '+(bl?"negc":"")+'">'+(bl?signed(days[bl].net):"なし")+'</b><span>'+(bl?esc(dayDesc(bl)):"&nbsp;")+'</span></div>'
+      +'<div class="garec"><small>最長連勝</small><b class="num">'+(mw?mw+"連勝":"—")+'</b><span>'+(sw?md(sw[0])+(sw[0]!==sw[1]?"〜"+md(sw[1]):""):"&nbsp;")+'</span></div>'
+      +'<div class="garec"><small>最長連敗</small><b class="num">'+(ml?ml+"連敗":"—")+'</b><span>'+(sl?md(sl[0])+(sl[0]!==sl[1]?"〜"+md(sl[1]):""):"&nbsp;")+'</span></div></div></div>';
+    if (ga.tab==="ps"){
+      var showM=!ga.mc, showH=!ga.hall; if (!showM&&!showH) showM=true;
+      var rk=(showM&&showH)?ga.rk:(showM?"m":"h");
+      var rows=gaGroup(recs, rk==="m"?function(s){ return s.m||"u"; }:function(s){ return s.hall||"u"; }).sort(function(a,b){ return b.net-a.net; });
+      h+='<div class="gac"><h4>ランキング<small>収支順</small></h4>'+(showM&&showH?'<div class="gtab"><button type="button" data-grk="m" aria-pressed="'+(rk==="m")+'">機種</button><button type="button" data-grk="h" aria-pressed="'+(rk==="h")+'">ホール</button></div>':'<p class="ganote" style="margin:0 0 4px">'+(rk==="m"?"機種別":"ホール別")+'</p>')+gaRankHtml(rows,rk)+'</div>';
+    }
+    h+='<div class="gac"><h4>曜日別<small>収支／勝率</small></h4>'+gaDow(days)+'</div>';
+    var tl=[0,0,0,0,0,0,0,0,0,0], tc=[0,0,0,0,0,0,0,0,0,0], zo=0, zc=0;
+    dk.forEach(function(d){ var dd=+d.slice(8), v=days[d].net; tl[dd%10]+=v; tc[dd%10]++; if (dd===11||dd===22){ zo+=v; zc++; } });
+    h+='<div class="gac"><h4>日付の末尾別<small>特定日チェック</small></h4><div class="gatail">'+tl.map(function(v,i){ return '<div><small>末尾'+i+'</small><b class="num '+sc(v)+'">'+(tc[i]?signed(v).replace("¥",""):"—")+'</b></div>'; }).join("")+'</div>'
+      +'<div class="gazoro"><small>ゾロ目（11日・22日）</small><b class="num '+sc(zo)+'">'+(zc?signed(zo):"—")+'</b></div></div>';
+    var mr=(ga.per==="m"||ga.per==="pm")?[rng[0].slice(0,4)+"-01-01", rng[1]]:rng, mrecs=(mr===rng)?recs:gaCollect(mr[0],mr[1]), mdays=gaDays(mrecs), mm={};
+    Object.keys(mdays).forEach(function(d){ var key=d.slice(0,7), o=mm[key]||(mm[key]={net:0,inv:0,ret:0,n:0,w:0}); o.n++; if (mdays[d].net>0) o.w++; o.net+=mdays[d].net; mdays[d].recs.forEach(function(r){ r.segs.forEach(function(s){ o.inv+=s.inv; o.ret+=s.ret; }); }); });
+    var mkeys=Object.keys(mm).sort().reverse(), T={net:0,inv:0,ret:0,n:0,w:0};
+    mkeys.forEach(function(x){ ["net","inv","ret","n","w"].forEach(function(f){ T[f]+=mm[x][f]; }); });
+    h+='<div class="gac"><h4>月別<small>'+(mr[0].slice(0,4)===mr[1].slice(0,4)?mr[0].slice(0,4)+"年":md(mr[0])+"〜")+'</small></h4><table class="gatbl num"><tr><th>月</th><th>収支</th><th>勝率</th><th>日数</th><th>回収率</th></tr>'
+      +mkeys.map(function(x){ var o=mm[x]; return '<tr><td>'+(mr[0].slice(0,4)===mr[1].slice(0,4)?"":x.slice(2,4)+"/")+(+x.slice(5))+'月</td><td class="'+sc(o.net)+'">'+signed(o.net)+'</td><td>'+Math.round(o.w/o.n*100)+'%</td><td>'+o.n+'</td><td>'+pct(o.ret,o.inv)+'</td></tr>'; }).join("")
+      +(mkeys.length>1?'<tr class="tt"><td>合計</td><td class="'+sc(T.net)+'">'+signed(T.net)+'</td><td>'+Math.round(T.w/T.n*100)+'%</td><td>'+T.n+'</td><td>'+pct(T.ret,T.inv)+'</td></tr>':'')+'</table></div>';
+    return h+'</div>';
+  }
   function renderCal(){
     var m=aggAll(), t=todayIso(), html="", rs=rareSeq(state.entries);
     var p=calDate.split("-");
@@ -1963,6 +2424,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
         html+='<button class="ym'+(f0.slice(0,7)===t.slice(0,7)?" now":"")+'" data-mon="'+f0+'"><b>'+mo+'月</b>'+(body||'<span class="mt">—</span>')+'</button>';
       }
       html+='</div>';
+      if (calCat==="all"||calCat==="gamble") html+=gaHtml();
       $("calBody").innerHTML=html; calChipFocus(); return;
     }
     $("calTitle").textContent=(+p[0])+"年"+(+p[1])+"月";
@@ -1994,9 +2456,10 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
         if (e.cat==="gamble"){ var gv=gambleNet(e); amt=(gv>0?"+":gv<0?"−":"±")+yen(Math.abs(gv)); cls=gv>0?"pos":gv<0?"negc":""; memo=(e.invest!=null?"投資"+yen(+e.invest||0)+"　回収"+yen(+e.ret||0):(gv>0?"勝ち":"負け"))+(memo?"　"+memo:""); }
         else if (e.cat==="income"){ amt="+"+yen(e.amount); cls="pos"; memo=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(memo?"　"+memo:""); }
         else { amt="−"+yen(e.amount); cls="negc"; } }
-      html+='<li><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+esc(memo)+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
+      html+='<li'+(e.kind==="spend"?' class="ed" data-eid="'+e.id+'"':'')+'><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+esc(memo)+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
     });
     html+='</ul></div>';
+    if (calCat==="gamble") html+=gaHtml();
     if (curMode()!=="gamble"){
     html+='<div class="dayh">スタンプ帳</div><div class="stampbook">';
     html+='<div class="sbgrid">';
@@ -2006,16 +2469,24 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     });
     html+='</div><div class="sbnext" style="margin:8px 0 0">集めたスタンプを押すと、演出をもう一度見られます</div></div>';
     }
+    if (calCat==="all") html+=gaHtml();
     $("calBody").innerHTML=html; calChipFocus();
   }
   function calChipFocus(){ var ch=$("calBody").querySelector(".cchips"), sel=ch&&ch.querySelector('[aria-pressed="true"]'); if (!sel) return; var l=sel.offsetLeft-ch.offsetLeft, r=l+sel.offsetWidth; if (l<ch.scrollLeft || r>ch.scrollLeft+ch.clientWidth) ch.scrollLeft=Math.max(0,l-40); }
-  $("openCal").onclick=function(){ calDate=todayIso(); calSel=todayIso(); calMode="month"; calCat="all"; renderCal(); $("cal").classList.add("open"); };
+  $("openCal").onclick=function(){ ga={tab:"all", per:"m", from:"", to:"", ty:"", hall:"", mc:"", rk:"m"}; calDate=todayIso(); calSel=todayIso(); calMode="month"; calCat="all"; renderCal(); $("cal").classList.add("open"); };
   $("calClose").onclick=function(){ $("cal").classList.remove("open"); };
   function calMove(n){ if (calMode==="year"){ var py=calDate.split("-"); calDate=(+py[0]+n)+"-"+py[1]+"-01"; renderCal(); return; } var p=calDate.split("-"), y=+p[0], mo=+p[1]+n; if(mo<1){mo=12;y--;} if(mo>12){mo=1;y++;} calDate=y+"-"+pad(mo)+"-01"; renderCal(); }
+  $("calBody").addEventListener("change", function(ev){ var t=ev.target;
+    if (t.dataset.gaf){ ga[t.dataset.gaf]=t.value; renderCal(); return; }
+    if (t.dataset.gad){ ga[t.dataset.gad]=t.value; renderCal(); return; } });
   $("calPrev").onclick=function(){ calMove(-1); };
   $("calNext").onclick=function(){ calMove(1); };
   $("calBody").addEventListener("click", function(ev){ var r=ev.target.closest("[data-rare]"); if(r){ ev.stopPropagation(); celebrate(0, r.dataset.rare); } }, true);
   $("calBody").onclick=function(ev){
+    var ge=ev.target.closest("[data-eid]"); if (ge){ var en=state.entries.filter(function(x){ return x.id===ge.dataset.eid; })[0]; if (en) openEdit(en); return; }
+    var gt=ev.target.closest("[data-gat]"); if (gt){ ga.tab=gt.dataset.gat; renderCal(); return; }
+    var gp=ev.target.closest("[data-gap]"); if (gp){ ga.per=gp.dataset.gap; if (ga.per==="c"&&!ga.from){ var rr=gaRange(); ga.from=rr[0]; ga.to=rr[1]; } renderCal(); return; }
+    var gr=ev.target.closest("[data-grk]"); if (gr){ ga.rk=gr.dataset.grk; renderCal(); return; }
     var md=ev.target.closest("button[data-mode]"); if (md && $("calBody").contains(md)){ calMode=md.dataset.mode; renderCal(); return; }
     var fc=ev.target.closest("[data-fc]"); if (fc){ var sl=$("calBody").querySelector(".cchips").scrollLeft; calCat=fc.dataset.fc; renderCal(); var ch=$("calBody").querySelector(".cchips"); if (ch) ch.scrollLeft=sl; return; }
     var mn=ev.target.closest("[data-mon]"); if (mn){ calMode="month"; calDate=mn.dataset.mon; var tt=todayIso(); calSel=(tt.slice(0,7)===calDate.slice(0,7))?tt:calDate; renderCal(); $("cal").scrollTop=0; return; }
