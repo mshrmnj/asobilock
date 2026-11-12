@@ -919,6 +919,14 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 .gasvg .ln{fill:none;stroke:var(--budget);stroke-width:2.2;stroke-linejoin:round}
 .gasvg .pt{fill:var(--budget)} .gasvg .lv{fill:var(--budget);font-weight:700}
 .gaempty{font-size:13px;color:var(--muted);text-align:center;padding:14px 0}
+.gachart{position:relative;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.gatip{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 12px;margin-top:4px;min-height:20px;font-size:12px;color:var(--muted);white-space:nowrap}
+.gatip b{font-size:12px;color:var(--ink)}
+.gatip em{font-style:normal;font-weight:700;margin-left:4px}
+.gasvg .gax{stroke:var(--muted);stroke-width:1;stroke-dasharray:2 2}
+.gkb{background:none;border:0;padding:0;line-height:0}
+.gkset{background:none;border:1.5px solid var(--budget);color:var(--budget);border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;white-space:nowrap}
+.gtyp{margin:8px 0 6px}
 .ganote{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.55}
 .gfull{border:0;border-radius:12px;padding:12px;font-size:15px;font-weight:700}
 .gdelb{color:var(--neg)}
@@ -1589,7 +1597,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     var box=$("gMcList"); box.innerHTML="";
     gMc.forEach(function(x,i){ var d=defById("machines",x.m), nm=d?d.name:"（削除された台）";
       var div=document.createElement("div"); div.className="gmc";
-      div.innerHTML='<div class="gmt">'+kdTag(d?d.type:"")+'<b>'+esc(nm)+'</b><button type="button" class="gx" data-gx="'+i+'" aria-label="この台を外す">×</button></div>'
+      div.innerHTML='<div class="gmt">'+(d?'<button type="button" class="gkb" data-gt="'+i+'" aria-label="パチンコかスロットかを選ぶ">'+kdTag(d.type)+'</button>':kdTag(""))+'<b>'+esc(nm)+'</b>'+(d&&!d.type?'<button type="button" class="gkset" data-gt="'+i+'">種類を選ぶ</button>':'')+'<button type="button" class="gx" data-gx="'+i+'" aria-label="この台を外す">×</button></div>'
+        +(d&&mcTyOpen===i?'<div class="gtab gtyp">'+[["p","パチンコ"],["s","スロット"],["","選ばない"]].map(function(t){ return '<button type="button" data-gty="'+t[0]+'" data-i="'+i+'" aria-pressed="'+((d.type||"")===t[0])+'">'+t[1]+'</button>'; }).join("")+'</div><p class="ghint" style="margin:0 2px 2px">この台の過去の記録も、まとめて変わります</p>':'')
         +'<div class="gmm"><input type="number" inputmode="numeric" min="0" placeholder="投資（任意）" aria-label="この台の投資" data-i="'+i+'" data-f="inv" value="'+esc(x.inv)+'"><input type="number" inputmode="numeric" min="0" placeholder="回収（任意）" aria-label="この台の回収" data-i="'+i+'" data-f="ret" value="'+esc(x.ret)+'"></div><div class="gmn" id="gmn'+i+'"></div>';
       box.appendChild(div); });
     $("gMcHint").hidden = gMc.length>0; updAuto();
@@ -1602,7 +1611,11 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     updGNet(); updTime();
   }
   $("gMcList").addEventListener("input", function(ev){ var t=ev.target; if (!t.dataset.f) return; var x=gMc[+t.dataset.i]; if(!x) return; x[t.dataset.f]=t.value.replace(/[^0-9]/g,""); updAuto(); });
-  $("gMcList").addEventListener("click", function(ev){ var b=ev.target.closest("[data-gx]"); if(!b) return; gMc.splice(+b.dataset.gx,1); renderMc(); });
+  var mcTyOpen=-1;
+  $("gMcList").addEventListener("click", function(ev){
+    var t=ev.target.closest("[data-gt]"); if (t){ var ii=+t.dataset.gt; mcTyOpen = mcTyOpen===ii ? -1 : ii; renderMc(); return; }
+    var y=ev.target.closest("[data-gty]"); if (y){ var x=gMc[+y.dataset.i], ty=y.dataset.gty; if (x && defById("machines",x.m)){ saveDefs("machines", gDefs("machines").map(function(m){ return m.id===x.m?Object.assign({},m,{type:ty}):m; })); toast("変更しました",true); } mcTyOpen=-1; renderMc(); return; }
+    var b=ev.target.closest("[data-gx]"); if(!b) return; mcTyOpen=-1; gMc.splice(+b.dataset.gx,1); renderMc(); });
   function updTime(){
     var a=$("gT0").value, b=$("gT1").value, el=$("gTimeHint");
     if (!a||!b){ el.hidden=true; return; }
@@ -1720,7 +1733,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     kind=k; press("kindSeg","kind",kind);
     editId=null; editCreated=0; $("entryTitle").textContent="記録する"; $("saveEntry").textContent="記録する"; $("delEntry").hidden=true;
     $("date").value=todayIso(); $("amount").value=""; $("memo").value=""; $("gInv").value=""; $("gRet").value=""; $("exCount").value="1";
-    gk=lastGk(); gMc=[]; $("gHall").value=""; $("gT0").value=""; $("gT1").value="";
+    gk=lastGk(); gMc=[]; mcTyOpen=-1; $("gHall").value=""; $("gT0").value=""; $("gT1").value="";
     var sel=$("menuSel"); sel.innerHTML=""; state.settings.menus.forEach(function(m){ var o=document.createElement("option"); o.textContent=m; sel.appendChild(o); });
     incTo="free"; press("incSeg","to","free");
     if (curMode()==="gamble"){ wallet="fun"; press("walletSeg","wallet","fun"); }
@@ -1938,7 +1951,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.7.0";
+  var APP_VERSION="1.7.1";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -2306,22 +2319,43 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   function pct(ret,inv){ return inv>0 ? (Math.round(ret/inv*1000)/10)+"%" : "—"; }
   function sc(v){ return v>0?"pos":v<0?"negc":""; }
   function niceStep(x){ var p=Math.pow(10,Math.floor(Math.log10(Math.max(x,1)))), f=x/p; return (f<=1?1:f<=2?2:f<=5?5:10)*p; }
+  var gaCD=null;
   function gaChart(rng, days){
     var a=rng[0], b=rng[1], n=Math.max(1, dayNum(b)-dayNum(a)+1), keys=Object.keys(days).sort(), cum=0, pts=[], bars=[];
     keys.forEach(function(k2){ var i=dayNum(k2)-dayNum(a); cum+=days[k2].net; pts.push([i,cum]); bars.push([i,days[k2].net]); });
-    var mx=0, mn=0; pts.concat(bars).forEach(function(p){ mx=Math.max(mx,p[1]); mn=Math.min(mn,p[1]); });
-    var st=niceStep((mx-mn)/4||10000); mx=Math.ceil(mx/st)*st; mn=Math.floor(mn/st)*st; if (mx===mn) mx=mn+st;
-    var W=320,H=170,L=40,R=12,T=12,B=22,cw=W-L-R,ch=H-T-B;
-    function y(v){ return (T+ch*(mx-v)/(mx-mn)).toFixed(1); } function x(i){ return (L+(n===1?cw/2:cw*i/(n-1))).toFixed(1); }
+    var mx=0, mn=0, bmax=0; pts.forEach(function(p){ mx=Math.max(mx,p[1]); mn=Math.min(mn,p[1]); }); bars.forEach(function(p){ bmax=Math.max(bmax,Math.abs(p[1])); });
+    var st=niceStep((mx-mn)/4||10000); mx=Math.ceil(mx/st)*st; mn=Math.floor(mn/st)*st;
+    if (mx===0 && bars.some(function(p){ return p[1]>0; })) mx=st;
+    if (mn===0 && bars.some(function(p){ return p[1]<0; })) mn=-st;
+    if (mx===mn) mx=mn+st;
+    var W=320,H=180,L=40,R=12,T=24,B=22,cw=W-L-R,ch=H-T-B;
+    function yv(v){ return T+ch*(mx-v)/(mx-mn); } function y(v){ return yv(v).toFixed(1); } function xv(i){ return L+(n===1?cw/2:cw*i/(n-1)); } function x(i){ return xv(i).toFixed(1); }
+    var y0=yv(0), up=y0-T, dn=T+ch-y0, bs=bmax?ch*0.5/bmax:0;
+    bars.forEach(function(p){ var room=(p[1]>0?up:dn)*0.92; if (p[1] && Math.abs(p[1])*bs>room) bs=room/Math.abs(p[1]); });
     var g='<svg class="gasvg" viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="累計収支のグラフ">';
     for (var v=mn; v<=mx+0.5; v+=st){ g+='<line class="ggl" x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'"'+(v===0?'':' stroke-dasharray="3 3"')+'/><text class="gt" x="'+(L-4)+'" y="'+(+y(v)+3)+'" font-size="9" text-anchor="end">'+(v===0?"0":(v<0?"−":"")+k(v))+'</text>'; }
     var bw=Math.max(1.5, Math.min(7, cw/n*0.6));
-    bars.forEach(function(p){ var y0=+y(0), y1=+y(p[1]); g+='<rect class="'+(p[1]>=0?"bp":"bn")+'" opacity=".35" x="'+(+x(p[0])-bw/2).toFixed(1)+'" y="'+Math.min(y0,y1).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+Math.max(0.5,Math.abs(y1-y0)).toFixed(1)+'" rx="1"/>'; });
+    bars.forEach(function(p){ var h=Math.max(0.5,Math.abs(p[1])*bs); g+='<rect class="'+(p[1]>=0?"bp":"bn")+'" opacity=".35" x="'+(xv(p[0])-bw/2).toFixed(1)+'" y="'+(p[1]>=0?y0-h:y0).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="1"/>'; });
     if (pts.length){ g+='<path class="ln" d="M'+x(0)+' '+y(0)+' '+pts.map(function(p){ return 'L'+x(p[0])+' '+y(p[1]); }).join(" ")+'"/>';
-      var lp=pts[pts.length-1], lx=+x(lp[0]); g+='<circle class="pt" cx="'+lx+'" cy="'+y(lp[1])+'" r="3.5"/><text class="lv" x="'+(lx>W-80?lx-6:lx+6)+'" y="'+(+y(lp[1])-7)+'" font-size="10.5" text-anchor="'+(lx>W-80?"end":"start")+'">'+signed(lp[1])+'</text>'; }
+      var lp=pts[pts.length-1], lx=xv(lp[0]), ly=yv(lp[1]), right=lx>W-80, ty=ly-8<12?ly+16:ly-8;
+      g+='<circle class="pt" cx="'+lx.toFixed(1)+'" cy="'+ly.toFixed(1)+'" r="3.5"/><text class="lv" x="'+(right?lx-6:lx+6).toFixed(1)+'" y="'+ty.toFixed(1)+'" font-size="10.5" text-anchor="'+(right?"end":"start")+'">'+signed(lp[1])+'</text>'; }
     var ticks = n<=31 ? [0,7,14,21,28].filter(function(i){ return i<n; }) : [0, Math.floor((n-1)/2), n-1];
     ticks.forEach(function(i){ g+='<text class="gt" x="'+x(i)+'" y="'+(H-6)+'" font-size="9" text-anchor="middle">'+(n<=31?(+addDays(a,i).slice(8))+"日":md(addDays(a,i)))+'</text>'; });
-    return g+'</svg>';
+    g+='<line class="gax" id="gaX" x1="0" x2="0" y1="'+T+'" y2="'+(T+ch)+'" visibility="hidden"/><circle class="pt" id="gaXp" r="4" cx="0" cy="0" visibility="hidden"/>';
+    var net={}; keys.forEach(function(k2){ net[dayNum(k2)-dayNum(a)]=days[k2].net; });
+    gaCD={a:a,n:n,L:L,cw:cw,W:W,net:net,yv:yv};
+    return '<div class="gachart" id="gaChart">'+g+'</svg><div class="gatip" id="gaTip">グラフを押すと、その日の金額が見られます</div></div>';
+  }
+  function gaHover(ev){
+    var box=$("gaChart"), cd=gaCD; if (!box||!cd) return;
+    var svg=box.querySelector("svg"), r=svg.getBoundingClientRect(), sx=(ev.clientX-r.left)/r.width*cd.W;
+    var i=cd.n===1?0:Math.round((sx-cd.L)/cd.cw*(cd.n-1)); i=Math.max(0,Math.min(cd.n-1,i));
+    var c=0; for (var j=0;j<=i;j++) if (cd.net[j]) c+=cd.net[j];
+    var xx=cd.L+(cd.n===1?cd.cw/2:cd.cw*i/(cd.n-1)), dv=cd.net[i]||0, d=addDays(cd.a,i);
+    var ln=$("gaX"), pt=$("gaXp"); ln.setAttribute("x1",xx); ln.setAttribute("x2",xx); ln.setAttribute("visibility","visible");
+    pt.setAttribute("cx",xx); pt.setAttribute("cy",cd.yv(c)); pt.setAttribute("visibility","visible");
+    var tip=$("gaTip");
+    tip.innerHTML='<b>'+jd(d)+'</b><span>その日 <em class="num '+sc(dv)+'">'+(cd.net[i]!=null?signed(dv):"記録なし")+'</em></span><span>累計 <em class="num '+sc(c)+'">'+signed(c)+'</em></span>';
   }
   function gaDow(days){
     var w=[0,0,0,0,0,0,0], c=[0,0,0,0,0,0,0], wn=[0,0,0,0,0,0,0];
@@ -2479,6 +2513,10 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   $("calBody").addEventListener("change", function(ev){ var t=ev.target;
     if (t.dataset.gaf){ ga[t.dataset.gaf]=t.value; renderCal(); return; }
     if (t.dataset.gad){ ga[t.dataset.gad]=t.value; renderCal(); return; } });
+  (function(){ var down=false;
+    $("calBody").addEventListener("pointerdown", function(ev){ if (ev.target.closest("#gaChart")){ down=true; gaHover(ev); } });
+    $("calBody").addEventListener("pointermove", function(ev){ if ((down||ev.pointerType==="mouse") && ev.target.closest("#gaChart")) gaHover(ev); });
+    window.addEventListener("pointerup", function(){ down=false; }); window.addEventListener("pointercancel", function(){ down=false; }); })();
   $("calPrev").onclick=function(){ calMove(-1); };
   $("calNext").onclick=function(){ calMove(1); };
   $("calBody").addEventListener("click", function(ev){ var r=ev.target.closest("[data-rare]"); if(r){ ev.stopPropagation(); celebrate(0, r.dataset.rare); } }, true);
