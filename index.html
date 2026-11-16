@@ -48,7 +48,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 .resv{display:flex;align-items:center;gap:12px;background:var(--surface);border-radius:12px;padding:10px 14px;margin:0 0 12px}
 .resv .rt{flex:1;min-width:0}
 .resv .rv{font-size:22px;font-weight:600}
-.resv .rv.neg{color:var(--neg)}
+.resv .rv.neg{color:var(--lm)}
 .resv button{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
 .sendrow{display:flex;gap:10px;margin:0 0 10px}
 .sendrow:not(:has(button:not([hidden]))){display:none}
@@ -57,7 +57,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 .wc{background:var(--surface);border-radius:14px;padding:12px 14px;min-width:0}
 .wc .label{font-size:12px;color:var(--muted)}
 .wc .big{font-size:clamp(22px,6.6vw,32px);font-weight:700;line-height:1.15;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:clip}
-.wc .big.neg{color:var(--neg)}
+.wc .big.neg{color:var(--lm)}
 .wc .why{font-size:11.5px;color:var(--muted)}
 .wc .why:empty{display:none}
 .card{background:var(--surface);border-radius:14px;padding:12px 14px;margin:0 0 10px}
@@ -69,7 +69,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 .kv{display:flex;justify-content:space-between;align-items:baseline;font-size:11.5px;color:var(--muted)}
 .kv b{font-size:14px;font-weight:600;color:var(--ink)}
 .wc .gauge{height:8px;margin:6px 0 4px}
-.kv b.pos{color:var(--unlock)}
+.kv b.pos{color:var(--lp)}
 .tg{white-space:nowrap;display:inline-block;font-style:normal;font-size:9.5px;line-height:1;padding:2px 4px;border-radius:999px;margin-left:3px;vertical-align:1px;border:1px solid var(--line);color:var(--muted)}
 .kv span{white-space:nowrap}
 .tg.m{border-color:var(--unlock);color:var(--unlock)}
@@ -87,7 +87,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 .rows .r.sub2{padding-left:1em;font-size:11.5px}
 .rows .r.sub2 b{font-size:14px}
 .rows .r + .r:not(.sub){border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
-.neg{color:var(--neg)}
+.neg{color:var(--lm)}
 .mini{border:1px solid var(--line);background:transparent;border-radius:999px;padding:1px 10px;font-size:12px;margin-left:6px;color:var(--muted)}
 .dh{font-weight:700;margin-bottom:4px}
 .drow{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
@@ -97,7 +97,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 .hcard{background:var(--surface);border-radius:14px;padding:14px 14px 12px;min-width:0}
 .hcard .label{font-size:12px;color:var(--muted);line-height:1.4}
 .hcard .big{font-size:clamp(26px,9vw,38px);font-weight:700;line-height:1.1;margin:6px 0 4px;white-space:nowrap}
-.hcard .big.neg{color:var(--neg)}
+.hcard .big.neg{color:var(--lm)}
 .hcard .why{font-size:11.5px;color:var(--muted);line-height:1.5}
 .sgh{font-size:13px;font-weight:700;margin:18px 0 2px}
 .sgd{font-size:11.5px;color:var(--muted);margin:0 0 8px;line-height:1.5}
@@ -113,16 +113,16 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 .sin input:focus{outline:none;border-bottom:2px solid var(--unlock)}
 .srow.res{background:transparent;border-bottom:0;min-height:40px;padding-top:6px}
 .rnote{font-size:11px;color:var(--muted);text-align:right;padding:0 0 10px;margin-top:-4px}
-.rnote.neg{color:var(--neg)}
+.rnote.neg{color:var(--lm)}
 .srow.res b{font-size:19px;color:var(--muted)}
 .srow.res small{color:var(--unlock)}
-.srow.res.neg b,.srow.res.neg span{color:var(--neg)}
+.srow.res.neg b,.srow.res.neg span{color:var(--lm)}
 .reserve{display:flex;justify-content:space-between;align-items:baseline;gap:10px;background:var(--bg);border-radius:10px;padding:10px 12px;margin:0 0 6px;font-size:14px}
 .reserve b{font-size:20px}
-.reserve.neg{background:var(--neg-soft);color:var(--neg)}
+.reserve.neg{background:var(--neg-soft);color:var(--lm)}
 .lifecard{background:var(--surface);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:0 0 22px}
 .lifecard .tv{font-size:26px;font-weight:600}
-.lifecard .tv.neg{color:var(--neg)}
+.lifecard .tv.neg{color:var(--lm)}
 .savebig{font-size:34px;font-weight:700;line-height:1.2}
 .chart{display:inline-block;max-width:100%;margin-top:12px}
 .chart svg{display:block;max-width:100%;height:auto}
@@ -152,7 +152,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .hero{padding:8px 0 22px}
 .hero .label{font-size:13px;color:var(--muted)}
 .hero .big{font-size:64px;font-weight:700;line-height:1;letter-spacing:-.5px;margin:6px 0 4px}
-.hero .big.neg{color:var(--neg)}
+.hero .big.neg{color:var(--lm)}
 .hero .why{font-size:13px;color:var(--muted)}
 
 .meters{display:grid;gap:14px;margin-top:20px}
@@ -173,7 +173,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .tcard{background:var(--surface);border-radius:12px;padding:12px 14px}
 .tl{font-size:13px;color:var(--muted)}
 .tv{font-size:28px;font-weight:600;line-height:1.25}
-.tv.neg{color:var(--neg)}
+.tv.neg{color:var(--lm)}
 .ts{font-size:12px;color:var(--muted)}
 .todaynote{font-size:12px;color:var(--muted);margin:0 0 22px}
 .alert{padding:10px 14px;border-radius:10px;font-size:14px;background:var(--neg-soft);color:var(--neg);font-weight:500}
@@ -193,7 +193,7 @@ section{margin-top:28px}
 .stat .v{font-size:19px;font-weight:600}
 .stat .d{font-size:12px;color:var(--muted);text-align:right}
 .stat > div:last-child{text-align:right}
-.pos{color:var(--unlock)} .negc{color:var(--neg)}
+.pos{color:var(--lp)} .negc{color:var(--lm)}
 
 .dots{display:flex;gap:6px;margin-top:4px}
 .dots span{width:22px;height:22px;border-radius:50%;border:2px solid var(--unlock)}
@@ -719,7 +719,7 @@ button,a,label,input,select,textarea,.c,.wrow{touch-action:manipulation}
 :root[data-skin="gold"] .wc,:root[data-skin="gold"] .card,:root[data-skin="gold"] .sum,:root[data-skin="gold"] .ms,:root[data-skin="gold"] .sgrp{background:linear-gradient(180deg,#221C10,#17130C);box-shadow:0 0 0 1px rgba(232,196,104,.35)}
 :root[data-skin="gold"] main > section{background:linear-gradient(180deg,#221C10,#17130C);box-shadow:0 0 0 1px rgba(232,196,104,.25);border-radius:16px;padding:12px 14px;margin:18px 0}
 :root[data-skin="gold"] .wc .big{background:linear-gradient(180deg,#FFF3C4,#E8C468 55%,#B88A2A);-webkit-background-clip:text;background-clip:text;color:transparent}
-:root[data-skin="gold"] .wc .big.neg{background:none;color:var(--neg);-webkit-text-fill-color:var(--neg)}
+:root[data-skin="gold"] .wc .big.neg{background:none;color:var(--lm);-webkit-text-fill-color:var(--neg)}
 :root[data-skin="gold"] .xp i.on{background:linear-gradient(180deg,#FFF3C4,#E8C468)}
 :root[data-skin="gold"] .xp i.on::after{display:none}
 :root[data-skin="gold"] .sendbtn,:root[data-skin="gold"] .subbtn{border-color:rgba(232,196,104,.5)!important;color:#E8C468;box-shadow:none}
@@ -994,6 +994,59 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 .garow .tr,.garow .mt{grid-column:1/-1}
 .gatbl tr.tap td:last-child::after{content:" ›";color:var(--muted)}
 #sheetEntry.gle #gRetL,#sheetEntry.gle .gqk[data-qk="gRet"],#sheetEntry.gle #gNet,#sheetEntry.gle #psBot{display:none!important}
+/* v1.8.1 amount colors */
+:root{--lp:var(--unlock);--lm:var(--neg);--fp:var(--budget);--fm:#E8720C}
+.fpos,:root .fpos{color:var(--fp)}
+.fneg,:root .fneg{color:var(--fm)}
+.grid .c .fn.fpos{color:var(--fp)}
+.grid .c .fn.fneg{color:var(--fm)}
+.wc .big.pos{color:var(--lp)}
+.wc .big.fneg{color:var(--fm)}
+:root[data-skin="gold"] .wc .big.pos{background:none;color:var(--lp);-webkit-text-fill-color:var(--lp)}
+:root[data-skin="gold"] .wc .big.fneg{background:none;color:var(--fm);-webkit-text-fill-color:var(--fm)}
+:root[data-skin="wallet"] .wal .wc .big.pos{color:#D9FBE6!important}
+:root[data-skin="wallet"] .wal .wc .big.fneg{color:#FFE4CC!important}
+.nx b{color:var(--fp)}
+.stat .d b{font-weight:700}
+.gasvg .bp{fill:var(--fp)} .gasvg .bn{fill:var(--fm)}
+.gasvg .lvp{fill:var(--fp)} .gasvg .lvn{fill:var(--fm)}
+.grid .c .lf,.grid .c .fn{display:block;white-space:nowrap;overflow:hidden;max-width:100%;font-size:var(--cfs,inherit)}
+.grid .c{padding-left:2px!important;padding-right:2px!important}
+.grid .c .lf,.grid .c .fn{letter-spacing:-.2px}
+/* daily savings chart */
+.h2row .ctot{text-align:right;line-height:1.2}
+.h2row .ctot small{display:block;font-size:11px;color:var(--muted)}
+.h2row .ctot b{font-size:17px;font-weight:800}
+.chart .sbp{fill:var(--lp);opacity:.55} .chart .sbn{fill:var(--lm);opacity:.6}
+.chart .sln{fill:none;stroke-width:2.2;stroke-linejoin:round}
+.chart .slp{stroke:var(--lp)} .chart .sll{stroke:var(--lm)}
+.chart .sdot{fill:var(--lp)} .chart .sdot.n{fill:var(--lm)}
+.chart .sax{font-size:9.5px;font-family:var(--numf,"M PLUS Rounded 1c"),system-ui,sans-serif}
+.chart .sax.p{fill:var(--lp)} .chart .sax.n{fill:var(--lm)}
+.chart svg rect.dimb{opacity:.25}
+.creadout{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--muted);min-height:20px;margin-top:6px}
+.creadout b{color:var(--ink)}
+.creadout em{font-style:normal;font-weight:700;margin-left:4px;font-family:var(--numf,"M PLUS Rounded 1c"),system-ui,sans-serif}
+.cprev{display:flex;justify-content:space-between;align-items:center;background:var(--surface);border-radius:10px;padding:7px 12px;font-size:12.5px;color:var(--muted);margin-top:8px}
+.cprev b{font-size:14px}
+/* amount color settings */
+.acgrp{padding:2px 14px}
+.acrow{padding:12px 0;border-bottom:1px solid var(--line)}
+.acrow:last-child{border-bottom:0}
+.acrow .act{font-size:14px;font-weight:700;color:var(--ink)}
+.acrow .act small{display:block;font-size:11px;color:var(--muted);font-weight:500}
+.acpre{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.acpre button{display:inline-flex;align-items:center;gap:5px;border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700}
+.acpre button[aria-pressed="true"]{border-color:var(--btn);background:var(--btn);color:var(--btn-ink)}
+.acpre i{display:inline-block;width:10px;height:10px;border-radius:3px}
+.acslot{margin-top:10px}
+.acslot .acl{font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.acslot .acl b{margin-left:6px;font-size:14px}
+.acsw{display:flex;gap:6px;flex-wrap:wrap}
+.acsw button{width:26px;height:26px;border-radius:8px;border:2px solid transparent;padding:0}
+.acsw button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--surface)}
+.acwarn{font-size:11.5px;color:var(--neg);margin-top:8px}
+.acreset{display:block;width:100%;border:0;background:none;color:var(--budget);font-weight:700;font-size:13px;padding:10px 0 2px}
 </style>
 </head>
 <body>
@@ -1027,7 +1080,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     <div class="wc"><div class="label">娯楽費</div><div class="big num" id="usable">¥0</div><div class="why" id="why"></div>
       <div class="xp" role="img" id="lockGauge"></div><span id="lockFill" hidden></span>
       <div class="kv"><span>ロック中<i class="tg">通算</i></span><b class="num" id="lockAmt">¥0</b></div>
-      <div class="kv"><span>アンロック<i class="tg m">今月</i></span><b class="num pos" id="openedAmt">¥0</b></div>
+      <div class="kv"><span>アンロック<i class="tg m">今月</i></span><b class="num" id="openedAmt">¥0</b></div>
       <div class="nx" id="nextEx"></div><span id="usedAmt" hidden></span>
       <div class="info" id="capInfo" hidden></div><span id="monthTotalAmt" hidden></span></div>
   </div>
@@ -1059,8 +1112,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   </section>
 
   <section data-m="full">
-    <h2>日ごとの節約</h2>
+    <div class="h2row"><h2>日ごとの節約</h2><div class="ctot" id="ctot" hidden><small>今月の合計</small><b class="num" id="ctotV">¥0</b></div></div>
     <div class="chart" id="saveChart" style="margin-top:0"></div>
+    <div class="cprev" id="cprev" hidden></div>
   </section>
 
   <section data-m="full habit">
@@ -1174,6 +1228,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     <div class="sgh">テーマ</div>
     <div class="skins" id="skinPick"></div>
     <p class="sgd" id="skinHint"></p>
+
+    <div class="sgh">金額の色</div>
+    <div class="sgrp acgrp" id="amtColBox"></div>
 
     <div class="sgh" data-m="full habit">演出</div>
     <div class="sgrp" data-m="full habit">
@@ -1428,17 +1485,17 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     $("today").textContent = (d.getMonth()+1)+"月"+d.getDate()+"日（"+"日月火水木金土"[d.getDay()]+"）";
     var U=Math.round(c.U), S=Math.round(c.S), L=Math.round(c.L), MODE=curMode();
     document.documentElement.setAttribute("data-mode", MODE);
-    renderLive();
+    renderLive(); applyAmtColors();
     $("usable").textContent = yen(U);
     $("why").textContent = c.days===0 ? "開始日から" : "";
-    if (MODE==="habit"){ var hv=U+Math.min(S,0); $("usable").textContent=(hv<0?"−":"")+yen(Math.abs(hv)); $("usable").classList.toggle("neg", hv<0); if (hv<0) $("why").textContent="マイナス分は次の習慣で返します"; }
-    else $("usable").classList.remove("neg");
+    if (MODE==="habit"){ var hv=U+Math.min(S,0); $("usable").textContent=(hv<0?"−":"")+yen(Math.abs(hv)); $("usable").classList.toggle("fneg", hv<0); if (hv<0) $("why").textContent="マイナス分は次の習慣で返します"; }
+    else $("usable").classList.remove("neg","fneg");
     $("openSpend").textContent = MODE==="full" ? "支出・収入を記録" : "支出を記録";
     if (MODE==="gamble"){ var mk=todayIso().slice(0,7), gi=0, gr=0, byd={}; state.entries.forEach(function(e){ if (e.kind!=="spend"||e.cat!=="gamble"||!e.date||e.date.slice(0,7)!==mk) return; var nv=gambleNet(e); if (e.invest!=null||e.ret!=null){ gi+=+e.invest||0; gr+=+e.ret||0; } else if (e.win) gr+=+e.amount||0; else gi+=+e.amount||0; byd[e.date]=(byd[e.date]||0)+nv; });
       var gn=gr-gi, pd=Object.keys(byd), wd=pd.filter(function(k){ return byd[k]>0; }).length, ge=$("gNetM");
-      ge.textContent=(gn>0?"+":gn<0?"−":"±")+yen(Math.abs(gn)); ge.className="num gbig "+(gn>0?"pos":gn<0?"negc":"");
+      ge.textContent=(gn>0?"+":gn<0?"−":"±")+yen(Math.abs(gn)); ge.className="num gbig "+cF(gn);
       $("gInvM").textContent=yen(gi); $("gRetM").textContent=yen(gr); $("gRateM").textContent=gi>0?Math.round(gr/gi*100)+"%":"—"; $("gWinM").textContent=pd.length?wd+"/"+pd.length+"日":"—"; }
-    var st=$("saveTotal"); st.textContent = c.days ? signed(S) : "¥0"; st.classList.toggle("neg", S<0);
+    var st=$("saveTotal"); st.textContent = c.days ? signed(S) : "¥0"; st.classList.toggle("neg", S<0); st.classList.toggle("pos", !!c.days && Math.round(S)>0);
     $("saveSub").textContent = "";
 
     var db=$("debtBox");
@@ -1478,7 +1535,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     var mse=$("mSave"); mse.textContent=(ms0>0?"+":ms0<0?"−":"")+yen(Math.abs(ms0)); mse.classList.toggle("pos", ms0>0); mse.classList.toggle("neg", ms0<0);
     var lifeRest=rem*ldT, A=Math.round(c.S+lifeRest+c.U), Rn=Math.round(c.R), Lk=Math.round(c.L);
     var nextR=Rn+Math.max(A,0), tot=Rn+A+Lk;
-    var et=$("eomTotal"); et.textContent=signed(tot); et.classList.toggle("neg", tot<0); $("eomLk").textContent=yen(Lk);
+    var et=$("eomTotal"); et.textContent=signed(tot); et.classList.toggle("neg", tot<0); et.classList.toggle("pos", Math.round(tot)>0); $("eomLk").textContent=yen(Lk);
     function fv(v){ v=Math.round(v); return '<b class="num'+(v<0?' neg':'')+'">'+(v<0?"−"+yen(-v):yen(v))+'</b>'; }
     function rw(cls,l,v){ return '<div class="r sub'+cls+'"><span>'+l+'</span>'+fv(v)+'</div>'; }
     var subs=rw(" sub2","フリー生活費",c.S)+rw(" sub2","生活費の残り",lifeRest)+rw(" sub2","娯楽費",c.U);
@@ -1504,9 +1561,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     setDiff("lifeDiff", c.foodBudget-c.food);
     var lv=$("lockedV"); lv.textContent = yen(L); lv.className="num v";
     $("lockedSub").textContent = yen(c.unlocked);
-    drawChart(savingSeries().slice(-30));
+    drawChart(savingSeries());
     var g=$("gorakuNet"); g.textContent = c.goraku<=0 ? (c.goraku<0?"+¥"+Math.abs(Math.round(c.goraku)).toLocaleString("ja-JP"):"¥0") : "−¥"+Math.round(c.goraku).toLocaleString("ja-JP");
-    g.className="num v "+(c.goraku>0?"negc":c.goraku<0?"pos":"");
+    g.className="num v "+cF(-c.goraku);
 
     renderList();
     if ($("cal").classList.contains("open")) renderCal();
@@ -1521,29 +1578,54 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   var chartSer=[];
   function niceStep(range){ var c=[100,200,250,500,1000,2000,2500,5000,10000,20000,50000]; for (var i=0;i<c.length;i++){ if (range/c[i]<=5) return c[i]; } return 100000; }
   function drawChart(ser){
-    var box=$("saveChart"); chartSer=ser; if (!ser.length){ box.innerHTML=""; return; }
+    var box=$("saveChart"); chartSer=ser;
+    var mk=todayIso().slice(0,7), y0m=+mk.slice(0,4), m0=+mk.slice(5,7), pmk=(m0===1?(y0m-1)+"-12":y0m+"-"+pad(m0-1));
+    var cur=ser.filter(function(x){ return dIso(x.d).slice(0,7)===mk; }), prev=ser.filter(function(x){ return dIso(x.d).slice(0,7)===pmk; });
+    var tot=0; cur.forEach(function(x){ tot+=x.v; }); var ptot=0; prev.forEach(function(x){ ptot+=x.v; });
+    var tv=$("ctotV"); tv.textContent=signed(tot); tv.className="num "+(Math.round(tot)>0?"pos":Math.round(tot)<0?"negc":""); $("ctot").hidden=!cur.length;
+    var pv=$("cprev"), dd=+todayIso().slice(8);
+    if (prev.length && dd<=7){ pv.hidden=false; pv.innerHTML='<span>'+(m0===1?12:m0-1)+'月の合計</span><b class="num '+(Math.round(ptot)>0?"pos":Math.round(ptot)<0?"negc":"")+'">'+signed(ptot)+'</b>'; } else pv.hidden=true;
+    if (!cur.length){ box.innerHTML=""; return; }
+    ser=cur;
     var per=Math.max(1,+cfgAt(todayIso()).lifeDaily||0, Math.max.apply(null, ser.map(function(x){return x.b||0;}))), negMax=Math.max(0,-Math.min.apply(null, ser.map(function(x){return x.v;})));
     var top=per, bot=negMax>0 ? Math.min(per*2, negMax) : per*0.25, range=top+bot, step=niceStep(range);
-    var W=Math.max(260, box.clientWidth||340), H=170, padL=46, padR=6, padT=10, padB=8, plotH=H-padT-padB, plotW=W-padL-padR;
+    var W=Math.max(260, box.clientWidth||340), H=180, padL=46, padR=40, padT=14, padB=8, plotH=H-padT-padB, plotW=W-padL-padR;
     function Y(v){ return padT+(top-v)/range*plotH; }
-    var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" height="'+H+'" role="img" aria-label="日ごとの節約。グラフをタップすると金額が出ます">';
+    var cums=[], cc=0; ser.forEach(function(x){ cc+=x.v; cums.push(cc); });
+    var cmax=Math.max(0,Math.max.apply(null,cums)), cmin=Math.min(0,Math.min.apply(null,cums)), y0=Y(0);
+    var cs=Infinity; if (cmax>0) cs=Math.min(cs,(y0-padT)/cmax); if (cmin<0) cs=Math.min(cs,(H-padB-y0)/(-cmin)); if (!isFinite(cs)) cs=0;
+    function CY(v){ return y0-v*cs; }
+    var svg='<svg viewBox="0 0 '+W+' '+H+'" width="100%" height="'+H+'" role="img" aria-label="日ごとの節約と今月の合計。グラフをタップすると金額が出ます">';
+    svg+='<defs><linearGradient id="sgU" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--lp);stop-opacity:.34"/><stop offset="1" style="stop-color:var(--lp);stop-opacity:.03"/></linearGradient><linearGradient id="sgD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--lm);stop-opacity:.03"/><stop offset="1" style="stop-color:var(--lm);stop-opacity:.3"/></linearGradient>'
+      +'<clipPath id="scU"><rect x="0" y="0" width="'+W+'" height="'+y0+'"/></clipPath><clipPath id="scD"><rect x="0" y="'+y0+'" width="'+W+'" height="'+(H-y0)+'"/></clipPath></defs>';
     for (var t=Math.floor(-bot/step)*step; t<=top+0.001; t+=step){ if (t<-bot-0.001) continue; var y=Y(t);
       svg+='<line x1="'+padL+'" y1="'+y+'" x2="'+(W-padR)+'" y2="'+y+'" class="'+(t===0?"zl":"gl")+'"/><text x="'+(padL-6)+'" y="'+(y+3.5)+'" text-anchor="end" class="gtx">'+(t>0?"+":t<0?"−":"")+Math.abs(t).toLocaleString("ja-JP")+'</text>'; }
-    var slot=plotW/ser.length, bw=Math.max(3,Math.min(18,slot*0.68)), y0=Y(0);
-    ser.forEach(function(x,i){ var cx=padL+slot*i+slot/2, v=x.v, capped=v<-bot, vv=capped?-bot:v, y=Y(vv), hgt=Math.max(1.5,Math.abs(y-y0));
-      svg+='<rect data-i="'+i+'" x="'+(cx-bw/2)+'" y="'+(vv>=0?y0-hgt:y0)+'" width="'+bw+'" height="'+hgt+'" rx="2" class="'+(v>=0?"bp":"bn")+'"/>';
+    if (cs>0){ var cst=niceStep(Math.max(cmax,-cmin)*1.25||1000), lim=Math.max(cmax,-cmin);
+      for (var tv2=cst; tv2<=cmax+0.001; tv2+=cst){ svg+='<text x="'+(W-padR+4)+'" y="'+(CY(tv2)+3.5)+'" class="sax p">'+k(tv2)+'</text>'; }
+      for (var tv3=-cst; tv3>=cmin-0.001; tv3-=cst){ svg+='<text x="'+(W-padR+4)+'" y="'+(CY(tv3)+3.5)+'" class="sax n">−'+k(-tv3)+'</text>'; }
+      if (lim<cst) svg+='<text x="'+(W-padR+4)+'" y="'+(CY(cums[cums.length-1])+3.5)+'" class="sax '+(cums[cums.length-1]<0?"n":"p")+'">'+(cums[cums.length-1]<0?"−":"")+k(Math.abs(cums[cums.length-1]))+'</text>'; }
+    var slot=plotW/ser.length, bw=Math.max(3,Math.min(18,slot*0.68));
+    function CX(i){ return padL+slot*i+slot/2; }
+    if (cs>0){ var pts=cums.map(function(v,i){ return CX(i).toFixed(1)+" "+CY(v).toFixed(1); }), line="M"+padL+" "+y0+" L"+pts.join(" L"), area=line+" L"+CX(ser.length-1).toFixed(1)+" "+y0+" Z";
+      svg+='<path d="'+area+'" fill="url(#sgU)" clip-path="url(#scU)"/><path d="'+area+'" fill="url(#sgD)" clip-path="url(#scD)"/>'; }
+    ser.forEach(function(x,i){ var cx=CX(i), v=x.v, capped=v<-bot, vv=capped?-bot:v, yy=Y(vv), hgt=Math.max(1.5,Math.abs(yy-y0));
+      svg+='<rect data-i="'+i+'" x="'+(cx-bw/2)+'" y="'+(vv>=0?y0-hgt:y0)+'" width="'+bw+'" height="'+hgt+'" rx="2" class="'+(v>=0?"sbp":"sbn")+'"/>';
       if (capped){ var yb=y0+hgt-6; svg+='<path d="M'+(cx-bw/2-1)+' '+yb+' l'+(bw/4)+' -3 l'+(bw/4)+' 3 l'+(bw/4)+' -3 l'+(bw/4+2)+' 3" class="brk"/>'; } });
-    svg+='<line class="cur" x1="0" y1="'+padT+'" x2="0" y2="'+(H-padB)+'" style="display:none"/>';
+    if (cs>0){ svg+='<path d="'+line+'" class="sln slp" clip-path="url(#scU)"/><path d="'+line+'" class="sln sll" clip-path="url(#scD)"/>';
+      var lc=cums[cums.length-1]; svg+='<circle cx="'+CX(ser.length-1)+'" cy="'+CY(lc)+'" r="3.5" class="sdot'+(lc<0?" n":"")+'"/>'; }
+    svg+='<line class="cur" x1="0" y1="'+padT+'" x2="0" y2="'+(H-padB)+'" style="display:none"/><circle class="cdot" r="4" cx="0" cy="0" style="display:none;stroke:var(--surface);stroke-width:1.5"/>';
     svg+='<rect class="hit" x="'+padL+'" y="0" width="'+plotW+'" height="'+H+'" fill="transparent"/></svg>';
-    box.innerHTML='<div class="cwrap">'+svg+'<div class="ctip" hidden></div></div><div class="axis" style="padding-left:'+padL+'px"><span>'+lbl(ser[0].d)+'</span><span>'+(ser.length>1?lbl(ser[ser.length-1].d):"")+'</span></div>';
-    var wrap=box.querySelector(".cwrap"), sv=wrap.querySelector("svg"), tip=wrap.querySelector(".ctip"), cur=sv.querySelector(".cur");
+    var DEFT="グラフを押すと、その日と合計が見られます";
+    box.innerHTML='<div class="cwrap">'+svg+'</div><div class="axis" style="padding-left:'+padL+'px;padding-right:'+padR+'px"><span>'+lbl(ser[0].d)+'</span><span>'+(ser.length>1?lbl(ser[ser.length-1].d):"")+'</span></div><div class="creadout" id="cRead">'+DEFT+'</div>';
+    var wrap=box.querySelector(".cwrap"), sv=wrap.querySelector("svg"), rd=box.querySelector(".creadout"), curL=sv.querySelector(".cur"), cdot=sv.querySelector(".cdot");
+    function cls(v){ v=Math.round(v); return v>0?"pos":v<0?"negc":""; }
     function show(ev){ var r=sv.getBoundingClientRect(), x=(ev.clientX-r.left)*(W/r.width), i=Math.floor((x-padL)/slot); if (i<0||i>=ser.length) return;
-      var cx=padL+slot*i+slot/2; cur.setAttribute("x1",cx); cur.setAttribute("x2",cx); cur.style.display="";
+      var cx=CX(i); curL.setAttribute("x1",cx); curL.setAttribute("x2",cx); curL.style.display="";
+      if (cs>0){ cdot.setAttribute("cx",cx); cdot.setAttribute("cy",CY(cums[i])); cdot.style.display=""; cdot.style.fill=cums[i]<0?"var(--lm)":"var(--lp)"; }
       sv.querySelectorAll("rect[data-i]").forEach(function(rc){ rc.classList.toggle("dimb", +rc.dataset.i!==i); });
       var d=new Date(ser[i].d*86400000), v=Math.round(ser[i].v);
-      tip.innerHTML='<span>'+(d.getUTCMonth()+1)+'/'+d.getUTCDate()+'（'+"日月火水木金土"[d.getUTCDay()]+'）</span><b class="'+(v>=0?"pos":"negc")+'">'+(v>0?"+":v<0?"−":"±")+yen(Math.abs(v))+'</b>';
-      tip.hidden=false; var px=cx/W*r.width, tw=tip.offsetWidth; tip.style.left=Math.max(0,Math.min(r.width-tw,px-tw/2))+"px"; }
-    function hide(){ cur.style.display="none"; tip.hidden=true; sv.querySelectorAll("rect.dimb").forEach(function(rc){ rc.classList.remove("dimb"); }); }
+      rd.innerHTML='<b>'+(d.getUTCMonth()+1)+'/'+d.getUTCDate()+'（'+"日月火水木金土"[d.getUTCDay()]+'）</b><span>その日<em class="'+cls(v)+'">'+signed(v)+'</em></span><span>合計<em class="'+cls(cums[i])+'">'+signed(cums[i])+'</em></span>'; }
+    function hide(){ curL.style.display="none"; cdot.style.display="none"; rd.textContent=DEFT; sv.querySelectorAll("rect.dimb").forEach(function(rc){ rc.classList.remove("dimb"); }); }
     var hit=sv.querySelector(".hit"), dragging=false;
     hit.addEventListener("pointerdown", function(ev){ dragging=true; show(ev); });
     hit.addEventListener("pointermove", function(ev){ if (dragging || ev.pointerType==="mouse") show(ev); });
@@ -1551,7 +1633,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     box._hide=hide;
   }
   document.addEventListener("pointerdown", function(ev){ var bx=$("saveChart"); if (bx && bx._hide && !bx.contains(ev.target)) bx._hide(); });
-  function setDiff(id, v){ var el=$(id), r=Math.round(v); if (r===0){ el.textContent="予算どおり"; el.className="d"; return; } el.textContent = (r>0?"浮いた ":"オーバー ")+yen(Math.abs(r)); el.className="d "+(r>0?"pos":"negc"); }
+  function setDiff(id, v){ var el=$(id), r=Math.round(v); if (r===0){ el.textContent="予算どおり"; el.className="d"; return; } el.innerHTML = (r>0?"浮いた ":"オーバー ")+'<b class="'+(r>0?"pos":"negc")+'">'+signed(r)+'</b>'; el.className="d"; }
 
   function renderList(){
     var ul=$("list"); ul.innerHTML="";
@@ -1570,9 +1652,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       else if (e.kind==="exercise"){ cat.classList.add("hb"); cat.textContent="習慣"; amt.textContent=(e.count||1)+"回"; m.textContent=e.menu+(e.memo?"　"+e.memo:""); amt.classList.add("pos"); }
       else { cat.classList.add(FUN[e.cat]?"g":e.cat==="income"?"inc":"lf"); cat.textContent=CAT[e.cat]||e.cat;
         if (e.cat==="income"){ amt.textContent="+"+yen(e.amount); amt.classList.add("pos"); m.textContent=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(e.memo?"　"+e.memo:""); }
-        else if (e.cat==="gamble"){ var gnv=gambleNet(e); amt.textContent=(gnv>0?"+":gnv<0?"−":"±")+yen(Math.abs(gnv)); if(gnv>0) amt.classList.add("pos"); else if(gnv<0) amt.classList.add("negc");
+        else if (e.cat==="gamble"){ var gnv=gambleNet(e); amt.textContent=(gnv>0?"+":gnv<0?"−":"±")+yen(Math.abs(gnv)); if(gnv) amt.classList.add(cF(gnv));
           m.textContent=gamDesc(e)+(e.memo?"　"+e.memo:""); }
-        else { amt.textContent="−"+yen(e.amount); amt.classList.add("negc"); m.textContent=(e.cat==="gamble"?"負け":"")+(e.memo?(e.cat==="gamble"?"　":"")+e.memo:""); } }
+        else { amt.textContent="−"+yen(e.amount); amt.classList.add(FUN[e.cat]?"fneg":"negc"); m.textContent=(e.cat==="gamble"?"負け":"")+(e.memo?(e.cat==="gamble"?"　":"")+e.memo:""); } }
       main.appendChild(dt); main.appendChild(m);
       var del=document.createElement("button"); del.className="del"; del.setAttribute("aria-label","この記録を削除"); del.textContent="×";
       del.onclick=function(ev){ ev.stopPropagation(); if (e.kind==="exercise"){ askConfirm("この記録を削除しますか？","削除する").then(function(ok){ if(ok) store.remove(e.id); }); return; } undoable("削除しました", function(){ store.remove(e.id); }); };
@@ -1628,7 +1710,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   document.querySelectorAll("[data-close]").forEach(function(b){ b.onclick=closeSheets; });
   function press(segId, attr, val){ document.querySelectorAll("#"+segId+" button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset[attr]===val?"true":"false"); }); }
   function gNetVal(){ return (parseInt($("gRet").value,10)||0)-(parseInt($("gInv").value,10)||0); }
-  function updGNet(){ var n=gNetVal(), el=$("gNet"); el.textContent="収支 "+(n>0?"+":n<0?"−":"±")+yen(Math.abs(n)); el.className="gnet "+(n>0?"pos":n<0?"negc":""); }
+  function updGNet(){ var n=gNetVal(), el=$("gNet"); el.textContent="収支 "+(n>0?"+":n<0?"−":"±")+yen(Math.abs(n)); el.className="gnet "+cF(n); }
   function gambleNet(e){ return (e.invest!=null||e.ret!=null) ? (+e.ret||0)-(+e.invest||0) : (e.win?1:-1)*(+e.amount||0); }
   /* ---------- v1.7/1.8 gamble detail ---------- */
   function normName(x){ return String(x||"").normalize("NFKC").replace(/\s+/g," ").trim(); }
@@ -1713,7 +1795,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   }
   function updAuto(){
     var auto = gk==="ps" && mcAll() && gMode!=="liveEdit";
-    gMc.forEach(function(x,i){ var el=$("gmn"+i); if(!el) return; if (x.inv===""&&x.ret===""){ el.textContent=""; el.className="gmn"; return; } var n=(parseInt(x.ret,10)||0)-(parseInt(x.inv,10)||0); el.textContent="この台 "+(n>0?"+":n<0?"−":"±")+yen(Math.abs(n)); el.className="gmn "+(n>0?"pos":n<0?"negc":""); });
+    gMc.forEach(function(x,i){ var el=$("gmn"+i); if(!el) return; if (x.inv===""&&x.ret===""){ el.textContent=""; el.className="gmn"; return; } var n=(parseInt(x.ret,10)||0)-(parseInt(x.inv,10)||0); el.textContent="この台 "+(n>0?"+":n<0?"−":"±")+yen(Math.abs(n)); el.className="gmn "+cF(n); });
     if (auto){ var si=0, sr=0; gMc.forEach(function(x){ si+=parseInt(x.inv,10)||0; sr+=parseInt(x.ret,10)||0; }); $("gInv").value=si; $("gRet").value=sr; }
     ["gInv","gRet"].forEach(function(id){ var el=$(id); el.readOnly=auto; el.classList.toggle("gamro",auto); el.parentNode.querySelector(".gauto").hidden=!auto; document.querySelector('.gqk[data-qk="'+id+'"]').hidden=auto; });
     updGNet(); updHrs();
@@ -1841,6 +1923,44 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   $("lvDiscard").onclick=function(){ $("lvActs").hidden=true; undoable("稼働中の記録をやめました", function(){ saveSet({live:undefined}); }); };
   $("lvEdit").onclick=function(){ $("lvActs").hidden=true; openGamEntry("liveEdit"); };
   $("lvEnd").onclick=function(){ $("lvActs").hidden=true; openGamEntry("live"); };
+  /* ---------- v1.8.1 amount colors ---------- */
+  var ACPAL=[["green","緑","#27AE60","#3CCB7F"],["red","赤","#E5484D","#FF6B70"],["blue","青","#2F80ED","#5B9DF5"],["orange","オレンジ","#E8720C","#FF9F43"],["purple","紫","#8E44D9","#C38BFF"],["pink","ピンク","#D63384","#FF6FB5"],["cyan","水色","#0EA5C6","#3FD0EA"],["yellow","黄","#C99A06","#F2C94C"],["gray","グレー","#6B7686","#9AA6B8"]];
+  var ACPRE={life:[["標準",null,null],["株アプリ風","red","blue"],["赤と緑","red","green"]],fun:[["標準",null,null],["紫",null,"purple"],["株アプリ風","red","blue"]]};
+  function acDark(){ var c=getComputedStyle(document.body).backgroundColor||"", m=c.match(/\d+(\.\d+)?/g); if(!m) return false; var r=+m[0]/255,g=+m[1]/255,b=+m[2]/255, a=m.length>3?+m[3]:1; if (a<0.5){ var cc=getComputedStyle(document.documentElement).getPropertyValue("--bg").trim(); var mm=cc.match(/^#([0-9a-f]{6})$/i); if (mm){ var n=parseInt(mm[1],16); r=(n>>16&255)/255; g=(n>>8&255)/255; b=(n&255)/255; } } return (0.2126*r+0.7152*g+0.0722*b)<0.45; }
+  function acHex(key, dark){ for (var i=0;i<ACPAL.length;i++) if (ACPAL[i][0]===key) return ACPAL[i][dark?3:2]; return null; }
+  function applyAmtColors(){
+    var ac=state.settings.amtColors||{}, dark=acDark(), st=document.documentElement.style;
+    ["lp","lm","fp","fm"].forEach(function(k2){ var h=ac[k2]?acHex(ac[k2],dark):null; if (h) st.setProperty("--"+k2,h); else st.removeProperty("--"+k2); });
+    if (!ac.fm) st.setProperty("--fm", dark?"#FF9F43":"#E8720C");
+  }
+  function acCur(k2){ var v=getComputedStyle(document.documentElement).getPropertyValue("--"+k2).trim(); return v; }
+  function renderAmtCol(){
+    var box=$("amtColBox"); if(!box) return; var ac=state.settings.amtColors||{}, dark=acDark();
+    function sw(k2){ return '<div class="acsw">'+ACPAL.map(function(p){ return '<button type="button" data-ack="'+k2+'" data-acv="'+p[0]+'" aria-label="'+p[1]+'" aria-pressed="'+(ac[k2]===p[0])+'" style="background:'+p[dark?3:2]+'"></button>'; }).join("")+'</div>'; }
+    function pre(g,a,b){ return '<div class="acpre">'+ACPRE[g].map(function(p,i){ var on=(ac[a]||null)===p[1]&&(ac[b]||null)===p[2]; var c1=p[1]?acHex(p[1],dark):(g==="life"?"var(--unlock)":"var(--budget)"), c2=p[2]?acHex(p[2],dark):(g==="life"?"var(--neg)":(dark?"#FF9F43":"#E8720C")); return '<button type="button" data-acg="'+g+'" data-aci="'+i+'" aria-pressed="'+on+'"><i style="background:'+c1+'"></i><i style="background:'+c2+'"></i>'+p[0]+'</button>'; }).join("")+'</div>'; }
+    var same=function(a,b){ return acCur(a)&&acCur(a)===acCur(b); };
+    box.innerHTML='<div class="acrow"><div class="act">生活<small>食費・必需品・臨時収入・節約</small></div>'+pre("life","lp","lm")
+      +'<div class="acslot"><div class="acl">プラス<b class="pos num">+¥1,490</b></div>'+sw("lp")+'</div><div class="acslot"><div class="acl">マイナス<b class="negc num">−¥1,457</b></div>'+sw("lm")+'</div>'+(same("lp","lm")?'<p class="acwarn">プラスとマイナスが同じ色です</p>':'')+'</div>'
+      +'<div class="acrow"><div class="act">娯楽<small>遊び・ギャンブル・その他の娯楽</small></div>'+pre("fun","fp","fm")
+      +'<div class="acslot"><div class="acl">プラス<b class="fpos num">+¥8,000</b></div>'+sw("fp")+'</div><div class="acslot"><div class="acl">マイナス<b class="fneg num">−¥10,000</b></div>'+sw("fm")+'</div>'+(same("fp","fm")?'<p class="acwarn">プラスとマイナスが同じ色です</p>':'')+'</div>'
+      +(Object.keys(ac).length?'<button type="button" class="acreset" data-acr>はじめの色に戻す</button>':'');
+  }
+  function saveAmt(ac){ var o={}; Object.keys(ac).forEach(function(k2){ if (ac[k2]) o[k2]=ac[k2]; }); saveSet({amtColors:Object.keys(o).length?o:undefined}); applyAmtColors(); renderAmtCol(); }
+  $("amtColBox").onclick=function(ev){
+    var t=ev.target.closest("button"); if(!t) return; var ac=Object.assign({}, state.settings.amtColors||{});
+    if (t.dataset.ack){ ac[t.dataset.ack]=t.dataset.acv; saveAmt(ac); return; }
+    if (t.dataset.acg){ var p=ACPRE[t.dataset.acg][+t.dataset.aci]; if (t.dataset.acg==="life"){ ac.lp=p[1]; ac.lm=p[2]; } else { ac.fp=p[1]; ac.fm=p[2]; } saveAmt(ac); return; }
+    if (t.hasAttribute("data-acr")){ saveAmt({}); return; }
+  };
+  try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){ applyAmtColors(); renderAmtCol(); }); }catch(e){}
+  function cF(v){ return v>0?"fpos":v<0?"fneg":""; }
+  function fitCal(){
+    var g=document.querySelector("#calBody .grid"); if (!g) return;
+    g.style.removeProperty("--cfs"); var els=g.querySelectorAll(".lf,.fn"); if (!els.length||!els[0].clientWidth) return;
+    var fs=parseFloat(getComputedStyle(els[0]).fontSize)||10, n=0;
+    function over(){ for (var i=0;i<els.length;i++){ if (els[i].scrollWidth>els[i].clientWidth+0.5) return true; } return false; }
+    while (over() && n<10){ fs-=0.5; g.style.setProperty("--cfs", fs+"px"); n++; }
+  }
   function syncFields(){
     $("spendFields").hidden = kind!=="spend"; $("exFields").hidden = kind!=="exercise";
     $("resultSeg").hidden = true; $("incSeg").hidden = cat!=="income"; $("amtLabel").hidden = cat==="gamble"; $("gamFields").hidden = cat!=="gamble"; if (cat==="gamble") syncGam(); updGNet(); $("catHint").textContent = cat==="income" ? (incTo==="reserve" ? "予備費に入ります。使わずにとっておくお金" : "フリー生活費に入ります。すぐ使えるお金") : HINT[cat];
@@ -2036,7 +2156,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     var s=state.settings; syncModePick();
     $("sStart").value=s.start; $("sIncome").value=s.income; $("sFixed").value=s.fixed; $("sLife").value=s.lifeDaily; $("sGoraku").value=s.gorakuMonthly;
     $("sWeekly").value=s.weeklyGoal; $("sWeekStart").value=s.weekStart==="sun"?"sun":"mon"; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; updUnit(); $("sMenus").value=s.menus.join(", ");
-    fmtMoney(); updReserve(); buildSkins(); $("sndTgl").setAttribute("aria-pressed", state.settings.sound?"true":"false"); $("appVer").textContent="v"+APP_VERSION; openSheet("sheetSettings");
+    fmtMoney(); updReserve(); buildSkins(); $("sndTgl").setAttribute("aria-pressed", state.settings.sound?"true":"false"); $("appVer").textContent="v"+APP_VERSION; renderAmtCol(); openSheet("sheetSettings");
   };
   var SKINS=[["kakeibo","テーマ1","#F5F7FB","#2F80ED"],["wallet","テーマ2","linear-gradient(135deg,#F59E0B,#B45309)","#16A34A"],["social","テーマ3","linear-gradient(180deg,#5B8CFF,#FFB3D9)","#FFB800"],["crypto","テーマ4","#07090F","#B6FF3B"],["pixel","テーマ5","#2038A8","#FFD45A"],["gold","テーマ6","linear-gradient(135deg,#2A2212,#0E0C08)","#E8C468","hidden"]];
   function skinUnlocked(x){ return x[4]!=="hidden" || hiddenUnlocked(); }
@@ -2117,7 +2237,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.8.0";
+  var APP_VERSION="1.8.1";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -2422,20 +2542,20 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     function cell(l,v,cls){ return '<div class="ms"><div class="msl">'+l+'</div><div class="num msv '+(cls||"")+'">'+v+'</div></div>'; }
     if (calCat==="gamble"){
       var rate=r.inv>0?Math.round(r.ret/r.inv*100)+"%":"—", wr=r.play?r.winD+"/"+r.play+"日":"—";
-      return '<div class="msum">'+cell("投資",yen(r.inv))+cell("回収",yen(r.ret))+cell("収支",sgn(r.total),r.total>0?"pos":r.total<0?"negc":"")+'</div>'
+      return '<div class="msum">'+cell("投資",yen(r.inv))+cell("回収",yen(r.ret))+cell("収支",sgn(r.total),cF(r.total))+'</div>'
         +'<div class="msum">'+cell("勝ち日",wr)+cell("回収率",rate)+cell("記録",r.cnt+"件")+'</div>';
     }
     if (calCat==="exercise") return '<div class="msum">'+cell("回数",r.total+"回",r.total?"pos":"")+cell("日数",r.days+"日")+cell("記録",r.cnt+"件")+'</div>';
     if (calCat==="income") return '<div class="msum">'+cell("合計",(r.total?"+":"")+yen(r.total),r.total?"pos":"")+cell("記録",r.cnt+"件")+cell("日数",r.days+"日")+'</div>';
     var avg=r.el?Math.round(r.total/r.el):0;
-    return '<div class="msum">'+cell("合計",(r.total?"−":"")+yen(r.total),r.total?"negc":"")+cell("1日平均",yen(avg))+cell("記録",r.cnt+"件")+'</div>';
+    return '<div class="msum">'+cell("合計",(r.total?"−":"")+yen(r.total),r.total?(FUN[calCat]?"fneg":"negc"):"")+cell("1日平均",yen(avg))+cell("記録",r.cnt+"件")+'</div>';
   }
   function fCell(dv){
     if (!dv) return "";
     if (calCat==="exercise") return '<span class="lf pos">'+dv+'回</span>';
-    if (calCat==="gamble") return '<span class="lf '+(dv>0?"pos":dv<0?"negc":"")+'">'+(dv>0?"+":dv<0?"−":"±")+k(dv)+'</span>';
+    if (calCat==="gamble") return '<span class="lf '+cF(dv)+'">'+(dv>0?"+":dv<0?"−":"±")+k(dv)+'</span>';
     if (calCat==="income") return '<span class="lf pos">+'+k(dv)+'</span>';
-    return '<span class="lf negc">−'+k(dv)+'</span>';
+    return '<span class="lf '+(FUN[calCat]?"fneg":"negc")+'">−'+k(dv)+'</span>';
   }
   function esc(x){ var dv=document.createElement("div"); dv.textContent=x; return dv.innerHTML; }
   function sgn(v){ v=Math.round(v); return (v<0?"−":v>0?"+":"")+"¥"+Math.abs(v).toLocaleString("ja-JP"); }
@@ -2444,7 +2564,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     function cell(l,v,cls){ return '<div class="ms"><div class="msl">'+l+'</div><div class="num msv '+cls+'">'+v+'</div></div>'; }
     return '<div class="msum">'
       + cell("生活費", r.days? sgn(diff) : "—", Math.round(diff)<0?"negc":"pos")
-      + cell("娯楽", sgn(net), net<0?"negc":net>0?"pos":"")
+      + cell("娯楽", sgn(net), cF(net))
       + cell("習慣", r.ex+"回", r.ex?"pos":"")
       + '</div>';
   }
@@ -2483,14 +2603,14 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     return Object.keys(map).map(function(id){ var o=map[id], w=0, l=0, n=0; Object.keys(o.days).forEach(function(d){ n++; if (o.days[d]>0) w++; else if (o.days[d]<0) l++; }); return {id:id,net:o.ret-o.inv,inv:o.inv,ret:o.ret,n:n,w:w,l:l}; });
   }
   function pct(ret,inv){ return inv>0 ? (Math.round(ret/inv*1000)/10)+"%" : "—"; }
-  function sc(v){ return v>0?"pos":v<0?"negc":""; }
-  function niceStep(x){ var p=Math.pow(10,Math.floor(Math.log10(Math.max(x,1)))), f=x/p; return (f<=1?1:f<=2?2:f<=5?5:10)*p; }
+  function sc(v){ return v>0?"fpos":v<0?"fneg":""; }
+  function gaNiceStep(x){ var p=Math.pow(10,Math.floor(Math.log10(Math.max(x,1)))), f=x/p; return (f<=1?1:f<=2?2:f<=5?5:10)*p; }
   var gaCD=null;
   function gaChart(rng, days){
     var keys=Object.keys(days).sort(), n=keys.length, cum=0, pts=[];
     keys.forEach(function(k2){ cum+=days[k2].net; pts.push({d:k2, net:days[k2].net, cum:cum}); });
     var mx=0, mn=0, bmax=0; pts.forEach(function(p){ mx=Math.max(mx,p.cum); mn=Math.min(mn,p.cum); bmax=Math.max(bmax,Math.abs(p.net)); });
-    var st=niceStep((mx-mn)/4||10000); mx=Math.ceil(mx/st)*st; mn=Math.floor(mn/st)*st;
+    var st=gaNiceStep((mx-mn)/4||10000); mx=Math.ceil(mx/st)*st; mn=Math.floor(mn/st)*st;
     if (mx===0 && pts.some(function(p){ return p.net>0; })) mx=st;
     if (mn===0 && pts.some(function(p){ return p.net<0; })) mn=-st;
     if (mx===mn) mx=mn+st;
@@ -2505,7 +2625,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     if (n){ g+='<path class="ln" d="M'+L+' '+y(0)+' '+pts.map(function(p,i){ return 'L'+xv(i).toFixed(1)+' '+y(p.cum); }).join(" ")+'"/>';
       if (n<=40) pts.forEach(function(p,i){ g+='<circle class="pt" cx="'+xv(i).toFixed(1)+'" cy="'+y(p.cum)+'" r="2.4"/>'; });
       var lp=pts[n-1], lx=xv(n-1), ly=yv(lp.cum), right=lx>W-80, ty=ly-8<12?ly+16:ly-8;
-      g+='<circle class="pt" cx="'+lx.toFixed(1)+'" cy="'+ly.toFixed(1)+'" r="3.5"/><text class="lv" x="'+(right?lx-6:lx+6).toFixed(1)+'" y="'+ty.toFixed(1)+'" font-size="10.5" text-anchor="'+(right?"end":"start")+'">'+signed(lp.cum)+'</text>'; }
+      g+='<circle class="pt" cx="'+lx.toFixed(1)+'" cy="'+ly.toFixed(1)+'" r="3.5"/><text class="lv '+(lp.cum<0?"lvn":"lvp")+'" x="'+(right?lx-6:lx+6).toFixed(1)+'" y="'+ty.toFixed(1)+'" font-size="10.5" text-anchor="'+(right?"end":"start")+'">'+signed(lp.cum)+'</text>'; }
     var step=Math.max(1,Math.ceil(n/6)), lab=[];
     for (var i=0;i<n;i+=step) lab.push(i); if (n && lab[lab.length-1]!==n-1){ if (lab.length && (n-1-lab[lab.length-1])<step*0.6) lab.pop(); lab.push(n-1); }
     lab.forEach(function(i2){ g+='<text class="gt" x="'+xv(i2).toFixed(1)+'" y="'+(H-6)+'" font-size="9" text-anchor="middle">'+md(pts[i2].d)+'</text>'; });
@@ -2538,7 +2658,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     if (!rows.length) return '<div class="gaempty">記録がありません</div>';
     var mxv=1; rows.forEach(function(r){ mxv=Math.max(mxv,Math.abs(r.net)); });
     return rows.map(function(r){ var un=r.id==="u", d=un?null:defById(key==="m"?"machines":"halls", r.id), nm=un?"未入力":(d?d.name:"未入力");
-      return '<div class="garow tap'+(un?" un":"")+'" data-grf="'+key+':'+r.id+'" role="button"><div class="nm">'+(key==="m"&&!un?kdTag(d&&d.type):"")+'<span class="t">'+esc(nm)+'</span><small>'+r.n+'回・'+r.w+'勝'+r.l+'敗</small></div><div class="v num '+sc(r.net)+'">'+signed(r.net)+'</div><span class="go">›</span><div class="tr"><i style="left:50%;width:'+(Math.abs(r.net)/mxv*50).toFixed(1)+'%;'+(r.net<0?'transform:translateX(-100%);background:var(--neg)':'background:var(--unlock)')+'"></i></div><div class="mt">回収率 '+pct(r.ret,r.inv)+'</div></div>'; }).join("");
+      return '<div class="garow tap'+(un?" un":"")+'" data-grf="'+key+':'+r.id+'" role="button"><div class="nm">'+(key==="m"&&!un?kdTag(d&&d.type):"")+'<span class="t">'+esc(nm)+'</span><small>'+r.n+'回・'+r.w+'勝'+r.l+'敗</small></div><div class="v num '+sc(r.net)+'">'+signed(r.net)+'</div><span class="go">›</span><div class="tr"><i style="left:50%;width:'+(Math.abs(r.net)/mxv*50).toFixed(1)+'%;'+(r.net<0?'transform:translateX(-100%);background:var(--fm)':'background:var(--fp)')+'"></i></div><div class="mt">回収率 '+pct(r.ret,r.inv)+'</div></div>'; }).join("");
   }
   function gaHtml(){
     if (!hasGamble()) return "";
@@ -2558,7 +2678,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     if (ga.tab==="ps") lbl.push("パチ・スロ"); if (ga.tab==="other") lbl.push("その他");
     if (ga.tab==="ps"){ if (ga.ty) lbl.push({p:"パチンコ",s:"スロット",u:"種類未入力"}[ga.ty]); if (ga.hall){ var hd=defById("halls",ga.hall); lbl.push(hd?hd.name:"ホール未入力"); } if (ga.mc){ var mdf=defById("machines",ga.mc); lbl.push(mdf?mdf.name:"機種未入力"); } }
     h+='<div class="gac"><div class="gahero"><small>'+esc(lbl.join("・"))+'の収支</small><div class="gabig num '+sc(net)+'">'+signed(net)+'</div><div class="gasub">'+wins+'勝'+loss+'敗'+(dk.length?'（勝率'+Math.round(wins/dk.length*100)+'%）':'')+'・'+dk.length+'日</div>'+(ga.tab==="ps"&&hdF&&hdF.memo?'<div class="gamemo">📝 '+esc(hdF.name)+'：'+esc(hdF.memo)+'</div>':'')+(ga.tab==="ps"&&mcF&&mcF.memo?'<div class="gamemo">📝 '+esc(mcF.name)+'：'+esc(mcF.memo)+'</div>':'')+'</div>'
-      +'<div class="ga3"><div><small>投資</small><b class="num">'+yen(inv)+'</b></div><div><small>回収</small><b class="num">'+yen(ret)+'</b></div><div><small>回収率</small><b class="num '+(inv>0?(ret>=inv?"pos":"negc"):"")+'">'+pct(ret,inv)+'</b></div>'
+      +'<div class="ga3"><div><small>投資</small><b class="num">'+yen(inv)+'</b></div><div><small>回収</small><b class="num">'+yen(ret)+'</b></div><div><small>回収率</small><b class="num '+(inv>0?(ret>=inv?"fpos":"fneg"):"")+'">'+pct(ret,inv)+'</b></div>'
       +'<div><small>1日平均</small><b class="num '+sc(net)+'">'+signed(dk.length?net/dk.length:0)+'</b></div><div><small>時給</small><b class="num '+(hrs?sc(hnet):"")+'">'+(hrs?signed(hnet/hrs):"—")+'</b></div><div><small>遊んだ時間</small><b class="num">'+(hrs?(Math.round(hrs*10)/10)+"h":"—")+'</b></div></div></div>';
     if (ga.tab==="all"){
       var gg=gaGroup(recs,function(s){ return s.gk; }), gm={}; gg.forEach(function(r){ gm[r.id]=r; });
@@ -2578,8 +2698,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       if (v>0){ if(!cw2) ws=d; cw2++; cl=0; if (cw2>mw){ mw=cw2; sw=[ws,d]; } } else if (v<0){ if(!cl) ls=d; cl++; cw2=0; if (cl>ml){ ml=cl; sl=[ls,d]; } } else { cw2=0; cl=0; } });
     function dayDesc(d){ var hs={}, n2=0; days[d].recs.forEach(function(r){ r.segs.forEach(function(s){ if (!hs[s.hall||"u"]){ hs[s.hall||"u"]=1; n2++; } }); }); var only=Object.keys(hs)[0], hd2=n2===1&&only!=="u"?defById("halls",only):null; return md(d)+(hd2?" "+hd2.name:""); }
     h+='<div class="gac"><h4>記録</h4><div class="garecs">'
-      +'<div class="garec"><small>最大勝ち</small><b class="num '+(bw?"pos":"")+'">'+(bw?signed(days[bw].net):"なし")+'</b><span>'+(bw?esc(dayDesc(bw)):"&nbsp;")+'</span></div>'
-      +'<div class="garec"><small>最大負け</small><b class="num '+(bl?"negc":"")+'">'+(bl?signed(days[bl].net):"なし")+'</b><span>'+(bl?esc(dayDesc(bl)):"&nbsp;")+'</span></div>'
+      +'<div class="garec"><small>最大勝ち</small><b class="num '+(bw?"fpos":"")+'">'+(bw?signed(days[bw].net):"なし")+'</b><span>'+(bw?esc(dayDesc(bw)):"&nbsp;")+'</span></div>'
+      +'<div class="garec"><small>最大負け</small><b class="num '+(bl?"fneg":"")+'">'+(bl?signed(days[bl].net):"なし")+'</b><span>'+(bl?esc(dayDesc(bl)):"&nbsp;")+'</span></div>'
       +'<div class="garec"><small>最長連勝</small><b class="num">'+(mw?mw+"連勝":"—")+'</b><span>'+(sw?md(sw[0])+(sw[0]!==sw[1]?"〜"+md(sw[1]):""):"&nbsp;")+'</span></div>'
       +'<div class="garec"><small>最長連敗</small><b class="num">'+(ml?ml+"連敗":"—")+'</b><span>'+(sl?md(sl[0])+(sl[0]!==sl[1]?"〜"+md(sl[1]):""):"&nbsp;")+'</span></div></div></div>';
     if (ga.tab==="ps"){
@@ -2639,8 +2759,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       for (var mo=1; mo<=12; mo++){
         var f0=p[0]+"-"+pad(mo)+"-01", f1=p[0]+"-"+pad(mo)+"-"+pad(new Date(+p[0],mo,0).getDate()), body="";
         if (calCat==="all"){ var sr=sumRange(m,f0,f1), df=sr.bud-sr.life, nt=sr.win-sr.fun;
-          body=(sr.days?'<span class="'+(Math.round(df)>=0?"pos":"negc")+'">生活 '+sgn(df)+'</span>':'')+((sr.win||sr.fun)?'<span class="'+(nt>=0?"pos":"negc")+'">娯楽 '+sgn(nt)+'</span>':'')+(sr.ex?'<span>習慣 '+sr.ex+'回</span>':''); }
-        else { var fr=fSum(m,f0,f1); if (fr.cnt){ body = calCat==="exercise" ? '<span class="pos">'+fr.total+'回</span>' : calCat==="gamble" ? '<span class="'+(fr.total>0?"pos":fr.total<0?"negc":"")+'">'+sgn(fr.total)+'</span>' : calCat==="income" ? '<span class="pos">+'+yen(fr.total)+'</span>' : '<span class="negc">−'+yen(fr.total)+'</span>'; } }
+          body=(sr.days?'<span class="'+(Math.round(df)>=0?"pos":"negc")+'">生活 '+sgn(df)+'</span>':'')+((sr.win||sr.fun)?'<span class="'+cF(nt)+'">娯楽 '+sgn(nt)+'</span>':'')+(sr.ex?'<span>習慣 '+sr.ex+'回</span>':''); }
+        else { var fr=fSum(m,f0,f1); if (fr.cnt){ body = calCat==="exercise" ? '<span class="pos">'+fr.total+'回</span>' : calCat==="gamble" ? '<span class="'+cF(fr.total)+'">'+sgn(fr.total)+'</span>' : calCat==="income" ? '<span class="pos">+'+yen(fr.total)+'</span>' : '<span class="'+(FUN[calCat]?"fneg":"negc")+'">−'+yen(fr.total)+'</span>'; } }
         html+='<button class="ym'+(f0.slice(0,7)===t.slice(0,7)?" now":"")+'" data-mon="'+f0+'"><b>'+mo+'月</b>'+(body||'<span class="mt">—</span>')+'</button>';
       }
       html+='</div>';
@@ -2658,7 +2778,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       if (calCat!=="all"){ var dvv=0; if (a) a.items.forEach(function(e){ if (fMatch(e)) dvv+=fVal(e); }); lf=fCell(dvv); ir=false; }
       if (ir && modeAt(d)!=="full"){ ir=false; if (a&&a.life) lf='<span class="lf negc">−'+k(a.life)+'</span>'; }
       if (ir){ var df=(+cfgAt(d).lifeDaily||0)-(a?a.life:0); lf='<span class="lf '+(Math.round(df)>=0?"pos":"negc")+'">'+(Math.round(df)>=0?"+":"−")+k(df)+'</span>'; }
-      var fn = calCat==="all" && a && (a.fun||a.win) ? '<span class="fn">娯'+(a.win-a.fun>=0?"+":"−")+k(a.win-a.fun)+'</span>' : "";
+      var fn = calCat==="all" && a && (a.fun||a.win) ? '<span class="fn '+cF(a.win-a.fun)+'">娯'+(a.win-a.fun>=0?"+":"−")+k(a.win-a.fun)+'</span>' : "";
       html+='<button class="c'+(d===t?" today":"")+(d===calSel?" sel":"")+'" data-d="'+d+'" aria-pressed="'+(d===calSel)+'" aria-label="'+jd(d)+'"><span class="dn">'+(+d.slice(8))+'</span>'+lf+fn+(a&&a.ex?'<span class="ex"'+(rs.map[d]?' style="background:'+RMAP[rs.map[d]].solid+';box-shadow:0 0 0 2px '+RMAP[rs.map[d]].solid+'55"':'')+'></span>':'')+'</button>';
     }
     html+='</div>';
@@ -2673,9 +2793,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       if (e.kind==="exercise"){ lab="習慣"; memo=e.menu+(e.memo?"　"+e.memo:""); amt=(e.count||1)+"回"; cls="pos"; }
       else if (e.kind==="transfer"){ lab="移動"; amt=yen(e.amount); memo=({toFun:"フリー生活費 → 娯楽費",resToFun:"予備費 → 娯楽費",resToFree:"予備費 → フリー生活費"})[e.dir]||"娯楽費 → フリー生活費"; }
       else { lab=CAT[e.cat]||e.cat;
-        if (e.cat==="gamble"){ var gv=gambleNet(e); amt=(gv>0?"+":gv<0?"−":"±")+yen(Math.abs(gv)); cls=gv>0?"pos":gv<0?"negc":""; memo=gamDesc(e)+(memo?"　"+memo:""); }
+        if (e.cat==="gamble"){ var gv=gambleNet(e); amt=(gv>0?"+":gv<0?"−":"±")+yen(Math.abs(gv)); cls=cF(gv); memo=gamDesc(e)+(memo?"　"+memo:""); }
         else if (e.cat==="income"){ amt="+"+yen(e.amount); cls="pos"; memo=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(memo?"　"+memo:""); }
-        else { amt="−"+yen(e.amount); cls="negc"; } }
+        else { amt="−"+yen(e.amount); cls=FUN[e.cat]?"fneg":"negc"; } }
       html+='<li'+(e.kind==="spend"?' class="ed" data-eid="'+e.id+'"':'')+'><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+esc(memo)+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
     });
     html+='</ul></div>';
@@ -2690,7 +2810,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     html+='</div><div class="sbnext" style="margin:8px 0 0">集めたスタンプを押すと、演出をもう一度見られます</div></div>';
     }
     if (calCat==="all") html+=gaHtml();
-    $("calBody").innerHTML=html; calChipFocus();
+    $("calBody").innerHTML=html; calChipFocus(); fitCal(); requestAnimationFrame(fitCal);
   }
   function calChipFocus(){ var ch=$("calBody").querySelector(".cchips"), sel=ch&&ch.querySelector('[aria-pressed="true"]'); if (!sel) return; var l=sel.offsetLeft-ch.offsetLeft, r=l+sel.offsetWidth; if (l<ch.scrollLeft || r>ch.scrollLeft+ch.clientWidth) ch.scrollLeft=Math.max(0,l-40); }
   $("openCal").onclick=function(){ ga={tab:"all", per:"m", from:"", to:"", ty:"", hall:"", mc:"", rk:"m"}; calDate=todayIso(); calSel=todayIso(); calMode="month"; calCat="all"; renderCal(); $("cal").classList.add("open"); };
