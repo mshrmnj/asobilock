@@ -1047,6 +1047,72 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 .acsw button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--surface)}
 .acwarn{font-size:11.5px;color:var(--neg);margin-top:8px}
 .acreset{display:block;width:100%;border:0;background:none;color:var(--budget);font-weight:700;font-size:13px;padding:10px 0 2px}
+
+#sheetSettings[data-hk="check"] .hk-q,#sheetSettings:not([data-hk="check"]) .hk-check,#sheetSettings:not([data-hk="diet"]) .hk-diet,#sheetSettings:not([data-hk="study"]) .hk-study{display:none!important}
+/* v1.9 habits */
+.hbq{font-size:16px;font-weight:800;text-align:center;margin:4px 0 12px;color:var(--ink)}
+.hbstep b{font-size:28px!important}
+.hbqk{margin:10px 0 0!important}
+.hbqk button{flex:1}
+.hbun{display:flex;justify-content:space-between;align-items:baseline;margin:14px 2px 12px;font-size:12.5px;color:var(--muted)}
+.hbun b{font-size:22px}
+.hbdetb small{display:block;font-weight:500;color:var(--muted);font-size:11px;margin-top:1px}
+#hbDet{margin-top:10px}
+#hbDet .gq{margin-top:8px}
+.win{display:flex;align-items:center;gap:8px;margin:8px 0 4px}.win input{font-size:24px;font-weight:700;text-align:center}.win span{color:var(--muted);font-weight:700}
+.goalcard{padding:14px 16px;cursor:pointer}
+.goalcard .gh{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:700;color:var(--ink)}
+.goalcard .gh small{font-weight:500;color:var(--muted);font-size:11px}
+.goalcard .gbig2{font-size:26px;font-weight:800;margin:4px 0 2px;color:var(--ink)}
+.goalcard .gpr{height:9px;border-radius:5px;background:var(--line);overflow:hidden;margin:8px 0 6px}
+.goalcard .gpr i{display:block;height:100%;border-radius:5px;background:var(--budget)}
+.goalcard .gls{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);gap:6px}
+.goalcard .gls b{color:var(--ink)}
+.goalcard .gpace{background:var(--budget-soft);color:var(--ink);border-radius:10px;padding:7px 10px;font-size:12.5px;font-weight:700;margin-top:8px}
+.goalcard .gcta{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700;color:var(--ink)}
+.goalcard .gcta small{display:block;font-size:11.5px;color:var(--muted);font-weight:500}
+.goalcard.pend{border:2px solid var(--budget)}
+.wrow{display:flex;width:100%;justify-content:space-between;align-items:center;background:var(--surface);border:0;border-radius:14px;padding:12px 16px;margin:0 0 12px;font:inherit;font-size:14px;font-weight:700;color:var(--ink);text-align:left}
+.wrow small{display:block;font-size:11.5px;color:var(--muted);font-weight:500}
+.wrow .r{color:var(--muted);font-weight:600}
+.trc{background:var(--surface);border-radius:12px;padding:12px 14px;margin:0 0 10px}
+.trc h4{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;font-size:13.5px;color:var(--ink)}
+.trc h4 small{font-weight:500;color:var(--muted);font-size:11px}
+.trsvg text{font-family:system-ui,sans-serif}
+.trsvg .tg{stroke:var(--line)} .trsvg .tt{fill:var(--muted)} .trsvg .tl{fill:none;stroke:var(--budget);stroke-width:2.2;stroke-linejoin:round} .trsvg .tp{fill:var(--budget)}
+.trsvg .tgoal{stroke:var(--lp);stroke-dasharray:4 3} .trsvg .tgl{fill:var(--lp)} .trsvg .tf{stroke:var(--budget);stroke-dasharray:3 3;opacity:.6}
+.trsvg .tb{fill:var(--budget);opacity:.45} .trsvg .tb.cur{opacity:1} .trsvg .tv{fill:var(--ink)}
+.trrow{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid var(--line);font-size:13px;color:var(--ink)}
+.trrow:first-of-type{border-top:0}
+.trrow .n{width:7.5em;flex:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trrow .bar{flex:1;height:8px;border-radius:4px;background:var(--bg);overflow:hidden}.trrow .bar i{display:block;height:100%;background:var(--budget);border-radius:4px}
+.trrow .v{font-weight:700;white-space:nowrap}
+.trrow .x{background:none;border:0;color:var(--muted);font-size:16px;padding:0 4px}
+.trsum{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:4px}.trsum b{color:var(--ink)}
+.trg{border-top:1px solid var(--line);padding:9px 0;font-size:13px;color:var(--ink)}
+.trg:first-of-type{border-top:0}
+.trg .rl{display:inline-block;font-size:11px;font-weight:800;border-radius:6px;padding:1px 7px;margin-left:6px;background:var(--bg)}
+.trg .rl.ok{background:var(--lp);color:#fff}
+.trg small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+.trg button{background:none;border:0;color:var(--budget);font-weight:700;font-size:12px;padding:4px 0}
+.gact button.on{border-color:var(--lp);color:var(--lp)}
+
+.gamt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gamt .f{margin-bottom:6px}
+.gamt .gqk{margin:0 0 6px}
+.gamt .gqk button{padding:5px 0;font-size:11.5px}
+#gamFields .gnet{text-align:center;font-size:26px;font-weight:800;margin:6px 0 12px}
+.gctx{display:flex;align-items:center;gap:10px;width:100%;border:1.5px solid var(--line);background:transparent;border-radius:12px;padding:10px 12px;text-align:left;font:inherit;color:var(--ink)}
+.gctx .gci{font-size:18px}.gctx .gct{flex:1;min-width:0}.gctx small{display:block;font-size:11px;color:var(--muted);font-weight:700}
+.gctx b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gctx b.ph{color:var(--muted);font-weight:600}.gctx .gcg{color:var(--muted)}
+.gsame2{display:inline-block;max-width:100%;margin:8px 0 0;border:0;font:inherit;font-size:12px;font-weight:700;color:var(--budget);background:var(--budget-soft);border-radius:999px;padding:5px 11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+#psTop .gmemo{margin:8px 0 0}
+.gdetb{margin-top:12px}.gdetb small{display:block;font-weight:500;color:var(--muted);font-size:11px;margin-top:1px}
+.gdet{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:12px}
+.gdh{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px;cursor:pointer}
+.hmnew{margin-top:8px}.hmnew .gtab{margin:8px 0}
+#hmHalls button,#hmMcs button{display:inline-flex;align-items:center;gap:5px}
+.list .m .m1,.list .m .m2{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -1096,6 +1162,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 
 
   <button class="bigbtn" id="quickEx" data-m="full habit">今日の習慣を記録</button>
+  <div class="card goalcard" id="goalCard" data-m="full habit" hidden></div>
+  <button type="button" class="wrow" id="wRow" data-m="full habit" hidden><span>今日の体重を記録<small id="wRowS"></small></span><span class="r" id="wRowV">›</span></button>
   <button class="bigbtn" id="openGamble" data-m="gamble">ギャンブルを記録</button>
   <button class="subbtn" id="openSpend">支出・収入を記録</button>
   <div class="card rows" id="eomCard" data-m="full" style="margin-top:12px">
@@ -1107,7 +1175,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     <div class="h2row"><h2>今週の習慣</h2><button type="button" class="sharebtn" id="openShare" aria-label="この7日間の習慣を画像で共有">共有 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></button></div>
     <div class="stat" style="border:0;padding-top:0">
       <div><div class="dots" id="dots"></div></div>
-      <div class="d"><span class="num v" id="weekCount">0</span> / <span id="weekGoal">3</span>回</div>
+      <div class="d"><span class="num v" id="weekCount">0</span> / <span id="weekGoal">3</span><span id="weekGoalU">回</span></div>
     </div>
   </section>
 
@@ -1160,31 +1228,43 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       <label class="f amount" id="amtLabel">金額（円）<input id="amount" type="number" inputmode="numeric" min="0" placeholder="0"></label>
       <div id="gamFields" hidden>
         <div class="seg two" id="gkSeg"><button type="button" data-gk="ps" aria-pressed="true">パチ・スロ</button><button type="button" data-gk="other" aria-pressed="false">その他</button></div>
-        <div id="psTop">
-          <button type="button" class="gsame" id="gSame" hidden><span class="gsi">↻</span><span class="gst"><b>前回と同じにする</b><small id="gSameD"></small></span></button>
-          <label class="f">ホール（任意）<input id="gHall" type="text" maxlength="30" placeholder="ホール名" autocomplete="off"></label>
-          <p class="gmemo" id="gHallMemo" hidden></p>
-          <div class="gchips" id="gHallChips"></div>
-          <div class="f gf">打った台（任意）<div id="gMcList"></div><button type="button" class="gadd" id="gAddMc">＋ 台を追加</button><p class="ghint" id="gMcHint">台を追加すると、機種別・パチンコ／スロット別の収支が見られます</p></div>
-          <button type="button" class="gstart" id="gStart"><b>▶ 打ち始める</b><small>投資はあとからホームのボタンで足せます</small></button>
+        <div class="gamt">
+          <div><label class="f amount">投資<span class="gauto" hidden>台の金額から自動</span><input id="gInv" type="number" inputmode="numeric" min="0" placeholder="0"></label>
+            <div class="gqk" data-qk="gInv"><button type="button" data-v="1000">+1千</button><button type="button" data-v="5000">+5千</button><button type="button" data-v="10000">+1万</button></div></div>
+          <div><label class="f amount" id="gRetL">回収<span class="gauto" hidden>台の金額から自動</span><input id="gRet" type="number" inputmode="numeric" min="0" placeholder="0"></label>
+            <div class="gqk" data-qk="gRet"><button type="button" data-v="1000">+1千</button><button type="button" data-v="5000">+5千</button><button type="button" data-v="10000">+1万</button></div></div>
         </div>
-        <label class="f amount">投資（円）<span class="gauto" hidden>台の金額から自動</span><input id="gInv" type="number" inputmode="numeric" min="0" placeholder="0"></label>
-        <div class="gqk" data-qk="gInv"><button type="button" data-v="1000">+1千</button><button type="button" data-v="5000">+5千</button><button type="button" data-v="10000">+1万</button><button type="button" data-v="0">クリア</button></div>
-        <label class="f amount" id="gRetL">回収（円）<span class="gauto" hidden>台の金額から自動</span><input id="gRet" type="number" inputmode="numeric" min="0" placeholder="0"></label>
-        <div class="gqk" data-qk="gRet"><button type="button" data-v="1000">+1千</button><button type="button" data-v="5000">+5千</button><button type="button" data-v="10000">+1万</button><button type="button" data-v="0">クリア</button></div>
         <p class="gnet" id="gNet">収支 ¥0</p>
-        <div id="psBot">
-          <div class="f gf">遊んだ時間（任意）<div class="ghr"><button type="button" id="gHrM" aria-label="30分減らす">−</button><b class="num" id="gHrV">—</b><button type="button" id="gHrP" aria-label="30分増やす">＋</button></div>
-            <div class="gchips gqh" id="gHrQ"><button type="button" data-h="2">2時間</button><button type="button" data-h="4">4時間</button><button type="button" data-h="6">6時間</button><button type="button" data-h="8">8時間</button><button type="button" data-h="0">クリア</button></div>
-            <p class="ghint" id="gTimeHint" hidden></p></div>
+        <div id="psTop">
+          <button type="button" class="gctx" id="gCtx"><span class="gci">📍</span><span class="gct"><small>ホール・台（任意）</small><b id="gCtxT">未入力</b></span><span class="gcg">›</span></button>
+          <button type="button" class="gsame2" id="gSame" hidden>↻ 前回と同じ：<span id="gSameD"></span></button>
+          <p class="gmemo" id="gHallMemo" hidden></p>
+          <div hidden><input id="gHall" type="text"><div id="gHallChips"></div><button type="button" id="gAddMc"></button><button type="button" id="gStart"></button></div>
+        </div>
+        <button type="button" class="gadd gdetb" id="gDetBtn">＋ 詳しく記録する<small id="gDetHint">遊んだ時間・台ごとの金額・メモ（任意）</small></button>
+        <div class="gdet" id="gDet" hidden>
+          <div class="gdh" id="gDetClose"><span>詳しい記録（任意）</span><span>閉じる ▲</span></div>
+          <div id="psBot">
+            <div class="f gf">遊んだ時間<div class="ghr"><button type="button" id="gHrM" aria-label="30分減らす">−</button><b class="num" id="gHrV">—</b><button type="button" id="gHrP" aria-label="30分増やす">＋</button></div>
+              <div class="gchips gqh" id="gHrQ"><button type="button" data-h="2">2時間</button><button type="button" data-h="4">4時間</button><button type="button" data-h="6">6時間</button><button type="button" data-h="8">8時間</button><button type="button" data-h="0">クリア</button></div>
+              <p class="ghint" id="gTimeHint" hidden></p></div>
+            <div class="f gf" id="gSplitBox">台ごとの金額
+              <p class="ghint" id="gMcHint">「ホール・台」で台を選ぶと、ここで台ごとに分けられます</p>
+              <button type="button" class="gadd" id="gSplitBtn" hidden>台ごとに金額を分ける</button>
+              <div id="gMcList"></div>
+              <button type="button" class="glnk" id="gSplitOff" hidden>分けるのをやめる</button>
+            </div>
+          </div>
+          <label class="f">メモ<input id="gMemo" type="text" maxlength="60"></label>
         </div>
       </div>
     </div>
+
     <div id="exFields" hidden>
       <label class="f">種目<select id="menuSel"></select></label>
       <label class="f">回数<input id="exCount" type="number" inputmode="numeric" min="1" value="1"></label>
     </div>
-    <label class="f">メモ（任意）<input id="memo" type="text" maxlength="60"></label>
+    <label class="f" id="memoL">メモ（任意）<input id="memo" type="text" maxlength="60"></label>
     <div class="actions">
       <button class="ghost" data-close id="entryCancel">やめる</button>
       <button class="primary" id="saveEntry">記録する</button>
@@ -1216,13 +1296,26 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     </div>
 
     <div class="sgh" data-m="full habit">習慣</div>
-    <p class="sgd" data-m="full habit">1回できるごとに、娯楽費 ÷ 月の回数 の額がアンロックされます</p>
+    <p class="sgd hk-check" data-m="full habit">1回できるごとに、娯楽費 ÷ 月の回数 の額がアンロックされます</p>
+    <p class="sgd hk-q" data-m="full habit">記録した時間に応じて、娯楽費 ÷ 月の目標時間 の額が15分ごとにアンロックされます</p>
     <div class="sgrp" data-m="full habit">
-      <label class="srow"><span>習慣の名前</span><span class="sin"><input id="sMenus" type="text" class="txt"></span></label>
-      <label class="srow"><span>月の回数</span><span class="sin"><input id="sMonthly" type="text" inputmode="numeric"><i>回/月</i></span></label>
-      <div class="srow res"><span>1回でアンロック<small>自動計算</small></span><span class="sin"><b class="num" id="sUnitV">0</b><i>円/回</i></span></div>
-      <label class="srow"><span>週の目標<small>今週の表示用</small></span><span class="sin"><input id="sWeekly" type="text" inputmode="numeric"><i>回/週</i></span></label>
+      <label class="srow"><span>習慣の種類</span><span class="sin"><select id="sHabit" class="wsel"><option value="check">今の習慣</option><option value="diet">ダイエット</option><option value="study">勉強</option></select></span></label>
+      <label class="srow hk-check"><span>習慣の名前</span><span class="sin"><input id="sMenus" type="text" class="txt"></span></label>
+      <label class="srow hk-check"><span>月の回数</span><span class="sin"><input id="sMonthly" type="text" inputmode="numeric"><i>回/月</i></span></label>
+      <div class="srow res hk-check"><span>1回でアンロック<small>自動計算</small></span><span class="sin"><b class="num" id="sUnitV">0</b><i>円/回</i></span></div>
+      <label class="srow hk-q"><span id="sMonthHL">月の目標時間</span><span class="sin"><input id="sMonthH" type="text" inputmode="decimal"><i>時間/月</i></span></label>
+      <div class="srow res hk-q"><span>15分でアンロック<small>自動計算</small></span><span class="sin"><b class="num" id="sU15V">0</b><i>円/15分</i></span></div>
+      <label class="srow"><span>週の目標<small>今週の表示用</small></span><span class="sin"><input id="sWeekly" type="text" inputmode="numeric"><i id="sWeeklyU">回/週</i></span></label>
       <label class="srow"><span>週の始まり<small>カレンダーと今週の数え方</small></span><span class="sin"><select id="sWeekStart" class="wsel"><option value="mon">月曜</option><option value="sun">日曜</option></select></span></label>
+    </div>
+
+    <div class="sgh hk-q" data-m="full habit">目標</div>
+    <p class="sgd hk-q" data-m="full habit">空欄なら目標なしで使えます</p>
+    <div class="sgrp hk-q" data-m="full habit">
+      <label class="srow hk-diet"><span>目標の体重</span><span class="sin"><input id="gW" type="text" inputmode="decimal"><i>kg</i></span></label>
+      <label class="srow hk-diet"><span>今の体重<small>スタート</small></span><span class="sin"><input id="gW0" type="text" inputmode="decimal"><i>kg</i></span></label>
+      <label class="srow hk-study"><span>目標の試験</span><span class="sin"><input id="gName" type="text" class="txt" maxlength="30" placeholder="例：簿記2級"></span></label>
+      <label class="srow"><span id="gDeadL">いつまでに</span><span class="sin"><input id="gDead" type="date" class="wsel"></span></label>
     </div>
 
     <div class="sgh">テーマ</div>
@@ -1274,8 +1367,47 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     <button type="button" class="primary gfull" id="pickAdd">登録して追加</button></div>
   <div class="actions"><button type="button" class="ghost" id="pickClose">閉じる</button></div>
 </div></div>
+<div class="modal" id="hmModal" role="dialog" aria-modal="true" aria-labelledby="hmTitle"><div class="box gbox">
+  <div class="ghead"><p id="hmTitle">ホール・台</p><button type="button" class="glnk" id="hmOk">決定</button></div>
+  <div class="gnl">ホール</div><div class="gchips" id="hmHalls"></div>
+  <input id="hmHallNew" type="text" class="gq" maxlength="30" placeholder="＋ 新しいホール名" autocomplete="off" style="margin-top:8px">
+  <div class="gnl" style="margin-top:16px">台 <small style="font-weight:500;color:var(--muted)">複数選べます</small></div><div class="gchips" id="hmMcs"></div>
+  <div class="hmnew"><input id="hmMcNew" type="text" class="gq" maxlength="40" placeholder="＋ 新しい台の名前" autocomplete="off">
+    <div class="gtab" id="hmMcTy"><button type="button" data-ty="p" aria-pressed="false">パチンコ</button><button type="button" data-ty="s" aria-pressed="false">スロット</button><button type="button" data-ty="" aria-pressed="true">選ばない</button></div>
+    <button type="button" class="ghost gfull" id="hmMcAdd">この台を追加</button></div>
+  <p class="gnote">よく行く順に並びます。名前の変更・まとめる・削除は <button type="button" class="glnk" id="hmMg" style="padding:0;font-size:12px">こちら</button></p>
+  <div class="actions"><button type="button" class="primary" id="hmOk2">決定</button></div>
+</div></div>
 <div class="modal" id="mgModal" role="dialog" aria-modal="true" aria-label="ホール・台の管理"><div class="box gbox" id="mgBody"></div></div>
+<div class="sheet" id="sheetHabit" role="dialog" aria-modal="true" aria-labelledby="hbTitle"><div class="inner">
+  <div class="ehead"><h3 id="hbTitle">運動を記録</h3><label class="edate"><span id="hbDateLbl"></span><input id="hbDate" type="date" aria-label="日付"></label></div>
+  <p class="hbq" id="hbQ">今日は何分運動した？</p>
+  <div class="ghr hbstep"><button type="button" id="hbM" aria-label="15分減らす">−</button><b class="num" id="hbV">30分</b><button type="button" id="hbP" aria-label="15分増やす">＋</button></div>
+  <div class="gchips hbqk" id="hbQk"><button type="button" data-hm="15">15分</button><button type="button" data-hm="30">30分</button><button type="button" data-hm="60">1時間</button><button type="button" data-hm="90">1.5時間</button></div>
+  <div class="hbun"><span>この記録で</span><b class="num fpos" id="hbUnV">+¥0</b></div>
+  <button type="button" class="gadd hbdetb" id="hbDetBtn">＋ 詳しく記録する<small id="hbDetHint"></small></button>
+  <div id="hbDet" hidden>
+    <div class="f gf"><span id="hbKL">種類</span><div class="gchips" id="hbKinds" style="margin-top:6px"></div><input id="hbKindNew" type="text" class="gq" maxlength="20" placeholder="新しく追加" autocomplete="off"></div>
+    <label class="f" id="hbKcalL">消費カロリー（任意）<input id="hbKcal" type="number" inputmode="numeric" min="0" placeholder="kcal"></label>
+    <label class="f">メモ（任意）<input id="hbMemo" type="text" maxlength="60"></label>
+  </div>
+  <div class="actions"><button class="ghost" data-close>やめる</button><button class="primary" id="hbSave">記録する</button></div>
+</div></div>
+<div class="sheet" id="sheetTrend" role="dialog" aria-modal="true" aria-label="推移"><div class="inner" id="trendBody"></div></div>
 <div class="sheet" id="gaSheet" role="dialog" aria-modal="true" aria-label="絞り込み"><div class="inner" id="gaSheetBody"></div></div>
+<div class="modal" id="wModal" role="dialog" aria-modal="true" aria-labelledby="wTitle"><div class="box">
+  <p class="mt" id="wTitle">今日の体重</p>
+  <div class="win"><input id="wIn" type="number" inputmode="decimal" step="0.1" min="20" max="300" class="gq" placeholder="0.0"><span>kg</span></div>
+  <p class="gnote" id="wPrev"></p>
+  <div class="actions"><button type="button" class="ghost" id="wCancel">閉じる</button><button type="button" class="primary" id="wSave">記録する</button></div>
+</div></div>
+<div class="modal" id="resModal" role="dialog" aria-modal="true" aria-labelledby="resT"><div class="box">
+  <p class="mt" id="resT"></p><p class="gnote" id="resD" style="margin:0 0 12px"></p>
+  <div class="gact" id="resOpts"></div>
+  <div id="resExt" hidden><label class="f" style="margin-top:10px">新しい期限<input id="resExtD" type="date" class="gq"></label><button type="button" class="primary gfull" id="resExtOk">この日にのばす</button></div>
+  <label class="f" style="margin-top:12px">ひとこと（任意）<input id="resNote" type="text" maxlength="60"></label>
+  <div class="actions"><button type="button" class="ghost" id="resLater">あとで</button></div>
+</div></div>
 <div class="modal" id="confirmModal" role="alertdialog" aria-modal="true" aria-labelledby="confirmMsg"><div class="box"><p id="confirmMsg"></p><div class="actions"><button class="ghost" id="confirmCancel">やめる</button><button class="primary" id="confirmOk">OK</button></div></div></div>
 
 <div class="modal" id="modeModal" role="dialog" aria-modal="true" aria-labelledby="modeTitle"><div class="box">
@@ -1420,8 +1552,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   function yen(n){ var r=Math.round(n); return (r<0?"−¥":"¥")+Math.abs(r).toLocaleString("ja-JP"); }
   function signed(n){ var r=Math.round(n); return (r>0?"+":r<0?"−":"±")+"¥"+Math.abs(r).toLocaleString("ja-JP"); }
 
-  var MONEY_KEYS=["income","fixed","lifeDaily","gorakuMonthly","unit","monthlyTimes","mode"];
-  function pickMoney(s){ var o={}; MONEY_KEYS.forEach(function(k){ o[k]=s[k]; }); o.mode=s.mode||"full"; return o; }
+  var MONEY_KEYS=["income","fixed","lifeDaily","gorakuMonthly","unit","monthlyTimes","mode","habit","monthMin","unit15"];
+  function pickMoney(s){ var o={}; MONEY_KEYS.forEach(function(k){ o[k]=s[k]; }); o.mode=s.mode||"full"; o.habit=s.habit||"check"; o.monthMin=+s.monthMin||0; o.unit15=+s.unit15||0; return o; }
+  function habitAt(d){ return cfgAt(d).habit||"check"; }
   function curMode(){ return state.settings.mode||"full"; }
   function modeAt(d){ return cfgAt(d).mode||"full"; }
   function cfgAt(d){ var s=state.settings, hs=s.hist; if (!hs||!hs.length) return pickMoney(s);
@@ -1432,7 +1565,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     var c0=cfgAt(dIso(start)), fd=(+c0.lifeDaily||0), cap=+c0.gorakuMonthly||0, budSum=0;
     var weekStart=(function(){ var d=new Date(); var w=state.settings.weekStart==="sun"?d.getDay():(d.getDay()+6)%7; d.setDate(d.getDate()-w); return iso(d); })();
     var r={R:0,L:0,U:0,S:0,E:0,days:Math.max(0,end-start+1),fd:fd,cap:cap,food:0,foodToday:0,shopMonth:0,goraku:0,todayGoraku:0,exCount:0,weekEx:0,repaid:0,unlocked:0,monthTotal:0,monthUnlocked:0};
-    var byDay={};
+    var byDay={}, wkd={};
     entries.forEach(function(e){ if(!e.date) return; var k=dayNum(e.date); if(k<start||k>end) return; (byDay[k]=byDay[k]||[]).push(e); });
     for (var d=start; d<=end; d++){
       var cd=cfgAt(dIso(d)), md=cd.mode||"full"; fd=md==="full"?(+cd.lifeDaily||0):0;
@@ -1448,6 +1581,13 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
         var isToday=e.date===t, me=modeAt(e.date);
         if (me==="gamble") return;
         if (me==="habit" && e.kind==="spend" && (LIFE[e.cat]||e.cat==="income")) return;
+        if (e.kind==="weight") return;
+        if (e.kind==="exercise" && e.mins!=null){
+          r.exCount+=1; if (e.date>=weekStart && !wkd[e.date]){ wkd[e.date]=1; r.weekEx+=1; }
+          var want=Math.round((+cfgAt(e.date).unit15||0)*(+e.mins||0)/15), amq=Math.max(0, Math.min(want, r.L)); r.L-=amq; r.unlocked+=amq; r.monthUnlocked+=amq;
+          var rq=r.S<0 ? Math.min(amq,-r.S) : 0; r.S+=rq; r.repaid+=rq; r.U+=amq-rq;
+          return;
+        }
         if (e.kind==="exercise"){
           var c=+e.count||1; r.exCount+=c; if (e.date>=weekStart) r.weekEx+=c;
           for (var i=0;i<c;i++){
@@ -1525,6 +1665,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     else if (nxt<=0) nx.innerHTML="<span>来月1日</span><b>+"+yen(c.cap)+"</b>";
     else if (S<0) nx.innerHTML="<span>次の習慣</span><span>返済へ <b>"+yen(nxt)+"</b></span>";
     else nx.innerHTML="<span>次の習慣</span><b>+"+yen(nxt)+"</b>";
+    if (c.days && nxt>0 && S>=0 && isQ(habitNow())){ var u15=Math.min(+cfgAt(todayIso()).unit15||0, Math.max(L,0)); nx.innerHTML="<span>15分ごとに</span><b>+"+yen(u15)+"</b>"; }
     $("lockGauge").setAttribute("aria-label","今月"+yen(c.monthTotal)+"のうち"+yen(c.monthUnlocked)+"アンロック");
     var ci=$("capInfo");
     if (c.days){ ci.hidden=true; } else ci.hidden=true;
@@ -1551,6 +1692,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     var doneToday = exercisedOn(todayIso()), qb=$("quickEx");
     qb.classList.toggle("done", doneToday);
     qb.innerHTML = doneToday ? "今日の習慣は記録済み ✓<small>タップで取り消し</small>" : "今日の"+(s.menus[0]||"習慣")+"を記録";
+    if (isQ(habitNow())){ var tmn=minsBetween(todayIso(),todayIso()); qb.classList.remove("done"); qb.innerHTML = tmn ? "今日の"+hkAct(habitNow())+" "+fmtMin(tmn)+" ✓<small>タップで追加</small>" : "今日の"+hkAct(habitNow())+"を記録"; }
+    $("weekGoalU").textContent = isQ(habitNow()) ? "日" : "回";
+    renderGoal(); autoRes();
     var dots=$("dots"); dots.innerHTML="";
     var goal=+s.weeklyGoal||0, n=Math.max(goal,c.weekEx);
     for (var i=0;i<n;i++){ var sp=document.createElement("span"); if(i<c.weekEx) sp.className = i<goal?"on":"extra"; dots.appendChild(sp); }
@@ -1637,7 +1781,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 
   function renderList(){
     var ul=$("list"); ul.innerHTML="";
-    var items = state.entries.filter(function(e){ return curMode()!=="gamble" || e.kind==="spend"; }).sort(function(a,b){ return a.date===b.date ? (b.createdAt||0)-(a.createdAt||0) : (a.date<b.date?1:-1); }).slice(0,40);
+    var items = state.entries.filter(function(e){ return e.kind!=="weight" && (curMode()!=="gamble" || e.kind==="spend"); }).sort(function(a,b){ return a.date===b.date ? (b.createdAt||0)-(a.createdAt||0) : (a.date<b.date?1:-1); }).slice(0,40);
     if (!items.length){ var li=document.createElement("li"); li.className="empty"; li.textContent="まだ記録がありません。習慣か支出を記録すると、ここに並びます。"; ul.appendChild(li); return; }
     items.forEach(function(e){
       var li=document.createElement("li");
@@ -1649,11 +1793,11 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       if (e.kind==="transfer" && (e.dir==="resToFun"||e.dir==="resToFree")){ cat.classList.add("mv"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="予備費 → "+(e.dir==="resToFun"?"娯楽費":"フリー生活費")+(e.memo?"　"+e.memo:""); }
       else if (e.kind==="transfer" && e.dir==="toFun"){ cat.classList.add("mv"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="フリー生活費 → 娯楽費"+(e.memo?"　"+e.memo:""); }
       else if (e.kind==="transfer"){ cat.classList.add("mv"); cat.textContent="移動"; amt.textContent=yen(e.amount); m.textContent="娯楽費 → フリー生活費"+(e.memo?"　"+e.memo:""); }
-      else if (e.kind==="exercise"){ cat.classList.add("hb"); cat.textContent="習慣"; amt.textContent=(e.count||1)+"回"; m.textContent=e.menu+(e.memo?"　"+e.memo:""); amt.classList.add("pos"); }
+      else if (e.kind==="exercise"){ cat.classList.add("hb"); cat.textContent="習慣"; amt.textContent=e.mins!=null?fmtMin(e.mins):(e.count||1)+"回"; m.textContent=e.menu+(e.tag?"・"+e.tag:"")+(e.kcal?"・"+e.kcal+"kcal":"")+(e.memo?"　"+e.memo:""); amt.classList.add("pos"); }
       else { cat.classList.add(FUN[e.cat]?"g":e.cat==="income"?"inc":"lf"); cat.textContent=CAT[e.cat]||e.cat;
         if (e.cat==="income"){ amt.textContent="+"+yen(e.amount); amt.classList.add("pos"); m.textContent=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(e.memo?"　"+e.memo:""); }
         else if (e.cat==="gamble"){ var gnv=gambleNet(e); amt.textContent=(gnv>0?"+":gnv<0?"−":"±")+yen(Math.abs(gnv)); if(gnv) amt.classList.add(cF(gnv));
-          m.textContent=gamDesc(e)+(e.memo?"　"+e.memo:""); }
+          var gl2=gamLines(e); m.innerHTML='<span class="m1">'+esc(gl2[0])+'</span>'+(gl2[1]?'<span class="m2">'+esc(gl2[1])+'</span>':''); }
         else { amt.textContent="−"+yen(e.amount); amt.classList.add(FUN[e.cat]?"fneg":"negc"); m.textContent=(e.cat==="gamble"?"負け":"")+(e.memo?(e.cat==="gamble"?"　":"")+e.memo:""); } }
       main.appendChild(dt); main.appendChild(m);
       var del=document.createElement("button"); del.className="del"; del.setAttribute("aria-label","この記録を削除"); del.textContent="×";
@@ -1758,7 +1902,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   /* undo */
   var undoFn=null;
   function snapAll(){ return {entries:JSON.parse(JSON.stringify(state.entries)), settings:JSON.parse(JSON.stringify(state.settings))}; }
-  function restoreAll(s0){ store.saveSettings(s0.settings); store.replaceAll(s0.entries); if ($("sheetEntry").classList.contains("open")){ renderMc(); renderHallChips(); } if ($("mgModal").classList.contains("open")) renderMg(); if ($("pickModal").classList.contains("open")) renderPick(); }
+  function restoreAll(s0){ store.saveSettings(s0.settings); store.replaceAll(s0.entries); if ($("sheetEntry").classList.contains("open")){ renderMc(); renderHallChips(); } if ($("mgModal").classList.contains("open")) renderMg(); if ($("pickModal").classList.contains("open")) renderPick(); if ($("sheetTrend").classList.contains("open")) renderTrend(); }
   function undoable(msg, fn){ var s0=snapAll(); fn(); toast(msg, false, function(){ restoreAll(s0); }); }
 
   var gk="ps", gMc=[], editId=null, editCreated=0, gHrs=0, gMode="", mcTyOpen=-1;
@@ -1768,22 +1912,22 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     var lp=ps&&!editId&&gMode!=="live"&&gMode!=="liveEdit"?lastPs():null;
     $("gSame").hidden=!lp; if (lp){ var h=defById("halls",lp.hall), ms=(lp.mc||[]).map(function(x){ return defById("machines",x.m); }).filter(Boolean); $("gSameD").textContent=[h?h.name:"", ms.map(function(m){ return m.name; }).join("、")].filter(Boolean).join("・"); }
     $("gStart").hidden = !ps || !!editId || gMode==="live" || gMode==="liveEdit" || !!state.settings.live;
-    renderHallChips(); renderMc(); updHrs();
+    renderHallChips(); renderMc(); updHrs(); syncDet();
   }
   function renderHallChips(){
     var box=$("gHallChips"), cur=nkey($("gHall").value); box.innerHTML="";
     sortedDefs("halls").slice(0,6).forEach(function(x){ var b=document.createElement("button"); b.type="button"; b.textContent=x.d.name; b.dataset.hn=x.d.name; b.setAttribute("aria-pressed", nkey(x.d.name)===cur&&cur?"true":"false"); box.appendChild(b); });
     box.hidden=!box.children.length;
-    var hd=defByName("halls",$("gHall").value), hm=$("gHallMemo"); hm.hidden=!(hd&&hd.memo); hm.textContent=hd&&hd.memo?"📝 "+hd.memo:"";
+    var hd=defByName("halls",$("gHall").value), hm=$("gHallMemo"); hm.hidden=!(hd&&hd.memo); hm.textContent=hd&&hd.memo?"📝 "+hd.memo:""; renderCtx();
   }
   $("gHallChips").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; $("gHall").value = b.getAttribute("aria-pressed")==="true" ? "" : b.dataset.hn; renderHallChips(); };
   $("gHall").addEventListener("input", renderHallChips);
   $("gkSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; gk=b.dataset.gk; syncGam(); updAuto(); };
   $("gSame").onclick=function(){ var lp=lastPs(); if(!lp) return; var h=defById("halls",lp.hall); $("gHall").value=h?h.name:""; gMc=(lp.mc||[]).filter(function(x){ return defById("machines",x.m); }).map(function(x){ return {m:x.m,inv:"",ret:""}; }); mcTyOpen=-1; renderHallChips(); renderMc(); };
-  function mcAll(){ return gMc.length>0 && gMc.every(function(x){ return x.inv!==""||x.ret!==""; }); }
+  function mcAll(){ return gSplit && gMc.length>0 && gMc.every(function(x){ return x.inv!==""||x.ret!==""; }); }
   function renderMc(){
     var box=$("gMcList"); box.innerHTML="";
-    var live=gMode==="liveEdit";
+    var live=gMode==="liveEdit"||!gSplit;
     gMc.forEach(function(x,i){ var d=defById("machines",x.m), nm=d?d.name:"（削除された台）";
       var div=document.createElement("div"); div.className="gmc";
       div.innerHTML='<div class="gmt">'+(d?'<button type="button" class="gkb" data-gt="'+i+'" aria-label="パチンコかスロットかを選ぶ">'+kdTag(d.type)+'</button>':kdTag(""))+'<b>'+esc(nm)+'</b>'+(d&&!d.type?'<button type="button" class="gkset" data-gt="'+i+'">種類を選ぶ</button>':'')+'<button type="button" class="gx" data-gx="'+i+'" aria-label="この台を外す">×</button></div>'
@@ -1791,7 +1935,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
         +(d&&mcTyOpen===i?'<div class="gtab gtyp">'+[["p","パチンコ"],["s","スロット"],["","選ばない"]].map(function(t){ return '<button type="button" data-gty="'+t[0]+'" data-i="'+i+'" aria-pressed="'+((d.type||"")===t[0])+'">'+t[1]+'</button>'; }).join("")+'</div><p class="ghint" style="margin:0 2px 2px">この台の過去の記録も、まとめて変わります</p>':'')
         +(live?'':'<div class="gmm"><input type="number" inputmode="numeric" min="0" placeholder="投資（任意）" aria-label="この台の投資" data-i="'+i+'" data-f="inv" value="'+esc(x.inv)+'"><input type="number" inputmode="numeric" min="0" placeholder="回収（任意）" aria-label="この台の回収" data-i="'+i+'" data-f="ret" value="'+esc(x.ret)+'"></div><div class="gmn" id="gmn'+i+'"></div>');
       box.appendChild(div); });
-    $("gMcHint").hidden = gMc.length>0; updAuto();
+    $("gMcHint").hidden = gMc.length>0; box.hidden=!gSplit; $("gSplitBtn").hidden=!(gMc.length && !gSplit && gMode!=="liveEdit"); $("gSplitOff").hidden=!gSplit; renderCtx(); updAuto();
   }
   function updAuto(){
     var auto = gk==="ps" && mcAll() && gMode!=="liveEdit";
@@ -1844,7 +1988,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   var mg={k:"machines", v:"list", id:null, to:null};
   function openMg(k){ mg={k:k||"machines", v:"list", id:null, to:null}; renderMg(); $("mgModal").classList.add("open"); }
   function mgWord(){ return mg.k==="halls"?"ホール":"台"; }
-  function mgDone(){ $("mgModal").classList.remove("open"); if ($("pickModal").classList.contains("open")) renderPick(); if ($("sheetEntry").classList.contains("open")){ renderMc(); renderHallChips(); } }
+  function mgDone(){ $("mgModal").classList.remove("open"); if ($("hmModal").classList.contains("open")) renderHM(); if ($("pickModal").classList.contains("open")) renderPick(); if ($("sheetEntry").classList.contains("open")){ renderMc(); renderHallChips(); } }
   function renderMg(){
     var b=$("mgBody"), h="", d=defById(mg.k, mg.id), st=useStats(mg.k), n=d&&st[d.id]?st[d.id].n:0;
     if (mg.v!=="list" && !d) mg.v="list";
@@ -1961,9 +2105,201 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     function over(){ for (var i=0;i<els.length;i++){ if (els[i].scrollWidth>els[i].clientWidth+0.5) return true; } return false; }
     while (over() && n<10){ fs-=0.5; g.style.setProperty("--cfs", fs+"px"); n++; }
   }
+  /* ---------- v1.9 habits ---------- */
+  function habitNow(){ return habitAt(todayIso()); }
+  function isQ(hk){ return hk==="diet"||hk==="study"; }
+  function hkAct(hk){ return hk==="diet"?"運動":hk==="study"?"勉強":(state.settings.menus[0]||"習慣"); }
+  function fmtMin(m){ m=Math.round(+m||0); var h=Math.floor(m/60), r=m%60; return h ? (r ? h+"時間"+r+"分" : h+"時間") : r+"分"; }
+  function hrs1(m){ return (Math.round((+m||0)/6)/10)+"時間"; }
+  function weightsAll(){ return state.entries.filter(function(e){ return e.kind==="weight" && +e.kg>0 && e.date; }).sort(function(a,b){ return a.date<b.date?-1:a.date>b.date?1:(a.createdAt||0)-(b.createdAt||0); }); }
+  function lastWeight(){ var w=weightsAll(); return w.length?w[w.length-1]:null; }
+  function minsBetween(a,b,hk){ var t=0; state.entries.forEach(function(e){ if (e.kind==="exercise" && e.mins!=null && e.date>=a && e.date<=b && (!hk || (e.hk||hk)===hk)) t+=+e.mins||0; }); return t; }
+  function goalAct(){ var g=state.settings.goal; return g && g.type===habitNow() && !g.result ? g : null; }
+  function dietPace(g){
+    var t=todayIso(), from=addDays(t,-28); if (g && g.start>from) from=g.start;
+    var ws=weightsAll().filter(function(w){ return w.date>=from; }); if (ws.length<3) return null;
+    var x0=dayNum(ws[0].date), n=ws.length, sx=0, sy=0, sxx=0, sxy=0;
+    ws.forEach(function(w){ var x=dayNum(w.date)-x0, y=+w.kg; sx+=x; sy+=y; sxx+=x*x; sxy+=x*y; });
+    var den=n*sxx-sx*sx; if (!den || dayNum(ws[n-1].date)-x0<5) return null;
+    return {slope:(n*sxy-sx*sy)/den, last:ws[n-1]};
+  }
+  function goalStats(g){ var o={}, end=g.endedAt||todayIso(); if (g.type==="diet"){ var ws=weightsAll().filter(function(x){ return x.date>=g.start && x.date<=end; }); o.startKg=g.startKg||(ws[0]&&ws[0].kg)||null; o.endKg=ws.length?ws[ws.length-1].kg:null; } o.mins=minsBetween(g.start, end, g.type); return o; }
+  function renderGoal(){
+    var c=$("goalCard"), wr=$("wRow"), hk=habitNow(), g=goalAct(), show=isQ(hk) && curMode()!=="gamble", t=todayIso();
+    wr.hidden = !(show && hk==="diet");
+    if (!wr.hidden){ var lw=lastWeight(), tw=weightsAll().filter(function(x){ return x.date===t; }).pop(); $("wRowS").textContent = lw ? "前回 "+(+lw.kg).toFixed(1)+"kg（"+md(lw.date)+"）" : "まだ記録がありません"; $("wRowV").textContent = tw ? (+tw.kg).toFixed(1)+"kg ›" : "›"; }
+    if (!show){ c.hidden=true; return; }
+    c.hidden=false; c.classList.remove("pend");
+    if (!g){ c.dataset.go="set"; c.innerHTML='<div class="gcta"><span>目標を立てる<small>'+(hk==="diet"?"体重と期限":"試験と日付")+'を決めると、ここに進み具合が出ます</small></span><span>›</span></div>'; return; }
+    if (g.waiting){ c.dataset.go="res"; c.classList.add("pend"); c.innerHTML='<div class="gcta"><span>'+esc(g.name||"試験")+'の結果が出たら記録<small>試験日 '+jd(g.deadline)+'</small></span><span>›</span></div>'; return; }
+    if (g.deadline<t){ c.dataset.go="res"; c.classList.add("pend"); c.innerHTML='<div class="gcta"><span>目標の期限になりました<small>結果を記録する</small></span><span>›</span></div>'; return; }
+    c.dataset.go="trend";
+    if (hk==="diet"){
+      var lw2=lastWeight(), cur=lw2?+lw2.kg:null, st=goalStats(g), sk=st.startKg||cur, rem=cur!=null?Math.round((cur-g.target)*10)/10:null;
+      var pct=(sk&&cur!=null&&sk>g.target)?Math.max(0,Math.min(100,(sk-cur)/(sk-g.target)*100)):0, pc=dietPace(g), pace="";
+      if (rem!=null && rem<=0) pace="目標を達成しています。期限までキープしましょう";
+      else if (pc && pc.slope<0){ var dd=Math.ceil((pc.last.kg-g.target)/(-pc.slope)), at=addDays(pc.last.date,dd); pace = at<=g.deadline ? "このペースなら "+md(at)+" に達成 ✓" : "このペースだと期限（"+md(g.deadline)+"）に少し届きません"; }
+      else if (pc) pace="ここ最近は横ばいです";
+      c.innerHTML='<div class="gh"><span>目標まで</span><small>'+jd(g.deadline)+' に '+g.target.toFixed(1)+'kg</small></div><div class="gbig2">'+(rem==null?"体重を記録しましょう":rem<=0?"達成しています 🎉":"あと "+rem.toFixed(1)+"kg")+'</div><div class="gpr"><i style="width:'+pct.toFixed(0)+'%"></i></div><div class="gls"><span>開始 '+(sk?(+sk).toFixed(1)+'kg':'—')+'</span><span>今 <b>'+(cur!=null?cur.toFixed(1)+'kg':'—')+'</b></span><span>目標 '+g.target.toFixed(1)+'kg</span></div>'+(pace?'<div class="gpace">'+pace+'</div>':'');
+    } else {
+      var left=dayNum(g.deadline)-dayNum(t), tot=minsBetween(g.start,t,"study"), mm=minsBetween(t.slice(0,8)+"01",t,"study"), mt=+cfgAt(t).monthMin||0;
+      c.innerHTML='<div class="gh"><span>'+esc(g.name)+'まで</span><small>試験日 '+jd(g.deadline)+'</small></div><div class="gbig2">'+(left>0?"あと "+left+"日":"今日が試験日")+'</div><div class="gpr"><i style="width:'+(mt?Math.min(100,mm/mt*100):0).toFixed(0)+'%"></i></div><div class="gls"><span>ここまで <b>'+hrs1(tot)+'</b></span><span>今月 <b>'+hrs1(mm)+'</b> / '+hrs1(mt)+'</span></div>';
+    }
+  }
+  $("goalCard").onclick=function(){ var go=this.dataset.go; if (go==="set") $("openSettings").onclick(); else if (go==="res") openRes(null); else openTrend(); };
+  /* weight */
+  function openW(){ var lw=lastWeight(), tw=weightsAll().filter(function(x){ return x.date===todayIso(); }).pop(); $("wIn").value = tw ? tw.kg : (lw ? lw.kg : ""); $("wPrev").textContent = lw ? "前回 "+(+lw.kg).toFixed(1)+"kg（"+md(lw.date)+"）" : ""; $("wModal").classList.add("open"); setTimeout(function(){ $("wIn").focus(); $("wIn").select(); },60); }
+  $("wRow").onclick=openW;
+  $("wCancel").onclick=function(){ $("wModal").classList.remove("open"); };
+  $("wSave").onclick=function(){
+    var v=parseFloat($("wIn").value); if (!(v>=20 && v<=300)){ toast("体重を入れてください",true); return; } v=Math.round(v*10)/10;
+    var t=todayIso(), ex=weightsAll().filter(function(x){ return x.date===t; }).pop(), g=goalAct();
+    $("wModal").classList.remove("open");
+    undoable("体重を記録しました", function(){ if (ex) store.update(Object.assign({}, ex, {kg:v})); else store.add({id:newId(), kind:"weight", kg:v, date:t, createdAt:Date.now()}); if (g && g.type==="diet" && v<=g.target && !g.hit) saveSet({goal:Object.assign({}, g, {hit:t})}); });
+    if (g && g.type==="diet" && v<=g.target && !g.hit) setTimeout(function(){ askConfirm("目標の"+g.target.toFixed(1)+"kgを達成しました 🎉 この目標を終えますか？（終えない場合は、期限までキープを続けます）","目標を終える").then(function(ok){ if (ok) finishGoal("achieved",""); }); },450);
+  };
+  /* goal result */
+  var resIdx=null, resAutoDone=false;
+  var RESL={achieved:"達成",failed:"未達成",passed:"合格",skipped:"受けなかった"};
+  function finishGoal(res, note){ var g=state.settings.goal; if (!g) return; var done=Object.assign({}, g, {result:res, note:note||"", endedAt:todayIso()}); delete done.waiting; done=Object.assign(done, goalStats(done)); undoable("結果を記録しました", function(){ saveSet({goal:undefined, goalHist:(state.settings.goalHist||[]).concat([done])}); }); }
+  function openRes(idx){
+    resIdx = idx==null ? null : idx; var g = idx==null ? state.settings.goal : (state.settings.goalHist||[])[idx]; if (!g) return;
+    var st = idx==null ? goalStats(g) : g, opts;
+    if (g.type==="diet"){ $("resT").textContent = idx==null ? "目標の期限になりました" : "結果を直す";
+      $("resD").textContent = jd(g.deadline)+" に "+(+g.target).toFixed(1)+"kg の目標"+(st.endKg?"　最後の記録 "+(+st.endKg).toFixed(1)+"kg":"");
+      opts=[["achieved","達成した"],["failed","達成できなかった"]]; if (idx==null) opts.push(["extend","期限をのばす"]); }
+    else { $("resT").textContent = idx==null ? (g.waiting?"試験の結果は出ましたか？":"試験はどうでしたか？") : "結果を直す";
+      $("resD").textContent = jd(g.deadline)+" "+(g.name||"")+"　ここまでの勉強 "+hrs1(st.mins||0);
+      opts=[["passed","合格した 🎉"],["failed","不合格だった"],["skipped","受けなかった"]]; if (idx==null) opts.push(["waiting","まだ結果が出ていない"]); }
+    $("resOpts").innerHTML=opts.map(function(o){ return '<button type="button" data-rk="'+o[0]+'"'+(g.result===o[0]?' class="on"':'')+'>'+o[1]+'</button>'; }).join("");
+    $("resNote").value=g.note||""; $("resExt").hidden=true; $("resLater").textContent = idx==null ? "あとで" : "閉じる";
+    $("resModal").classList.add("open");
+    if (idx==null && !g.asked) saveSet({goal:Object.assign({}, g, {asked:true})});
+  }
+  $("resLater").onclick=function(){ $("resModal").classList.remove("open"); };
+  $("resOpts").onclick=function(ev){ var b=ev.target.closest("[data-rk]"); if (!b) return; var k2=b.dataset.rk, note=$("resNote").value.trim();
+    if (k2==="extend"){ var dmin=addDays(todayIso(),1); $("resExtD").min=dmin; $("resExtD").value=addDays(todayIso(),30); $("resExt").hidden=false; return; }
+    $("resModal").classList.remove("open");
+    if (resIdx!=null){ var hs=(state.settings.goalHist||[]).slice(), i=resIdx; undoable("結果を直しました", function(){ hs[i]=Object.assign({}, hs[i], {result:k2, note:note}); saveSet({goalHist:hs}); }); if ($("sheetTrend").classList.contains("open")) setTimeout(renderTrend,30); return; }
+    if (k2==="waiting"){ var g=state.settings.goal; saveSet({goal:Object.assign({}, g, {waiting:true, note:note})}); toast("結果が出たら、ホームのカードから記録できます",true); return; }
+    finishGoal(k2, note);
+  };
+  $("resExtOk").onclick=function(){ var d=$("resExtD").value, g=state.settings.goal; if (!g || !d || d<=todayIso()){ toast("明日以降の日付を選んでください",true); return; } $("resModal").classList.remove("open"); undoable("期限をのばしました", function(){ saveSet({goal:Object.assign({}, g, {deadline:d, asked:false, waiting:false})}); }); };
+  function autoRes(){ if (resAutoDone) return; var g=goalAct(); if (!g || g.waiting || g.asked || g.deadline>=todayIso()) return; if (document.querySelector(".sheet.open,.modal.open,.fxst")) return; resAutoDone=true; setTimeout(function(){ if (!document.querySelector(".sheet.open,.modal.open,.fxst")) openRes(null); },600); }
+  /* habit record sheet */
+  var hbMin=30, hbTag="";
+  function hkTags(hk){ var cnt={}; state.entries.forEach(function(e){ if (e.kind==="exercise" && e.tag && (e.hk||"")===hk) cnt[e.tag]=(cnt[e.tag]||0)+1; }); var l=Object.keys(cnt).sort(function(a,b){ return cnt[b]-cnt[a]; }); if (hk==="diet") ["ウォーキング","ランニング","筋トレ"].forEach(function(x){ if (l.indexOf(x)<0) l.push(x); }); return l.slice(0,10); }
+  function renderHbKinds(){ var hk=habitNow(); $("hbKinds").innerHTML=hkTags(hk).map(function(x){ return '<button type="button" data-tg="'+esc(x)+'" aria-pressed="'+(x===hbTag)+'">'+esc(x)+'</button>'; }).join(""); }
+  $("hbKinds").onclick=function(ev){ var b=ev.target.closest("[data-tg]"); if (!b) return; hbTag = hbTag===b.dataset.tg ? "" : b.dataset.tg; $("hbKindNew").value=""; renderHbKinds(); };
+  function updHbDate(){ var v=$("hbDate").value||todayIso(), hk=habitNow(); $("hbDateLbl").textContent=(v===todayIso()?"今日 ":"")+jd(v); $("hbQ").textContent=(v===todayIso()?"今日は":jd(v)+"は")+(hk==="diet"?"何分運動した？":"何分勉強した？"); updHb(); }
+  function updHb(){ $("hbV").textContent=fmtMin(hbMin); var d=$("hbDate").value||todayIso(), e={id:"tmp", kind:"exercise", mins:hbMin, count:1, date:d, createdAt:Date.now()}, b=simulate(state.entries), a=simulate(state.entries.concat([e])); $("hbUnV").textContent="+"+yen(Math.round(a.unlocked-b.unlocked)); $("hbQk").querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", +x.dataset.hm===hbMin?"true":"false"); }); }
+  function openHabit(){ var hk=habitNow(); if (!isQ(hk)) return; hbMin=30; hbTag=""; $("hbDate").value=todayIso(); $("hbDate").max=todayIso(); $("hbTitle").textContent=hkAct(hk)+"を記録"; $("hbDetHint").textContent=hk==="diet"?"種類・消費カロリー・メモ（任意）":"科目・メモ（任意）"; $("hbKL").textContent=hk==="diet"?"種類":"科目"; $("hbKcalL").hidden=hk!=="diet"; $("hbDet").hidden=true; $("hbDetBtn").hidden=false; $("hbKindNew").value=""; $("hbKcal").value=""; $("hbMemo").value=""; renderHbKinds(); updHbDate(); openSheet("sheetHabit"); }
+  $("hbDate").addEventListener("change", updHbDate);
+  $("hbM").onclick=function(){ hbMin=Math.max(15, hbMin-15); updHb(); };
+  $("hbP").onclick=function(){ hbMin=Math.min(1440, hbMin+15); updHb(); };
+  $("hbQk").onclick=function(ev){ var b=ev.target.closest("[data-hm]"); if (!b) return; hbMin=+b.dataset.hm; updHb(); };
+  $("hbDetBtn").onclick=function(){ $("hbDet").hidden=false; this.hidden=true; };
+  $("hbSave").onclick=function(){
+    var hk=habitNow(), d=$("hbDate").value||todayIso(); if (d>todayIso()) d=todayIso();
+    var tag=normName($("hbKindNew").value)||hbTag, kc=parseInt($("hbKcal").value,10);
+    var e={id:newId(), kind:"exercise", hk:hk, menu:hkAct(hk), mins:hbMin, count:1, date:d, memo:$("hbMemo").value.trim(), createdAt:Date.now()};
+    if (tag) e.tag=tag; if (hk==="diet" && kc>0) e.kcal=kc;
+    closeSheets(); fireHabit(e);
+  };
+  function fireHabit(e){
+    var first=!exercisedOn(e.date), msg=exMsg(e), b0=simulate(state.entries), a0=simulate(state.entries.concat([e])), un=Math.round(a0.unlocked-b0.unlocked);
+    if (!first){ store.add(e); lastAdded=e.id; toast(msg); return; }
+    var tier=rareSeq(state.entries.concat([e])).map[e.date]||null; if (tier==="hidden") tier=null;
+    if (e.date===todayIso() && !hiddenUnlocked() && h01((state.settings.seed||"asobi")+"|h|"+e.date) < HIDDEN_P){
+      tier="hidden"; var hs=Object.assign({}, state.settings, {hiddenDay:e.date, unlockedSkins:(state.settings.unlockedSkins||[]).concat(["gold"])}); state.settings=hs; store.saveSettings(hs);
+    }
+    window.__popSeg = un>0; store.add(e); lastAdded=e.id; toast(msg); playFx({tier:tier, amount:un, push:true});
+  }
+  /* trends */
+  function openTrend(){ renderTrend(); openSheet("sheetTrend"); }
+  function weekKey(d){ var w=state.settings.weekStart==="sun" ? (wdIdx(d)+1)%7 : wdIdx(d); return addDays(d,-w); }
+  function weeklyMins(hk){ var t=todayIso(), cur=weekKey(t), keys=[]; for (var i=7;i>=0;i--) keys.push(addDays(cur,-7*i)); var m={}; keys.forEach(function(k2){ m[k2]=0; }); state.entries.forEach(function(e){ if (e.kind==="exercise" && e.mins!=null && (e.hk||hk)===hk){ var k2=weekKey(e.date); if (k2 in m) m[k2]+=+e.mins||0; } }); return keys.map(function(k2){ return [k2, m[k2]]; }); }
+  function barSvg(rows, goal){ var W=300,H=140,L=8,R=8,T=16,B=20,cw=W-L-R,ch=H-T-B,n=rows.length,mx=Math.max(goal||0,1); rows.forEach(function(r){ mx=Math.max(mx,r[1]); }); mx*=1.15; var gap=cw/n, g='<svg class="trsvg" viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="週ごとの時間">';
+    function y(v){ return T+ch*(1-v/mx); }
+    rows.forEach(function(r,i){ var x=L+gap*i+gap*0.18, w=gap*0.64; g+='<rect class="tb'+(i===n-1?' cur':'')+'" x="'+x.toFixed(1)+'" y="'+y(r[1]).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+(T+ch-y(r[1])).toFixed(1)+'" rx="3"/>'+(r[1]?'<text class="tv" x="'+(x+w/2).toFixed(1)+'" y="'+(y(r[1])-3).toFixed(1)+'" font-size="9" text-anchor="middle">'+(Math.round(r[1]/6)/10)+'</text>':'')+'<text class="tt" x="'+(x+w/2).toFixed(1)+'" y="'+(H-6)+'" font-size="9" text-anchor="middle">'+md(r[0])+'</text>'; });
+    if (goal) g+='<line class="tgoal" x1="'+L+'" x2="'+(W-R)+'" y1="'+y(goal).toFixed(1)+'" y2="'+y(goal).toFixed(1)+'"/><text class="tgl" x="'+(W-R)+'" y="'+(y(goal)-4).toFixed(1)+'" font-size="9" text-anchor="end">目標ペース</text>';
+    return g+'</svg>'; }
+  function weightSvg(g){
+    var t=todayIso(), from = g ? g.start : addDays(t,-60), ws=weightsAll().filter(function(w){ return w.date>=addDays(from,-7); });
+    if (!ws.length) return '<p class="gnote" style="margin:0">ホームの「今日の体重を記録」から記録すると、ここにグラフが出ます</p>';
+    var x0=dayNum(ws[0].date), x1=Math.max(dayNum(t), g?dayNum(g.deadline):0), pc=dietPace(g), vals=ws.map(function(w){ return +w.kg; }); if (g) vals.push(g.target);
+    var mx=Math.max.apply(null,vals)+0.5, mn=Math.min.apply(null,vals)-0.5, W=300,H=160,L=32,R=10,T=12,B=20,cw=W-L-R,ch=H-T-B;
+    function X(d){ return L+cw*(dayNum(d)-x0)/Math.max(1,x1-x0); } function Y(v){ return T+ch*(mx-v)/(mx-mn); }
+    var s='<svg class="trsvg" viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="体重の推移">', st=(mx-mn)>6?2:1;
+    for (var v=Math.ceil(mn); v<=mx; v+=st) s+='<line class="tg" x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(v).toFixed(1)+'" y2="'+Y(v).toFixed(1)+'"/><text class="tt" x="'+(L-4)+'" y="'+(Y(v)+3).toFixed(1)+'" font-size="9" text-anchor="end">'+v+'</text>';
+    if (g) s+='<line class="tgoal" x1="'+L+'" x2="'+(W-R)+'" y1="'+Y(g.target).toFixed(1)+'" y2="'+Y(g.target).toFixed(1)+'"/><text class="tgl" x="'+(W-R)+'" y="'+(Y(g.target)-4).toFixed(1)+'" font-size="9" text-anchor="end">目標 '+g.target.toFixed(1)+'</text>';
+    if (g && pc && pc.slope<0){ var end=g.deadline, ek=pc.last.kg+pc.slope*(dayNum(end)-dayNum(pc.last.date)); s+='<line class="tf" x1="'+X(pc.last.date).toFixed(1)+'" y1="'+Y(pc.last.kg).toFixed(1)+'" x2="'+X(end).toFixed(1)+'" y2="'+Y(Math.max(ek,mn)).toFixed(1)+'"/>'; }
+    s+='<path class="tl" d="'+ws.map(function(w,i){ return (i?'L':'M')+X(w.date).toFixed(1)+' '+Y(w.kg).toFixed(1); }).join(' ')+'"/>';
+    ws.forEach(function(w){ s+='<circle class="tp" cx="'+X(w.date).toFixed(1)+'" cy="'+Y(w.kg).toFixed(1)+'" r="2.4"/>'; });
+    s+='<text class="tt" x="'+L+'" y="'+(H-6)+'" font-size="9">'+md(ws[0].date)+'</text>'+((X(t)-L>40 && W-R-X(t)>40)?'<text class="tt" x="'+X(t).toFixed(1)+'" y="'+(H-6)+'" font-size="9" text-anchor="middle">今日</text>':'')+''+(g?'<text class="tt" x="'+(W-R)+'" y="'+(H-6)+'" font-size="9" text-anchor="end">'+md(g.deadline)+'</text>':'');
+    return s+'</svg>';
+  }
+  function tagRows(hk, from){ var m={}, tot=0; state.entries.forEach(function(e){ if (e.kind==="exercise" && e.mins!=null && (e.hk||hk)===hk && e.date>=from){ var k2=e.tag||"未入力"; m[k2]=(m[k2]||0)+(+e.mins||0); tot+=+e.mins||0; } });
+    var ks=Object.keys(m).sort(function(a,b){ return (a==="未入力")-(b==="未入力") || m[b]-m[a]; }); if (!ks.length) return '<p class="gnote" style="margin:0">「詳しく記録する」で'+(hk==="diet"?"種類":"科目")+'を入れると、ここに内訳が出ます</p>';
+    var mx=Math.max.apply(null, ks.map(function(k2){ return m[k2]; }));
+    return ks.map(function(k2){ return '<div class="trrow"><span class="n">'+esc(k2)+'</span><span class="bar"><i style="width:'+(m[k2]/mx*100).toFixed(0)+'%;'+(k2==="未入力"?'background:var(--line)':'')+'"></i></span><span class="v">'+hrs1(m[k2])+'</span></div>'; }).join(""); }
+  function renderTrend(){
+    var hk=habitNow(), g=goalAct(), t=todayIso(), h='<div class="ghead"><p>'+hkAct(hk)+'の推移</p><button type="button" class="glnk" data-close-tr>閉じる</button></div>';
+    if (hk==="diet"){
+      var ws=weightsAll(), pc=dietPace(g);
+      h+='<div class="trc"><h4>体重<small>'+(g?"目標 "+g.target.toFixed(1)+"kg":"")+'</small></h4>'+weightSvg(g);
+      if (ws.length){ var first=ws.filter(function(w){ return !g || w.date>=g.start; })[0]||ws[0], lw=ws[ws.length-1]; if (g && g.startKg) first={kg:+g.startKg}; h+='<div class="trsum"><span>'+(g?"開始から":"記録の最初から")+' <b>'+((lw.kg-first.kg)>0?"+":(lw.kg-first.kg)<0?"−":"±")+Math.abs(Math.round((lw.kg-first.kg)*10)/10).toFixed(1)+'kg</b></span>'+(pc?'<span>1週間で <b>'+(pc.slope*7>0?"+":"−")+Math.abs(Math.round(pc.slope*70)/10).toFixed(1)+'kg</b></span>':'')+'</div>'; }
+      h+='</div>';
+      if (ws.length) h+='<div class="trc"><h4>最近の体重</h4>'+ws.slice(-7).reverse().map(function(w){ return '<div class="trrow"><span class="n">'+jd(w.date)+'</span><span style="flex:1"></span><span class="v">'+(+w.kg).toFixed(1)+'kg</span><button type="button" class="x" data-wdel="'+w.id+'" aria-label="この体重の記録を削除">×</button></div>'; }).join("")+'</div>';
+    } else if (g){
+      h+='<div class="trc"><h4>'+esc(g.name)+'まで<small>試験日 '+jd(g.deadline)+'</small></h4><div class="trsum" style="margin:0"><span>ここまで <b>'+hrs1(minsBetween(g.start,t,"study"))+'</b></span><span>あと <b>'+Math.max(0,dayNum(g.deadline)-dayNum(t))+'日</b></span></div></div>';
+    }
+    var wk=+cfgAt(t).monthMin||0;
+    h+='<div class="trc"><h4>'+hkAct(hk)+'の時間<small>週ごと（時間）</small></h4>'+barSvg(weeklyMins(hk), wk?wk*7/30:0)+'</div>';
+    var from = (hk==="study" && g) ? g.start : t.slice(0,8)+"01";
+    h+='<div class="trc"><h4>'+(hk==="diet"?"運動の種類":"科目")+'<small>'+((hk==="study"&&g)?"目標を立ててから":"今月")+'</small></h4>'+tagRows(hk, from)+'</div>';
+    var gh=(state.settings.goalHist||[]).map(function(x,i){ return [x,i]; }).filter(function(p){ return p[0].type===hk; }).reverse();
+    if (gh.length) h+='<div class="trc"><h4>これまでの目標</h4>'+gh.map(function(p){ var x=p[0]; return '<div class="trg">'+(x.type==="diet"?(+x.target).toFixed(1)+"kg":esc(x.name||"試験"))+'<span class="rl'+((x.result==="achieved"||x.result==="passed")?' ok':'')+'">'+(RESL[x.result]||"")+'</span><small>'+md(x.start)+'〜'+md(x.deadline)+'　'+(x.type==="diet"&&x.startKg&&x.endKg?(+x.startKg).toFixed(1)+"→"+(+x.endKg).toFixed(1)+"kg　":"")+hrs1(x.mins||0)+(x.note?'　「'+esc(x.note)+'」':'')+'</small><button type="button" data-redit="'+p[1]+'">結果を直す</button></div>'; }).join("")+'</div>';
+    $("trendBody").innerHTML=h;
+  }
+  $("trendBody").onclick=function(ev){ var t;
+    if (ev.target.closest("[data-close-tr]")){ closeSheets(); return; }
+    if ((t=ev.target.closest("[data-wdel]"))){ var id=t.dataset.wdel; undoable("体重の記録を削除しました", function(){ store.remove(id); }); renderTrend(); return; }
+    if ((t=ev.target.closest("[data-redit]"))){ openRes(+t.dataset.redit); return; } };
+  /* v1.9 gamble form */
+  var gDetOpen=false, gSplit=false;
+  function renderCtx(){ var hn=normName($("gHall").value), ms=gMc.map(function(x){ var d=defById("machines",x.m); return d?d.name:null; }).filter(Boolean), t=[hn, ms.join("、")].filter(Boolean).join("・"), el=$("gCtxT"); el.textContent=t||"未入力"; el.className=t?"":"ph";
+    var gs=$("gSame"); if (gs && !gs.dataset.base) gs.dataset.base="1"; if (gs){ var lp=(gk==="ps"&&!editId&&gMode!=="live"&&gMode!=="liveEdit")?lastPs():null; if (lp){ var lh=defById("halls",lp.hall), lt=[lh?lh.name:"", (lp.mc||[]).map(function(x){ var d=defById("machines",x.m); return d?d.name:null; }).filter(Boolean).join("、")].filter(Boolean).join("・"); gs.hidden = lt===t; } } }
+  function syncDet(){ $("gDet").hidden=!gDetOpen; $("gDetBtn").hidden=gDetOpen; $("gDetHint").textContent = gk==="ps" ? "遊んだ時間・台ごとの金額・メモ（任意）" : "メモ（任意）"; }
+  $("gDetBtn").onclick=function(){ gDetOpen=true; syncDet(); };
+  $("gDetClose").onclick=function(){ gDetOpen=false; syncDet(); };
+  $("gSplitBtn").onclick=function(){ gSplit=true; renderMc(); };
+  $("gSplitOff").onclick=function(){ gSplit=false; gMc.forEach(function(x){ x.inv=""; x.ret=""; }); renderMc(); };
+  $("gCtx").onclick=function(){ openHM(); };
+  var hmHall="", hmMcs=[], hmTy="";
+  function openHM(){ hmHall=normName($("gHall").value); hmMcs=gMc.map(function(x){ return x.m; }).filter(function(id){ return defById("machines",id); }); hmTy=""; $("hmHallNew").value=""; $("hmMcNew").value=""; press("hmMcTy","ty",""); renderHM(); $("hmModal").classList.add("open"); }
+  function renderHM(){
+    var hk=nkey(hmHall);
+    $("hmHalls").innerHTML=sortedDefs("halls").map(function(x){ return '<button type="button" data-hh="'+esc(x.d.name)+'" aria-pressed="'+(nkey(x.d.name)===hk&&!!hk)+'">'+esc(x.d.name)+'</button>'; }).join("") || '<span class="gnote" style="margin:0">まだホールがありません</span>';
+    $("hmMcs").innerHTML=sortedDefs("machines").map(function(x){ return '<button type="button" data-hmc="'+x.d.id+'" aria-pressed="'+(hmMcs.indexOf(x.d.id)>=0)+'">'+kdTag(x.d.type)+esc(x.d.name)+'</button>'; }).join("") || '<span class="gnote" style="margin:0">まだ台がありません</span>';
+  }
+  $("hmHalls").onclick=function(ev){ var b=ev.target.closest("[data-hh]"); if (!b) return; hmHall = b.getAttribute("aria-pressed")==="true" ? "" : b.dataset.hh; $("hmHallNew").value=""; renderHM(); };
+  $("hmHallNew").addEventListener("input", function(){ hmHall=normName(this.value); renderHM(); });
+  $("hmMcs").onclick=function(ev){ var b=ev.target.closest("[data-hmc]"); if (!b) return; var id=b.dataset.hmc, i=hmMcs.indexOf(id); if (i>=0) hmMcs.splice(i,1); else hmMcs.push(id); renderHM(); };
+  $("hmMcTy").onclick=function(ev){ var b=ev.target.closest("button"); if (!b) return; hmTy=b.dataset.ty; press("hmMcTy","ty",hmTy); };
+  $("hmMcAdd").onclick=function(){ var name=normName($("hmMcNew").value); if (!name){ $("hmMcNew").focus(); toast("台の名前を入れてください",true); return; }
+    var d=defByName("machines",name); if (!d){ d={id:gid("m_"), name:name, type:hmTy}; saveDefs("machines", gDefs("machines").concat([d])); }
+    if (hmMcs.indexOf(d.id)<0) hmMcs.push(d.id); $("hmMcNew").value=""; renderHM(); };
+  function hmCommit(){ $("gHall").value=hmHall; var keep={}; gMc.forEach(function(x){ keep[x.m]=x; }); gMc=hmMcs.map(function(id){ return keep[id]||{m:id,inv:"",ret:""}; }); mcTyOpen=-1; $("hmModal").classList.remove("open"); renderHallChips(); renderMc(); }
+  $("hmOk").onclick=hmCommit; $("hmOk2").onclick=hmCommit;
+  $("hmMg").onclick=function(){ openMg("machines"); };
+  function gamLines(e){ var mm=e.memo||"", l1 = e.invest!=null ? "投資"+yen(+e.invest||0)+"　回収"+yen(+e.ret||0) : (gambleNet(e)>0?"勝ち":"負け"), l2;
+    if (e.gk==="other") l2=["その他",mm].filter(Boolean).join("　");
+    else { var h=defById("halls",e.hall), ms=(e.mc||[]).map(function(x){ return defById("machines",x.m); }).filter(Boolean), parts=[]; if (h) parts.push(h.name); if (ms.length) parts.push(ms[0].name+(ms.length>1?" ほか"+(ms.length-1)+"台":"")); l2=[parts.join("・"),mm].filter(Boolean).join("　"); }
+    return [l1,l2]; }
   function syncFields(){
     $("spendFields").hidden = kind!=="spend"; $("exFields").hidden = kind!=="exercise";
-    $("resultSeg").hidden = true; $("incSeg").hidden = cat!=="income"; $("amtLabel").hidden = cat==="gamble"; $("gamFields").hidden = cat!=="gamble"; if (cat==="gamble") syncGam(); updGNet(); $("catHint").textContent = cat==="income" ? (incTo==="reserve" ? "予備費に入ります。使わずにとっておくお金" : "フリー生活費に入ります。すぐ使えるお金") : HINT[cat];
+    $("resultSeg").hidden = true; $("incSeg").hidden = cat!=="income"; $("amtLabel").hidden = cat==="gamble"; $("gamFields").hidden = cat!=="gamble"; $("memoL").hidden = kind==="spend" && cat==="gamble"; if (cat==="gamble") syncGam(); updGNet(); $("catHint").textContent = cat==="income" ? (incTo==="reserve" ? "予備費に入ります。使わずにとっておくお金" : "フリー生活費に入ります。すぐ使えるお金") : HINT[cat];
   }
   $("gInv").addEventListener("input", updGNet); $("gRet").addEventListener("input", updGNet);
   $("kindSeg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; kind=b.dataset.kind; press("kindSeg","kind",kind); syncFields(); };
@@ -1988,7 +2324,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     editId=null; editCreated=0; gMode=""; $("sheetEntry").classList.remove("gdirect","glive","gle");
     $("entryTitle").textContent="記録する"; $("saveEntry").textContent="記録する"; $("delEntry").hidden=true; $("entryCancel").textContent="やめる";
     setDate(todayIso()); $("amount").value=""; $("memo").value=""; $("gInv").value=""; $("gRet").value=""; $("exCount").value="1";
-    gk=lastGk(); gMc=[]; mcTyOpen=-1; gHrs=0; $("gHall").value="";
+    gk=lastGk(); gMc=[]; mcTyOpen=-1; gHrs=0; $("gHall").value=""; gDetOpen=false; gSplit=false; $("gMemo").value="";
     var sel=$("menuSel"); sel.innerHTML=""; state.settings.menus.forEach(function(m){ var o=document.createElement("option"); o.textContent=m; sel.appendChild(o); });
     incTo="free"; press("incSeg","to","free");
     if (curMode()==="gamble"){ wallet="fun"; press("walletSeg","wallet","fun"); }
@@ -2004,7 +2340,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       gMode=mode; gk="ps"; $("sheetEntry").classList.add("glive");
       setDate(lv.date||todayIso()); var h=defById("halls",lv.hall); $("gHall").value=h?h.name:"";
       gMc=(lv.mc||[]).filter(function(id){ return defById("machines",id); }).map(function(id){ return {m:id,inv:"",ret:""}; });
-      $("memo").value=lv.memo||""; $("gInv").value=String(+lv.inv||0);
+      $("memo").value=lv.memo||""; $("gMemo").value=lv.memo||""; $("gInv").value=String(+lv.inv||0); gDetOpen = mode==="live";
       if (mode==="live"){ gHrs=Math.max(0.5, Math.round(elapsedH(lv)*2)/2); $("entryTitle").textContent="お疲れさまでした"; $("entryCancel").textContent="続ける"; }
       else { $("sheetEntry").classList.add("gle"); $("entryTitle").textContent="稼働中の内容を直す"; $("saveEntry").textContent="保存する"; }
     }
@@ -2023,6 +2359,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       var t=gTot(e); $("gInv").value=String(t.inv); $("gRet").value=String(t.ret);
       gk=e.gk==="other"?"other":"ps"; var hd=defById("halls",e.hall); $("gHall").value=hd?hd.name:""; gHrs=gHours(e);
       gMc=(e.mc||[]).map(function(x){ return {m:x.m, inv:hasAmt(x)?String(+x.inv||0):"", ret:hasAmt(x)?String(+x.ret||0):""}; });
+      gSplit=(e.mc||[]).some(hasAmt); $("gMemo").value=e.memo||""; gDetOpen = gSplit || gHrs>0 || !!e.memo;
     } else {
       $("amount").value=String(e.amount||"");
       if (e.cat==="income"){ incTo=e.to==="reserve"?"reserve":"free"; press("incSeg","to",incTo); }
@@ -2046,6 +2383,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     return askConfirm(label+"はもう習慣を記録しています。もう1回記録すると、さらに"+yen(+cfgAt(todayIso()).unit||0)+"アンロックされます。記録しますか？","記録する");
   }
   $("quickEx").onclick=function(){
+    if (isQ(habitNow())){ openHabit(); return; }
     var t0=todayIso(), mine=state.entries.filter(function(x){ return x.kind==="exercise" && x.date===t0; });
     if (mine.length){ askConfirm("今日の習慣の記録を取り消しますか？","取り消す").then(function(ok){ if(!ok) return; mine.forEach(function(x){ store.remove(x.id); }); toast("今日の習慣を取り消しました",true); }); return; }
     askConfirm("今日の「"+(state.settings.menus[0]||"習慣")+"」を記録しますか？","記録する").then(function(ok){ if(!ok) return;
@@ -2062,7 +2400,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     });
   };
   $("saveEntry").onclick=function(){
-    var date=$("date").value||todayIso(), memo=$("memo").value.trim(), e, s0=snapAll();
+    var date=$("date").value||todayIso(), memo=((kind==="spend"&&cat==="gamble")?$("gMemo"):$("memo")).value.trim(), e, s0=snapAll();
     if (gMode==="liveEdit"){
       var lv0=liveObj(); if (!lv0){ closeSheets(); return; }
       var lv=Object.assign({}, lv0, {date:date, hall:hallIdFromInput(), mc:gMc.map(function(x){ return x.m; }).filter(function(id){ return defById("machines",id); }), inv:parseInt($("gInv").value,10)||0, memo:memo});
@@ -2121,7 +2459,11 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   function fmtMoney(){ document.querySelectorAll("input.money").forEach(function(el){ var v=parseInt(String(el.value).replace(/[^0-9]/g,""),10); el.value=isNaN(v)?"":v.toLocaleString("ja-JP"); }); }
   document.querySelectorAll("input.money").forEach(function(el){ el.addEventListener("blur", fmtMoney); });
   ["sIncome","sFixed","sLife","sGoraku"].forEach(function(id){ $(id).addEventListener("input", updReserve); });
-  function updUnit(){ var m=Math.max(1, sv("sMonthly")||1), u=Math.ceil(sv("sGoraku")/m); $("sUnitV").textContent=u.toLocaleString("ja-JP"); return u; }
+  function updUnit(){ var m=Math.max(1, sv("sMonthly")||1), u=Math.ceil(sv("sGoraku")/m); $("sUnitV").textContent=u.toLocaleString("ja-JP"); updU15(); return u; }
+  function monthMinV(){ var h=parseFloat(String($("sMonthH").value).replace(/[^0-9.]/g,"")); return isNaN(h)||h<=0 ? 0 : Math.round(h*60); }
+  function updU15(){ var mm=monthMinV(), u=mm>0 ? Math.round(sv("sGoraku")/(mm/15)) : 0; $("sU15V").textContent=u.toLocaleString("ja-JP"); return u; }
+  function syncHk(){ var hk=$("sHabit").value; $("sheetSettings").setAttribute("data-hk", hk); $("sMonthHL").textContent=hk==="study"?"月の目標の勉強時間":hk==="diet"?"月の目標の運動時間":"月の目標時間"; $("sWeeklyU").textContent=hk==="check"?"回/週":"日/週"; $("gDeadL").textContent=hk==="study"?"試験日":"いつまでに"; }
+  $("sHabit").addEventListener("change", syncHk); $("sMonthH").addEventListener("input", updU15);
   $("sMonthly").addEventListener("input", updUnit); $("sGoraku").addEventListener("input", updUnit);
   var MODE_INFO={full:["家計簿","生活費・娯楽費・予備費を管理して、習慣で娯楽費をアンロックします"],habit:["習慣アンロック","娯楽費だけを、習慣でアンロックします。生活費の支出は記録だけできます"],gamble:["ギャンブル収支","ギャンブルの投資・回収と、遊びなどの支出を記録して、収支を見ます"]};
   function syncModePick(){ var m=curMode(); $("modePick").querySelectorAll("button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.mode===m?"true":"false"); }); $("modeDesc").textContent=MODE_INFO[m][1]; }
@@ -2155,7 +2497,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   $("openSettings").onclick=function(){
     var s=state.settings; syncModePick();
     $("sStart").value=s.start; $("sIncome").value=s.income; $("sFixed").value=s.fixed; $("sLife").value=s.lifeDaily; $("sGoraku").value=s.gorakuMonthly;
-    $("sWeekly").value=s.weeklyGoal; $("sWeekStart").value=s.weekStart==="sun"?"sun":"mon"; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; updUnit(); $("sMenus").value=s.menus.join(", ");
+    $("sWeekly").value=s.weeklyGoal; $("sWeekStart").value=s.weekStart==="sun"?"sun":"mon"; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; $("sHabit").value=s.habit||"check"; $("sMonthH").value=s.monthMin?String(Math.round(s.monthMin/6)/10):"20"; updUnit(); syncHk(); $("sMenus").value=s.menus.join(", ");
+    var gl=s.goal||{}; $("gW").value=gl.type==="diet"&&gl.target?gl.target:""; $("gW0").value=gl.type==="diet"&&gl.startKg?gl.startKg:""; $("gName").value=gl.type==="study"?(gl.name||""):""; $("gDead").value=gl.type===(s.habit||"check")?(gl.deadline||""):"";
     fmtMoney(); updReserve(); buildSkins(); $("sndTgl").setAttribute("aria-pressed", state.settings.sound?"true":"false"); $("appVer").textContent="v"+APP_VERSION; renderAmtCol(); openSheet("sheetSettings");
   };
   var SKINS=[["kakeibo","テーマ1","#F5F7FB","#2F80ED"],["wallet","テーマ2","linear-gradient(135deg,#F59E0B,#B45309)","#16A34A"],["social","テーマ3","linear-gradient(180deg,#5B8CFF,#FFB3D9)","#FFB800"],["crypto","テーマ4","#07090F","#B6FF3B"],["pixel","テーマ5","#2038A8","#FFD45A"],["gold","テーマ6","linear-gradient(135deg,#2A2212,#0E0C08)","#E8C468","hidden"]];
@@ -2218,8 +2561,16 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     if (updReserve()<0) return;
     function num(id, d){ var v=parseInt(String($(id).value).replace(/[^0-9]/g,""),10); return isNaN(v)||v<0 ? d : v; }
     var menus=$("sMenus").value.split(/[,、，]/).map(function(x){return x.trim();}).filter(Boolean);
-    var s=Object.assign({}, state.settings, {start:$("sStart").value||DEFAULTS.start, income:num("sIncome",DEFAULTS.income), fixed:num("sFixed",DEFAULTS.fixed), lifeDaily:num("sLife",DEFAULTS.lifeDaily), gorakuMonthly:num("sGoraku",DEFAULTS.gorakuMonthly), unit:updUnit(), monthlyTimes:Math.max(1,num("sMonthly",15)), weeklyGoal:num("sWeekly",DEFAULTS.weeklyGoal), weekStart:$("sWeekStart").value==="sun"?"sun":"mon", onboarded:true, menus:menus.length?menus:DEFAULTS.menus, skin:state.settings.skin||"kakeibo"});
-    var old=state.settings, nv=pickMoney(s), ov=pickMoney(old), changed=MONEY_KEYS.some(function(k){ return k==="mode" ? nv[k]!==ov[k] : +nv[k]!==+ov[k]; });
+    var hk=$("sHabit").value, mmin=monthMinV();
+    if (hk!=="check" && !(mmin>0)){ $("sMonthH").focus(); toast("月の目標時間を入れてください",true); return; }
+    var gW=parseFloat(String($("gW").value).replace(/[^0-9.]/g,"")), gW0=parseFloat(String($("gW0").value).replace(/[^0-9.]/g,"")), gName=$("gName").value.trim(), gDead=$("gDead").value, ogl=state.settings.goal, ngl;
+    if (hk==="diet" && gW>0 && gDead){ ngl={type:"diet", target:Math.round(gW*10)/10, deadline:gDead, startKg:gW0>0?Math.round(gW0*10)/10:(lastWeight()?lastWeight().kg:null)}; }
+    else if (hk==="study" && gName && gDead){ ngl={type:"study", name:gName, deadline:gDead}; }
+    if (ngl){ ngl.start = (ogl && ogl.type===ngl.type && ogl.start && !ogl.result) ? ogl.start : todayIso(); ngl.id=(ogl && ogl.type===ngl.type && !ogl.result && ogl.id) ? ogl.id : gid("g_"); }
+    else if (hk!=="check" && ogl && ogl.type===hk) ngl=undefined; else ngl=ogl;
+    var s=Object.assign({}, state.settings, {habit:hk, monthMin:hk==="check"?(+state.settings.monthMin||0):mmin, unit15:hk==="check"?(+state.settings.unit15||0):updU15(), goal:ngl, start:$("sStart").value||DEFAULTS.start, income:num("sIncome",DEFAULTS.income), fixed:num("sFixed",DEFAULTS.fixed), lifeDaily:num("sLife",DEFAULTS.lifeDaily), gorakuMonthly:num("sGoraku",DEFAULTS.gorakuMonthly), unit:updUnit(), monthlyTimes:Math.max(1,num("sMonthly",15)), weeklyGoal:num("sWeekly",DEFAULTS.weeklyGoal), weekStart:$("sWeekStart").value==="sun"?"sun":"mon", onboarded:true, menus:menus.length?menus:DEFAULTS.menus, skin:state.settings.skin||"kakeibo"});
+    var old=state.settings, nv=pickMoney(s), ov=pickMoney(old), changed=MONEY_KEYS.some(function(k){ return (k==="mode"||k==="habit") ? nv[k]!==ov[k] : +nv[k]!==+ov[k]; });
+    if (s.goal===undefined) delete s.goal;
     function commit(hist){ if (hist) s.hist=hist; store.saveSettings(s); state.settings=s; $("applyModal").classList.remove("open"); closeSheets(); render(); toast("保存しました",true); }
     if (s.start!==old.start){ commit([{from:s.start, v:nv}]); return; }
     if (!changed){ commit(null); return; }
@@ -2237,7 +2588,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.8.1";
+  var APP_VERSION="1.9.0";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -2508,7 +2859,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   function wdIdx(s){ var p=s.split("-"); return (new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).getUTCDay()+6)%7; }
   function aggAll(){
     var m={};
-    state.entries.forEach(function(e){ if(!e.date) return; var a=m[e.date]||(m[e.date]={life:0,income:0,fun:0,win:0,ex:0,items:[]}); a.items.push(e);
+    state.entries.forEach(function(e){ if(!e.date||e.kind==="weight") return; var a=m[e.date]||(m[e.date]={life:0,income:0,fun:0,win:0,ex:0,items:[]}); a.items.push(e);
       var v=+e.amount||0;
       if (e.kind==="exercise") a.ex+=(+e.count||1);
       else if (e.kind==="spend"){ if (LIFE[e.cat]) a.life+=v; else if (e.cat==="income") a.income+=v; else if (e.cat==="gamble"&&e.win) a.win+=v; else if (FUN[e.cat]) a.fun+=v; }
@@ -2789,14 +3140,14 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     var items=(c?c.items:[]).filter(function(e){ return calCat==="all" || fMatch(e); }).slice().sort(function(x,y){return (x.createdAt||0)-(y.createdAt||0);});
     if (!items.length) html+='<li class="empty">記録はありません</li>';
     items.forEach(function(e){
-      var lab, memo=e.memo||"", amt="", cls="";
-      if (e.kind==="exercise"){ lab="習慣"; memo=e.menu+(e.memo?"　"+e.memo:""); amt=(e.count||1)+"回"; cls="pos"; }
+      var lab, memo=e.memo||"", amt="", cls="", m2="";
+      if (e.kind==="exercise"){ lab="習慣"; memo=e.menu+(e.tag?"・"+e.tag:"")+(e.kcal?"・"+e.kcal+"kcal":"")+(e.memo?"　"+e.memo:""); amt=e.mins!=null?fmtMin(e.mins):(e.count||1)+"回"; cls="pos"; }
       else if (e.kind==="transfer"){ lab="移動"; amt=yen(e.amount); memo=({toFun:"フリー生活費 → 娯楽費",resToFun:"予備費 → 娯楽費",resToFree:"予備費 → フリー生活費"})[e.dir]||"娯楽費 → フリー生活費"; }
       else { lab=CAT[e.cat]||e.cat;
-        if (e.cat==="gamble"){ var gv=gambleNet(e); amt=(gv>0?"+":gv<0?"−":"±")+yen(Math.abs(gv)); cls=cF(gv); memo=gamDesc(e)+(memo?"　"+memo:""); }
+        if (e.cat==="gamble"){ var gv=gambleNet(e); amt=(gv>0?"+":gv<0?"−":"±")+yen(Math.abs(gv)); cls=cF(gv); var gl3=gamLines(e); memo=gl3[0]; m2=gl3[1]; }
         else if (e.cat==="income"){ amt="+"+yen(e.amount); cls="pos"; memo=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(memo?"　"+memo:""); }
         else { amt="−"+yen(e.amount); cls=FUN[e.cat]?"fneg":"negc"; } }
-      html+='<li'+(e.kind==="spend"?' class="ed" data-eid="'+e.id+'"':'')+'><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+esc(memo)+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
+      html+='<li'+(e.kind==="spend"?' class="ed" data-eid="'+e.id+'"':'')+'><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+(m2?'<span class="m1">'+esc(memo)+'</span><span class="m2">'+esc(m2)+'</span>':esc(memo))+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
     });
     html+='</ul></div>';
     if (calCat==="gamble") html+=gaHtml();
