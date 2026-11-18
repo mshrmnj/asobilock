@@ -1145,6 +1145,11 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 .hman details[open] summary::after{content:"−"}
 .hman .hb{padding:0 14px 12px;font-size:13px;line-height:1.75;color:var(--ink)}
 .hman .hb ul{margin:4px 0 0;padding-left:1.2em}
+
+/* v1.9.3: toast never blocks taps; move it to the top while a sheet or modal is open */
+.toast{pointer-events:none}
+.toast button{pointer-events:auto}
+body:has(.sheet.open) .toast,body:has(.modal.open) .toast,body:has(#onb.open) .toast,body:has(#help.open) .toast{bottom:auto;top:calc(16px + env(safe-area-inset-top,0px))}
 </style>
 </head>
 <body>
@@ -2723,7 +2728,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.9.2";
+  var APP_VERSION="1.9.3";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
