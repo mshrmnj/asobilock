@@ -1113,6 +1113,38 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 .hmnew{margin-top:8px}.hmnew .gtab{margin:8px 0}
 #hmHalls button,#hmMcs button{display:inline-flex;align-items:center;gap:5px}
 .list .m .m1,.list .m .m2{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* v1.9.1 settings pages */
+.sphead{position:sticky;top:-1px;z-index:2;display:grid;grid-template-columns:80px 1fr 80px;align-items:center;background:var(--bg);margin:-4px -4px 10px;padding:4px 4px 8px}
+.sphead h3{margin:0!important;text-align:center;font-size:16px}
+.spback,.spclose{background:none;border:0;color:var(--budget);font:inherit;font-weight:700;font-size:14px;padding:6px 2px;text-align:left}
+.spclose{text-align:right;grid-column:3}
+.spback[hidden]+h3{grid-column:2}
+.spmenu{padding:0!important;overflow:hidden}
+.spit{display:flex;align-items:center;gap:10px;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:12px 14px;font:inherit;font-size:14.5px;font-weight:700;color:var(--ink);text-align:left}
+.spit:last-child{border-bottom:0}
+.spit .ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+.spit .tx{flex:1;min-width:0}
+.spit small{display:block;font-size:11.5px;color:var(--muted);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.spit .go{color:var(--muted);font-size:18px}
+.spage .actions{margin-top:16px}
+/* help */
+.qstart{background:var(--surface);border-radius:16px;padding:16px;margin:0 0 18px;border:2px solid var(--budget)}
+.qstart h3{margin:0 0 4px;font-size:17px}
+.qstart .qs{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line)}
+.qstart .qs:first-of-type{border-top:0}
+.qstart .qn{flex:none;width:24px;height:24px;border-radius:12px;background:var(--budget);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.qstart .qs b{display:block;font-size:14px}
+.qstart .qs span{font-size:12.5px;color:var(--muted);line-height:1.6}
+.hman{margin:18px 0 0}
+.hman h3{font-size:16px;margin:0 0 8px}
+.hcat{font-size:12.5px;color:var(--muted);font-weight:800;margin:14px 2px 6px}
+.hman details{background:var(--surface);border-radius:12px;margin:0 0 6px;overflow:hidden}
+.hman summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.hman summary::-webkit-details-marker{display:none}
+.hman summary::after{content:"＋";color:var(--muted);font-weight:700}
+.hman details[open] summary::after{content:"−"}
+.hman .hb{padding:0 14px 12px;font-size:13px;line-height:1.75;color:var(--ink)}
+.hman .hb ul{margin:4px 0 0;padding-left:1.2em}
 </style>
 </head>
 <body>
@@ -1162,10 +1194,10 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 
 
   <button class="bigbtn" id="quickEx" data-m="full habit">今日の習慣を記録</button>
-  <div class="card goalcard" id="goalCard" data-m="full habit" hidden></div>
-  <button type="button" class="wrow" id="wRow" data-m="full habit" hidden><span>今日の体重を記録<small id="wRowS"></small></span><span class="r" id="wRowV">›</span></button>
   <button class="bigbtn" id="openGamble" data-m="gamble">ギャンブルを記録</button>
   <button class="subbtn" id="openSpend">支出・収入を記録</button>
+  <div class="card goalcard" id="goalCard" style="margin-top:12px" data-m="full habit" hidden></div>
+  <button type="button" class="wrow" id="wRow" data-m="full habit" hidden><span>今日の体重を記録<small id="wRowS"></small></span><span class="r" id="wRowV">›</span></button>
   <div class="card rows" id="eomCard" data-m="full" style="margin-top:12px">
     <div class="r"><span>月末に残るお金</span><span class="tw"><b class="num" id="eomTotal">¥0</b><small>うちロック中 <span class="num" id="eomLk">¥0</span></small></span></div>
     <div id="eomRows"></div>
@@ -1276,14 +1308,38 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
 <!-- settings sheet -->
 <div class="sheet" id="sheetSettings" role="dialog" aria-modal="true" aria-labelledby="setTitle">
   <div class="inner">
-    <h3 id="setTitle">設定</h3>
-
+    <div class="sphead"><button type="button" class="spback" id="spBack" hidden>‹ 設定</button><h3 id="setTitle">設定</h3><button type="button" class="spclose" id="spClose">閉じる</button></div>
+    <div class="spage" data-sp="top">
+      <div class="sgrp spmenu" id="spMenu">
+        <button type="button" class="spit" data-go="mode"><span class="ic" style="background:#E3EEFD">🧭</span><span class="tx">モード<small id="spsMode"></small></span><span class="go">›</span></button>
+      </div>
+      <div class="sgrp spmenu" data-m="full habit">
+        <button type="button" class="spit" data-go="money"><span class="ic" style="background:#DDF3E6">💴</span><span class="tx">お金<small id="spsMoney"></small></span><span class="go">›</span></button>
+        <button type="button" class="spit" data-go="habit"><span class="ic" style="background:#FFF4D6">🏃</span><span class="tx">習慣と目標<small id="spsHabit"></small></span><span class="go">›</span></button>
+      </div>
+      <div class="sgrp spmenu" data-m="gamble">
+        <button type="button" class="spit" data-go="money"><span class="ic" style="background:#DDF3E6">📅</span><span class="tx">開始日<small id="spsStart"></small></span><span class="go">›</span></button>
+      </div>
+      <div class="sgrp spmenu">
+        <button type="button" class="spit" data-go="look"><span class="ic" style="background:#F3E8FF">🎨</span><span class="tx">見た目<small id="spsLook"></small></span><span class="go">›</span></button>
+        <button type="button" class="spit" id="mgOpen"><span class="ic" style="background:#FDE4E5">🎰</span><span class="tx">ホール・台の管理<small id="spsMg"></small></span><span class="go">›</span></button>
+      </div>
+      <div class="sgrp spmenu">
+        <button type="button" class="spit" data-go="data"><span class="ic" style="background:#EEF1F6">💾</span><span class="tx">データ<small>バックアップ・読み込み・スタンプ帳</small></span><span class="go">›</span></button>
+        <button type="button" class="spit" id="spHelp"><span class="ic" style="background:#EEF1F6">❓</span><span class="tx">使い方</span><span class="go">›</span></button>
+      </div>
+    <button class="redo" id="redoOnb">初期設定をやり直す</button>
+    <div class="ver">アソビロック <span id="appVer"></span></div>
+      </div>
+    <div class="spage" data-sp="mode" hidden>
     <div class="sgh">モード</div>
     <div class="modepick" id="modePick">
       <button type="button" data-mode="full">家計簿</button><button type="button" data-mode="habit">習慣アンロック</button><button type="button" data-mode="gamble">ギャンブル収支</button>
     </div>
     <p class="sgd" id="modeDesc"></p>
 
+    </div>
+    <div class="spage" data-sp="money" hidden>
     <div class="sgh" data-m="full habit">お金</div>
     <p class="sgd" data-m="full">手取りから固定費・生活費・娯楽を引いた残りが、毎月の予備費になります</p>
     <div class="sgrp" data-m="full habit">
@@ -1295,11 +1351,19 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       <div class="rnote" id="reserveHint" data-m="full"></div>
     </div>
 
+    <div class="sgh">開始日</div>
+    <div class="sgrp">
+      <label class="srow"><span>開始日</span><span class="sin"><input id="sStart" type="date" class="txt"></span></label>
+    </div>
+    <p class="sgd">開始日を変えると、お金の設定の履歴（「この日から」で変えた分）はリセットされます</p>
+    <div class="actions"><button class="primary" id="saveSettings">保存する</button></div>
+    </div>
+    <div class="spage" data-sp="habit" hidden>
     <div class="sgh" data-m="full habit">習慣</div>
     <p class="sgd hk-check" data-m="full habit">1回できるごとに、娯楽費 ÷ 月の回数 の額がアンロックされます</p>
     <p class="sgd hk-q" data-m="full habit">記録した時間に応じて、娯楽費 ÷ 月の目標時間 の額が15分ごとにアンロックされます</p>
     <div class="sgrp" data-m="full habit">
-      <label class="srow"><span>習慣の種類</span><span class="sin"><select id="sHabit" class="wsel"><option value="check">今の習慣</option><option value="diet">ダイエット</option><option value="study">勉強</option></select></span></label>
+      <label class="srow"><span>習慣の種類</span><span class="sin"><select id="sHabit" class="wsel"><option value="check">シンプル</option><option value="diet">ダイエット</option><option value="study">勉強</option></select></span></label>
       <label class="srow hk-check"><span>習慣の名前</span><span class="sin"><input id="sMenus" type="text" class="txt"></span></label>
       <label class="srow hk-check"><span>月の回数</span><span class="sin"><input id="sMonthly" type="text" inputmode="numeric"><i>回/月</i></span></label>
       <div class="srow res hk-check"><span>1回でアンロック<small>自動計算</small></span><span class="sin"><b class="num" id="sUnitV">0</b><i>円/回</i></span></div>
@@ -1318,6 +1382,9 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       <label class="srow"><span id="gDeadL">いつまでに</span><span class="sin"><input id="gDead" type="date" class="wsel"></span></label>
     </div>
 
+    <div class="actions"><button class="primary" id="saveSettings2">保存する</button></div>
+    </div>
+    <div class="spage" data-sp="look" hidden>
     <div class="sgh">テーマ</div>
     <div class="skins" id="skinPick"></div>
     <p class="sgd" id="skinHint"></p>
@@ -1330,11 +1397,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       <div class="srow"><span>効果音<small>レアの時に音が鳴ります</small></span><button type="button" class="tgl" id="sndTgl" aria-pressed="false" aria-label="効果音"></button></div>
     </div>
 
-    <div class="sgh">ギャンブル</div>
-    <div class="sgrp">
-      <button type="button" class="srow dbtn" id="mgOpen"><span>ホール・台の管理<small>名前の変更・まとめる・削除</small></span><span class="sin">›</span></button>
     </div>
-
+    <div class="spage" data-sp="data" hidden>
     <div class="sgh">データ</div>
     <p class="sgd">記録はこの端末の中に保存されます。機種変更やブラウザのデータ削除の前に書き出しておくと、あとで読み込んで戻せます</p>
     <div class="sgrp">
@@ -1343,18 +1407,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       <label class="srow dbtn"><span>バックアップを読み込む</span><span class="sin">↑</span><input type="file" id="importData" accept="application/json,.json" hidden></label>
     </div>
 
-    <div class="sgh">その他</div>
-    <div class="sgrp">
-      <label class="srow"><span>開始日</span><span class="sin"><input id="sStart" type="date" class="txt"></span></label>
     </div>
-
-    <div class="actions">
-      <button class="ghost" data-close>やめる</button>
-      <button class="primary" id="saveSettings">保存する</button>
-    </div>
-    <button class="redo" id="redoOnb">初期設定をやり直す</button>
-    <div class="ver">アソビロック <span id="appVer"></span></div>
-  </div>
+</div>
 </div>
 
 <div class="modal" id="pickModal" role="dialog" aria-modal="true" aria-labelledby="pickTitle"><div class="box gbox">
@@ -1407,6 +1461,10 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   <div id="resExt" hidden><label class="f" style="margin-top:10px">新しい期限<input id="resExtD" type="date" class="gq"></label><button type="button" class="primary gfull" id="resExtOk">この日にのばす</button></div>
   <label class="f" style="margin-top:12px">ひとこと（任意）<input id="resNote" type="text" maxlength="60"></label>
   <div class="actions"><button type="button" class="ghost" id="resLater">あとで</button></div>
+</div></div>
+<div class="modal" id="unsavedModal" role="dialog" aria-modal="true" aria-labelledby="unsT"><div class="box">
+  <p class="mt" id="unsT">変更が保存されていません</p><p class="gnote" id="unsavedD" style="margin:0 0 12px"></p>
+  <div class="gact"><button type="button" id="unsSave" style="background:var(--btn);color:var(--btn-ink);border-color:var(--btn)">保存する</button><button type="button" class="dz" id="unsDiscard">保存しないで閉じる</button><button type="button" id="unsBack">編集に戻る</button></div>
 </div></div>
 <div class="modal" id="confirmModal" role="alertdialog" aria-modal="true" aria-labelledby="confirmMsg"><div class="box"><p id="confirmMsg"></p><div class="actions"><button class="ghost" id="confirmCancel">やめる</button><button class="primary" id="confirmOk">OK</button></div></div></div>
 
@@ -1463,7 +1521,46 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   </div>
 
 
-  <div class="hs"><span class="no">1</span><h3>お金を3つの財布に分ける</h3>
+  <div class="qstart" data-m="full"><h3>まずはこれだけ</h3>
+    <div class="qs"><span class="qn">1</span><div><b>習慣をやったら記録</b><span>ホームの「今日の◯◯を記録」。ロックされている娯楽費が、そのぶん使えるようになります</span></div></div>
+    <div class="qs"><span class="qn">2</span><div><b>お金を使ったら記録</b><span>「支出・収入を記録」で、金額とカテゴリを入れるだけ。間違えても、あとでタップして直せます</span></div></div>
+    <div class="qs"><span class="qn">3</span><div><b>使っていい額を見る</b><span>ホームの「フリー生活費」と「娯楽費」が、今使えるお金です</span></div></div>
+    <div class="qs"><span class="qn">4</span><div><b>月が変わると</b><span>残ったお金は予備費へ。ロック中の娯楽費は来月に繰り越されます</span></div></div>
+  </div>
+  <div class="qstart" data-m="habit"><h3>まずはこれだけ</h3>
+    <div class="qs"><span class="qn">1</span><div><b>習慣をやったら記録</b><span>ホームの「今日の◯◯を記録」。ロックされている娯楽費が、そのぶん使えるようになります</span></div></div>
+    <div class="qs"><span class="qn">2</span><div><b>遊んだら記録</b><span>「支出を記録」で娯楽の支出を入れると、娯楽費から引かれます</span></div></div>
+    <div class="qs"><span class="qn">3</span><div><b>月が変わると</b><span>使わなかった娯楽費は来月に繰り越されます</span></div></div>
+  </div>
+  <div class="qstart" data-m="gamble"><h3>まずはこれだけ</h3>
+    <div class="qs"><span class="qn">1</span><div><b>遊んだら「ギャンブルを記録」</b><span>投資と回収を入れるだけで、収支が出ます。ホールや台は入れなくてもOK</span></div></div>
+    <div class="qs"><span class="qn">2</span><div><b>カレンダーで振り返る</b><span>日ごとの収支と、下にスクロールすると分析（グラフ・ランキング・曜日別など）が見られます</span></div></div>
+  </div>
+
+  <div class="hman"><h3>くわしい使い方</h3>
+    <div class="hcat">はじめに</div>
+    <details><summary>3つのモード</summary><div class="hb"><ul><li><b>家計簿</b>：生活費・娯楽費・予備費を管理して、習慣で娯楽費をアンロック</li><li><b>習慣アンロック</b>：娯楽費だけを習慣でアンロック</li><li><b>ギャンブル収支</b>：投資・回収を記録して収支を見る</li></ul>設定の「モード」からいつでも切り替えられます。記録は消えません。</div></details>
+    <details data-m="full"><summary>3つの財布（フリー生活費・娯楽費・予備費）</summary><div class="hb">1日の生活費より使わなかった分がフリー生活費に貯まります。娯楽費は習慣でアンロックした分だけ使えます。残りは毎月、予備費に積み上がります。財布の間は「送る」「移す」で動かせます。</div></details>
+    <details data-m="full habit"><summary>月が変わった時</summary><div class="hb">1日になると、フリー生活費と娯楽費の残りは予備費に移ります（習慣アンロックモードでは娯楽費が繰り越し）。ロック中の娯楽費は繰り越され、新しい月の娯楽費が足されます。</div></details>
+    <div class="hcat" data-m="full habit">習慣</div>
+    <details data-m="full habit"><summary>習慣の種類</summary><div class="hb"><ul><li><b>ダイエット・勉強</b>：記録した時間に応じて、15分ごとにアンロック。金額は「娯楽費 ÷ 月の目標時間」で決まります</li><li><b>シンプル</b>：決めた習慣を1回やるごとにアンロック</li></ul>設定の「習慣と目標」で変えられます。変えた日より前の記録は、前の設定のまま計算されます。</div></details>
+    <details data-m="full habit"><summary>時間で記録する・詳しく記録する</summary><div class="hb">「今日の運動を記録」から時間を選んで記録します。1日に何回でも記録できます（演出が出るのはその日の最初だけ）。種類・消費カロリー・科目・メモは「詳しく記録する」から入れられます（任意）。</div></details>
+    <details data-m="full habit"><summary>体重の記録</summary><div class="hb">ダイエットを選ぶと、ホームに「今日の体重を記録」が出ます。1日1つで、同じ日に入れ直すと上書きされます。アンロックはしません。</div></details>
+    <details data-m="full habit"><summary>目標と推移、期限が来たら</summary><div class="hb">体重と期限、または試験と日付を目標にできます。ホームの目標カードを押すと推移が見られます。期限が来ると結果を聞かれ、「これまでの目標」に残ります。試験の結果がまだの時は「まだ結果が出ていない」を選べます。</div></details>
+    <details data-m="full habit"><summary>レア演出とスタンプ帳</summary><div class="hb">習慣を記録すると、ときどきレア演出が出ます。出たレアはカレンダーのスタンプ帳に集まります。</div></details>
+    <div class="hcat">記録</div>
+    <details><summary>ギャンブルの記録</summary><div class="hb">投資と回収を入れるだけで記録できます。ホール・台は「📍 ホール・台」から選び、遊んだ時間・台ごとの金額・メモは「詳しく記録する」から入れられます。「前回と同じ」で、前回のホールと台をまとめて入れられます。</div></details>
+    <details><summary>記録を直す・元に戻す</summary><div class="hb">記録をタップすると直せます。×で削除しても、すぐ下に出る「元に戻す」で戻せます（習慣の記録の削除だけは確認が出ます）。</div></details>
+    <div class="hcat">見る</div>
+    <details data-m="full habit"><summary>カレンダーと日ごとの節約</summary><div class="hb">カレンダーで日ごとの生活費と娯楽の収支が見られます。ホームの「日ごとの節約」は、棒がその日、線と塗りが今月の合計です。</div></details>
+    <details><summary>ギャンブル分析と絞り込み</summary><div class="hb">カレンダーを下にスクロールすると分析が出ます。「絞り込み」で期間・種類・ホール・機種を選べます。ランキングの行を押すと、その台・ホールで絞り込めます。</div></details>
+    <div class="hcat">設定</div>
+    <details><summary>見た目（テーマ・金額の色）</summary><div class="hb">テーマと、プラス・マイナスの金額の色を選べます。生活と娯楽で別の色にできます。</div></details>
+    <details><summary>データのバックアップ</summary><div class="hb">記録はこの端末の中だけに保存されます。機種変更などの前に、設定の「データ」からバックアップを書き出しておいてください。</div></details>
+  </div>
+
+  <div class="hcat" data-m="full" style="margin-top:22px">アソビロックのしくみ</div>
+  <div class="hs" data-m="full"><span class="no">1</span><h3>お金を3つの財布に分ける</h3>
     <p>生活・遊び・予備を分けるだけで、「今いくら使っていいか」が一目でわかります。</p>
     <div class="mock wal3">
       <div class="w"><div class="ico" style="background:var(--unlock)">生</div><b>フリー生活費</b><span>毎日のペースより浮いた分</span></div>
@@ -1472,7 +1569,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     </div>
   </div>
 
-  <div class="hs"><span class="no">2</span><h3>遊ぶお金は、習慣でアンロック</h3>
+  <div class="hs" data-m="full"><span class="no">2</span><h3>遊ぶお金は、習慣でアンロック</h3>
     <p>娯楽費は月初にロック。運動などの習慣をこなすたびに、少しずつ使えるようになります。遊びたいほど、習慣が続きます。</p>
     <div class="mock">
       <div class="flow">
@@ -1486,7 +1583,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     </div>
   </div>
 
-  <div class="hs"><span class="no">3</span><h3>生活費は「1日いくら」で考える</h3>
+  <div class="hs" data-m="full"><span class="no">3</span><h3>生活費は「1日いくら」で考える</h3>
     <p>月の予算を日割りにするから、今日使いすぎたかがすぐわかる。浮いた分はフリー生活費に貯まって、自由に使えます。</p>
     <div class="mock">
       <svg viewBox="0 0 280 110" width="100%" style="display:block" aria-hidden="true"><line x1="0" y1="60" x2="280" y2="60" stroke="currentColor" opacity=".25"/><rect x="10" y="38.0" width="24" height="22.0" rx="3" fill="var(--unlock)"/><rect x="48" y="51.8" width="24" height="8.2" rx="3" fill="var(--unlock)"/><rect x="86" y="60" width="24" height="13.8" rx="3" fill="var(--neg)"/><rect x="124" y="27.0" width="24" height="33.0" rx="3" fill="var(--unlock)"/><rect x="162" y="43.5" width="24" height="16.5" rx="3" fill="var(--unlock)"/><rect x="200" y="60" width="24" height="6.6" rx="3" fill="var(--neg)"/><rect x="238" y="32.5" width="24" height="27.5" rx="3" fill="var(--unlock)"/></svg>
@@ -1494,7 +1591,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     </div>
   </div>
 
-  <div class="hs"><span class="no">4</span><h3>使いすぎても、取り返せる</h3>
+  <div class="hs" data-m="full"><span class="no">4</span><h3>使いすぎても、取り返せる</h3>
     <p>オーバーした分は消えずに記録され、次の習慣で返済されます。「やること」が出るから、立て直し方に迷いません。</p>
     <div class="mock" style="background:var(--neg-soft);color:var(--neg)">
       <div style="font-weight:700;font-size:13px;margin-bottom:4px">やること</div>
@@ -1503,7 +1600,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     </div>
   </div>
 
-  <div class="hs"><span class="no">5</span><h3>月末にいくら残るか、先にわかる</h3>
+  <div class="hs" data-m="full"><span class="no">5</span><h3>月末にいくら残るか、先にわかる</h3>
     <p>このまま行けば月末にいくら残り、どこに繰り越されるか。貯金の見通しが毎日見えます。</p>
     <div class="mock">
       <div class="mrow"><span style="font-weight:700;color:var(--ink)">月末に残るお金</span><b style="font-size:20px">+¥48,000</b></div>
@@ -1512,7 +1609,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     </div>
   </div>
 
-  <div class="hs"><span class="no">6</span><h3>財布の間は、自分で動かせる</h3>
+  <div class="hs" data-m="full"><span class="no">6</span><h3>財布の間は、自分で動かせる</h3>
     <p>生活費が浮いたら遊びに、遊びが余ったら生活に。臨時収入は予備費にとっておくこともできます。ルールは守りつつ、融通も利きます。</p>
     <div class="mock">
       <div class="flow"><div class="st"><b style="font-size:15px">フリー生活費</b></div><div class="ar">⇄</div><div class="st"><b style="font-size:15px">娯楽費</b></div></div>
@@ -1850,7 +1947,6 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   var kind="spend", cat="food", win=false, lastAdded=null, toastTimer=null;
   function openSheet(id){ $("scrim").classList.add("open"); $(id).classList.add("open"); $(id).scrollTop=0; }
   function closeSheets(){ $("scrim").classList.remove("open"); document.querySelectorAll(".sheet").forEach(function(s){s.classList.remove("open");}); }
-  $("scrim").onclick=closeSheets;
   document.querySelectorAll("[data-close]").forEach(function(b){ b.onclick=closeSheets; });
   function press(segId, attr, val){ document.querySelectorAll("#"+segId+" button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset[attr]===val?"true":"false"); }); }
   function gNetVal(){ return (parseInt($("gRet").value,10)||0)-(parseInt($("gInv").value,10)||0); }
@@ -2146,7 +2242,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       c.innerHTML='<div class="gh"><span>'+esc(g.name)+'まで</span><small>試験日 '+jd(g.deadline)+'</small></div><div class="gbig2">'+(left>0?"あと "+left+"日":"今日が試験日")+'</div><div class="gpr"><i style="width:'+(mt?Math.min(100,mm/mt*100):0).toFixed(0)+'%"></i></div><div class="gls"><span>ここまで <b>'+hrs1(tot)+'</b></span><span>今月 <b>'+hrs1(mm)+'</b> / '+hrs1(mt)+'</span></div>';
     }
   }
-  $("goalCard").onclick=function(){ var go=this.dataset.go; if (go==="set") $("openSettings").onclick(); else if (go==="res") openRes(null); else openTrend(); };
+  $("goalCard").onclick=function(){ var go=this.dataset.go; if (go==="set"){ $("openSettings").onclick(); spGo("habit"); } else if (go==="res") openRes(null); else openTrend(); };
   /* weight */
   function openW(){ var lw=lastWeight(), tw=weightsAll().filter(function(x){ return x.date===todayIso(); }).pop(); $("wIn").value = tw ? tw.kg : (lw ? lw.kg : ""); $("wPrev").textContent = lw ? "前回 "+(+lw.kg).toFixed(1)+"kg（"+md(lw.date)+"）" : ""; $("wModal").classList.add("open"); setTimeout(function(){ $("wIn").focus(); $("wIn").select(); },60); }
   $("wRow").onclick=openW;
@@ -2297,6 +2393,34 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     if (e.gk==="other") l2=["その他",mm].filter(Boolean).join("　");
     else { var h=defById("halls",e.hall), ms=(e.mc||[]).map(function(x){ return defById("machines",x.m); }).filter(Boolean), parts=[]; if (h) parts.push(h.name); if (ms.length) parts.push(ms[0].name+(ms.length>1?" ほか"+(ms.length-1)+"台":"")); l2=[parts.join("・"),mm].filter(Boolean).join("　"); }
     return [l1,l2]; }
+  /* ---------- v1.9.1 settings pages ---------- */
+  var spCur="top", spSnap=null, spNext=null, spAfterSave=null;
+  var SPT={top:"設定",mode:"モード",money:"お金",habit:"習慣と目標",look:"見た目",data:"データ"};
+  function spFields(p){ return [].slice.call(document.querySelectorAll('#sheetSettings .spage[data-sp="'+p+'"] input, #sheetSettings .spage[data-sp="'+p+'"] select')).filter(function(el){ return el.id && el.type!=="file"; }); }
+  function spVals(p){ var o={}; spFields(p).forEach(function(el){ o[el.id]=el.value; }); return o; }
+  function spGo(p){ spCur=p; document.querySelectorAll("#sheetSettings .spage").forEach(function(x){ x.hidden = x.dataset.sp!==p; }); $("spBack").hidden = p==="top"; $("setTitle").textContent = (p==="money" && curMode()==="gamble") ? "開始日" : SPT[p]; spSnap = (p==="money"||p==="habit") ? spVals(p) : null; if (p==="top") renderSpMenu(); $("sheetSettings").scrollTop=0; }
+  function spDirty(){ if (!spSnap || !$("sheetSettings").classList.contains("open")) return []; var now=spVals(spCur), ch=[];
+    Object.keys(now).forEach(function(id){ if (now[id]===spSnap[id]) return; var el=$(id), row=el.closest(".srow"); if (!row || row.offsetParent===null) return; var lb=row.querySelector("span"), t=lb ? (lb.childNodes[0].textContent||"").trim() : id; if (ch.indexOf(t)<0) ch.push(t); });
+    return ch; }
+  function spGuard(next){ spAfterSave=null; var ch=spDirty(); if (!ch.length){ next(); return; } spNext=next; $("unsavedD").textContent="「"+ch.join("」「")+"」を変えています。保存しますか？"; $("unsavedModal").classList.add("open"); }
+  $("spBack").onclick=function(){ spGuard(function(){ fillSettings(); spGo("top"); }); };
+  $("spClose").onclick=function(){ spGuard(closeSheets); };
+  $("scrim").onclick=function(){ if ($("sheetSettings").classList.contains("open")) spGuard(closeSheets); else closeSheets(); };
+  $("unsBack").onclick=function(){ $("unsavedModal").classList.remove("open"); };
+  $("unsDiscard").onclick=function(){ $("unsavedModal").classList.remove("open"); fillSettings(); var f=spNext; spNext=null; if (f) f(); };
+  $("unsSave").onclick=function(){ $("unsavedModal").classList.remove("open"); var f=spNext; spNext=null; $("saveSettings").onclick(); spAfterSave=f; };
+  document.querySelectorAll("#sheetSettings [data-go]").forEach(function(b){ b.onclick=function(){ spGo(b.dataset.go); }; });
+  $("saveSettings2").onclick=function(){ $("saveSettings").onclick(); };
+  $("spHelp").onclick=function(){ closeSheets(); $("openHelp").onclick(); };
+  function renderSpMenu(){ var s=state.settings, m=curMode(), hk=s.habit||"check", n2=function(v){ return (+v||0).toLocaleString("ja-JP"); };
+    $("spsMode").textContent=MODE_INFO[m][0];
+    $("spsMoney").textContent = m==="full" ? "手取り "+n2(s.income)+"・生活費 "+n2(s.lifeDaily)+"/日・娯楽 "+n2(s.gorakuMonthly) : "娯楽 "+n2(s.gorakuMonthly)+"/月";
+    var g=(s.goal && s.goal.type===hk && !s.goal.result) ? s.goal : null;
+    $("spsHabit").textContent = hk==="check" ? "シンプル・"+((s.menus&&s.menus[0])||"習慣")+"・月"+(s.monthlyTimes||0)+"回" : (hk==="diet"?"ダイエット":"勉強")+"・月"+hrs1(s.monthMin||0)+(g ? "・"+(g.type==="diet" ? (+g.target).toFixed(1)+"kg" : g.name)+"（"+md(g.deadline)+"）" : "");
+    $("spsStart").textContent=s.start||"";
+    var sk=SKINS.filter(function(x){ return x[0]===(s.skin||"kakeibo"); })[0];
+    $("spsLook").textContent=(sk?sk[1]:"テーマ1")+"・金額の色 "+(s.amtColors?"カスタム":"標準")+"・効果音 "+(s.sound?"オン":"オフ");
+    $("spsMg").textContent="ホール "+gDefs("halls").length+"・台 "+gDefs("machines").length; }
   function syncFields(){
     $("spendFields").hidden = kind!=="spend"; $("exFields").hidden = kind!=="exercise";
     $("resultSeg").hidden = true; $("incSeg").hidden = cat!=="income"; $("amtLabel").hidden = cat==="gamble"; $("gamFields").hidden = cat!=="gamble"; $("memoL").hidden = kind==="spend" && cat==="gamble"; if (cat==="gamble") syncGam(); updGNet(); $("catHint").textContent = cat==="income" ? (incTo==="reserve" ? "予備費に入ります。使わずにとっておくお金" : "フリー生活費に入ります。すぐ使えるお金") : HINT[cat];
@@ -2476,15 +2600,25 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     $("modeTitle").textContent=MODE_INFO[to][0]+"モードに切り替え";
     $("modeNote").textContent = (to==="gamble" ? "記録は消えずに残ります。生活費・娯楽費・習慣は見えなくなり、今日からはお金の計算をしません。" : to==="habit" ? (from==="full"?"記録は消えずに残ります。生活費と予備費は見えなくなり、今日からは娯楽費だけを計算します。":"今日から、娯楽費を習慣でアンロックします。必要な情報を入れてください。") : "今日から、生活費と予備費の計算を始めます。必要な情報を入れてください。");
     $("modeFields").innerHTML=need.map(function(k){ var v=k==="menu"?((s.menus&&s.menus[0])||""):(s[k]||""); return '<label class="f">'+LBL[k][0]+'<input data-k="'+k+'" '+(k==="menu"?'type="text"':'inputmode="numeric" type="text"')+' value="'+(k==="menu"?escH(v):(v?Number(v).toLocaleString("ja-JP"):""))+'" placeholder="'+(k==="menu"?"例：有酸素30分":"0")+'">'+(LBL[k][1]?'<small style="margin-left:6px">'+LBL[k][1]+'</small>':'')+'</label>'; }).join("");
+    if (need.indexOf("menu")>=0){
+      var hk0=s.habit||"check", mh0=s.monthMin?Math.round(s.monthMin/6)/10:20;
+      $("modeFields").insertAdjacentHTML("afterbegin", '<label class="f">習慣の種類<select id="mHk" class="wsel" style="display:block;width:100%;margin-top:4px"><option value="diet">ダイエット</option><option value="study">勉強</option><option value="check">シンプル</option></select></label><label class="f" id="mMhL">月の目標時間<input id="mMh" type="text" inputmode="decimal" value="'+mh0+'"><small style="margin-left:6px">時間/月</small></label>');
+      $("mHk").value=hk0;
+      var syncM=function(){ var q=$("mHk").value!=="check"; $("mMhL").hidden=!q; $("modeFields").querySelectorAll('input[data-k="monthlyTimes"],input[data-k="menu"]').forEach(function(inp){ inp.closest("label").hidden=q; }); };
+      $("mHk").onchange=syncM; syncM();
+    }
     $("modeModal").classList.add("open");
     $("modeCancel").onclick=function(){ $("modeModal").classList.remove("open"); syncModePick(); };
     $("modeOk").onclick=function(){
       var vals={}, bad=false;
-      $("modeFields").querySelectorAll("input").forEach(function(inp){ var k=inp.dataset.k; if (k==="menu"){ vals.menu=(inp.value||"").trim()||"習慣"; return; } var n=parseInt(String(inp.value).replace(/[^0-9]/g,""),10)||0; if (!(n>0) && k!=="fixed"){ bad=true; inp.focus(); } vals[k]=n; });
+      var mhk=$("mHk")?$("mHk").value:null, mmh=$("mMh")?(parseFloat(String($("mMh").value).replace(/[^0-9.]/g,""))||0):0;
+      if (mhk && mhk!=="check" && !(mmh>0)){ toast("月の目標時間を入れてください",true); return; }
+      $("modeFields").querySelectorAll("input").forEach(function(inp){ var k=inp.dataset.k; if (!k || inp.closest("label").hidden) return; if (k==="menu"){ vals.menu=(inp.value||"").trim()||"習慣"; return; } var n=parseInt(String(inp.value).replace(/[^0-9]/g,""),10)||0; if (!(n>0) && k!=="fixed"){ bad=true; inp.focus(); } vals[k]=n; });
       if (bad){ toast("金額や回数を入れてください",true); return; }
       var t=todayIso(), cur=state.settings, ns=Object.assign({}, cur);
       ["income","fixed","lifeDaily","gorakuMonthly","monthlyTimes"].forEach(function(k){ if (vals[k]!=null) ns[k]=vals[k]; });
       if (vals.menu) ns.menus=[vals.menu];
+      if (mhk){ ns.habit=mhk; if (mhk!=="check"){ ns.monthMin=Math.round(mmh*60); ns.unit15=Math.round((+ns.gorakuMonthly||0)/(ns.monthMin/15)); if (!(+ns.monthlyTimes>0)) ns.monthlyTimes=15; } }
       ns.unit=Math.ceil((+ns.gorakuMonthly||0)/Math.max(1,+ns.monthlyTimes||1)); ns.mode=to;
       var nv=pickMoney(ns), hs;
       if (t<=cur.start) hs=[{from:cur.start, v:nv}];
@@ -2494,13 +2628,14 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     };
   }
   function escH(s){ return String(s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
-  $("openSettings").onclick=function(){
+  function fillSettings(){
     var s=state.settings; syncModePick();
     $("sStart").value=s.start; $("sIncome").value=s.income; $("sFixed").value=s.fixed; $("sLife").value=s.lifeDaily; $("sGoraku").value=s.gorakuMonthly;
     $("sWeekly").value=s.weeklyGoal; $("sWeekStart").value=s.weekStart==="sun"?"sun":"mon"; $("sMonthly").value=s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12; $("sHabit").value=s.habit||"check"; $("sMonthH").value=s.monthMin?String(Math.round(s.monthMin/6)/10):"20"; updUnit(); syncHk(); $("sMenus").value=s.menus.join(", ");
     var gl=s.goal||{}; $("gW").value=gl.type==="diet"&&gl.target?gl.target:""; $("gW0").value=gl.type==="diet"&&gl.startKg?gl.startKg:""; $("gName").value=gl.type==="study"?(gl.name||""):""; $("gDead").value=gl.type===(s.habit||"check")?(gl.deadline||""):"";
-    fmtMoney(); updReserve(); buildSkins(); $("sndTgl").setAttribute("aria-pressed", state.settings.sound?"true":"false"); $("appVer").textContent="v"+APP_VERSION; renderAmtCol(); openSheet("sheetSettings");
-  };
+    fmtMoney(); updReserve(); buildSkins(); $("sndTgl").setAttribute("aria-pressed", state.settings.sound?"true":"false"); $("appVer").textContent="v"+APP_VERSION; renderAmtCol();
+  }
+  $("openSettings").onclick=function(){ fillSettings(); spGo("top"); openSheet("sheetSettings"); };
   var SKINS=[["kakeibo","テーマ1","#F5F7FB","#2F80ED"],["wallet","テーマ2","linear-gradient(135deg,#F59E0B,#B45309)","#16A34A"],["social","テーマ3","linear-gradient(180deg,#5B8CFF,#FFB3D9)","#FFB800"],["crypto","テーマ4","#07090F","#B6FF3B"],["pixel","テーマ5","#2038A8","#FFD45A"],["gold","テーマ6","linear-gradient(135deg,#2A2212,#0E0C08)","#E8C468","hidden"]];
   function skinUnlocked(x){ return x[4]!=="hidden" || hiddenUnlocked(); }
   function applySkin(k){ var ok=SKINS.some(function(x){return x[0]===k;}); document.documentElement.setAttribute("data-skin", ok?k:"kakeibo"); }
@@ -2571,7 +2706,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     var s=Object.assign({}, state.settings, {habit:hk, monthMin:hk==="check"?(+state.settings.monthMin||0):mmin, unit15:hk==="check"?(+state.settings.unit15||0):updU15(), goal:ngl, start:$("sStart").value||DEFAULTS.start, income:num("sIncome",DEFAULTS.income), fixed:num("sFixed",DEFAULTS.fixed), lifeDaily:num("sLife",DEFAULTS.lifeDaily), gorakuMonthly:num("sGoraku",DEFAULTS.gorakuMonthly), unit:updUnit(), monthlyTimes:Math.max(1,num("sMonthly",15)), weeklyGoal:num("sWeekly",DEFAULTS.weeklyGoal), weekStart:$("sWeekStart").value==="sun"?"sun":"mon", onboarded:true, menus:menus.length?menus:DEFAULTS.menus, skin:state.settings.skin||"kakeibo"});
     var old=state.settings, nv=pickMoney(s), ov=pickMoney(old), changed=MONEY_KEYS.some(function(k){ return (k==="mode"||k==="habit") ? nv[k]!==ov[k] : +nv[k]!==+ov[k]; });
     if (s.goal===undefined) delete s.goal;
-    function commit(hist){ if (hist) s.hist=hist; store.saveSettings(s); state.settings=s; $("applyModal").classList.remove("open"); closeSheets(); render(); toast("保存しました",true); }
+    function commit(hist){ if (hist) s.hist=hist; store.saveSettings(s); state.settings=s; $("applyModal").classList.remove("open"); render(); toast("保存しました",true); fillSettings(); if (spAfterSave){ var af=spAfterSave; spAfterSave=null; af(); } else spGo("top"); }
     if (s.start!==old.start){ commit([{from:s.start, v:nv}]); return; }
     if (!changed){ commit(null); return; }
     var t=todayIso(), mf=t.slice(0,8)+"01", def=mf<s.start?s.start:mf;
@@ -2588,7 +2723,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.9.0";
+  var APP_VERSION="1.9.2";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -3221,7 +3356,20 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
       if (r31<0) html+='<p class="err">31日の月に'+yen(-r31)+'足りません。戻って金額を減らしてください。</p>';
       else html+='<div class="note2">31日の月は '+yen(r31)+'</div>';
       return html; }, ok:function(){ return obReserve(31)>=0; }},
+    {t:"習慣の種類", m:["full","habit"], render:function(){
+      var H=[["diet","🏃","ダイエット","運動した時間でアンロック。体重も記録できます"],["study","📚","勉強","勉強した時間でアンロック。試験日を目標にできます"],["check","✅","シンプル","決めた習慣を1回やったらアンロック（例：有酸素30分）"]];
+      return '<h2>どんな習慣で、遊ぶお金をアンロックする？</h2><p class="lead">あとから設定で変えられます。</p><div class="obmodes">'+H.map(function(x){ return '<button type="button" data-obhk="'+x[0]+'" aria-pressed="'+(ob.hk===x[0])+'"><b>'+x[1]+' '+x[2]+'</b><span>'+x[3]+'</span></button>'; }).join("")+'</div>'; },
+      ok:function(){ return !!ob.hk; }},
     {t:"習慣", m:["full","habit"], render:function(){
+      if (ob.hk && ob.hk!=="check"){ var act=ob.hk==="diet"?"運動":"勉強", u15=ob.monthH>0?Math.round(ob.goraku/(ob.monthH*4)):0;
+        return '<h2>月にどれくらい'+act+'する？</h2><p class="lead">この時間でちょうど娯楽費が全部アンロックされるように、金額が決まります。</p>'
+          +'<label class="big"><input id="obMonthH" class="ob-n" data-k="monthH" inputmode="decimal" value="'+(ob.monthH||"")+'"><i>時間/月</i></label>'
+          +'<div class="note2" id="obTimes">15分あたり <b>'+yen(u15)+'</b> アンロック</div>'
+          +'<div class="flabel">週の目標（今週の表示用）</div><label class="big"><input id="obWeekly" class="ob-n" data-k="weekly" inputmode="numeric" value="'+(ob.weekly||"")+'"><i>日/週</i></label>'
+          +'<div class="flabel">目標（任意・あとで決めてもOK）</div>'
+          +(ob.hk==="diet" ? '<label class="big"><input id="obGW" inputmode="decimal" value="'+(ob.gW||"")+'" placeholder="目標の体重"><i>kg</i></label><label class="big"><input id="obGW0" inputmode="decimal" value="'+(ob.gW0||"")+'" placeholder="今の体重"><i>kg</i></label>'
+                           : '<label class="big"><input class="txt" id="obGName" type="text" value="'+escH(ob.gName||"")+'" placeholder="例：簿記2級"></label>')
+          +'<div class="flabel">'+(ob.hk==="diet"?"いつまでに":"試験日")+'</div><label class="big"><input class="txt" id="obGDead" type="date" value="'+(ob.gDead||"")+'"></label>'; }
       var g=[2,3,4,5].map(function(w){ return '<div class="r"><span>週'+w+'回</span><b>月'+(w*4)+'〜'+Math.round(w*31/7)+'回</b></div>'; }).join("");
       return '<h2>どんな習慣を続ける？</h2><p class="lead">1回できるたびに、娯楽費 ÷ 月の回数 の額がアンロックされます。</p>'
         +'<div class="flabel">習慣の名前</div><label class="big"><input class="txt" id="obMenu" type="text" value="'+(ob.menu||"").replace(/"/g,"&quot;")+'" placeholder="例：有酸素30分"></label>'
@@ -3229,7 +3377,7 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
         +'<div class="note2" id="obTimes">'+obUnitText()+'</div>'
         +'<div class="flabel">目安</div><div class="eq guide">'+g+'</div>'
         +'<div class="flabel">週の目標（今週の表示用）</div><label class="big"><input id="obWeekly" class="ob-n" data-k="weekly" inputmode="numeric" value="'+(ob.weekly||"")+'"><i>回/週</i></label>'; },
-      ok:function(){ return ob.monthly>0 && (ob.menu||"").trim(); }},
+      ok:function(){ return (ob.hk && ob.hk!=="check") ? ob.monthH>0 : (ob.monthly>0 && (ob.menu||"").trim()); }},
     {t:"完了", render:function(){
       if (ob.mode==="gamble") return '<h2>準備できました</h2><p class="lead">使い方はかんたんです。</p><div class="three">'
         +'<div class="w3"><span class="dot" style="background:var(--budget)"></span><div><b>遊んだら「支出を記録」</b><span>ギャンブルは投資と回収を入れると、収支が自動で出ます</span></div></div>'
@@ -3255,13 +3403,15 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     else html+='<h2>'+st.q+'</h2><p class="lead">'+st.lead+'</p><label class="big"><input id="obIn" class="ob-n" data-k="'+st.key+'" inputmode="numeric" value="'+c0(ob[st.key])+'"><i>'+st.unit+'</i></label>'+(st.extra?'<div id="obExtra">'+st.extra()+'</div>':'');
     body.innerHTML=html;
     body.querySelectorAll(".ob-n").forEach(function(el){
-      el.addEventListener("input", function(){ ob[el.dataset.k]=n0(el.value); if (st.extra) $("obExtra").innerHTML=st.extra(); if ($("obTimes")) $("obTimes").innerHTML=obUnitText(); obBtn(); });
-      el.addEventListener("blur", function(){ if (el.dataset.k!=="weekly" && el.dataset.k!=="monthly") el.value=c0(n0(el.value)); });
+      el.addEventListener("input", function(){ ob[el.dataset.k]= el.dataset.k==="monthH" ? (parseFloat(String(el.value).replace(/[^0-9.]/g,""))||0) : n0(el.value); if ($("obMonthH") && $("obTimes")) $("obTimes").innerHTML='15分あたり <b>'+yen(ob.monthH>0?Math.round(ob.goraku/(ob.monthH*4)):0)+'</b> アンロック'; if (st.extra) $("obExtra").innerHTML=st.extra(); if ($("obTimes") && !$("obMonthH")) $("obTimes").innerHTML=obUnitText(); obBtn(); });
+      el.addEventListener("blur", function(){ if (el.dataset.k!=="weekly" && el.dataset.k!=="monthly" && el.dataset.k!=="monthH") el.value=c0(n0(el.value)); });
     });
     if ($("obMenu")) $("obMenu").addEventListener("input", function(){ ob.menu=$("obMenu").value; obBtn(); });
     if ($("obStart")) $("obStart").addEventListener("change", function(){ ob.start=$("obStart").value; });
     if ($("obRestore")) $("obRestore").onclick=function(){ $("importData").click(); };
     body.querySelectorAll("[data-obmode]").forEach(function(b){ b.onclick=function(){ ob.mode=b.dataset.obmode; obRender(); }; });
+    body.querySelectorAll("[data-obhk]").forEach(function(b){ b.onclick=function(){ ob.hk=b.dataset.obhk; obRender(); }; });
+    ["obGW","obGW0","obGName","obGDead"].forEach(function(id){ var el=$(id); if (el) el.addEventListener("input", function(){ ob[{obGW:"gW",obGW0:"gW0",obGName:"gName",obGDead:"gDead"}[id]]=el.value; }); });
     $("onbBack").style.visibility = obStep===0 ? "hidden" : "visible";
     $("onbNext").textContent = st.next || "次へ";
     obBtn();
@@ -3271,8 +3421,8 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
   function obBtn(){ var st=obList()[obStep]; $("onbNext").disabled = st.key ? !(ob[st.key]>0) : (st.ok ? !st.ok() : false); }
   function openOnb(fresh){
     var s=state.settings;
-    ob = fresh===true ? {mode:null, income:0, fixed:0, life:0, goraku:0, unit:5000, weekly:3, monthly:12, menu:"", start:todayIso()}
-      : {income:s.income, fixed:s.fixed, life:s.lifeDaily, goraku:s.gorakuMonthly, unit:s.unit, weekly:s.weeklyGoal, monthly:s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12, menu:(s.menus&&s.menus[0])||"", start:s.start||todayIso(), mode:s.mode||"full"};
+    ob = fresh===true ? {mode:null, hk:null, monthH:20, income:0, fixed:0, life:0, goraku:0, unit:5000, weekly:3, monthly:12, menu:"", start:todayIso()}
+      : {income:s.income, fixed:s.fixed, life:s.lifeDaily, goraku:s.gorakuMonthly, unit:s.unit, weekly:s.weeklyGoal, monthly:s.monthlyTimes||Math.round(s.gorakuMonthly/(s.unit||1))||12, menu:(s.menus&&s.menus[0])||"", start:s.start||todayIso(), mode:s.mode||"full", hk:s.habit||"check", monthH:s.monthMin?Math.round(s.monthMin/6)/10:20};
     obStep=0; closeSheets(); $("onbClose").hidden = false; obRender(); $("onb").classList.add("open");
   }
   $("onbClose").onclick=function(){ $("onb").classList.remove("open"); $("openHelp").onclick(); };
@@ -3282,6 +3432,10 @@ html[data-mode="habit"] .wal{grid-template-columns:1fr}
     if (obStep<obList().length-1){ obStep++; obRender(); return; }
     var om=ob.mode||"full", full=om==="full", gm=om==="gamble";
     var s=Object.assign({}, state.settings, {mode:om, hist:null, start:ob.start||todayIso(), income:full?ob.income:0, fixed:full?ob.fixed:0, lifeDaily:full?ob.life:0, gorakuMonthly:gm?0:ob.goraku, unit:gm?0:Math.ceil(ob.goraku/Math.max(1,ob.monthly)), monthlyTimes:gm?0:ob.monthly, weeklyGoal:ob.weekly||0, menus:[(ob.menu||"習慣").trim()], onboarded:true});
+    var ohk=(!gm && ob.hk) ? ob.hk : "check"; s.habit=ohk;
+    if (ohk!=="check"){ s.monthMin=Math.round(ob.monthH*60); s.unit15=Math.round(s.gorakuMonthly/(s.monthMin/15)); var gw=parseFloat(ob.gW), gw0=parseFloat(ob.gW0);
+      if (ohk==="diet" && gw>0 && ob.gDead) s.goal={type:"diet", target:Math.round(gw*10)/10, startKg:gw0>0?Math.round(gw0*10)/10:null, deadline:ob.gDead, start:todayIso(), id:gid("g_")};
+      else if (ohk==="study" && (ob.gName||"").trim() && ob.gDead) s.goal={type:"study", name:ob.gName.trim(), deadline:ob.gDead, start:todayIso(), id:gid("g_")}; }
     store.saveSettings(s); state.settings=s; $("onb").classList.remove("open"); render(); toast("設定しました",true);
   };
   $("redoOnb").onclick=function(){ openOnb(false); };
