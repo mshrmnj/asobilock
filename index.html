@@ -2582,6 +2582,7 @@ body:has(.sheet.open) .toast,body:has(.modal.open) .toast,body:has(#onb.open) .t
     $("reserveV").textContent=(r<0?"−":"")+Math.abs(r).toLocaleString("ja-JP"); $("reserveBox").classList.toggle("neg", r31<0);
     $("reserveHint").textContent = r31<0 ? "31日の月に"+yen(-r31)+"足りません。どこかを減らしてください" : "31日の月は"+yen(r31)+"、28日の月は"+yen(base-sv("sLife")*28);
     $("reserveHint").classList.toggle("neg", r31<0);
+    if (curMode()!=="full"){ $("saveSettings").disabled=false; $("saveSettings").style.opacity=1; return 0; }
     $("saveSettings").disabled = r31<0; $("saveSettings").style.opacity = r31<0 ? .4 : 1;
     return r31;
   }
@@ -2698,7 +2699,7 @@ body:has(.sheet.open) .toast,body:has(.modal.open) .toast,body:has(#onb.open) .t
   };
   $("sndTgl").onclick=function(){ var on=!state.settings.sound; var s=Object.assign({}, state.settings, {sound:on}); state.settings=s; store.saveSettings(s); this.setAttribute("aria-pressed", on?"true":"false"); if (on){ fxA(); FXS.pop(); } };
   $("saveSettings").onclick=function(){
-    if (updReserve()<0) return;
+    if (curMode()==="full" && updReserve()<0){ toast("毎月の予備費がマイナスになる設定です。「お金」のページで確認してください",true); return; }
     function num(id, d){ var v=parseInt(String($(id).value).replace(/[^0-9]/g,""),10); return isNaN(v)||v<0 ? d : v; }
     var menus=$("sMenus").value.split(/[,、，]/).map(function(x){return x.trim();}).filter(Boolean);
     var hk=$("sHabit").value, mmin=monthMinV();
@@ -2728,7 +2729,7 @@ body:has(.sheet.open) .toast,body:has(.modal.open) .toast,body:has(#onb.open) .t
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.9.3";
+  var APP_VERSION="1.9.4";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
