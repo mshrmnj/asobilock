@@ -1196,6 +1196,10 @@ body.wi .list .del{visibility:hidden}
 .wione{display:block;width:100%;margin-top:12px;border:1.5px solid var(--wi);background:var(--wi-soft);color:var(--wi);border-radius:12px;padding:11px;font:inherit;font-size:13.5px;font-weight:800}
 
 #sheetEntry{z-index:22}
+
+/* v1.10.1 fixed-height multi-page sheets; what-if top button */
+#sheetSettings,#sheetRec,#sheetEntry,#sheetHabit,#gaSheet,#sheetTrend{height:88vh;height:88dvh}
+body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;color:#fff!important}
 </style>
 </head>
 <body>
@@ -1204,7 +1208,7 @@ body.wi .list .del{visibility:hidden}
   <div class="top">
     <div class="coach" id="coach" hidden><b>はじめに</b>ここから使い方を見て<br>初期設定をしてね</div>
     <div class="date" id="today"></div>
-    <div class="topbtns"><button class="iconbtn ic" id="openHelp" aria-label="このアプリについて"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></button><button class="iconbtn ic" id="openCal" aria-label="カレンダー"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></button><button class="iconbtn ic" id="openSettings" aria-label="設定"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div>
+    <div class="topbtns"><button class="iconbtn ic" id="openHelp" aria-label="このアプリについて"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.6"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></button><button class="iconbtn ic" id="openWi" aria-label="もしもモード（記録がなかったらを試す）"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10.5" r="6.5"/><path d="M9.3 8.6a3.2 3.2 0 0 1 2.7-1.6"/><path d="M6.5 20.5h11M8.5 16.6 7.4 20.5M15.5 16.6l1.1 3.9"/></svg></button><button class="iconbtn ic" id="openCal" aria-label="カレンダー"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></button><button class="iconbtn ic" id="openSettings" aria-label="設定"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div>
   </div>
 
   <div class="wibar" id="wiBar" hidden><span id="wiBarT"></span><button type="button" id="wiExit">やめる</button></div>
@@ -1613,6 +1617,7 @@ body.wi .list .del{visibility:hidden}
     <details data-m="full habit"><summary>レア演出とスタンプ帳</summary><div class="hb">習慣を記録すると、ときどきレア演出が出ます。出たレアはカレンダーのスタンプ帳に集まります。</div></details>
     <div class="hcat">記録</div>
     <details><summary>ギャンブルの記録</summary><div class="hb">投資と回収を入れるだけで記録できます。ホール・台は「📍 ホール・台」から選び、遊んだ時間・台ごとの金額・メモは「詳しく記録する」から入れられます。「前回と同じ」で、前回のホールと台をまとめて入れられます。</div></details>
+    <details><summary>もしもモード</summary><div class="hb">「この記録がなかったら、今いくらだったか」を、データを消さずに見られます。上の🔮ボタンか、記録の編集画面の「この記録がなかったら？」から入れます。「やめる」かアプリを開き直すと元に戻ります。</div></details>
     <details><summary>記録を直す・元に戻す</summary><div class="hb">記録をタップすると直せます。×で削除しても、すぐ下に出る「元に戻す」で戻せます（習慣の記録の削除だけは確認が出ます）。</div></details>
     <div class="hcat">見る</div>
     <details data-m="full habit"><summary>カレンダーと日ごとの節約</summary><div class="hb">カレンダーで日ごとの生活費と娯楽の収支が見られます。ホームの「日ごとの節約」は、棒がその日、線と塗りが今月の合計です。</div></details>
@@ -2500,7 +2505,7 @@ body.wi .list .del{visibility:hidden}
   var rec={mon:"", cat:"all", sel:false, picked:{}};
   function recCatOf(e){ return e.kind==="exercise"?"_hb":e.kind==="transfer"?"_mv":e.cat; }
   function recCatLabel(k){ return k==="_hb"?"習慣":k==="_mv"?"移動":(CAT[k]||k); }
-  function openRec(sel){ rec.mon=todayIso().slice(0,7); rec.cat="all"; rec.sel=!!sel; rec.picked={}; renderRec(); openSheet("sheetRec"); }
+  function openRec(sel){ rec.mon=todayIso().slice(0,7); rec.cat="all"; rec.sel=!!sel; rec.picked={}; if (sel && wiOn) wiIds.forEach(function(id){ rec.picked[id]=1; }); renderRec(); openSheet("sheetRec"); }
   function renderRec(){
     var src = wiOn ? wiReal : state.entries, all=listItems(src), mon=all.filter(function(e){ return e.date.slice(0,7)===rec.mon; });
     var y=+rec.mon.slice(0,4), mo=+rec.mon.slice(5,7); $("recMonL").textContent=y+"年"+mo+"月";
@@ -2522,10 +2527,11 @@ body.wi .list .del{visibility:hidden}
       box.appendChild(ul);
     });
     var n=Object.keys(rec.picked).length;
-    $("recBar").hidden=!rec.sel; $("recSelGo").disabled=!n; $("recSelGo").textContent = n ? n+"件なかったら？" : "選んでください";
-    $("recWi").setAttribute("aria-pressed", rec.sel?"true":"false"); $("recWi").hidden = wiOn;
+    $("recBar").hidden=!rec.sel; $("recSelGo").disabled=!n; $("recSelGo").textContent = n ? n+"件なかったら？" : "なかったことにする記録を選んでください";
+    $("recWi").setAttribute("aria-pressed", rec.sel?"true":"false"); $("recWi").hidden = wiOn && !rec.sel;
   }
   $("allRec").onclick=function(){ openRec(false); };
+  $("openWi").onclick=function(){ openRec(true); };
   $("recPrev").onclick=function(){ var y=+rec.mon.slice(0,4), m=+rec.mon.slice(5,7)-1; if (m<1){ m=12; y--; } rec.mon=y+"-"+pad(m); renderRec(); };
   $("recNext").onclick=function(){ if ($("recNext").disabled) return; var y=+rec.mon.slice(0,4), m=+rec.mon.slice(5,7)+1; if (m>12){ m=1; y++; } rec.mon=y+"-"+pad(m); renderRec(); };
   $("recChips").onclick=function(ev){ var b=ev.target.closest("[data-rc]"); if (!b) return; rec.cat=b.dataset.rc; renderRec(); };
@@ -2863,7 +2869,7 @@ body.wi .list .del{visibility:hidden}
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.10.0";
+  var APP_VERSION="1.10.1";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
