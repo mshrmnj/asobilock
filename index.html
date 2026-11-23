@@ -1223,6 +1223,15 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
 .wpbar .go[disabled]{opacity:.45}
 .grid .c .lf.hbm{color:var(--ink)}
 .grid .c .fn.hbk{color:var(--muted);font-weight:600}
+
+/* v1.11.1 habit record edit */
+#sheetHabit{z-index:22}
+.hbro{background:var(--bg);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--ink);margin:4px 0 12px;line-height:1.6}
+.hbro small{display:block;color:var(--muted);font-size:11.5px}
+#sheetHabit.hbedit #hbQ,#sheetHabit.hbedit .hbstep,#sheetHabit.hbedit #hbQk,#sheetHabit.hbedit .hbun,#sheetHabit.hbedit #hbDetBtn{display:none!important}
+#sheetHabit.hbedit .edate{pointer-events:none;opacity:.6}
+#sheetHabit.hbedit .edate::after{content:""}
+#sheetHabit.hbsimple #hbDet .gf,#sheetHabit.hbsimple #hbKcalL{display:none!important}
 </style>
 </head>
 <body>
@@ -1518,6 +1527,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
 <div class="sheet" id="sheetHabit" role="dialog" aria-modal="true" aria-labelledby="hbTitle"><div class="inner">
   <div class="ehead"><h3 id="hbTitle">運動を記録</h3><label class="edate"><span id="hbDateLbl"></span><input id="hbDate" type="date" aria-label="日付"></label></div>
   <p class="hbq" id="hbQ">今日は何分運動した？</p>
+  <p class="hbro" id="hbRo" hidden></p>
   <div class="ghr hbstep"><button type="button" id="hbM" aria-label="15分減らす">−</button><b class="num" id="hbV">30分</b><button type="button" id="hbP" aria-label="15分増やす">＋</button></div>
   <div class="gchips hbqk" id="hbQk"><button type="button" data-hm="15">15分</button><button type="button" data-hm="30">30分</button><button type="button" data-hm="60">1時間</button><button type="button" data-hm="90">1.5時間</button></div>
   <div class="hbun"><span>この記録で</span><b class="num fpos" id="hbUnV">+¥0</b></div>
@@ -2019,7 +2029,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
   /* ---------- UI ---------- */
   var kind="spend", cat="food", win=false, lastAdded=null, toastTimer=null;
   function openSheet(id){ $("scrim").classList.add("open"); $(id).classList.add("open"); $(id).scrollTop=0; }
-  function closeSheets(all){ if (all!==true && $("sheetEntry").classList.contains("open") && $("sheetRec").classList.contains("open")){ $("sheetEntry").classList.remove("open"); renderRec(); return; } $("scrim").classList.remove("open"); document.querySelectorAll(".sheet").forEach(function(s){s.classList.remove("open");}); }
+  function closeSheets(all){ if (all!==true && $("sheetRec").classList.contains("open") && ($("sheetEntry").classList.contains("open") || $("sheetHabit").classList.contains("open"))){ $("sheetEntry").classList.remove("open"); $("sheetHabit").classList.remove("open"); renderRec(); return; } $("scrim").classList.remove("open"); document.querySelectorAll(".sheet").forEach(function(s){s.classList.remove("open");}); }
   document.querySelectorAll("[data-close]").forEach(function(b){ b.onclick=function(){ closeSheets(); }; });
   function press(segId, attr, val){ document.querySelectorAll("#"+segId+" button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset[attr]===val?"true":"false"); }); }
   function gNetVal(){ return (parseInt($("gRet").value,10)||0)-(parseInt($("gInv").value,10)||0); }
@@ -2358,17 +2368,33 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
   /* habit record sheet */
   var hbMin=30, hbTag="";
   function hkTags(hk){ var cnt={}; state.entries.forEach(function(e){ if (e.kind==="exercise" && e.tag && (e.hk||"")===hk) cnt[e.tag]=(cnt[e.tag]||0)+1; }); var l=Object.keys(cnt).sort(function(a,b){ return cnt[b]-cnt[a]; }); if (hk==="diet") ["ウォーキング","ランニング","筋トレ"].forEach(function(x){ if (l.indexOf(x)<0) l.push(x); }); return l.slice(0,10); }
-  function renderHbKinds(){ var hk=habitNow(); $("hbKinds").innerHTML=hkTags(hk).map(function(x){ return '<button type="button" data-tg="'+esc(x)+'" aria-pressed="'+(x===hbTag)+'">'+esc(x)+'</button>'; }).join(""); }
+  var hbEdit=null, hbKHk=null;
+  function renderHbKinds(){ var hk=hbKHk||habitNow(); $("hbKinds").innerHTML=hkTags(hk).map(function(x){ return '<button type="button" data-tg="'+esc(x)+'" aria-pressed="'+(x===hbTag)+'">'+esc(x)+'</button>'; }).join(""); }
   $("hbKinds").onclick=function(ev){ var b=ev.target.closest("[data-tg]"); if (!b) return; hbTag = hbTag===b.dataset.tg ? "" : b.dataset.tg; $("hbKindNew").value=""; renderHbKinds(); };
   function updHbDate(){ var v=$("hbDate").value||todayIso(), hk=habitNow(); $("hbDateLbl").textContent=(v===todayIso()?"今日 ":"")+jd(v); $("hbQ").textContent=(v===todayIso()?"今日は":jd(v)+"は")+(hk==="diet"?"何分運動した？":"何分勉強した？"); updHb(); }
   function updHb(){ $("hbV").textContent=fmtMin(hbMin); var d=$("hbDate").value||todayIso(), e={id:"tmp", kind:"exercise", mins:hbMin, count:1, date:d, createdAt:Date.now()}, b=simulate(state.entries), a=simulate(state.entries.concat([e])); $("hbUnV").textContent="+"+yen(Math.round(a.unlocked-b.unlocked)); $("hbQk").querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", +x.dataset.hm===hbMin?"true":"false"); }); }
-  function openHabit(){ var hk=habitNow(); if (!isQ(hk)) return; hbMin=30; hbTag=""; $("hbDate").value=todayIso(); $("hbDate").max=todayIso(); $("hbTitle").textContent=hkAct(hk)+"を記録"; $("hbDetHint").textContent=hk==="diet"?"種類・消費カロリー・メモ（任意）":"科目・メモ（任意）"; $("hbKL").textContent=hk==="diet"?"種類":"科目"; $("hbKcalL").hidden=hk!=="diet"; $("hbDet").hidden=true; $("hbDetBtn").hidden=false; $("hbKindNew").value=""; $("hbKcal").value=""; $("hbMemo").value=""; renderHbKinds(); updHbDate(); openSheet("sheetHabit"); }
+  function openHabit(){ var hk=habitNow(); if (!isQ(hk)) return; hbEdit=null; hbKHk=null; $("sheetHabit").classList.remove("hbedit","hbsimple"); $("hbRo").hidden=true; $("hbSave").textContent="記録する"; hbMin=30; hbTag=""; $("hbDate").value=todayIso(); $("hbDate").max=todayIso(); $("hbTitle").textContent=hkAct(hk)+"を記録"; $("hbDetHint").textContent=hk==="diet"?"種類・消費カロリー・メモ（任意）":"科目・メモ（任意）"; $("hbKL").textContent=hk==="diet"?"種類":"科目"; $("hbKcalL").hidden=hk!=="diet"; $("hbDet").hidden=true; $("hbDetBtn").hidden=false; $("hbKindNew").value=""; $("hbKcal").value=""; $("hbMemo").value=""; renderHbKinds(); updHbDate(); openSheet("sheetHabit"); }
   $("hbDate").addEventListener("change", updHbDate);
   $("hbM").onclick=function(){ hbMin=Math.max(15, hbMin-15); updHb(); };
   $("hbP").onclick=function(){ hbMin=Math.min(1440, hbMin+15); updHb(); };
   $("hbQk").onclick=function(ev){ var b=ev.target.closest("[data-hm]"); if (!b) return; hbMin=+b.dataset.hm; updHb(); };
   $("hbDetBtn").onclick=function(){ $("hbDet").hidden=false; this.hidden=true; };
+  function openHabitEdit(e){
+    var hk = e.hk || (e.mins!=null ? (isQ(habitNow())?habitNow():"diet") : "check");
+    hbEdit=e; hbKHk = hk==="check" ? "diet" : hk; hbTag=e.tag||"";
+    var sh=$("sheetHabit"); sh.classList.add("hbedit"); sh.classList.toggle("hbsimple", e.mins==null);
+    $("hbTitle").textContent="記録を編集"; $("hbSave").textContent="保存する";
+    $("hbDate").value=e.date; $("hbDateLbl").textContent=jd(e.date);
+    $("hbRo").hidden=false; $("hbRo").innerHTML=esc((e.menu||hkAct(hbKHk))+"　"+(e.mins!=null?fmtMin(e.mins):((+e.count||1)+"回")))+'<small>時間と日付はあとから変えられません（変えたい時は、削除して記録し直してください）</small>';
+    $("hbKL").textContent = hk==="study" ? "科目" : "種類"; $("hbKcalL").hidden = hk==="study";
+    $("hbDet").hidden=false; $("hbKindNew").value=""; $("hbKcal").value=e.kcal||""; $("hbMemo").value=e.memo||"";
+    renderHbKinds(); openSheet("sheetHabit");
+  }
   $("hbSave").onclick=function(){
+    if (hbEdit){ var u=Object.assign({}, hbEdit), tg=normName($("hbKindNew").value)||hbTag, kc2=parseInt($("hbKcal").value,10), mm=$("hbMemo").value.trim();
+      if (hbEdit.mins!=null){ if (tg) u.tag=tg; else delete u.tag; if (hbKHk!=="study" && kc2>0) u.kcal=kc2; else delete u.kcal; }
+      if (mm) u.memo=mm; else u.memo="";
+      hbEdit=null; closeSheets(); undoable("保存しました", function(){ store.update(u); }); return; }
     var hk=habitNow(), d=$("hbDate").value||todayIso(); if (d>todayIso()) d=todayIso();
     var tag=normName($("hbKindNew").value)||hbTag, kc=parseInt($("hbKcal").value,10);
     var e={id:newId(), kind:"exercise", hk:hk, menu:hkAct(hk), mins:hbMin, count:1, date:d, memo:$("hbMemo").value.trim(), createdAt:Date.now()};
@@ -2519,7 +2545,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
       var del=document.createElement("button"); del.className="del"; del.setAttribute("aria-label","この記録を削除"); del.textContent="×";
       del.onclick=function(ev){ ev.stopPropagation(); if (wiOn) return; if (e.kind==="exercise"){ askConfirm("この記録を削除しますか？","削除する").then(function(ok){ if(ok) store.remove(e.id); }); return; } undoable("削除しました", function(){ store.remove(e.id); }); };
       li.appendChild(del);
-      if (e.kind==="spend" && !wiOn){ li.classList.add("ed"); li.onclick=function(){ openEdit(e); }; }
+      if ((e.kind==="spend"||e.kind==="exercise") && !wiOn){ li.classList.add("ed"); li.onclick=function(){ openEdit(e); }; }
     }
     return li;
   }
@@ -2695,6 +2721,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
     if (mode==="live") setTimeout(function(){ $("gRet").focus(); },300);
   }
   function openEdit(e){
+    if (e && e.kind==="exercise"){ if (wiOn){ toast("もしもモード中は記録を直せません",true); return; } openHabitEdit(e); return; }
     if (!e || e.kind!=="spend") return;
     if (wiOn){ toast("もしもモード中は記録を直せません",true); return; }
     openEntry("spend", true);
@@ -2948,7 +2975,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.11.0";
+  var APP_VERSION="1.11.1";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -3517,7 +3544,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
         if (e.cat==="gamble"){ var gv=gambleNet(e); amt=(gv>0?"+":gv<0?"−":"±")+yen(Math.abs(gv)); cls=cF(gv); var gl3=gamLines(e); memo=gl3[0]; m2=gl3[1]; }
         else if (e.cat==="income"){ amt="+"+yen(e.amount); cls="pos"; memo=(e.to==="reserve"?"予備費へ":"フリー生活費へ")+(memo?"　"+memo:""); }
         else { amt="−"+yen(e.amount); cls=FUN[e.cat]?"fneg":"negc"; } }
-      html+='<li'+(e.kind==="spend"?' class="ed" data-eid="'+e.id+'"':'')+'><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+(m2?'<span class="m1">'+esc(memo)+'</span><span class="m2">'+esc(m2)+'</span>':esc(memo))+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
+      html+='<li'+((e.kind==="spend"||e.kind==="exercise")?' class="ed" data-eid="'+e.id+'"':'')+'><span class="cat '+(e.kind==="exercise"?"hb":e.kind==="transfer"?"mv":FUN[e.cat]?"g":e.cat==="income"?"inc":"lf")+'">'+esc(lab)+'</span><div class="main"><div class="m">'+(m2?'<span class="m1">'+esc(memo)+'</span><span class="m2">'+esc(m2)+'</span>':esc(memo))+'</div></div><div class="amt num '+cls+'">'+amt+'</div></li>';
     });
     if (wtd){ var wprev=weightsAll().filter(function(w){ return w.date<calSel; }).pop(), wdf=wprev?Math.round((wtd.kg-wprev.kg)*10)/10:null; html+='<li><span class="cat hb">体重</span><div class="main"><div class="m">'+(+wtd.kg).toFixed(1)+'kg'+(wdf!=null?'　前回より '+(wdf>0?"+":wdf<0?"−":"±")+Math.abs(wdf).toFixed(1)+'kg':'')+'</div></div><div class="amt num"></div></li>'; }
     html+='</ul></div>';
