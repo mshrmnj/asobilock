@@ -1228,7 +1228,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
 #sheetHabit{z-index:22}
 .hbro{background:var(--bg);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--ink);margin:4px 0 12px;line-height:1.6}
 .hbro small{display:block;color:var(--muted);font-size:11.5px}
-#sheetHabit.hbedit #hbQ,#sheetHabit.hbedit .hbstep,#sheetHabit.hbedit #hbQk,#sheetHabit.hbedit .hbun,#sheetHabit.hbedit #hbDetBtn{display:none!important}
+#sheetHabit.hbedit #hbQ,#sheetHabit.hbedit #hbUnN,#sheetHabit.hbedit .hbstep,#sheetHabit.hbedit #hbQk,#sheetHabit.hbedit .hbun,#sheetHabit.hbedit #hbDetBtn{display:none!important}
 #sheetHabit.hbedit .edate{pointer-events:none;opacity:.6}
 #sheetHabit.hbedit .edate::after{content:""}
 #sheetHabit.hbsimple #hbDet .gf,#sheetHabit.hbsimple #hbKcalL{display:none!important}
@@ -1531,6 +1531,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
   <div class="ghr hbstep"><button type="button" id="hbM" aria-label="15分減らす">−</button><b class="num" id="hbV">30分</b><button type="button" id="hbP" aria-label="15分増やす">＋</button></div>
   <div class="gchips hbqk" id="hbQk"><button type="button" data-hm="15">15分</button><button type="button" data-hm="30">30分</button><button type="button" data-hm="60">1時間</button><button type="button" data-hm="90">1.5時間</button></div>
   <div class="hbun"><span>この記録で</span><b class="num fpos" id="hbUnV">+¥0</b></div>
+  <p class="ghint" id="hbUnN" hidden style="margin:-6px 2px 12px"></p>
   <button type="button" class="gadd hbdetb" id="hbDetBtn">＋ 詳しく記録する<small id="hbDetHint"></small></button>
   <div id="hbDet" hidden>
     <div class="f gf"><span id="hbKL">種類</span><div class="gchips" id="hbKinds" style="margin-top:6px"></div><input id="hbKindNew" type="text" class="gq" maxlength="20" placeholder="新しく追加" autocomplete="off"></div>
@@ -1869,13 +1870,14 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
     xg.style.gridTemplateColumns="repeat("+segN+",1fr)"; xg.innerHTML=segs; window.__popSeg=false;
     var nxt=Math.min(+cfgAt(todayIso()).unit||0, Math.max(L,0)), nx=$("nextEx");
     if (!c.days) nx.textContent="";
-    else if (nxt<=0) nx.innerHTML="<span>来月1日</span><b>+"+yen(c.cap)+"</b>";
+    else if (nxt<=0){ var nm1=(function(){ var tt=todayIso(), y=+tt.slice(0,4), mo=+tt.slice(5,7)+1; if (mo>12){ mo=1; y++; } return y+"-"+pad(mo)+"-01"; })(); nx.innerHTML="<span>来月1日</span><b>+"+yen(+cfgAt(nm1).gorakuMonthly||0)+"</b>"; }
     else if (S<0) nx.innerHTML="<span>次の習慣</span><span>返済へ <b>"+yen(nxt)+"</b></span>";
     else nx.innerHTML="<span>次の習慣</span><b>+"+yen(nxt)+"</b>";
-    if (c.days && nxt>0 && S>=0 && isQ(habitNow())){ var u15=Math.min(+cfgAt(todayIso()).unit15||0, Math.max(L,0)); nx.innerHTML="<span>15分ごとに</span><b>+"+yen(u15)+"</b>"; }
+    if (c.days && nxt>0 && isQ(habitNow())){ var u15=Math.min(+cfgAt(todayIso()).unit15||0, Math.max(L,0)); nx.innerHTML = S<0 ? "<span>15分ごとに</span><span>返済へ <b>"+yen(u15)+"</b></span>" : "<span>15分ごとに</span><b>+"+yen(u15)+"</b>"; }
     $("lockGauge").setAttribute("aria-label","今月"+yen(c.monthTotal)+"のうち"+yen(c.monthUnlocked)+"アンロック");
     var ci=$("capInfo");
-    if (c.days){ ci.hidden=true; } else ci.hidden=true;
+    ci.hidden=true;
+    if (c.days && curMode()!=="gamble" && !(c.monthTotal>0)){ var nmx=(function(){ var tt=todayIso(), y=+tt.slice(0,4), mo=+tt.slice(5,7)+1; if (mo>12){ mo=1; y++; } return y+"-"+pad(mo)+"-01"; })(), capN=+cfgAt(nmx).gorakuMonthly||0; ci.hidden=false; ci.textContent = capN>0 ? "今月の娯楽費は0円の設定です。"+md(nmx)+"から"+yen(capN)+"になります" : "娯楽費が0円の設定です。設定の「お金」で娯楽費を決めると、習慣でアンロックできるようになります"; }
 
     var now=new Date(), dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(), rem=dim-now.getDate(), ldT=+cfgAt(todayIso()).lifeDaily||0, ml=Math.round(c.S+rem*ldT);
     var me=$("monthLife"); me.textContent=(ml<0?"−":"")+yen(Math.abs(ml)); me.classList.toggle("neg", ml<0);
@@ -2322,7 +2324,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
       c.innerHTML='<div class="gh"><span>目標まで</span><small>'+jd(g.deadline)+' に '+g.target.toFixed(1)+'kg</small></div><div class="gbig2">'+(rem==null?"体重を記録しましょう":rem<=0?"達成しています 🎉":"あと "+rem.toFixed(1)+"kg")+'</div><div class="gpr"><i style="width:'+pct.toFixed(0)+'%"></i></div><div class="gls"><span>開始 '+(sk?(+sk).toFixed(1)+'kg':'—')+'</span><span>今 <b>'+(cur!=null?cur.toFixed(1)+'kg':'—')+'</b></span><span>目標 '+g.target.toFixed(1)+'kg</span></div>'+(pace?'<div class="gpace">'+pace+'</div>':'');
     } else {
       var left=dayNum(g.deadline)-dayNum(t), tot=minsBetween(g.start,t,"study"), mm=minsBetween(t.slice(0,8)+"01",t,"study"), mt=+cfgAt(t).monthMin||0;
-      c.innerHTML='<div class="gh"><span>'+esc(g.name)+'まで</span><small>試験日 '+jd(g.deadline)+'</small></div><div class="gbig2">'+(left>0?"あと "+left+"日":"今日が試験日")+'</div><div class="gpr"><i style="width:'+(mt?Math.min(100,mm/mt*100):0).toFixed(0)+'%"></i></div><div class="gls"><span>ここまで <b>'+hrs1(tot)+'</b></span><span>今月 <b>'+hrs1(mm)+'</b> / '+hrs1(mt)+'</span></div>';
+      c.innerHTML='<div class="gh"><span>'+esc(g.name)+'まで</span><small>試験日 '+jd(g.deadline)+'</small></div><div class="gbig2">'+(left>0?"あと "+left+"日":"今日が試験日")+'</div><div class="gpr"><i style="width:'+(mt?Math.min(100,mm/mt*100):0).toFixed(0)+'%"></i></div><div class="gls"><span>目標を立ててから <b>'+hrs1(tot)+'</b></span><span>今月 <b>'+hrs1(mm)+'</b> / '+hrs1(mt)+'</span></div>';
     }
   }
   $("goalCard").onclick=function(){ var go=this.dataset.go; if (go==="set"){ $("openSettings").onclick(); spGo("habit"); } else if (go==="res") openRes(null); else openTrend(); };
@@ -2348,7 +2350,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
       $("resD").textContent = jd(g.deadline)+" に "+(+g.target).toFixed(1)+"kg の目標"+(st.endKg?"　最後の記録 "+(+st.endKg).toFixed(1)+"kg":"");
       opts=[["achieved","達成した"],["failed","達成できなかった"]]; if (idx==null) opts.push(["extend","期限をのばす"]); }
     else { $("resT").textContent = idx==null ? (g.waiting?"試験の結果は出ましたか？":"試験はどうでしたか？") : "結果を直す";
-      $("resD").textContent = jd(g.deadline)+" "+(g.name||"")+"　ここまでの勉強 "+hrs1(st.mins||0);
+      $("resD").textContent = jd(g.deadline)+" "+(g.name||"")+"　目標を立ててからの勉強 "+hrs1(st.mins||0);
       opts=[["passed","合格した 🎉"],["failed","不合格だった"],["skipped","受けなかった"]]; if (idx==null) opts.push(["waiting","まだ結果が出ていない"]); }
     $("resOpts").innerHTML=opts.map(function(o){ return '<button type="button" data-rk="'+o[0]+'"'+(g.result===o[0]?' class="on"':'')+'>'+o[1]+'</button>'; }).join("");
     $("resNote").value=g.note||""; $("resExt").hidden=true; $("resLater").textContent = idx==null ? "あとで" : "閉じる";
@@ -2372,7 +2374,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
   function renderHbKinds(){ var hk=hbKHk||habitNow(); $("hbKinds").innerHTML=hkTags(hk).map(function(x){ return '<button type="button" data-tg="'+esc(x)+'" aria-pressed="'+(x===hbTag)+'">'+esc(x)+'</button>'; }).join(""); }
   $("hbKinds").onclick=function(ev){ var b=ev.target.closest("[data-tg]"); if (!b) return; hbTag = hbTag===b.dataset.tg ? "" : b.dataset.tg; $("hbKindNew").value=""; renderHbKinds(); };
   function updHbDate(){ var v=$("hbDate").value||todayIso(), hk=habitNow(); $("hbDateLbl").textContent=(v===todayIso()?"今日 ":"")+jd(v); $("hbQ").textContent=(v===todayIso()?"今日は":jd(v)+"は")+(hk==="diet"?"何分運動した？":"何分勉強した？"); updHb(); }
-  function updHb(){ $("hbV").textContent=fmtMin(hbMin); var d=$("hbDate").value||todayIso(), e={id:"tmp", kind:"exercise", mins:hbMin, count:1, date:d, createdAt:Date.now()}, b=simulate(state.entries), a=simulate(state.entries.concat([e])); $("hbUnV").textContent="+"+yen(Math.round(a.unlocked-b.unlocked)); $("hbQk").querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", +x.dataset.hm===hbMin?"true":"false"); }); }
+  function updHb(){ $("hbV").textContent=fmtMin(hbMin); var d=$("hbDate").value||todayIso(), e={id:"tmp", kind:"exercise", mins:hbMin, count:1, date:d, createdAt:Date.now()}, b=simulate(state.entries), a=simulate(state.entries.concat([e])); var unv=Math.round(a.unlocked-b.unlocked); $("hbUnV").textContent="+"+yen(unv); $("hbUnN").hidden = unv>0; if (!(unv>0)) $("hbUnN").textContent=zeroWhy(d,true); $("hbQk").querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", +x.dataset.hm===hbMin?"true":"false"); }); }
   function openHabit(){ var hk=habitNow(); if (!isQ(hk)) return; hbEdit=null; hbKHk=null; $("sheetHabit").classList.remove("hbedit","hbsimple"); $("hbRo").hidden=true; $("hbSave").textContent="記録する"; hbMin=30; hbTag=""; $("hbDate").value=todayIso(); $("hbDate").max=todayIso(); $("hbTitle").textContent=hkAct(hk)+"を記録"; $("hbDetHint").textContent=hk==="diet"?"種類・消費カロリー・メモ（任意）":"科目・メモ（任意）"; $("hbKL").textContent=hk==="diet"?"種類":"科目"; $("hbKcalL").hidden=hk!=="diet"; $("hbDet").hidden=true; $("hbDetBtn").hidden=false; $("hbKindNew").value=""; $("hbKcal").value=""; $("hbMemo").value=""; renderHbKinds(); updHbDate(); openSheet("sheetHabit"); }
   $("hbDate").addEventListener("change", updHbDate);
   $("hbM").onclick=function(){ hbMin=Math.max(15, hbMin-15); updHb(); };
@@ -2447,7 +2449,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
       h+='</div>';
       if (ws.length) h+='<div class="trc"><h4>最近の体重</h4>'+ws.slice(-7).reverse().map(function(w){ return '<div class="trrow"><span class="n">'+jd(w.date)+'</span><span style="flex:1"></span><span class="v">'+(+w.kg).toFixed(1)+'kg</span><button type="button" class="x" data-wdel="'+w.id+'" aria-label="この体重の記録を削除">×</button></div>'; }).join("")+'</div>';
     } else if (g){
-      h+='<div class="trc"><h4>'+esc(g.name)+'まで<small>試験日 '+jd(g.deadline)+'</small></h4><div class="trsum" style="margin:0"><span>ここまで <b>'+hrs1(minsBetween(g.start,t,"study"))+'</b></span><span>あと <b>'+Math.max(0,dayNum(g.deadline)-dayNum(t))+'日</b></span></div></div>';
+      h+='<div class="trc"><h4>'+esc(g.name)+'まで<small>試験日 '+jd(g.deadline)+'</small></h4><div class="trsum" style="margin:0"><span>目標を立ててから <b>'+hrs1(minsBetween(g.start,t,"study"))+'</b></span><span>あと <b>'+Math.max(0,dayNum(g.deadline)-dayNum(t))+'日</b></span></div></div>';
     }
     var wk=+cfgAt(t).monthMin||0;
     h+='<div class="trc"><h4>'+hkAct(hk)+'の時間<small>週ごと（時間）</small></h4>'+barSvg(weeklyMins(hk), wk?wk*7/30:0)+'</div>';
@@ -2850,7 +2852,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
     if (to==="habit" && from==="gamble") need=["gorakuMonthly","monthlyTimes","menu"];
     var LBL={income:["手取り","円/月"],fixed:["固定費","円/月"],lifeDaily:["生活費（食費込み）","円/日"],gorakuMonthly:["娯楽","円/月"],monthlyTimes:["習慣の月の回数","回/月"],menu:["習慣の名前",""]};
     $("modeTitle").textContent=MODE_INFO[to][0]+"モードに切り替え";
-    $("modeNote").textContent = (to==="gamble" ? "記録は消えずに残ります。生活費・娯楽費・習慣は見えなくなり、今日からはお金の計算をしません。" : to==="habit" ? (from==="full"?"記録は消えずに残ります。生活費と予備費は見えなくなり、今日からは娯楽費だけを計算します。":"今日から、娯楽費を習慣でアンロックします。必要な情報を入れてください。") : "今日から、生活費と予備費の計算を始めます。必要な情報を入れてください。");
+    $("modeNote").textContent = (to==="gamble" ? "記録は消えずに残ります。生活費・娯楽費・習慣は見えなくなり、お金の計算をしなくなります。" : to==="habit" ? (from==="full"?"記録は消えずに残ります。生活費と予備費は見えなくなり、娯楽費だけを計算します。":"娯楽費を習慣でアンロックします。必要な情報を入れてください。") : "生活費と予備費の計算を始めます。必要な情報を入れてください。");
     $("modeFields").innerHTML=need.map(function(k){ var v=k==="menu"?((s.menus&&s.menus[0])||""):(s[k]||""); return '<label class="f">'+LBL[k][0]+'<input data-k="'+k+'" '+(k==="menu"?'type="text"':'inputmode="numeric" type="text"')+' value="'+(k==="menu"?escH(v):(v?Number(v).toLocaleString("ja-JP"):""))+'" placeholder="'+(k==="menu"?"例：有酸素30分":"0")+'">'+(LBL[k][1]?'<small style="margin-left:6px">'+LBL[k][1]+'</small>':'')+'</label>'; }).join("");
     if (need.indexOf("menu")>=0){
       var hk0=s.habit||"check", mh0=s.monthMin?Math.round(s.monthMin/6)/10:20;
@@ -2858,6 +2860,15 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
       $("mHk").value=hk0;
       var syncM=function(){ var q=$("mHk").value!=="check"; $("mMhL").hidden=!q; $("modeFields").querySelectorAll('input[data-k="monthlyTimes"],input[data-k="menu"]').forEach(function(inp){ inp.closest("label").hidden=q; }); };
       $("mHk").onchange=syncM; syncM();
+    }
+    var t0=todayIso(), m1=t0.slice(0,8)+"01", mFrom = m1<s.start ? s.start : m1, mWhen = mFrom<t0 ? "month" : "today";
+    if (mFrom<t0){
+      $("modeFields").insertAdjacentHTML("beforeend", '<div class="f">いつから切り替える？<div class="gtab" id="mWhen" style="margin:6px 0 4px"><button type="button" data-w="month" aria-pressed="true">'+(mFrom===m1?"今月の1日から":md(mFrom)+"（開始日）から")+'</button><button type="button" data-w="today" aria-pressed="false">今日から</button></div><p class="gnote" id="mWhenN" style="margin:0"></p></div>');
+      var syncW=function(){ press("mWhen","w",mWhen); $("mWhenN").textContent = mWhen==="month"
+          ? (to==="gamble" ? "今月の記録も、さかのぼってお金の計算をしなくなります。" : from==="gamble" ? "今月の記録もさかのぼって計算します。切り替える前のギャンブルなどの記録も、娯楽費の支出として引かれます。" : "今月の記録も、さかのぼって新しいモードで計算します。")
+          : "今日から切り替えます。娯楽費など月ごとの金額は、来月1日から反映されます。"; };
+      $("mWhen").onclick=function(ev){ var b=ev.target.closest("[data-w]"); if (!b) return; mWhen=b.dataset.w; syncW(); };
+      syncW();
     }
     $("modeModal").classList.add("open");
     $("modeCancel").onclick=function(){ $("modeModal").classList.remove("open"); syncModePick(); };
@@ -2867,7 +2878,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
       if (mhk && mhk!=="check" && !(mmh>0)){ toast("月の目標時間を入れてください",true); return; }
       $("modeFields").querySelectorAll("input").forEach(function(inp){ var k=inp.dataset.k; if (!k || inp.closest("label").hidden) return; if (k==="menu"){ vals.menu=(inp.value||"").trim()||"習慣"; return; } var n=parseInt(String(inp.value).replace(/[^0-9]/g,""),10)||0; if (!(n>0) && k!=="fixed"){ bad=true; inp.focus(); } vals[k]=n; });
       if (bad){ toast("金額や回数を入れてください",true); return; }
-      var t=todayIso(), cur=state.settings, ns=Object.assign({}, cur);
+      var t = mWhen==="month" ? mFrom : todayIso(), cur=state.settings, ns=Object.assign({}, cur);
       ["income","fixed","lifeDaily","gorakuMonthly","monthlyTimes"].forEach(function(k){ if (vals[k]!=null) ns[k]=vals[k]; });
       if (vals.menu) ns.menus=[vals.menu];
       if (mhk){ ns.habit=mhk; if (mhk!=="check"){ ns.monthMin=Math.round(mmh*60); ns.unit15=Math.round((+ns.gorakuMonthly||0)/(ns.monthMin/15)); if (!(+ns.monthlyTimes>0)) ns.monthlyTimes=15; } }
@@ -2975,7 +2986,7 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
     $("applyCancel").onclick=function(){ $("applyModal").classList.remove("open"); };
   };
 
-  var APP_VERSION="1.11.1";
+  var APP_VERSION="1.11.2";
   /* ---------- rare unlock ---------- */
   var RARE=[
     {k:"kami",n:"神",p:1/16384,lab:"1/16384",col:"linear-gradient(135deg,#FF4D4D,#FFC93C,#5BFF8A,#3BC8FF,#B05BFF)",solid:"#B05BFF",t:"GOD UNLOCK"},
@@ -3192,10 +3203,15 @@ body.wi #openWi{background:var(--wi)!important;border-color:var(--wi)!important;
     if (stage) stage.addEventListener("click", function(){ fx.classList.add("out"); setTimeout(function(){ fx.remove(); },400); });
     setTimeout(function(){ fx.classList.add("out"); },dur); setTimeout(function(){ fx.remove(); },dur+450);
   }
+  function nextMonth1(){ var tt=todayIso(), y=+tt.slice(0,4), mo=+tt.slice(5,7)+1; if (mo>12){ mo=1; y++; } return y+"-"+pad(mo)+"-01"; }
+  function zeroWhy(d, q){ var cf=cfgAt(d||todayIso()), per = q ? (+cf.unit15||0) : (+cf.unit||0), c0=compute(), nm=nextMonth1(), capN=+cfgAt(nm).gorakuMonthly||0;
+    if (!(+cf.gorakuMonthly>0) || !(per>0)) return capN>0 && !(+cf.gorakuMonthly>0) ? "今月は娯楽費が0円の設定なので、アンロックはありません（"+md(nm)+"から"+yen(capN)+"）" : "娯楽費が0円の設定なので、アンロックはありません";
+    if (!(c0.monthTotal>0)) return "今月はアンロックできる娯楽費がありません（"+md(nm)+"から"+yen(capN)+"）";
+    return "今月分はすべてアンロック済みです"; }
   function exMsg(e){
     var b=simulate(state.entries), a=simulate(state.entries.concat([e]));
     var un=Math.round(a.unlocked-b.unlocked), rep=Math.round(a.repaid-b.repaid);
-    if (un<=0) return "記録しました　今月分はすべてアンロック済み";
+    if (un<=0) return "記録しました　"+zeroWhy(e.date, e.mins!=null);
     if (rep>0) return "記録しました　"+yen(rep)+"返済、"+yen(un-rep)+"使える額へ";
     return "記録しました　+"+yen(un)+"アンロック";
   }
